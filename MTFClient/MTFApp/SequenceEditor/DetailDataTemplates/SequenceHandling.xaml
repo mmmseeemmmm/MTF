@@ -1,0 +1,727 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.DetailDataTemplates.SequenceHandling"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:seqEditor="clr-namespace:MTFApp.SequenceEditor"
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:uiControls="clr-namespace:MTFApp.UIControls"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:detailDataTemplates="clr-namespace:MTFApp.SequenceEditor.DetailDataTemplates"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+
+        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource ActivityDetailGroupBox}" />
+
+        <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Margin" Value="0" />
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="UseInDebug">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <GroupBox>
+                <CheckBox IsChecked="{Binding ExecuteOnlyInDebug, UpdateSourceTrigger=PropertyChanged}">
+                    <alControls:TextBlock LocTextKey="Activity_SeqHandling_OnlyInDebug" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                </CheckBox>
+            </GroupBox>
+        </DataTemplate>
+        
+        
+        <DataTemplate x:Key="CheckOutputValue">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <GroupBox Header="{Binding}"
+                          Visibility="{Binding ReturnType, Converter={StaticResource TypeToVisibility}}">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <alControls:TextBlock LocTextKey="Activity_Base_CheckOutputValue" Style="{StaticResource GroupBoxHeader}" />
+                                <Button HorizontalAlignment="Left"
+                                        Style="{StaticResource TermDesignerButton}"
+                                        ContentTemplate="{StaticResource TermDesignerButtonContent}"
+                                        Command="{Binding DataContext.ShowTermDesignerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}">
+                                    <Button.Resources>
+                                        <system:String x:Key="TermPropertyName">Term</system:String>
+                                        <system:String x:Key="EditorMode">CheckOutputValue</system:String>
+                                        <system:String x:Key="ReturnType">System.Boolean</system:String>
+                                    </Button.Resources>
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource TermMultiValueConverter}">
+                                            <Binding Source="{StaticResource TermPropertyName}" />
+                                            <Binding Source="{StaticResource EditorMode}" />
+                                            <Binding Source="{StaticResource ReturnType}" />
+                                            <Binding Path="Term" />
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <uiHelpers:MTFEditor Value="{Binding Term}"
+                                             TypeName="System.Boolean" EditorMode="CheckOutputValue"
+                                             Visibility="{Binding Term, Converter={StaticResource ShowSimpleTermVisibility}}" />
+                        <TextBlock Text="{Binding Term}" TextWrapping="Wrap"
+                                   Visibility="{Binding Term, Converter={StaticResource ShowComplexTermVisibility}}" />
+                    </StackPanel>
+                </GroupBox>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OnOutputValueFailed}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SaveReportAndCleanErrors">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_SRACE_Params">
+                    <GroupBox.Resources>
+                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                            <Setter Property="Margin" Value="0,0,5,3" />
+                        </Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                    </GroupBox.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <!--<CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding SaveToXml}" />-->
+                        <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding SaveToTxt}" />
+
+                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding RestartTimer}" />
+                        <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding SetStatus}" />
+                        <CheckBox Grid.Row="5" Grid.Column="0" IsChecked="{Binding IncludeValidationTables}"
+                                  Visibility="{Binding SetStatus, Converter={StaticResource BoolToVisibility}}" />
+                        <CheckBox Grid.Row="6" Grid.Column="0" IsChecked="{Binding LogHiddenRows}" />
+                        <CheckBox Grid.Row="7" Grid.Column="0" IsChecked="{Binding SaveGraphicalView}" />
+                        <CheckBox Grid.Row="8" Grid.Column="0" IsChecked="{Binding UseCycleName}" />
+
+                        <CheckBox Grid.Row="10" Grid.Column="0" IsChecked="{Binding CleanErrorMemory}" />
+                        <CheckBox Grid.Row="11" Grid.Column="0" IsChecked="{Binding CleanErrorWindow}" />
+                        <CheckBox Grid.Row="12" Grid.Column="0" IsChecked="{Binding CleanTables}" />
+
+
+                        <!--<alControls:TextBlock Grid.Row="0" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_SaveXml" />-->
+                        <alControls:TextBlock Grid.Row="1" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_IncludeMsg" />
+                        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical"
+                                    Visibility="{Binding SaveToTxt, Converter={StaticResource BoolToVisibility}}">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_SRACE_ReportParams" FontWeight="Bold" />
+                            <uiHelpers:MTFEditor Value="{Binding Logs}" EditorMode="HideTarget"
+                                                 TypeName="System.Collections.Generic.List`1[[MTFClientServerCommon.MTFStringFormat, MTFClientServerCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" />
+                        </StackPanel>
+                        <alControls:TextBlock Grid.Row="3" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_ResetTimer" />
+                        <alControls:TextBlock Grid.Row="4" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_SetStatus" />
+                        <alControls:TextBlock Grid.Row="5" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_IncludeTableStatus"
+                                   Visibility="{Binding SetStatus, Converter={StaticResource BoolToVisibility}}" />
+                        <alControls:TextBlock Grid.Row="6" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_LogHiddenRows" />
+                        <alControls:TextBlock Grid.Row="7" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_SaveGraphicalView" />
+                        <alControls:TextBlock Grid.Row="8" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_DefineCyclename" />
+                        <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Vertical"
+                                    Visibility="{Binding UseCycleName, Converter={StaticResource BoolToVisibility}}">
+                            <uiHelpers:MTFEditor Value="{Binding LogCycleName, UpdateSourceTrigger=PropertyChanged}"
+                                                 TypeName="MTFClientServerCommon.MTFStringFormat" />
+                        </StackPanel>
+                        <alControls:TextBlock Grid.Row="10" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_CleanErrMemory" />
+                        <alControls:TextBlock Grid.Row="11" Grid.Column="1" LocTextKey="Activity_SeqHandling_SRACE_CleanErrWindow" />
+                        <alControls:TextBlock Grid.Row="12" Grid.Column="1" LocTextKey="Activity_SeqHandling_Type_ClearValidTables" />
+                        <StackPanel Grid.Row="13" Grid.Column="1" Orientation="Vertical"
+                                    Visibility="{Binding CleanTables, Converter={StaticResource BoolToVisibility}}">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_Selection" FontWeight="Bold" />
+                            <StackPanel Orientation="Vertical">
+                                <!--<CheckBox IsChecked="{Binding ClearTimeView}" Margin="0,0,0,2">
+                                    <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_Time" Margin="5,0,0,0" />
+                                </CheckBox>-->
+                                <CheckBox IsChecked="{Binding ClearAllTables}" Margin="0,0,0,2">
+                                    <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_AllTables" Margin="5,0,0,0" />
+                                </CheckBox>
+                                <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_Tables" Margin="0,10,0,3" FontWeight="Bold" FontSize="12" />
+                                <ListBox ItemsSource="{Binding TablesSetting}"
+                                         IsEnabled="{Binding ClearAllTables, Converter={StaticResource NotBool}}"
+                                         ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <CheckBox IsChecked="{Binding Clear}" Margin="0,0,0,2">
+                                                    <TextBlock Text="{Binding ValidationTable.Name}" Margin="5,0,0,0" />
+                                                </CheckBox>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </Grid>
+                </alControls:GroupBox>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource CheckOutputValue}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="StartDurationCounter" />
+        
+        <DataTemplate x:Key="PauseSequenceExecutionHandling">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource UseInDebug}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="StopSequenceExecutionHandling">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource UseInDebug}" />
+        </DataTemplate>
+        
+        <DataTemplate x:Key="GetExecutionStateExecutionHandling">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+                <GroupBox>
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox IsChecked="{Binding IsServiceMode, UpdateSourceTrigger=PropertyChanged}">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ExecState_Service" Margin="5,0,0,0"/>
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding IsTeachMode, UpdateSourceTrigger=PropertyChanged}">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ExecState_Teach" Margin="5,0,0,0"/>
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding GoingToServiceMode, UpdateSourceTrigger=PropertyChanged}">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ExecState_GoToService" Margin="5,0,0,0"/>
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding GoingToTeachMode, UpdateSourceTrigger=PropertyChanged}">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ExecState_GoToTeach" Margin="5,0,0,0"/>
+                        </CheckBox>                        
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SetSequenceStatusMessage">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_StatusMsg_Lines">
+                    <uiHelpers:MTFEditor Value="{Binding StatusLines, UpdateSourceTrigger=PropertyChanged}"
+                                         EditorMode="HideTarget"
+                                         TypeName="System.Collections.Generic.List`1[[MTFClientServerCommon.MTFStringFormat, MTFClientServerCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" />
+                </alControls:GroupBox>
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_StatusMsg_Design">
+                    <StackPanel Orientation="Vertical">
+                        <alControls:TextBlock LocTextKey="Activity_SeqHandling_StatusMsg_FontSize" FontSize="12" Margin="0,0,0,3" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_StatusMsg_Line1" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" />
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_StatusMsg_Line2" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" />
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_StatusMsg_Line3" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" />
+
+                            <editors:MTFNumericEditor Value="{Binding StatusLinesFontSize.Line1}"
+                                                      TypeName="System.Int32" Grid.Column="2" Grid.Row="0" />
+                            <editors:MTFNumericEditor Value="{Binding StatusLinesFontSize.Line2}"
+                                                      TypeName="System.Int32" Grid.Column="2" Grid.Row="1" />
+                            <editors:MTFNumericEditor Value="{Binding StatusLinesFontSize.Line3}"
+                                                      TypeName="System.Int32" Grid.Column="2" Grid.Row="2" />
+                        </Grid>
+
+                        <Grid Width="{StaticResource StatusWindowWidth}" Height="{StaticResource StatusWindowHeight}"
+                              Margin="0,10,0,0" HorizontalAlignment="Left">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Border Background="{StaticResource ALSilverBrush}" Grid.Row="0">
+                                <alControls:TextBlock LocTextKey="Activity_SeqHandling_StatusMsg_Preview"
+                                           Style="{StaticResource StatusWindowHeaderTextBox}" />
+                            </Border>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                          Grid.Row="1">
+                                <Border Background="{StaticResource ALLightSilverBrush}">
+                                    <Grid TextBlock.TextAlignment="Center"
+                                          TextBlock.Foreground="{StaticResource ALWhiteBrush}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock
+                                            Text="{Binding StatusLines[0].Text}"
+                                            FontSize="{Binding StatusLinesFontSize.Line1}"
+                                            Style="{StaticResource StatusWindowLine1TextBox}" />
+                                        <TextBlock Grid.Row="1"
+                                                   Text="{Binding StatusLines[1].Text}"
+                                                   FontSize="{Binding StatusLinesFontSize.Line2}"
+                                                   Style="{StaticResource StatusWindowLine2TextBox}" />
+                                        <TextBlock Grid.Row="2"
+                                                   Text="{Binding StatusLines[2].Text}"
+                                                   FontSize="{Binding StatusLinesFontSize.Line3}"
+                                                   Style="{StaticResource StatusWindowLine3TextBox}" />
+                                    </Grid>
+                                </Border>
+                            </ScrollViewer>
+                        </Grid>
+                    </StackPanel>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ClearValidTables">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_ClearValidTable_Selection">
+                    <StackPanel Orientation="Vertical">
+                        <!--<CheckBox IsChecked="{Binding ClearTimeView}" Margin="0,0,0,2">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_Time" Margin="5,0,0,0" />
+                        </CheckBox>-->
+                        <CheckBox IsChecked="{Binding ClearAllTables}" Margin="0,0,0,2">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_AllTables" Margin="5,0,0,0" />
+                        </CheckBox>
+                        <alControls:TextBlock LocTextKey="Activity_SeqHandling_ClearValidTable_Tables" Margin="0,10,0,3" FontWeight="Bold" FontSize="12" />
+                        <ListBox ItemsSource="{Binding TablesSetting}"
+                                 IsEnabled="{Binding ClearAllTables, Converter={StaticResource NotBool}}"
+                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding Clear}" Margin="0,0,0,2">
+                                            <TextBlock Text="{Binding ValidationTable.Name}" Margin="5,0,0,0" />
+                                        </CheckBox>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="LogMessage">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_LogMsg">
+                    <uiHelpers:MTFEditor Value="{Binding LogMessage, UpdateSourceTrigger=PropertyChanged}"
+                                         TypeName="MTFClientServerCommon.MTFStringFormat" />
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetVariant">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="SetVariant">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_SetVariant_Value" BorderThickness="0" Padding="5" Margin="0,10,0,0">
+                    <editors:MTFVariantEditor Value="{Binding SequenceVariant}"
+                                              AllowMultiSelect="False"
+                                              UseActivityResult="True"
+                                              ParentSequence="{Binding DataContext.Sequence, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}" />
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ChangeCommandsStatus">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_ChangeServiceCmd_Setting">
+                    <Grid Grid.IsSharedSizeScope="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_Info" Grid.Row="0" />
+                        <Grid Grid.Row="1" Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="commandName" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsAllowed" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsChecked" />
+                            </Grid.ColumnDefinitions>
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_Cmd" Grid.Column="0" FontWeight="Bold" FontSize="12" />
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_IsAllowed" Grid.Column="2" FontWeight="Bold" FontSize="12" />
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_IsChecked" Grid.Column="4" FontWeight="Bold" FontSize="12" />
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="commandName" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsAllowed" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsChecked" />
+                            </Grid.ColumnDefinitions>
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_SelectAll" Grid.Column="0" />
+                            <CheckBox Grid.Column="2" Click="CheckBox_CheckChange" HorizontalAlignment="Center" />
+                            <uiControls:ThreeStateCheckBox Grid.Column="4" Click="ThreeStateCheckBox_Click"
+                                                           HorizontalAlignment="Center" />
+                        </Grid>
+                        <ListBox Grid.Row="3" ItemsSource="{Binding CommandsSetting}" Margin="0,3,0,0" Padding="0"
+                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                                 Template="{StaticResource ListBoxControlTemplate}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="commandName" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="60" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding ServiceCommand.Name}" Grid.Column="0"
+                                                   VerticalAlignment="Center" />
+                                        <CheckBox IsChecked="{Binding IsEnabled}" Grid.Column="2"
+                                                  HorizontalAlignment="Center" />
+                                        <uiControls:ThreeStateCheckBox IsChecked="{Binding IsChecked}" Grid.Column="4"
+                                                                       HorizontalAlignment="Center">
+                                            <uiControls:ThreeStateCheckBox.Style>
+                                                <Style TargetType="uiControls:ThreeStateCheckBox"
+                                                       BasedOn="{StaticResource {x:Type uiControls:ThreeStateCheckBox}}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ServiceCommand.Type}"
+                                                                     Value="ToggleButton">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </uiControls:ThreeStateCheckBox.Style>
+                                        </uiControls:ThreeStateCheckBox>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetLoggedUsers">
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource CheckOutputValue}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SwitchView">
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_Base_SwitchViewTitle" Style="{StaticResource ActivityDetailGroupBox}">
+                    <StackPanel>
+                        <alControls:ComboBox 
+                            ItemsSourceLocalized="{Binding DataContext.ExecutionViewTypes, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                            SelectedValuePath="Value"
+                            Style="{StaticResource {x:Type ComboBox}}"
+                            LocTextKey="Description"
+                            SelectedValue="{Binding SwitchGraphicalView.SwitchToView}" />
+                        <ContentPresenter Content="{Binding SwitchGraphicalView}">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SwitchToView}" Value="GraphicalView">
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <ComboBox
+                                                            ItemsSource="{Binding DataContext.GraphicalViews, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                                                            SelectedValue="{Binding SelectedGraphicalViewId}"
+                                                            SelectedValuePath="Id"
+                                                            DisplayMemberPath="ViewName"
+                                                            Margin="0,10,0,0"/>
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </StackPanel>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ChangeUserCommandsStatus">
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_ChangeUserCmd_Setting">
+                    <Grid Grid.IsSharedSizeScope="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1" Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="commandName" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsAllowed" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsChecked" />
+                            </Grid.ColumnDefinitions>
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_Cmd" Grid.Column="0" FontWeight="Bold" FontSize="12" />
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_IsAllowed" Grid.Column="2" FontWeight="Bold" FontSize="12" />
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_IsChecked" Grid.Column="4" FontWeight="Bold" FontSize="12" />
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="commandName" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsAllowed" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="IsChecked" />
+                            </Grid.ColumnDefinitions>
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_ChangeServiceCmd_SelectAll" Grid.Column="0" />
+                            <uiControls:ThreeStateCheckBox Grid.Column="2" Click="IsAllowed_Click" HorizontalAlignment="Center" />
+                            <uiControls:ThreeStateCheckBox Grid.Column="4" Click="IsChecked_Click" HorizontalAlignment="Center" />
+                        </Grid>
+                        <ItemsControl Grid.Row="3" ItemsSource="{Binding UserCommandsSetting}" Margin="0,3,0,0" Padding="0">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="commandName" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="60" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding UserCommand.Name}" Grid.Column="0" VerticalAlignment="Center" />
+                                        <uiControls:ThreeStateCheckBox IsChecked="{Binding IsEnabled}" Grid.Column="2" HorizontalAlignment="Center" />
+                                        <uiControls:ThreeStateCheckBox IsChecked="{Binding IsChecked}" Grid.Column="4" HorizontalAlignment="Center">
+                                            <uiControls:ThreeStateCheckBox.Style>
+                                                <Style TargetType="uiControls:ThreeStateCheckBox" BasedOn="{StaticResource {x:Type uiControls:ThreeStateCheckBox}}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding UserCommand.Type}" Value="ToggleButton">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </uiControls:ThreeStateCheckBox.Style>
+                                        </uiControls:ThreeStateCheckBox>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SetUserIndicatorValue">
+            <StackPanel Orientation="Vertical">
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_SetUserIndicatorValue_Setting" Style="{StaticResource ActivityDetailGroupBox}">
+                    <StackPanel>
+                        <ComboBox 
+                            ItemsSource="{Binding DataContext.Indicators, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                            SelectedValuePath="Id"
+                            DisplayMemberPath="Name"
+                            SelectedValue="{Binding SetUserIndicatorSettings.IndicatorId}" />
+                        <!-- Term editor -->
+                        <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                            <alControls:TextBlock LocTextKey="Activity_SeqHandling_SetUserIndicatorValue_Value" Margin=" 0 0 5 0" VerticalAlignment="Center" />
+                            <StackPanel DataContext="{Binding SetUserIndicatorSettings}">
+                                <StackPanel Orientation="Vertical">
+                                    <uiHelpers:MTFEditor Value="{Binding ValueTerm}"
+                                             TypeName="System.Boolean" EditorMode="UseTerm"
+                                             Visibility="{Binding ValueTerm, Converter={StaticResource ShowSimpleTermVisibilityConverter}}"/>
+                                    <TextBlock Text="{Binding ValueTerm}" TextWrapping="Wrap" Visibility="{Binding ValueTerm, Converter={StaticResource ShowComplexTermVisibilityConverter}}" />
+                                </StackPanel>
+                                <Button HorizontalAlignment="Left"
+                                    Style="{StaticResource TermDesignerButton}"
+                                    ContentTemplate="{StaticResource TermDesignerButtonContent}"
+                                    Command="{Binding DataContext.ShowTermDesignerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}">
+                                    <Button.Resources>
+                                        <system:String x:Key="TermPropertyName">ValueTerm</system:String>
+                                        <system:String x:Key="EditorMode">UseTerm</system:String>
+                                        <system:String x:Key="ReturnType">System.Boolean</system:String>
+                                    </Button.Resources>
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource TermMultiValueConverter}">
+                                            <Binding Source="{StaticResource TermPropertyName}" />
+                                            <Binding Source="{StaticResource EditorMode}" />
+                                            <Binding Source="{StaticResource ReturnType}" />
+                                            <Binding Path="ValueTerm" />
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SynchronizationExecuteInParallel">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="DescText">
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="Width"
+                            Value="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollContentPresenter}}" />
+                    <Setter Property="Padding" Value="10,0,10,0" />
+                </Style>
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock
+                    LocTextKey="Activity_SeqHandling_SEIP_Desc"
+                    Style="{StaticResource DescText}" />
+                <alControls:GroupBox LocTextKey="Activity_SeqHandling_SEIP_Params">
+                    <StackPanel>
+                        <alControls:TextBlock LocTextKey="Activity_SeqHandling_SEIP_Count" Margin=" 0 0 5 0" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding ExpectedCount, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Top" />
+                    </StackPanel>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetMTFVersion">
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <detailDataTemplates:DetailHeader Grid.Row="0" DetailType="Activity_BuildIn_SeqHandling" />
+
+        <alControls:GroupBox Grid.Row="1" LocTextKey="Activity_Base_Type">
+            <alControls:TextBlock LocTextKey="{Binding SequenceHandlingType, Converter={StaticResource EnumToDescription}}" />
+        </alControls:GroupBox>
+
+        <ContentPresenter Content="{Binding}"
+                          Grid.Row="2">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SaveReportAndCleanErrors">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SaveReportAndCleanErrors}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="StartDurationCounter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource StartDurationCounter}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SetSequenceStatusMessage">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SetSequenceStatusMessage}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="ClearValidTables">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ClearValidTables}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="LogMessage">
+                            <Setter Property="ContentTemplate" Value="{StaticResource LogMessage}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="GetVariant">
+                            <Setter Property="ContentTemplate" Value="{StaticResource GetVariant}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SetVariant">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SetVariant}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="ChangeCommandsStatus">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ChangeCommandsStatus}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="PauseSequence">
+                            <Setter Property="ContentTemplate" Value="{StaticResource PauseSequenceExecutionHandling}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="StopSequence">
+                            <Setter Property="ContentTemplate" Value="{StaticResource StopSequenceExecutionHandling}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="GetExecutionState">
+                            <Setter Property="ContentTemplate" Value="{StaticResource GetExecutionStateExecutionHandling}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="GetLoggedUsers">
+                            <Setter Property="ContentTemplate" Value="{StaticResource GetLoggedUsers}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SwitchView">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SwitchView}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="ChangeUserCommandsStatus">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ChangeUserCommandsStatus}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SetUserIndicatorValue">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SetUserIndicatorValue}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SynchronizationExecuteInParallel">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SynchronizationExecuteInParallel}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SequenceHandlingType}" Value="GetMTFVersion">
+                            <Setter Property="ContentTemplate" Value="{StaticResource GetMTFVersion}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+        <!--<ContentPresenter Grid.Row="3" Content="{Binding}" ContentTemplate="{StaticResource SwitchViewTemplate}" />-->
+        <alControls:GroupBox Grid.Row="4"
+                  LocTextKey="Activity_Base_Comment"
+                  BorderThickness="0">
+            <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}"
+                     TextWrapping="Wrap"
+                     MinHeight="100"
+                     VerticalContentAlignment="Top"
+                     AcceptsReturn="True" />
+        </alControls:GroupBox>
+    </Grid>
+</UserControl>

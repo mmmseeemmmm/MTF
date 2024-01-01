@@ -1,0 +1,5 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\Logging\Logging.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\Logging\Logging.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Logging\obj\x64\Release\Logging.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Logging\obj\x64\Release\Logging.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Logging\obj\x64\Release\Logging.pdb

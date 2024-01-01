@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconPencil">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,50,50" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="Nonzero" Figures="M41.589,7.011C40.456,5.878 38.949,5.255 37.346,5.255 35.743,5.255 34.238,5.879 33.105,7.011L30.984,9.132 30.984,9.132 10.478,29.641C10.467,29.651 10.464,29.662 10.457,29.672 10.388,29.748 10.33,29.834 10.286,29.93 10.275,29.953 10.263,29.973 10.254,29.996 10.249,30.008 10.241,30.017 10.237,30.029L6.7,40.635C6.58,40.994 6.674,41.393 6.941,41.658 7.13,41.849 7.386,41.951 7.648,41.951 7.752,41.951 7.861,41.935 7.963,41.9L18.569,38.365C18.582,38.361 18.591,38.351 18.605,38.347 18.626,38.339 18.646,38.326 18.667,38.318 18.763,38.273 18.852,38.214 18.927,38.144 18.938,38.134 18.949,38.132 18.959,38.123L39.466,17.618 39.466,17.618 41.587,15.497C42.716,14.369 43.342,12.863 43.352,11.248 43.344,9.645 42.718,8.14 41.589,7.011z M32.397,10.546L33.812,11.961 14.012,31.76 12.598,30.346 32.397,10.546z M14.719,32.467L34.52,12.668 35.934,14.083 16.133,33.883 14.719,32.467z M9.854,37.5L11.1,38.748 9.23,39.373 9.854,37.5z M12.161,38.395L10.207,36.442 11.621,32.198 16.403,36.981 12.161,38.395z M18.254,36.002L16.84,34.588 36.641,14.79 38.055,16.204 18.254,36.002z M40.175,14.083L39.468,14.79 33.812,9.133 34.519,8.426C36.079,6.867 38.615,6.866 40.175,8.426 40.93,9.18 41.348,10.186 41.354,11.249 41.348,12.322 40.929,13.329 40.175,14.083z" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

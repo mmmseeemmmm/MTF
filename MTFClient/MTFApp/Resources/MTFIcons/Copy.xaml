@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconCopy">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,125" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup Transform="1,0,0,1,0,-952.36217">
+                                                <DrawingGroup Transform="4.1691264,0,0,4.1691264,4400.0291,1049.6013">
+                                                    <DrawingGroup Transform="1.0601271,0,0,1.0601271,-990.04224,-1023.1249">
+                                                        <DrawingGroup Transform="0.72406155,0,0,0.72406155,188.84286,235.29874">
+                                                            <DrawingGroup>
+                                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                                    <GeometryDrawing.Geometry>
+                                                                        <PathGeometry FillRule="Nonzero" Transform="0.31247949,0,0,0.31247949,-345.9355,977.53696" Figures="M11.40625,8.46875L11.40625,9.96875 11.40625,38.6875 11.40625,72.6875 11.40625,74.1875 12.90625,74.1875 37.03125,74.28125 37,89.875 37,91.375 38.5,91.375 58.59375,91.5 87.09375,91.5 88.59375,91.5 88.59375,90 88.59375,38.59375 88.59375,37.96875 88.1875,37.59375 76.8125,26.1875 76.40625,25.6875 75.8125,25.6875 63,25.6875 63,21.6875 63,21.09375 62.5,20.6875 51.1875,8.96875 50.8125,8.46875 50.09375,8.46875 12.90625,8.46875 11.40625,8.46875z M14.40625,11.46875L49.40625,11.46875 60,22.375 60,25.6875 38.59375,25.6875 37.09375,25.6875 37.09375,27.1875 37.09375,34.1875 18.59375,34.09375 18.5,37.09375 37.09375,37.1875 37.09375,45.6875 18.5,45.59375 18.5,48.59375 37.09375,48.6875 37.09375,55.875 37.09375,57.1875 18.59375,57.09375 18.5,60.09375 37.09375,60.1875 37.0625,71.28125 14.40625,71.1875 14.40625,38.6875 14.40625,11.46875z M18.59375,22.59375L18.5,25.59375 33.09375,25.6875 33.09375,22.6875 18.59375,22.59375z M40.09375,28.6875L74.1875,28.6875 74.1875,38.6875 74.1875,40.1875 75.6875,40.1875 85.59375,40.1875 85.59375,88.5 58.59375,88.5 40,88.375 40.09375,55.875 40.09375,28.6875z M77.1875,30.78125L83.59375,37.1875 77.1875,37.1875 77.1875,30.78125z M44.1875,39.78125L44.1875,42.78125 67.1875,42.875 67.1875,39.875 44.1875,39.78125z M44.1875,51.28125L44.1875,54.28125 78.5,54.375 78.5,51.375 44.1875,51.28125z M44.1875,62.78125L44.1875,65.78125 78.5,65.78125 78.5,62.78125 44.1875,62.78125z M44.1875,74.28125L44.1875,77.28125 78.5,77.28125 78.5,74.28125 44.1875,74.28125z" />
+                                                                    </GeometryDrawing.Geometry>
+                                                                </GeometryDrawing>
+                                                            </DrawingGroup>
+                                                        </DrawingGroup>
+                                                    </DrawingGroup>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

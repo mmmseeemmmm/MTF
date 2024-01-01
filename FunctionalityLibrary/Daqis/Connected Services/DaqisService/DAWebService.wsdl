@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://daqis.envinet.cz/DataAquisitionWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="DAWebService" targetNamespace="http://daqis.envinet.cz/DataAquisitionWebService" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.102.146.6:80/daqis/DAWebService?xsd=1" namespace="http://daqis.envinet.cz/DataAquisitionWebService" />
+    </xsd:schema>
+  </types>
+  <message name="getActivePartVersionFromLineCode">
+    <part name="parameters" element="tns:getActivePartVersionFromLineCode" />
+  </message>
+  <message name="getActivePartVersionFromLineCodeResponse">
+    <part name="parameters" element="tns:getActivePartVersionFromLineCodeResponse" />
+  </message>
+  <message name="changeProductData">
+    <part name="parameters" element="tns:changeProductData" />
+  </message>
+  <message name="changeProductDataResponse">
+    <part name="parameters" element="tns:changeProductDataResponse" />
+  </message>
+  <message name="saveStateParameter">
+    <part name="parameters" element="tns:saveStateParameter" />
+  </message>
+  <message name="saveStateParameterResponse">
+    <part name="parameters" element="tns:saveStateParameterResponse" />
+  </message>
+  <message name="plcLoginRequest">
+    <part name="parameters" element="tns:plcLoginRequest" />
+  </message>
+  <message name="plcLoginRequestResponse">
+    <part name="parameters" element="tns:plcLoginRequestResponse" />
+  </message>
+  <message name="prepareProduct">
+    <part name="parameters" element="tns:prepareProduct" />
+  </message>
+  <message name="prepareProductResponse">
+    <part name="parameters" element="tns:prepareProductResponse" />
+  </message>
+  <message name="getLastProductionResultForDA">
+    <part name="parameters" element="tns:getLastProductionResultForDA" />
+  </message>
+  <message name="getLastProductionResultForDAResponse">
+    <part name="parameters" element="tns:getLastProductionResultForDAResponse" />
+  </message>
+  <message name="createProductionBatch">
+    <part name="parameters" element="tns:createProductionBatch" />
+  </message>
+  <message name="createProductionBatchResponse">
+    <part name="parameters" element="tns:createProductionBatchResponse" />
+  </message>
+  <message name="saveDeviceData">
+    <part name="parameters" element="tns:saveDeviceData" />
+  </message>
+  <message name="saveDeviceDataResponse">
+    <part name="parameters" element="tns:saveDeviceDataResponse" />
+  </message>
+  <message name="saveTechnologicalData">
+    <part name="parameters" element="tns:saveTechnologicalData" />
+  </message>
+  <message name="saveTechnologicalDataResponse">
+    <part name="parameters" element="tns:saveTechnologicalDataResponse" />
+  </message>
+  <message name="printLabelFromDA">
+    <part name="parameters" element="tns:printLabelFromDA" />
+  </message>
+  <message name="printLabelFromDAResponse">
+    <part name="parameters" element="tns:printLabelFromDAResponse" />
+  </message>
+  <message name="setProductState">
+    <part name="parameters" element="tns:setProductState" />
+  </message>
+  <message name="setProductStateResponse">
+    <part name="parameters" element="tns:setProductStateResponse" />
+  </message>
+  <message name="saveWorkplaceEvent">
+    <part name="parameters" element="tns:saveWorkplaceEvent" />
+  </message>
+  <message name="saveWorkplaceEventResponse">
+    <part name="parameters" element="tns:saveWorkplaceEventResponse" />
+  </message>
+  <message name="saveWorkplaceError">
+    <part name="parameters" element="tns:saveWorkplaceError" />
+  </message>
+  <message name="saveWorkplaceErrorResponse">
+    <part name="parameters" element="tns:saveWorkplaceErrorResponse" />
+  </message>
+  <message name="saveTruckPassageData">
+    <part name="parameters" element="tns:saveTruckPassageData" />
+  </message>
+  <message name="saveTruckPassageDataResponse">
+    <part name="parameters" element="tns:saveTruckPassageDataResponse" />
+  </message>
+  <message name="saveProductionData">
+    <part name="parameters" element="tns:saveProductionData" />
+  </message>
+  <message name="saveProductionDataResponse">
+    <part name="parameters" element="tns:saveProductionDataResponse" />
+  </message>
+  <message name="componentTest">
+    <part name="parameters" element="tns:componentTest" />
+  </message>
+  <message name="componentTestResponse">
+    <part name="parameters" element="tns:componentTestResponse" />
+  </message>
+  <message name="getTypeParams">
+    <part name="parameters" element="tns:getTypeParams" />
+  </message>
+  <message name="getTypeParamsResponse">
+    <part name="parameters" element="tns:getTypeParamsResponse" />
+  </message>
+  <message name="saveDowntime">
+    <part name="parameters" element="tns:saveDowntime" />
+  </message>
+  <message name="saveDowntimeResponse">
+    <part name="parameters" element="tns:saveDowntimeResponse" />
+  </message>
+  <message name="getValidation">
+    <part name="parameters" element="tns:getValidation" />
+  </message>
+  <message name="getValidationResponse">
+    <part name="parameters" element="tns:getValidationResponse" />
+  </message>
+  <message name="login">
+    <part name="parameters" element="tns:login" />
+  </message>
+  <message name="loginResponse">
+    <part name="parameters" element="tns:loginResponse" />
+  </message>
+  <message name="logout">
+    <part name="parameters" element="tns:logout" />
+  </message>
+  <message name="logoutResponse">
+    <part name="parameters" element="tns:logoutResponse" />
+  </message>
+  <message name="getParts">
+    <part name="parameters" element="tns:getParts" />
+  </message>
+  <message name="getPartsResponse">
+    <part name="parameters" element="tns:getPartsResponse" />
+  </message>
+  <portType name="IDAWebService">
+    <operation name="getActivePartVersionFromLineCode">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getActivePartVersionFromLineCodeRequest" message="tns:getActivePartVersionFromLineCode" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getActivePartVersionFromLineCodeResponse" message="tns:getActivePartVersionFromLineCodeResponse" />
+    </operation>
+    <operation name="changeProductData">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/changeProductDataRequest" message="tns:changeProductData" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/changeProductDataResponse" message="tns:changeProductDataResponse" />
+    </operation>
+    <operation name="saveStateParameter">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveStateParameterRequest" message="tns:saveStateParameter" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveStateParameterResponse" message="tns:saveStateParameterResponse" />
+    </operation>
+    <operation name="plcLoginRequest">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/plcLoginRequestRequest" message="tns:plcLoginRequest" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/plcLoginRequestResponse" message="tns:plcLoginRequestResponse" />
+    </operation>
+    <operation name="prepareProduct">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/prepareProductRequest" message="tns:prepareProduct" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/prepareProductResponse" message="tns:prepareProductResponse" />
+    </operation>
+    <operation name="getLastProductionResultForDA">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getLastProductionResultForDARequest" message="tns:getLastProductionResultForDA" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getLastProductionResultForDAResponse" message="tns:getLastProductionResultForDAResponse" />
+    </operation>
+    <operation name="createProductionBatch">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/createProductionBatchRequest" message="tns:createProductionBatch" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/createProductionBatchResponse" message="tns:createProductionBatchResponse" />
+    </operation>
+    <operation name="saveDeviceData">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveDeviceDataRequest" message="tns:saveDeviceData" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveDeviceDataResponse" message="tns:saveDeviceDataResponse" />
+    </operation>
+    <operation name="saveTechnologicalData">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveTechnologicalDataRequest" message="tns:saveTechnologicalData" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveTechnologicalDataResponse" message="tns:saveTechnologicalDataResponse" />
+    </operation>
+    <operation name="printLabelFromDA">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/printLabelFromDARequest" message="tns:printLabelFromDA" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/printLabelFromDAResponse" message="tns:printLabelFromDAResponse" />
+    </operation>
+    <operation name="setProductState">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/setProductStateRequest" message="tns:setProductState" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/setProductStateResponse" message="tns:setProductStateResponse" />
+    </operation>
+    <operation name="saveWorkplaceEvent">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveWorkplaceEventRequest" message="tns:saveWorkplaceEvent" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveWorkplaceEventResponse" message="tns:saveWorkplaceEventResponse" />
+    </operation>
+    <operation name="saveWorkplaceError">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveWorkplaceErrorRequest" message="tns:saveWorkplaceError" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveWorkplaceErrorResponse" message="tns:saveWorkplaceErrorResponse" />
+    </operation>
+    <operation name="saveTruckPassageData">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveTruckPassageDataRequest" message="tns:saveTruckPassageData" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveTruckPassageDataResponse" message="tns:saveTruckPassageDataResponse" />
+    </operation>
+    <operation name="saveProductionData">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveProductionDataRequest" message="tns:saveProductionData" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveProductionDataResponse" message="tns:saveProductionDataResponse" />
+    </operation>
+    <operation name="componentTest">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/componentTestRequest" message="tns:componentTest" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/componentTestResponse" message="tns:componentTestResponse" />
+    </operation>
+    <operation name="getTypeParams">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getTypeParamsRequest" message="tns:getTypeParams" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getTypeParamsResponse" message="tns:getTypeParamsResponse" />
+    </operation>
+    <operation name="saveDowntime">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveDowntimeRequest" message="tns:saveDowntime" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/saveDowntimeResponse" message="tns:saveDowntimeResponse" />
+    </operation>
+    <operation name="getValidation">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getValidationRequest" message="tns:getValidation" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getValidationResponse" message="tns:getValidationResponse" />
+    </operation>
+    <operation name="login">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/loginRequest" message="tns:login" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/loginResponse" message="tns:loginResponse" />
+    </operation>
+    <operation name="logout">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/logoutRequest" message="tns:logout" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/logoutResponse" message="tns:logoutResponse" />
+    </operation>
+    <operation name="getParts">
+      <input wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getPartsRequest" message="tns:getParts" />
+      <output wsam:Action="http://daqis.envinet.cz/DataAquisitionWebService/IDAWebService/getPartsResponse" message="tns:getPartsResponse" />
+    </operation>
+  </portType>
+  <binding name="DAWebServicePortBinding" type="tns:IDAWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getActivePartVersionFromLineCode">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changeProductData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveStateParameter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="plcLoginRequest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="prepareProduct">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getLastProductionResultForDA">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createProductionBatch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveDeviceData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveTechnologicalData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="printLabelFromDA">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setProductState">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveWorkplaceEvent">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveWorkplaceError">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveTruckPassageData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveProductionData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="componentTest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTypeParams">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveDowntime">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getValidation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="logout">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getParts">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DAWebService">
+    <port name="DAWebServicePort" binding="tns:DAWebServicePortBinding">
+      <soap:address location="http://10.102.146.6:80/daqis/DAWebService" />
+    </port>
+  </service>
+</definitions>

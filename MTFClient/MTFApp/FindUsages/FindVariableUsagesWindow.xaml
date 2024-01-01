@@ -1,0 +1,193 @@
+﻿<findUsages:FindUsagesBase x:Class="MTFApp.FindUsages.FindVariableUsagesWindow"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:mtfClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+                           xmlns:findUsages="clr-namespace:MTFApp.FindUsages"
+                           WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize"
+                           BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+
+    <Window.Resources>
+        <DataTemplate x:Key="ListBoxItemTemplate">
+            <Grid>
+                <Grid.Resources>
+                    <DataTemplate DataType="{x:Type mtfClientServerCommon:MTFSubSequenceActivity}">
+                        <UserControl Style="{StaticResource IsCollapsedStyle}" Height="15" />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type mtfClientServerCommon:MTFSequenceActivity}">
+                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                    </DataTemplate>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Name" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="PropertyName" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="SequenceName" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding Activity}" Margin="3" />
+                <TextBlock Text="{Binding Activity.ActivityName}" Grid.Column="1" VerticalAlignment="Center"
+                           TextWrapping="Wrap" MaxWidth="200" />
+                <TextBlock Text="{Binding PropertyName}" Grid.Column="3" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Sequence.Name}" Grid.Column="5" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Term}" Grid.Column="7" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+
+
+        <Style TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
+            <EventSetter Event="MouseDoubleClick" Handler="ItemsListBox_OnMouseDoubleClick" />
+            <EventSetter Event="KeyDown" Handler="ItemsListBox_OnKeyDown" />
+            <Setter Property="ItemTemplate" Value="{StaticResource ListBoxItemTemplate}" />
+            <Setter Property="ItemContainerStyle" Value="{StaticResource SelectableListBoxItem}" />
+        </Style>
+
+        <DataTemplate x:Key="ShowAllTemplate">
+            <ListBox ItemsSource="{Binding Items}" />
+        </DataTemplate>
+        <DataTemplate x:Key="OnlyGetTemplate">
+            <ListBox ItemsSource="{Binding GetItems}" />
+        </DataTemplate>
+        <DataTemplate x:Key="OnlySetTemplate">
+            <ListBox ItemsSource="{Binding SetItems}" />
+        </DataTemplate>
+        <DataTemplate x:Key="ShowExternalTemplate" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid Name="Root" Grid.IsSharedSizeScope="True">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding Scale}"
+                                ScaleY="{Binding Scale}" />
+            </Grid.LayoutTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Background="{StaticResource ALBlackBrush}" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Title, StringFormat={}Find Usages of {0}}" Grid.Column="0"
+                           Foreground="{StaticResource ALWhiteBrush}" VerticalAlignment="Center" Margin="5" />
+                <UserControl Grid.Column="1"
+                             Style="{Binding Variable.TypeName, Converter={StaticResource TypeToIconConverter}}"
+                             Foreground="{StaticResource ALWhiteBrush}"
+                             Margin="5" />
+                <Button Margin="5"
+                        Grid.Column="3"
+                        Foreground="{StaticResource ResourceKey=ALWhiteBrush}"
+                        Style="{StaticResource ResourceKey=MinimizeButton}"
+                        Click="MinimizeButton_Click" />
+                <Button Margin="5"
+                        Grid.Column="4"
+                        Foreground="{StaticResource ResourceKey=ALWhiteBrush}"
+                        Style="{StaticResource ResourceKey=CloseButton}"
+                        Click="CloseButton_Click" />
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button Style="{StaticResource FindUsagesCommandButton}" Command="{Binding RefreshCommand}"
+                        Name="RefreshButton" Background="Transparent"
+                        ToolTip="Refresh">
+                    <Button.Content>
+                        <UserControl RenderTransformOrigin="0.5, 0.5">
+                            <UserControl.RenderTransform>
+                                <RotateTransform />
+                            </UserControl.RenderTransform>
+                            <UserControl.Style>
+                                <Style TargetType="UserControl" BasedOn="{StaticResource IconRefresh}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=RefreshButton, Path=IsEnabled}"
+                                                     Value="False">
+                                            <DataTrigger.EnterActions>
+                                                <BeginStoryboard Name="RotationStoryBoard">
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetProperty="(UserControl.RenderTransform).(RotateTransform.Angle)"
+                                                            To="360" Duration="0:0:1" RepeatBehavior="Forever" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </DataTrigger.EnterActions>
+                                            <DataTrigger.ExitActions>
+                                                <StopStoryboard BeginStoryboardName="RotationStoryBoard" />
+                                            </DataTrigger.ExitActions>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </UserControl.Style>
+                        </UserControl>
+                    </Button.Content>
+                </Button>
+
+                <ToggleButton Command="{Binding SetDisplayModeCommand}" CommandParameter="All"
+                              Style="{StaticResource FindUsagesToggleCommandButton}"
+                              IsChecked="{Binding AllIsSelected, Mode=OneWay}" ToolTip="Show all usages">
+                    <ToggleButton.Content>
+                        <UserControl Style="{StaticResource IconFindUsagesAll}" />
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <ToggleButton Command="{Binding SetDisplayModeCommand}" CommandParameter="Set"
+                              Style="{StaticResource FindUsagesToggleCommandButton}"
+                              IsChecked="{Binding SetIsSelected, Mode=OneWay}" ToolTip="Show only write usages">
+                    <ToggleButton.Content>
+                        <UserControl Style="{StaticResource IconFindUsagesWrite}" />
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <ToggleButton Command="{Binding SetDisplayModeCommand}" CommandParameter="Get"
+                              Style="{StaticResource FindUsagesToggleCommandButton}"
+                              IsChecked="{Binding GetIsSelected, Mode=OneWay}" ToolTip="Show only read usages">
+                    <ToggleButton.Content>
+                        <UserControl Style="{StaticResource IconFindUsagesRead}" />
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <CheckBox IsChecked="{Binding IncludeExternal}" Margin="5,0,5,0" VerticalAlignment="Center" />
+                <TextBlock Text="Include external sequences" VerticalAlignment="Center" />
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Name" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="PropertyName" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="SequenceName" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Activity" Grid.Column="1" VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock Text="Location" Grid.Column="3" VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock Text="Sequence name" Grid.Column="5" VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock Text="Term" Grid.Column="7" VerticalAlignment="Center" FontWeight="Bold" />
+            </Grid>
+            <ContentPresenter Content="{Binding}" Grid.Row="3">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding DisplayMode}" Value="All">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ShowAllTemplate}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding DisplayMode}" Value="Get">
+                                <Setter Property="ContentTemplate" Value="{StaticResource OnlyGetTemplate}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding DisplayMode}" Value="Set">
+                                <Setter Property="ContentTemplate" Value="{StaticResource OnlySetTemplate}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding DisplayMode}" Value="External">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ShowExternalTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </Grid>
+        <Border BorderThickness="5" BorderBrush="Transparent" />
+    </Grid>
+</findUsages:FindUsagesBase>

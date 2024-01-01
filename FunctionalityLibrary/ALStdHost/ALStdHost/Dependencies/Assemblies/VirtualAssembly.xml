@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ALStdAssembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AssemblyType>Virtual</AssemblyType>
+  <NodeDescriptions>
+    <NodeDescription>
+      <EdsFilePath>EDS\Video_Module_Driver-B0-01.eds</EdsFilePath>
+      <NickName>VMD_B0_01</NickName>
+      <NodeId>8</NodeId>
+    </NodeDescription>
+  </NodeDescriptions>
+  <DriverType>DRIVER_VECTOR</DriverType>
+  <DeviceName>VN1630A</DeviceName>
+  <ChannelNumber>CAN_1</ChannelNumber>
+  <Baudrate>BAUD_500k</Baudrate>
+  <SyncInterval>0</SyncInterval>
+</ALStdAssembly>

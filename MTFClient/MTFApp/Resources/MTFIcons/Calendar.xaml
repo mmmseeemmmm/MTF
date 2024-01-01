@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconCalendar">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="EvenOdd" Figures="M38.4119667,79.7041984L47.4769438,79.7041984 47.4769438,70.6392212 38.4119667,70.6392212 38.4119667,79.7041984z M24.8345176,79.7041984L33.8994947,79.7041984 33.8994947,70.6392212 24.8345176,70.6392212 24.8345176,79.7041984z M65.5658382,65.5395942L74.6308154,65.5395942 74.6308154,56.4746171 65.5658382,56.4746171 65.5658382,65.5395942z M51.9883892,65.5395942L61.0533663,65.5395942 61.0533663,56.4746171 51.9883892,56.4746171 51.9883892,65.5395942z M38.4119667,65.5395942L47.4769438,65.5395942 47.4769438,56.4746171 38.4119667,56.4746171 38.4119667,65.5395942z M24.8345176,65.5395942L33.8994947,65.5395942 33.8994947,56.4746171 24.8345176,56.4746171 24.8345176,65.5395942z M65.5658382,51.37499L74.6308154,51.37499 74.6308154,42.3100129 65.5658382,42.3100129 65.5658382,51.37499z M51.9883892,51.37499L61.0533663,51.37499 61.0533663,42.3100129 51.9883892,42.3100129 51.9883892,51.37499z M38.4119667,51.37499L47.4769438,51.37499 47.4769438,42.3100129 38.4119667,42.3100129 38.4119667,51.37499z M24.8345176,51.37499L33.8994947,51.37499 33.8994947,42.3100129 24.8345176,42.3100129 24.8345176,51.37499z M14.4751303,88.5248697L85.6984842,88.5248697 85.6984842,34.1370599 14.4751303,34.1370599 14.4751303,88.5248697z M74.0426338,5L67.5685299,5 67.5685299,10.827412 32.6040581,10.827412 32.6040581,5 26.1299543,5 26.1299543,10.827412 8,10.827412 8,95 92.172588,95 92.172588,10.827412 74.0426338,10.827412 74.0426338,5z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

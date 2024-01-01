@@ -1,0 +1,1825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainMenu_ComponentConfiguration" xml:space="preserve">
+    <value>Konfigurace komponent</value>
+  </data>
+  <data name="MainMenu_Editor" xml:space="preserve">
+    <value>Editor sekvencí</value>
+  </data>
+  <data name="MainMenu_Execution" xml:space="preserve">
+    <value>Vykonávání sekvencí</value>
+  </data>
+  <data name="MainMenu_Result" xml:space="preserve">
+    <value>Prohlížeč výsledků</value>
+  </data>
+  <data name="MainMenu_Setting" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="Setting_Connection_Header" xml:space="preserve">
+    <value>Připojení a nastavení serveru</value>
+  </data>
+  <data name="Setting_Connection_StartServer" xml:space="preserve">
+    <value>Spustit server</value>
+  </data>
+  <data name="Setting_Connection_ServerPath" xml:space="preserve">
+    <value>Cesta k aplikaci serveru</value>
+  </data>
+  <data name="Setting_Connection_StopServer" xml:space="preserve">
+    <value>Vypnout server po ukončení</value>
+  </data>
+  <data name="Setting_Connection_AutoConnect" xml:space="preserve">
+    <value>Automatické připojení k serveru</value>
+  </data>
+  <data name="Setting_Connection_ConnectDelay" xml:space="preserve">
+    <value>Zpoždění před připojením [s]</value>
+  </data>
+  <data name="Setting_Connection_ServerConnection" xml:space="preserve">
+    <value>Vybrané připojení k serveru</value>
+  </data>
+  <data name="Setting_Connection_ConnAlias" xml:space="preserve">
+    <value>Název připojení</value>
+  </data>
+  <data name="Setting_Connection_ConnHost" xml:space="preserve">
+    <value>Hostitel připojení</value>
+  </data>
+  <data name="Setting_Connection_ConnPort" xml:space="preserve">
+    <value>Port přípojení</value>
+  </data>
+  <data name="Setting_Connection_MoreClients" xml:space="preserve">
+    <value>Povolit více klientů na 1 PC</value>
+  </data>
+  <data name="Setting_Editor_Header" xml:space="preserve">
+    <value>Nastavení editoru</value>
+  </data>
+  <data name="Setting_Editor_IsCollapsed" xml:space="preserve">
+    <value>Sbalit parametry v detailu</value>
+  </data>
+  <data name="Setting_Editor_AllowDragDrop" xml:space="preserve">
+    <value>Povolit Drag &amp; Drop</value>
+  </data>
+  <data name="Setting_Execution_ErrMsgBox" xml:space="preserve">
+    <value>Zobrazení zprávy při chybě</value>
+  </data>
+  <data name="Setting_Execution_Header" xml:space="preserve">
+    <value>Nastavení vykonávání</value>
+  </data>
+  <data name="Setting_Execution_HideAll" xml:space="preserve">
+    <value>Skrýt všechny tlačítka</value>
+  </data>
+  <data name="Setting_Execution_NoLogOpenSeq" xml:space="preserve">
+    <value>Otevření sekvence pro nepřihlášené</value>
+  </data>
+  <data name="Setting_Execution_NoLogPauseSeq" xml:space="preserve">
+    <value>Pozastavení sekvence pro nepřihlášené</value>
+  </data>
+  <data name="Setting_Execution_NoLogStartSeq" xml:space="preserve">
+    <value>Spuštění sekvence pro nepřihlášené</value>
+  </data>
+  <data name="Setting_Execution_NoLogStopSeq" xml:space="preserve">
+    <value>Zastavení sekvence pro nepřihlášené</value>
+  </data>
+  <data name="Setting_Execution_PauseAfterErr" xml:space="preserve">
+    <value>Pozastavit při chybě (v režimu ladění)</value>
+  </data>
+  <data name="Setting_Execution_SeqName" xml:space="preserve">
+    <value>Název sekvence</value>
+  </data>
+  <data name="Setting_Execution_SeqNewProcess" xml:space="preserve">
+    <value>Spustit sekvenci v novém procesu</value>
+  </data>
+  <data name="Setting_Execution_StartDelay" xml:space="preserve">
+    <value>Zpoždění startu sekvence [s]</value>
+  </data>
+  <data name="Setting_Execution_TableCollaps" xml:space="preserve">
+    <value>Sbalené tabulky v tabulkovém režimu</value>
+  </data>
+  <data name="Setting_Execution_StartSeq" xml:space="preserve">
+    <value>Spuštění sekvence po startu MTF</value>
+  </data>
+  <data name="Setting_Execution_TreeFullScreenImg" xml:space="preserve">
+    <value>Režim stromu: zobrazit strom i obrázkem</value>
+  </data>
+  <data name="Setting_Execution_ViewType" xml:space="preserve">
+    <value>Výchozí režim</value>
+  </data>
+  <data name="Setting_KeyProviders_Active" xml:space="preserve">
+    <value>Aktivní</value>
+  </data>
+  <data name="Setting_KeyProviders_Config" xml:space="preserve">
+    <value>Nastavit</value>
+  </data>
+  <data name="Setting_KeyProviders_Header" xml:space="preserve">
+    <value>Poskytovatelé přístupu</value>
+  </data>
+  <data name="Setting_Language_AddConn" xml:space="preserve">
+    <value>Nové připojení</value>
+  </data>
+  <data name="Setting_Language_Current" xml:space="preserve">
+    <value>Aktuální jazyk</value>
+  </data>
+  <data name="Setting_Language_Header" xml:space="preserve">
+    <value>Nastavení jazyka</value>
+  </data>
+  <data name="Setting_Language_RemoveConn" xml:space="preserve">
+    <value>Odstranit připojení</value>
+  </data>
+  <data name="Msg_Body_DataFileDoesntExist" xml:space="preserve">
+    <value>Datový soubor: {0} neexistuje.
+
+Chcete vytvořit nový?</value>
+  </data>
+  <data name="Msg_Header_Error" xml:space="preserve">
+    <value>MTF - chyba</value>
+  </data>
+  <data name="Msg_Header_Question_CreateNew" xml:space="preserve">
+    <value>MTF - vytvořit nový</value>
+  </data>
+  <data name="Setting_KeyProviders_MsgNoDataFile" xml:space="preserve">
+    <value>Datový soubor nebyl vybrán.</value>
+  </data>
+  <data name="Buttons_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Buttons_Cancel" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="Buttons_Yes" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+  <data name="Buttons_No" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="Enum_ErrorMsgType_Blocking" xml:space="preserve">
+    <value>Blokující okno</value>
+  </data>
+  <data name="Enum_ErrorMsgType_NonBlocking" xml:space="preserve">
+    <value>Neblokující okno</value>
+  </data>
+  <data name="Enum_ErrorMsgType_None" xml:space="preserve">
+    <value>Žádné okno</value>
+  </data>
+  <data name="Enum_ExecutionType_Tree" xml:space="preserve">
+    <value>Strom</value>
+  </data>
+  <data name="Enum_ExecutionType_Table" xml:space="preserve">
+    <value>Tabulky</value>
+  </data>
+  <data name="Enum_ExecutionType_Time" xml:space="preserve">
+    <value>Čas</value>
+  </data>
+  <data name="Enum_ExecutionType_Service" xml:space="preserve">
+    <value>Servis</value>
+  </data>
+  <data name="Enum_ExecutionType_Graphical" xml:space="preserve">
+    <value>Grafické zobr.</value>
+  </data>
+  <data name="Enum_ExecutionType_Client" xml:space="preserve">
+    <value>Klientské okno</value>
+  </data>
+  <data name="Buttons_Browse" xml:space="preserve">
+    <value>Procházet...</value>
+  </data>
+  <data name="Buttons_ClearAll" xml:space="preserve">
+    <value>Vymazat vše</value>
+  </data>
+  <data name="Buttons_Refresh" xml:space="preserve">
+    <value>Obnovit</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>Nic</value>
+  </data>
+  <data name="RadioButtons_Choose" xml:space="preserve">
+    <value>Vybrat</value>
+  </data>
+  <data name="RadioButtons_Default" xml:space="preserve">
+    <value>Výchozí</value>
+  </data>
+  <data name="Setting_AppInfo_BaseDir" xml:space="preserve">
+    <value>Základní adresář</value>
+  </data>
+  <data name="Setting_AppInfo_Header" xml:space="preserve">
+    <value>Informace o klientské aplikaci</value>
+  </data>
+  <data name="Setting_AppInfo_MemoryUsage" xml:space="preserve">
+    <value>využití paměti [MB]</value>
+  </data>
+  <data name="Setting_Backup_Create" xml:space="preserve">
+    <value>Vytvořit zálohu každých</value>
+  </data>
+  <data name="Setting_Backup_Delete" xml:space="preserve">
+    <value>Vymazat starší než</value>
+  </data>
+  <data name="Setting_Backup_EnableAuto" xml:space="preserve">
+    <value>Aktivovat automatickou zálohu</value>
+  </data>
+  <data name="Setting_Backup_Header" xml:space="preserve">
+    <value>Nastavení zálohování</value>
+  </data>
+  <data name="Setting_Backup_Unit" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="Setting_CpuInfo_Cores" xml:space="preserve">
+    <value>Počet jader</value>
+  </data>
+  <data name="Setting_CpuInfo_Cpu" xml:space="preserve">
+    <value>Procesor</value>
+  </data>
+  <data name="Setting_CpuInfo_Desc" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="Setting_CpuInfo_Header" xml:space="preserve">
+    <value>Informace o procesoru</value>
+  </data>
+  <data name="Setting_CpuInfo_Speed" xml:space="preserve">
+    <value>Rychlost [MHz]</value>
+  </data>
+  <data name="Setting_CpuInfo_Threads" xml:space="preserve">
+    <value>Počet vláken</value>
+  </data>
+  <data name="Setting_Logging_Header" xml:space="preserve">
+    <value>Nastavení logování</value>
+  </data>
+  <data name="Setting_Logging_Allow" xml:space="preserve">
+    <value>Povolit logování</value>
+  </data>
+  <data name="Setting_OsInfo_Architecture" xml:space="preserve">
+    <value>Architektura</value>
+  </data>
+  <data name="Setting_OsInfo_Build" xml:space="preserve">
+    <value>Sestavení</value>
+  </data>
+  <data name="Setting_OsInfo_Header" xml:space="preserve">
+    <value>Informace o operačním systému</value>
+  </data>
+  <data name="Setting_OsInfo_Os" xml:space="preserve">
+    <value>Operační systém</value>
+  </data>
+  <data name="Setting_OsInfo_Sn" xml:space="preserve">
+    <value>Sériové číslo</value>
+  </data>
+  <data name="Setting_OsInfo_Version" xml:space="preserve">
+    <value>Verze</value>
+  </data>
+  <data name="Setting_Start_AutoHide" xml:space="preserve">
+    <value>Povolit automatické skrývání</value>
+  </data>
+  <data name="Setting_Start_DefaultControl" xml:space="preserve">
+    <value>Výchozí okno po startu</value>
+  </data>
+  <data name="Setting_Start_Header" xml:space="preserve">
+    <value>Nastavení MTF po startu</value>
+  </data>
+  <data name="Setting_Start_HideMenu" xml:space="preserve">
+    <value>Skrýt hlavní menu</value>
+  </data>
+  <data name="Setting_Start_Zoom" xml:space="preserve">
+    <value>Výchozí přiblížení uživatelského rozhraní</value>
+  </data>
+  <data name="Setting_Start_DialogZoom" xml:space="preserve">
+    <value>Výchozí přiblížení dialogů</value>
+  </data>
+  <data name="MainCommand_Save" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="OpenDialog_OpenSeq" xml:space="preserve">
+    <value>Otevřít sekvenci</value>
+  </data>
+  <data name="OpenDialog_SelectFolder" xml:space="preserve">
+    <value>Vybrat složku</value>
+  </data>
+  <data name="Setting_Connection_NewAlias" xml:space="preserve">
+    <value>Nové připojení</value>
+  </data>
+  <data name="ComponentConfig_CfgName" xml:space="preserve">
+    <value>Jméno konfigurace</value>
+  </data>
+  <data name="ComponentConfig_Params" xml:space="preserve">
+    <value>Parametry komponenty</value>
+  </data>
+  <data name="ComponentConfig_AvailableList" xml:space="preserve">
+    <value>Dostupné seznamy hodnot</value>
+  </data>
+  <data name="ComponentConfig_LegacyParamUsed" xml:space="preserve">
+    <value>Použitý ParametrHelper</value>
+  </data>
+  <data name="ComponentConfig_Classes" xml:space="preserve">
+    <value>Komponenty:</value>
+  </data>
+  <data name="ComponentConfig_Category" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="Msg_Header_InstanceTest" xml:space="preserve">
+    <value>Test of instance</value>
+  </data>
+  <data name="BaseString_New" xml:space="preserve">
+    <value>Nový</value>
+  </data>
+  <data name="MainCommand_RemoveAll" xml:space="preserve">
+    <value>Odstranit vše</value>
+  </data>
+  <data name="MainCommand_CopyCfg" xml:space="preserve">
+    <value>Kopírovat Konf.</value>
+  </data>
+  <data name="MainCommand_LoadList" xml:space="preserve">
+    <value>Načíst list</value>
+  </data>
+  <data name="MainCommand_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Msg_Body_InstanceOk" xml:space="preserve">
+    <value>Instance komponenty byla úspěšně vytvořena</value>
+  </data>
+  <data name="Buttons_CreateNew" xml:space="preserve">
+    <value>Vytvořit nový</value>
+  </data>
+  <data name="ComponentConfig_Contructors" xml:space="preserve">
+    <value>Konstruktory:</value>
+  </data>
+  <data name="Msg_Body_RemoveAllComponentConf" xml:space="preserve">
+    <value>Chcete opravdu odstranit všechny konfigurace?</value>
+  </data>
+  <data name="Msg_Body_RemoveComponentConf" xml:space="preserve">
+    <value>Chcete opravdu odstranit tuto konfiguraci?</value>
+  </data>
+  <data name="Msg_Header_RemoveComponentConf" xml:space="preserve">
+    <value>Odstranit konfigurac komponent</value>
+  </data>
+  <data name="MainCommand_New" xml:space="preserve">
+    <value>Nový</value>
+  </data>
+  <data name="MainCommand_Open" xml:space="preserve">
+    <value>Otevřít</value>
+  </data>
+  <data name="MainCommand_AddNew" xml:space="preserve">
+    <value>Přidat nový</value>
+  </data>
+  <data name="MainCommand_AddExist" xml:space="preserve">
+    <value>Přidat existující</value>
+  </data>
+  <data name="MainCommand_SaveAs" xml:space="preserve">
+    <value>Uložit jako</value>
+  </data>
+  <data name="MainCommand_SaveAll" xml:space="preserve">
+    <value>Uložit vše</value>
+  </data>
+  <data name="MainCommand_Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="MainCommand_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="MainCommand_SetVariant" xml:space="preserve">
+    <value>Nastavit Variantu</value>
+  </data>
+  <data name="MainCommand_Settings" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="MainCommand_OpenBackup" xml:space="preserve">
+    <value>Otevřít zálohu</value>
+  </data>
+  <data name="MainCommand_Back" xml:space="preserve">
+    <value>Zpět</value>
+  </data>
+  <data name="MainCommand_FindUsages" xml:space="preserve">
+    <value>Najít použití</value>
+  </data>
+  <data name="Msg_Header_Shutdown" xml:space="preserve">
+    <value>Vypnout počítač</value>
+  </data>
+  <data name="Msg_Body_Shutdown" xml:space="preserve">
+    <value>Chcete opravdu vypnout počítač?</value>
+  </data>
+  <data name="Msg_Body_NoMoreClients" xml:space="preserve">
+    <value>Nelze spustit více klientů. Zkontrolujte vaše nastavení.</value>
+  </data>
+  <data name="Mtf_StartingServer" xml:space="preserve">
+    <value>Startování serveru</value>
+  </data>
+  <data name="Mtf_Connect" xml:space="preserve">
+    <value>Připojování k serveru</value>
+  </data>
+  <data name="Mtf_ConnectNextTry" xml:space="preserve">
+    <value>Další pokus připojení</value>
+  </data>
+  <data name="Mtf_Init_Ui" xml:space="preserve">
+    <value>Inicializace UI</value>
+  </data>
+  <data name="Mtf_Init_Access" xml:space="preserve">
+    <value>Inicializace poskytovatelů příštupů</value>
+  </data>
+  <data name="Mtf_Init_Download" xml:space="preserve">
+    <value>Stahování</value>
+  </data>
+  <data name="Mtf_StartingNotStart" xml:space="preserve">
+    <value>Start serveru {0} selhal.{1}Zkontrolujte cestu k serveru!</value>
+  </data>
+  <data name="Msg_Header_Exit" xml:space="preserve">
+    <value>Zavřít MTF</value>
+  </data>
+  <data name="Msg_Body_Exit" xml:space="preserve">
+    <value>Chcete opravdu zavřít AL Main Testing Framework?</value>
+  </data>
+  <data name="Msg_Body_EditorModified" xml:space="preserve">
+    <value>Sekvence byla modifikovaná v editoru.</value>
+  </data>
+  <data name="Msg_Body_ExecutionModified" xml:space="preserve">
+    <value>Sekvence byla modifikovaná během vykonávání.</value>
+  </data>
+  <data name="Msg_Body_SequenceNotSaved" xml:space="preserve">
+    <value>Sekvence není uložená.</value>
+  </data>
+  <data name="Msg_Body_SaveSequence" xml:space="preserve">
+    <value>Chcete opravdu uložit sekvenci?</value>
+  </data>
+  <data name="MTF_Splash_Starting" xml:space="preserve">
+    <value>MTF startuje...</value>
+  </data>
+  <data name="MTF_Login_Login" xml:space="preserve">
+    <value>Přihlášení</value>
+  </data>
+  <data name="MTF_Login_Password" xml:space="preserve">
+    <value>Heslo:</value>
+  </data>
+  <data name="MTF_Connection_ServerPort" xml:space="preserve">
+    <value>Server : Port</value>
+  </data>
+  <data name="Buttons_Add" xml:space="preserve">
+    <value>Přidat</value>
+  </data>
+  <data name="Buttons_Run" xml:space="preserve">
+    <value>Spustit</value>
+  </data>
+  <data name="Buttons_Exit" xml:space="preserve">
+    <value>Konec</value>
+  </data>
+  <data name="MTF_Connection_CantConnect" xml:space="preserve">
+    <value>Nelze se připojit k MTF serveru.</value>
+  </data>
+  <data name="Access_Header" xml:space="preserve">
+    <value>Informace o přístupovém klíči</value>
+  </data>
+  <data name="Access_Owner" xml:space="preserve">
+    <value>Vlastník klíče:</value>
+  </data>
+  <data name="Access_ValidTo" xml:space="preserve">
+    <value>Platný do:</value>
+  </data>
+  <data name="Access_CreatedBy" xml:space="preserve">
+    <value>Vytvořený uživatelem:</value>
+  </data>
+  <data name="Access_Version" xml:space="preserve">
+    <value>Verze generátoru:</value>
+  </data>
+  <data name="Access_NoRestrict" xml:space="preserve">
+    <value>Klíč lze použít bez dalších omezení</value>
+  </data>
+  <data name="Access_Restrict" xml:space="preserve">
+    <value>Omezení na stroje:</value>
+  </data>
+  <data name="Access_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Access_Sequence" xml:space="preserve">
+    <value>Sekvence</value>
+  </data>
+  <data name="MTF_Connection_Error" xml:space="preserve">
+    <value>Chyba serveru</value>
+  </data>
+  <data name="MTF_Connection_RunServer" xml:space="preserve">
+    <value>Chcete spustit server?</value>
+  </data>
+  <data name="MTF_Connection_ExeFiles" xml:space="preserve">
+    <value>Soubory EXE</value>
+  </data>
+  <data name="Access_USB" xml:space="preserve">
+    <value>USB přístupový klíč</value>
+  </data>
+  <data name="Access_ANET" xml:space="preserve">
+    <value>ANET přístupový klíč</value>
+  </data>
+  <data name="Msg_Body_AccessInitCrash" xml:space="preserve">
+    <value>Inicializace přístupového klíče {0} selhala.{2}{2}{1}</value>
+  </data>
+  <data name="Msg_Header_AccessInitCrash" xml:space="preserve">
+    <value>Chyba inicializace přístupu</value>
+  </data>
+  <data name="Msg_Header_AccessError" xml:space="preserve">
+    <value>Chyba přístupu</value>
+  </data>
+  <data name="Msg_Body_AccessExpired" xml:space="preserve">
+    <value>Váš přístupový klíč vypršel</value>
+  </data>
+  <data name="Msg_Body_AccessValid" xml:space="preserve">
+    <value>Klíč pro přístup k tomuto počítači není platný.</value>
+  </data>
+  <data name="Msg_Body_AccessAnotherUsb" xml:space="preserve">
+    <value>Váš přístupový klíč byl vygenerován pro jiné USB. Nekopírujte prosím přístupový soubor.</value>
+  </data>
+  <data name="Msg_Body_AccessDays" xml:space="preserve">
+    <value>Váš přístupový klíč vyprší za {0} dní</value>
+  </data>
+  <data name="Access_WronMachine" xml:space="preserve">
+    <value>Špatný počítač</value>
+  </data>
+  <data name="Access_Corrupted" xml:space="preserve">
+    <value>Poškozený klíč</value>
+  </data>
+  <data name="Access_Expired" xml:space="preserve">
+    <value>Klíč vypršel</value>
+  </data>
+  <data name="OpenDialog_NotFound" xml:space="preserve">
+    <value>Soubor {0} nebyl nalezen.</value>
+  </data>
+  <data name="OpenDialog_FileName" xml:space="preserve">
+    <value>Název souboru:</value>
+  </data>
+  <data name="OpenDialog_SaveType" xml:space="preserve">
+    <value>Uložit jako typ:</value>
+  </data>
+  <data name="Buttons_Select" xml:space="preserve">
+    <value>Vybrat</value>
+  </data>
+  <data name="Buttons_NewFolder" xml:space="preserve">
+    <value>Nová složka</value>
+  </data>
+  <data name="Buttons_Open" xml:space="preserve">
+    <value>Otevřít</value>
+  </data>
+  <data name="Buttons_Save" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="OpenDialog_TypeSequence" xml:space="preserve">
+    <value>SEKVENCE</value>
+  </data>
+  <data name="Msg_Header_DeleteItem" xml:space="preserve">
+    <value>Vymazat položku</value>
+  </data>
+  <data name="Msg_Body_DeleteItem" xml:space="preserve">
+    <value>Chcete opravdu vymazat položku {0}?</value>
+  </data>
+  <data name="ContextMenu_Rename" xml:space="preserve">
+    <value>Přejmenovat</value>
+  </data>
+  <data name="ContextManun_Delete" xml:space="preserve">
+    <value>Vymazat</value>
+  </data>
+  <data name="OpenDialog_Root" xml:space="preserve">
+    <value>kořen:</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SaveReport" xml:space="preserve">
+    <value>Uložit report a vymazat chyby</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StartCounter" xml:space="preserve">
+    <value>Restart časovače</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetStatusMsg" xml:space="preserve">
+    <value>Nastavit stavovou zprávu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ClearValidTables" xml:space="preserve">
+    <value>Vymazat validační tabulky</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_LogMsg" xml:space="preserve">
+    <value>Zalogovat zprávu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetSeqVariant" xml:space="preserve">
+    <value>Získat variantu sekvence</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetSeqVariant" xml:space="preserve">
+    <value>Nastavit variantu sekvence</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeServiceCmd" xml:space="preserve">
+    <value>Změnit stav servisního příkazu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_PauseSeq" xml:space="preserve">
+    <value>Pozastavit sekvenci</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StopSeq" xml:space="preserve">
+    <value>Zastavit sekvenci</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetExecState" xml:space="preserve">
+    <value>Získat status vykonávání</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetUsers" xml:space="preserve">
+    <value>Získat přihlášené uživatele</value>
+  </data>
+  <data name="Activity_Base_Comment" xml:space="preserve">
+    <value>Komentář</value>
+  </data>
+  <data name="Activity_Base_OnOutputValueFailed" xml:space="preserve">
+    <value>Při chybě kontroly výstupní hodnoty</value>
+  </data>
+  <data name="Activity_Base_CheckOutputValue" xml:space="preserve">
+    <value>Kontrola výstupní hodnoty</value>
+  </data>
+  <data name="Activity_Base_OutputType" xml:space="preserve">
+    <value>Typ výstupu</value>
+  </data>
+  <data name="Activity_Base_Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Activity_Base_Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Activity_SeqHandling_OnlyInDebug" xml:space="preserve">
+    <value>Použít pouze v režimu ladění</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_Params" xml:space="preserve">
+    <value>Parametry</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_IncludeMsg" xml:space="preserve">
+    <value>Přidat zprávy</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_ReportParams" xml:space="preserve">
+    <value>Parametry reportu</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_ResetTimer" xml:space="preserve">
+    <value>Restartovat časovač</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_SetStatus" xml:space="preserve">
+    <value>Nastavit stavovou zprávu</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_IncludeTableStatus" xml:space="preserve">
+    <value>Zahrnout stavy validačních tabulek</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_LogHiddenRows" xml:space="preserve">
+    <value>Uložit skryté řádky validačních tabulek</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_SaveGraphicalView" xml:space="preserve">
+    <value>Uložit obrazovku grafického zobrazení</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_DefineCyclename" xml:space="preserve">
+    <value>Definovat názvy cyklů v reportu</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_CleanErrMemory" xml:space="preserve">
+    <value>Vymazat chyby v paměti</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_CleanErrWindow" xml:space="preserve">
+    <value>Vymazat chyby v okně</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_Selection" xml:space="preserve">
+    <value>Výběr:</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_Time" xml:space="preserve">
+    <value>Vymazat časové zobrazení</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_AllTables" xml:space="preserve">
+    <value>Vymazat všechny tabulky</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_Tables" xml:space="preserve">
+    <value>Tabulky</value>
+  </data>
+  <data name="Activity_SeqHandling_LogMsg" xml:space="preserve">
+    <value>Zprávy</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_Service" xml:space="preserve">
+    <value>Vrátí True, pokud je aktivní servisní režim</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_Teach" xml:space="preserve">
+    <value>Vrátí True, pokud je aktivní režim učení</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_GoToService" xml:space="preserve">
+    <value>Vrátí True, pokud je v přechodu do servisního režimu</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_GoToTeach" xml:space="preserve">
+    <value>Vrátí True, pokud je v přechodu do režimu učení</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Lines" xml:space="preserve">
+    <value>Řádky stavové zprávy sekvence</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Design" xml:space="preserve">
+    <value>Návrh stavového okna</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_FontSize" xml:space="preserve">
+    <value>Velikost písma</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Line1" xml:space="preserve">
+    <value>Řádek 1</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Line2" xml:space="preserve">
+    <value>Řádek 2</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Line3" xml:space="preserve">
+    <value>Řádek 3</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Preview" xml:space="preserve">
+    <value>Náhled stavového okna</value>
+  </data>
+  <data name="Activity_SeqHandling_SetVariant_Value" xml:space="preserve">
+    <value>Hodnota:</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_Setting" xml:space="preserve">
+    <value>Nastavení příkazů</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_Info" xml:space="preserve">
+    <value>Aktivita bude vykonána pouze v servisním režimu nebo v režimu učení!</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_Cmd" xml:space="preserve">
+    <value>Příkaz</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_IsAllowed" xml:space="preserve">
+    <value>Povolen</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_IsChecked" xml:space="preserve">
+    <value>Zamáčknut</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_SelectAll" xml:space="preserve">
+    <value>Vybrat vše</value>
+  </data>
+  <data name="Activity_BuildIn_SubSeq" xml:space="preserve">
+    <value>Vytvořit podsekvenci</value>
+  </data>
+  <data name="Activity_BuildIn_Call" xml:space="preserve">
+    <value>Volání</value>
+  </data>
+  <data name="Activity_BuildIn_SeqHandling" xml:space="preserve">
+    <value>Řízení sekvence</value>
+  </data>
+  <data name="Activity_BuildIn_ErrHandling" xml:space="preserve">
+    <value>Řízení chyb</value>
+  </data>
+  <data name="Activity_BuildIn_ShowMsg" xml:space="preserve">
+    <value>Zobrazit zprávu</value>
+  </data>
+  <data name="MTF_ErrorBehavior_Abort" xml:space="preserve">
+    <value>Ukončit test</value>
+  </data>
+  <data name="MTF_ErrorBehavior_Parent" xml:space="preserve">
+    <value>Předat výše</value>
+  </data>
+  <data name="MTF_ErrorBehavior_Continue" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="Activity_CallActivity_Type_Local" xml:space="preserve">
+    <value>Lokální volání</value>
+  </data>
+  <data name="Activity_CallActivity_Type_External" xml:space="preserve">
+    <value>Externí volání</value>
+  </data>
+  <data name="Activity_CallActivity_Type_Dynamic" xml:space="preserve">
+    <value>Dynamické volání</value>
+  </data>
+  <data name="Activity_CallActivity_Dynamic_Load" xml:space="preserve">
+    <value>Načíst</value>
+  </data>
+  <data name="Activity_CallActivity_Dynamic_Unload" xml:space="preserve">
+    <value>Uvolnit</value>
+  </data>
+  <data name="Activity_CallActivity_Dynamic_Execute" xml:space="preserve">
+    <value>Vykonat</value>
+  </data>
+  <data name="Activity_CallActivity_SubSequenceToCall" xml:space="preserve">
+    <value>Volaná podsekvence:</value>
+  </data>
+  <data name="Activity_CallActivity_SequenceName" xml:space="preserve">
+    <value>Název sekvence</value>
+  </data>
+  <data name="Activity_CallActivity_SubSequenceName" xml:space="preserve">
+    <value>Název podsekvence</value>
+  </data>
+  <data name="Activity_CallActivity_Call" xml:space="preserve">
+    <value>Volat</value>
+  </data>
+  <data name="Activity_CallActivity_CallNull" xml:space="preserve">
+    <value>neplatná hodnota</value>
+  </data>
+  <data name="MainCommand_Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="MainCommand_Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="MainCommand_Setup" xml:space="preserve">
+    <value>Nastavit</value>
+  </data>
+  <data name="MainCommand_Debug" xml:space="preserve">
+    <value>Ladění</value>
+  </data>
+  <data name="MainCommand_CollapseAll" xml:space="preserve">
+    <value>Sbalit vše</value>
+  </data>
+  <data name="MainCommand_ExpandAll" xml:space="preserve">
+    <value>Rozbalit vše</value>
+  </data>
+  <data name="MainCommand_Pause" xml:space="preserve">
+    <value>Pauza</value>
+  </data>
+  <data name="MainCommand_Debud_StepInto" xml:space="preserve">
+    <value>Krok do</value>
+  </data>
+  <data name="MainCommand_Debud_StepOver" xml:space="preserve">
+    <value>Krok přes</value>
+  </data>
+  <data name="MainCommand_Debud_StepOut" xml:space="preserve">
+    <value>Krok ven</value>
+  </data>
+  <data name="Enum_ExecutionType_Teach" xml:space="preserve">
+    <value>Učení</value>
+  </data>
+  <data name="Execution_AdditionalInfo_VariablesWatch" xml:space="preserve">
+    <value>Sledování proměnných</value>
+  </data>
+  <data name="Execution_AdditionalInfo_GS" xml:space="preserve">
+    <value>Zlatý vzorek</value>
+  </data>
+  <data name="Execution_AdditionalInfo_GS_Remains" xml:space="preserve">
+    <value>zbývá </value>
+  </data>
+  <data name="Execution_AdditionalInfo_GS_Missing" xml:space="preserve">
+    <value>Chybějící zlatý vzorek</value>
+  </data>
+  <data name="Execution_AdditionalInfo_VariablesWatch_Setting" xml:space="preserve">
+    <value>Nastavení sledování</value>
+  </data>
+  <data name="Activity_Message_Base_Header" xml:space="preserve">
+    <value>Hlavička:</value>
+  </data>
+  <data name="Activity_Message_Base_Message" xml:space="preserve">
+    <value>Zpráva:</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Date" xml:space="preserve">
+    <value>DATUM:</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Time" xml:space="preserve">
+    <value>ČAS:</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Start" xml:space="preserve">
+    <value>START</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Stop" xml:space="preserve">
+    <value>STOP</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Duration" xml:space="preserve">
+    <value>TRVÁNÍ</value>
+  </data>
+  <data name="Execution_TreeView_ActivityFocus" xml:space="preserve">
+    <value>Zachytávat se na aktivitu za běhu</value>
+  </data>
+  <data name="Execution_Result_Parallel" xml:space="preserve">
+    <value>Souběžné vykonávání</value>
+  </data>
+  <data name="Execution_Result_ActivityName" xml:space="preserve">
+    <value>Název aktivity</value>
+  </data>
+  <data name="Execution_Result_Duration" xml:space="preserve">
+    <value>Trvání</value>
+  </data>
+  <data name="Execution_Result_Ms" xml:space="preserve">
+    <value>ms</value>
+  </data>
+  <data name="Execution_Result_Activity" xml:space="preserve">
+    <value>Aktivita</value>
+  </data>
+  <data name="Execution_Result_Method" xml:space="preserve">
+    <value>Název funkce</value>
+  </data>
+  <data name="Activity_Base_OnErrorFailed" xml:space="preserve">
+    <value>Při chybě</value>
+  </data>
+  <data name="Activity_SubSequence_Header" xml:space="preserve">
+    <value>Podsekvence</value>
+  </data>
+  <data name="Activity_SubSequence_ExecutionType" xml:space="preserve">
+    <value>Typ vykonávání</value>
+  </data>
+  <data name="Activity_SubSequence_Condition" xml:space="preserve">
+    <value>Podmínka</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_TimeStamp" xml:space="preserve">
+    <value>Č. RAZÍTKO</value>
+  </data>
+  <data name="Execution_Result_Params" xml:space="preserve">
+    <value>Parametry funkce:</value>
+  </data>
+  <data name="Execution_Result_Timestamp" xml:space="preserve">
+    <value>Časové razítko:</value>
+  </data>
+  <data name="Execution_Result_Result" xml:space="preserve">
+    <value>Výsledek</value>
+  </data>
+  <data name="Execution_Result_Repetition" xml:space="preserve">
+    <value>Počet opakování:</value>
+  </data>
+  <data name="Execution_Result_Progress" xml:space="preserve">
+    <value>Postup:</value>
+  </data>
+  <data name="ValidationTable_EnterUniquenName" xml:space="preserve">
+    <value>Vložte prosím unikátní jméno.</value>
+  </data>
+  <data name="ValidationTable_Column_Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="ValidationTable_Column_Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="ValidationTable_Column_Required" xml:space="preserve">
+    <value>Požadováno</value>
+  </data>
+  <data name="ValidationTable_Column_Prohibited" xml:space="preserve">
+    <value>Zakázáno</value>
+  </data>
+  <data name="ValidationTable_Column_Actual" xml:space="preserve">
+    <value>Aktuální</value>
+  </data>
+  <data name="ValidationTable_Column_Name" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="ValidationTable_Column_Hidden" xml:space="preserve">
+    <value>Skrytý</value>
+  </data>
+  <data name="ValidationTable_Column_GS" xml:space="preserve">
+    <value>GS</value>
+  </data>
+  <data name="ValidationTable_OtherVariants" xml:space="preserve">
+    <value>Ostatní varianty</value>
+  </data>
+  <data name="Msg_Header_Inactivity" xml:space="preserve">
+    <value>Neaktivita v MTF</value>
+  </data>
+  <data name="Msg_Body_Inactivity" xml:space="preserve">
+    <value>Byla zjištěna neaktivita po dobu {0} hodin. Vaše licence bude zničena během {1} minut.</value>
+  </data>
+  <data name="Msg_Header_SaveSequence" xml:space="preserve">
+    <value>Uložit sekvenci</value>
+  </data>
+  <data name="Execution_StartDelay" xml:space="preserve">
+    <value>zpoždění {0}s před startem sekvence....</value>
+  </data>
+  <data name="Msg_Body_SequenceNotStartModifiedEditor" xml:space="preserve">
+    <value>Tato sekvence nemůže být spuštěna, protože byla modifikována v Editoru.</value>
+  </data>
+  <data name="Msg_Header_LeaveService" xml:space="preserve">
+    <value>Opouštění servisu</value>
+  </data>
+  <data name="Msg_Body_LeaveService" xml:space="preserve">
+    <value>Chcete opravud opustit servisní režim?</value>
+  </data>
+  <data name="Msg_Body_LeaveTeach" xml:space="preserve">
+    <value>Chcete opravud opustit režim učení?</value>
+  </data>
+  <data name="Msg_Body_RecursiveOpen" xml:space="preserve">
+    <value>Sekvence {0} je otevírána vícekrát. Prosím zkontrolujte vaší sekvenci</value>
+  </data>
+  <data name="Msg_Body_UpdateMTF" xml:space="preserve">
+    <value>Aktualizujte MTF a zkuste to znovu!</value>
+  </data>
+  <data name="Msg_Body_CouldNotLoad" xml:space="preserve">
+    <value>Sekvence nemůže být načtena, protože byla vytvořena ve vyšší verzi MTF než aktuálně máte.</value>
+  </data>
+  <data name="Mtf_WarningMsg_ComponentDisabled" xml:space="preserve">
+    <value>Varování ři vykonávání sekvence: Komponenta {0} je deaktivována. Běh sekvence se může chovat neočekávaně.</value>
+  </data>
+  <data name="Execution_Header_Version" xml:space="preserve">
+    <value>{0} verze {1}</value>
+  </data>
+  <data name="Msg_Body_SeqStop" xml:space="preserve">
+    <value>Sekvence byla zastavena.</value>
+  </data>
+  <data name="Msg_Body_SeqAbort" xml:space="preserve">
+    <value>Sekvence byla přerušena.</value>
+  </data>
+  <data name="Msg_Body_SeqFinish" xml:space="preserve">
+    <value>Sekvence byla dokončena.</value>
+  </data>
+  <data name="Msg_Header_Info" xml:space="preserve">
+    <value>MTF - info</value>
+  </data>
+  <data name="Mtf_OpenDialog_OpenSeq" xml:space="preserve">
+    <value>Otevřít sekvenci</value>
+  </data>
+  <data name="Mtf_LongTask_OpeningSeq" xml:space="preserve">
+    <value>Otevírání sekvence...</value>
+  </data>
+  <data name="Msg_Body_UnableLoadExetnal" xml:space="preserve">
+    <value>Nelze načíst následující sekvence:</value>
+  </data>
+  <data name="Execution_ActivityProgress" xml:space="preserve">
+    <value>Průběh aktivity</value>
+  </data>
+  <data name="Msg_Header_MissingRef" xml:space="preserve">
+    <value>Chybějící odkazy</value>
+  </data>
+  <data name="Msg_Body_MissingRef" xml:space="preserve">
+    <value>Tato sekvence nebude fungovat správně.</value>
+  </data>
+  <data name="Execution_Status_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Execution_Status_Nok" xml:space="preserve">
+    <value>NOK</value>
+  </data>
+  <data name="Execution_ErrorWindow_MsgCount" xml:space="preserve">
+    <value>Počet zpráv</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CheckErr" xml:space="preserve">
+    <value>Zkontrolovat chyby</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CleanErr" xml:space="preserve">
+    <value>Vymazat chyby</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_RaiseErr" xml:space="preserve">
+    <value>Vyvolat chybu</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetErr" xml:space="preserve">
+    <value>Získat chyby</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetTables" xml:space="preserve">
+    <value>Získat nevalidní Validační tabulky</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetLastActivityErr" xml:space="preserve">
+    <value>Získat jméno poslední aktivity s chybou</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_ErrImg" xml:space="preserve">
+    <value>Získat obrázky s chybou</value>
+  </data>
+  <data name="Activity_ErrorHandling_CleanErr_CleanErrWindow" xml:space="preserve">
+    <value>Vymazat okno chybových zpráv</value>
+  </data>
+  <data name="Activity_Base_AppendError" xml:space="preserve">
+    <value>Připsat chybu:</value>
+  </data>
+  <data name="Activity_ErrorHandling_CheckErr_Title" xml:space="preserve">
+    <value>Aktivita vrátí True pokud od posledního smazání nedošlo k žádné chybě. V opačném případě vrátí False.</value>
+  </data>
+  <data name="Activity_ErrorHandling_CheckErr_UseTable" xml:space="preserve">
+    <value>Zahrnout stavy validačních tabulek</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_Title" xml:space="preserve">
+    <value>Aktivita vrátí všechny chyby, které nastaly od posleního smazání.</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_TimeStamp" xml:space="preserve">
+    <value>Časové razítko</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_ActivityName" xml:space="preserve">
+    <value>Jméno aktivity</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_ShortPath" xml:space="preserve">
+    <value>Krátká cesta k aktivitě</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_LongPath" xml:space="preserve">
+    <value>Dlouhá cesta k aktivitě</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_ErrMsg" xml:space="preserve">
+    <value>Chybové zprávy</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetTables_Title" xml:space="preserve">
+    <value>Získá všechny chybné validační tabulky jako jeden řetězec. Užitečné jako krátké info, co bylo špatně.</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetLastActivityErr_Title" xml:space="preserve">
+    <value>Vrátí název poslední aktivity, která způsobila chyba.</value>
+  </data>
+  <data name="Activity_ErrorHandling_ErrImg_Title" xml:space="preserve">
+    <value>Vrátí všechny obrázky s chybou od posledního smazání</value>
+  </data>
+  <data name="Activity_Base_AssignOutput" xml:space="preserve">
+    <value>Přiřadit výstupní hodnotu</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_Params" xml:space="preserve">
+    <value>Parametry:</value>
+  </data>
+  <data name="Activity_Base_SwitchViewTitle" xml:space="preserve">
+    <value>Režim vykonávání</value>
+  </data>
+  <data name="Activity_Base_AllowSwitchView" xml:space="preserve">
+    <value>Povolit změnu režimu</value>
+  </data>
+  <data name="Parameter_Is_Optional" xml:space="preserve">
+    <value>Volitelný</value>
+  </data>
+  <data name="AccessRole_sequenceEditor" xml:space="preserve">
+    <value>Editror sekvencí</value>
+  </data>
+  <data name="AccessRole_componentConfiguration" xml:space="preserve">
+    <value>Konfigurace komponent</value>
+  </data>
+  <data name="AccessRole_teach" xml:space="preserve">
+    <value>Mód učení</value>
+  </data>
+  <data name="AccessRole_mtfSetting" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="AccessRole_debug" xml:space="preserve">
+    <value>Mód ladění</value>
+  </data>
+  <data name="AccessRole_resultViewer" xml:space="preserve">
+    <value>Prohlížeč výsledků</value>
+  </data>
+  <data name="AccessRole_noDestroy" xml:space="preserve">
+    <value>Nezničení licence</value>
+  </data>
+  <data name="AccessRole_service" xml:space="preserve">
+    <value>Mód servis</value>
+  </data>
+  <data name="AccessRole_hideCommands" xml:space="preserve">
+    <value>Skryté Hlavní menu a příkazy vykonávání sekvence</value>
+  </data>
+  <data name="AccessRole_serviceReadOnly" xml:space="preserve">
+    <value>Mód servis pouze pro čtení</value>
+  </data>
+  <data name="Buttons_Remove" xml:space="preserve">
+    <value>Odstranit</value>
+  </data>
+  <data name="Buttons_Rename" xml:space="preserve">
+    <value>Přejmenovat</value>
+  </data>
+  <data name="Editor_GraphicalView_ResourceManager_ImageFiles" xml:space="preserve">
+    <value>Obrázky</value>
+  </data>
+  <data name="Mtf_LongTask_Saving" xml:space="preserve">
+    <value>Ukládání...</value>
+  </data>
+  <data name="MainCommand_GraphicalView" xml:space="preserve">
+    <value>Grafické zobr.</value>
+  </data>
+  <data name="Mtf_RenameControl_Header" xml:space="preserve">
+    <value>Vložte prosím nový název:</value>
+  </data>
+  <data name="Editor_GraphicalView_ResourceManager_LoadError" xml:space="preserve">
+    <value>Při načítání obrázků došlo k chybě.</value>
+  </data>
+  <data name="Editor_GraphicalView_ResourceManager_SaveError" xml:space="preserve">
+    <value>Při ukládání obrázků došlo k chybě.</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_ViewName" xml:space="preserve">
+    <value>Název zobrazení</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_SelectedPicture" xml:space="preserve">
+    <value>Vybraný obrázek</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_TableList" xml:space="preserve">
+    <value>Validační tabulky</value>
+  </data>
+  <data name="Mtf_Export_Title" xml:space="preserve">
+    <value>Export sekvencí</value>
+  </data>
+  <data name="Mtf_Export_PreviewTitle" xml:space="preserve">
+    <value>Náhled exportu</value>
+  </data>
+  <data name="Mtf_Export_PreviewDesc" xml:space="preserve">
+    <value>Následují obsah může být vyexportován. Komponenty, které nemají namapovanou konfiguraci nemohou být vyexportovány.</value>
+  </data>
+  <data name="Mtf_Export_PreviewMtfVersion" xml:space="preserve">
+    <value>Verze MTF:</value>
+  </data>
+  <data name="Mtf_Export_Sequences" xml:space="preserve">
+    <value>Sekvence</value>
+  </data>
+  <data name="Mtf_Export_Components" xml:space="preserve">
+    <value>Konfigurace komponent</value>
+  </data>
+  <data name="Mtf_Export_PreviewImages" xml:space="preserve">
+    <value>Obrázky grafického zobrazení</value>
+  </data>
+  <data name="Mtf_Export_SequencesTitle" xml:space="preserve">
+    <value>Export sekvencí</value>
+  </data>
+  <data name="Mtf_Export_SequencesDesc" xml:space="preserve">
+    <value>Vyberte sekvence, které chcete exportovat. Pokud zvolíte hlavní sekvenci, musíte exportovat všechny sekvence.</value>
+  </data>
+  <data name="Mtf_Export_SequencesName" xml:space="preserve">
+    <value>Název sekvence</value>
+  </data>
+  <data name="Mtf_Export_Export" xml:space="preserve">
+    <value>Exportovat</value>
+  </data>
+  <data name="Mtf_Export_ComponentsName" xml:space="preserve">
+    <value>Název komponenty</value>
+  </data>
+  <data name="Mtf_Export_ComponentsTitle" xml:space="preserve">
+    <value>Export konfigurací komponent</value>
+  </data>
+  <data name="Mtf_Export_ComponentsDesc" xml:space="preserve">
+    <value>Vyberte konfigurace, které chcete exportovat.</value>
+  </data>
+  <data name="Mtf_Export_ImagesTitle" xml:space="preserve">
+    <value>Export obrázků Grafického zobrazení</value>
+  </data>
+  <data name="Mtf_Export_ImagesDesc" xml:space="preserve">
+    <value>Vyberte obrázky, které chcete exportovat.</value>
+  </data>
+  <data name="Mtf_Export_SummaryTitle" xml:space="preserve">
+    <value>Souhrn exportu</value>
+  </data>
+  <data name="Mtf_Export_SummaryDesc" xml:space="preserve">
+    <value>V následujících kategoríích můžete vidět co bude a co nebude exportováno.</value>
+  </data>
+  <data name="Mtf_Export_SummaryExport" xml:space="preserve">
+    <value>Položky k exportu</value>
+  </data>
+  <data name="Mtf_Export_SummaryNotExport" xml:space="preserve">
+    <value>Nebude exportováno</value>
+  </data>
+  <data name="Mtf_Export_Images" xml:space="preserve">
+    <value>Obrázky grafického zobrazení</value>
+  </data>
+  <data name="Mtf_Export_ImagesName" xml:space="preserve">
+    <value>Název obrázku</value>
+  </data>
+  <data name="Buttons_Finnish" xml:space="preserve">
+    <value>Dokončit</value>
+  </data>
+  <data name="Buttons_WizardNext" xml:space="preserve">
+    <value>Další &gt;</value>
+  </data>
+  <data name="Buttons_WizardBack" xml:space="preserve">
+    <value>&lt; Předchozí</value>
+  </data>
+  <data name="Mtf_FileDialog_ZipFile" xml:space="preserve">
+    <value>Soubor ZIP</value>
+  </data>
+  <data name="Mtf_LongTask_Exporting" xml:space="preserve">
+    <value>Exportování...</value>
+  </data>
+  <data name="Mtf_LongTask_LoadingAllSequences" xml:space="preserve">
+    <value>Načítání sekvence...</value>
+  </data>
+  <data name="Mtf_LongTask_LoadingSequence" xml:space="preserve">
+    <value>Načítání všech sekvencí...</value>
+  </data>
+  <data name="Mtf_Import_Title" xml:space="preserve">
+    <value>Import sekvence</value>
+  </data>
+  <data name="Mtf_Import_PreviewTitle" xml:space="preserve">
+    <value>Náhled importu</value>
+  </data>
+  <data name="Mtf_Import_PreviewDesc" xml:space="preserve">
+    <value>Obsah vybraného ZIP souboru.</value>
+  </data>
+  <data name="Mtf_Import_PreviewErr" xml:space="preserve">
+    <value>Importovaný soubor ZIP je v nesprávném formátu.</value>
+  </data>
+  <data name="Mtf_Import_MtfVersion" xml:space="preserve">
+    <value>Původní verze MTF:</value>
+  </data>
+  <data name="Mtf_Import_FileName" xml:space="preserve">
+    <value>Název souboru</value>
+  </data>
+  <data name="Mtf_Import_CantImport" xml:space="preserve">
+    <value>Sekvence nemůže být načtena, protože byla vytvořena ve vyšší verzi MTF než máte.
+Aktualizujte MTF a zkuste to prosím znovu!</value>
+  </data>
+  <data name="Msg_Body_ImportError" xml:space="preserve">
+    <value>Během importu došlo k chybě. Viz SystemLog na straně Server.
+Chcete spustit Import znovu?</value>
+  </data>
+  <data name="Mtf_Import_DestTitle" xml:space="preserve">
+    <value>Výběr umístění</value>
+  </data>
+  <data name="Mtf_Import_DestDesc" xml:space="preserve">
+    <value>Vyberte adresář pro import sekvencí umístěných v souboru ZIP.</value>
+  </data>
+  <data name="Mtf_Import_SeqConflictTitle" xml:space="preserve">
+    <value>Import sekvencí</value>
+  </data>
+  <data name="Mtf_Import_SeqConflictDesc" xml:space="preserve">
+    <value>Vyberte sekvence, které chcete importovat, a pokud dojde ke konfliktům, můžete původní sekvence přepsat.</value>
+  </data>
+  <data name="Mtf_Import_SeqConflictDestinationFolder" xml:space="preserve">
+    <value>Cílový adresář</value>
+  </data>
+  <data name="Mtf_Import_ConflictImport" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Mtf_Import_ConflictCanImport" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Mtf_Import_ConflictItem" xml:space="preserve">
+    <value>Konfigurace v konfliktu</value>
+  </data>
+  <data name="Mtf_Import_ConflictOverwrite" xml:space="preserve">
+    <value>Přepsat</value>
+  </data>
+  <data name="Mtf_Import_ComponentConflictTitle" xml:space="preserve">
+    <value>Import konfigurací komponent</value>
+  </data>
+  <data name="Mtf_Import_ComponentConflictDesc" xml:space="preserve">
+    <value>Vyberte konfigurace komponent, které chcete importovat, a pokud dojde ke konfliktům, můžete původní konfigurace přepsat. Konflikty jsou detekovány podle ID, nikoli podle jména. Pokud chcete zachovat oba komponenty (nový i starý), jděte do Konfigurace komponent, vyberte příslušnou konfiguraci a vytvořte kopii. Následně můžete originální přepsat.</value>
+  </data>
+  <data name="Mtf_Import_ComponentConflictName" xml:space="preserve">
+    <value>Název konfigurace</value>
+  </data>
+  <data name="Mtf_Import_SummaryTitle" xml:space="preserve">
+    <value>Souhrn importu</value>
+  </data>
+  <data name="Mtf_Import_SummaryDesc" xml:space="preserve">
+    <value>V následujících kategoríích můžete vidět co bude a co nebude importováno.</value>
+  </data>
+  <data name="Mtf_Import_SummaryImport" xml:space="preserve">
+    <value>Položky k importu</value>
+  </data>
+  <data name="Mtf_Import_SummaryNotImport" xml:space="preserve">
+    <value>Nebude importováno</value>
+  </data>
+  <data name="Mtf_Import_ImagesTitle" xml:space="preserve">
+    <value>Import obrázků Grafického zobrazení</value>
+  </data>
+  <data name="Mtf_Import_ImagesDesc" xml:space="preserve">
+    <value>Vyberte obrázky, které chcete importovat.</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SwitchView" xml:space="preserve">
+    <value>Přepnutí pohledu</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_SaveToReport" xml:space="preserve">
+    <value>Uložit do reportu</value>
+  </data>
+  <data name="Access_Request_Header" xml:space="preserve">
+    <value>Požadavek na licenci</value>
+  </data>
+  <data name="ValidationRule_WrongEmailAddress" xml:space="preserve">
+    <value>Neplatná emailová adresa.</value>
+  </data>
+  <data name="Access_Request_FirstName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="Access_Request_LastName" xml:space="preserve">
+    <value>Příjmení</value>
+  </data>
+  <data name="Access_Request_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Buttons_Send" xml:space="preserve">
+    <value>Odeslat</value>
+  </data>
+  <data name="Access_Request_ServerState" xml:space="preserve">
+    <value>Připojení k serveru</value>
+  </data>
+  <data name="Access_Request_Connecting" xml:space="preserve">
+    <value>Připojování...</value>
+  </data>
+  <data name="Access_Request_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Access_Request_Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Access_Request_Reason" xml:space="preserve">
+    <value>Důvod (např. požadované role)</value>
+  </data>
+  <data name="Access_Request_Success" xml:space="preserve">
+    <value>Žádost o licenci byla úspěšně odeslána.</value>
+  </data>
+  <data name="Access_Request_USB" xml:space="preserve">
+    <value>Vybraný USB disk</value>
+  </data>
+  <data name="Access_Request_RefreshUSB" xml:space="preserve">
+    <value>Načíst USB disky</value>
+  </data>
+  <data name="Activity_Msg_Type_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Activity_Msg_Type_Warning" xml:space="preserve">
+    <value>Varování</value>
+  </data>
+  <data name="Activity_Msg_Type_Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Activity_Msg_Type_Question" xml:space="preserve">
+    <value>Otázka</value>
+  </data>
+  <data name="Activity_Msg_Type_ImportantQuestion" xml:space="preserve">
+    <value>Důležitá otázka</value>
+  </data>
+  <data name="Activity_Msg_Type_Choice" xml:space="preserve">
+    <value>Výběr</value>
+  </data>
+  <data name="Activity_Msg_Type_NoBlocking" xml:space="preserve">
+    <value>Neblokující</value>
+  </data>
+  <data name="Activity_Msg_Type_Input" xml:space="preserve">
+    <value>Vstup</value>
+  </data>
+  <data name="Activity_Msg_Type_Picture" xml:space="preserve">
+    <value>Obrázek</value>
+  </data>
+  <data name="Activity_Msg_Type_Close" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ComboBox" xml:space="preserve">
+    <value>Seznam</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_Buttons" xml:space="preserve">
+    <value>Tlačítka</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ToggleButtons" xml:space="preserve">
+    <value>Přepínací tlačítka</value>
+  </data>
+  <data name="Activity_Msg_Parameters" xml:space="preserve">
+    <value>Parametry zprávy:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Header" xml:space="preserve">
+    <value>Záhlaví:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Message" xml:space="preserve">
+    <value>Zpráva:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_FullScreen" xml:space="preserve">
+    <value>Na celou obrazovku</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons" xml:space="preserve">
+    <value>Tlačítka:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_OkCancel" xml:space="preserve">
+    <value>Ok Zrušit</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_YesNo" xml:space="preserve">
+    <value>Ano Ne</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_Hide" xml:space="preserve">
+    <value>Skýt</value>
+  </data>
+  <data name="Activity_Msg_Parameters_DisplayAs" xml:space="preserve">
+    <value>Zobrazit jako:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Values" xml:space="preserve">
+    <value>Hodnoty:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_ShowCancel" xml:space="preserve">
+    <value>Zobrazit tlačítko Zrušit</value>
+  </data>
+  <data name="Activity_Msg_Parameters_MTFImage" xml:space="preserve">
+    <value>MTF obrázek:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_AbsPath" xml:space="preserve">
+    <value>Použít absolutní cestu</value>
+  </data>
+  <data name="Activity_Msg_Parameters_NonBlockType" xml:space="preserve">
+    <value>Typ:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_CloseSource" xml:space="preserve">
+    <value>Zdrojová aktivita zavírané zprávy</value>
+  </data>
+  <data name="Mtf_ListEditor_ItemsCount" xml:space="preserve">
+    <value>Počet položek:</value>
+  </data>
+  <data name="Mtf_ListEditor_ActivityResult" xml:space="preserve">
+    <value>Výsledek aktivity:</value>
+  </data>
+  <data name="Buttons_Create" xml:space="preserve">
+    <value>Vytvořit</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeUserCmd_Setting" xml:space="preserve">
+    <value>Uživatelské příkazy</value>
+  </data>
+  <data name="Activity_SeqHandling_SetUserIndicatorValue_Setting" xml:space="preserve">
+    <value>Uživatelské indikátor</value>
+  </data>
+  <data name="Activity_SeqHandling_SetUserIndicatorValue_Value" xml:space="preserve">
+    <value>Hodnota indikátoru</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeUserCmd" xml:space="preserve">
+    <value>Změnit stav uživatelského příkazu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetUserIndicatorValue" xml:space="preserve">
+    <value>Změnit hodnotu uživatelského indikátoru</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SynchronizationExecuteInParallel" xml:space="preserve">
+    <value>Synchronizace v paralelním vykonávání </value>
+  </data>
+  <data name="Activity_SeqHandling_SEIP_Count" xml:space="preserve">
+    <value>Očekávaný počet:</value>
+  </data>
+  <data name="Activity_SeqHandling_SEIP_Params" xml:space="preserve">
+    <value>Parametr</value>
+  </data>
+  <data name="Activity_SeqHandling_SEIP_Desc" xml:space="preserve">
+    <value>Jméno této aktivity je zároveň identifikátor synchronizace. Pro pokračování sekvence musí být dosažen požadovaný počet stejně pojmenovaných synchronizačních aktivit.</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetMTFVersion" xml:space="preserve">
+    <value>Získat verzi MTF</value>
+  </data>
+  <data name="Mtf_VariantWizard_AllowedGroups" xml:space="preserve">
+    <value>Dostupné skupiny</value>
+  </data>
+  <data name="Mtf_VariantWizard_AddNewValue" xml:space="preserve">
+    <value>Přidat novou hodnotu</value>
+  </data>
+  <data name="Mtf_VariantWizard_ApplyForExternal" xml:space="preserve">
+    <value>Aplikovat pro externí sekvence</value>
+  </data>
+  <data name="ValidationRule_EmptyStringError" xml:space="preserve">
+    <value>Prosím vyplňte.</value>
+  </data>
+  <data name="MainCommand_PictureBox" xml:space="preserve">
+    <value>Ukázat obrázek</value>
+  </data>
+  <data name="Setting_StartMTFClientAfterLogin" xml:space="preserve">
+    <value>Spustit MTF klient po přihlášení uživatele</value>
+  </data>
+  <data name="ReportViewer_SequenceName" xml:space="preserve">
+    <value>Název sekvence</value>
+  </data>
+  <data name="ReportViewer_CycleName" xml:space="preserve">
+    <value>Název cyklu</value>
+  </data>
+  <data name="ReportViewer_StartTime" xml:space="preserve">
+    <value>Čas spuštění</value>
+  </data>
+  <data name="ReportViewer_StopTime" xml:space="preserve">
+    <value>Čas ukončení</value>
+  </data>
+  <data name="ReportViewer_Duration" xml:space="preserve">
+    <value>Trvání</value>
+  </data>
+  <data name="ReportViewer_Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="ReportViewer_Detail_Title" xml:space="preserve">
+    <value>Report sekvence</value>
+  </data>
+  <data name="ReportViewer_Detail_Machine" xml:space="preserve">
+    <value>Stroj</value>
+  </data>
+  <data name="ReportViewer_Detail_User" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="ReportViewer_Detail_ErrorsCount" xml:space="preserve">
+    <value>Počet chyb</value>
+  </data>
+  <data name="ReportViewer_Detail_StartTime" xml:space="preserve">
+    <value>Čas spuštění</value>
+  </data>
+  <data name="ReportViewer_Detail_StopTime" xml:space="preserve">
+    <value>Čas zastavení</value>
+  </data>
+  <data name="ReportViewer_Detail_Duration" xml:space="preserve">
+    <value>Trvání</value>
+  </data>
+  <data name="ReportViewer_Detail_Variant" xml:space="preserve">
+    <value>Varianta sekvence</value>
+  </data>
+  <data name="ReportViewer_Detail_Gs" xml:space="preserve">
+    <value>Životnost zlatého vzorku</value>
+  </data>
+  <data name="ReportViewer_Detail_FinalResult" xml:space="preserve">
+    <value>Konečný výsledek</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_Timestamp" xml:space="preserve">
+    <value>Časové razítko</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_Message" xml:space="preserve">
+    <value>Zpráva</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_ErrorType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_ActivityName" xml:space="preserve">
+    <value>Název aktivity</value>
+  </data>
+  <data name="ReportViewer_Last24Hours" xml:space="preserve">
+    <value>Poslendních 24 hodin</value>
+  </data>
+  <data name="ReportViewer_LastWeek" xml:space="preserve">
+    <value>Poslední týden</value>
+  </data>
+  <data name="ReportViewer_ReportResult" xml:space="preserve">
+    <value>Výsledek reportu</value>
+  </data>
+  <data name="ReportViewer_StartTimeFrom" xml:space="preserve">
+    <value>Čas spuštění od</value>
+  </data>
+  <data name="ReportViewer_StartTimeTo" xml:space="preserve">
+    <value>Čas spuštění do</value>
+  </data>
+  <data name="ReportViewer_Variant" xml:space="preserve">
+    <value>Varianta sekvence</value>
+  </data>
+  <data name="ReportViewer_Items" xml:space="preserve">
+    <value>Položek</value>
+  </data>
+  <data name="Mtf_LongTask_SavingSeq" xml:space="preserve">
+    <value>Ukládání sekvence...</value>
+  </data>
+  <data name="MainCommand_Reports" xml:space="preserve">
+    <value>Reporty</value>
+  </data>
+  <data name="MainCommand_Summary_Reports" xml:space="preserve">
+    <value>Souhrnné reporty</value>
+  </data>
+  <data name="AddNewSummaryReport" xml:space="preserve">
+    <value>Nový shournný report</value>
+  </data>
+  <data name="New_Summary_Report" xml:space="preserve">
+    <value>Nový shournný report</value>
+  </data>
+  <data name="SummaryReports" xml:space="preserve">
+    <value>Souhrnné reporty</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Bottom" xml:space="preserve">
+    <value>Dole</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Left" xml:space="preserve">
+    <value>Vlevo</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_None" xml:space="preserve">
+    <value>Žádné</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Right" xml:space="preserve">
+    <value>Vpravo</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Top" xml:space="preserve">
+    <value>Nahoře</value>
+  </data>
+  <data name="SummaryReportAddLineChartPanel" xml:space="preserve">
+    <value>Přidat panel s grafem</value>
+  </data>
+  <data name="SummaryReportAddLineChartSeriesSettings" xml:space="preserve">
+    <value>Přidat řadu do grafu</value>
+  </data>
+  <data name="SummaryReportAddReportsOverviewPanel" xml:space="preserve">
+    <value>Přidat panel s přehledem</value>
+  </data>
+  <data name="SummaryReportAddTextPanel" xml:space="preserve">
+    <value>Přidat panel s textem</value>
+  </data>
+  <data name="SummaryReportCanModifyFilterInView" xml:space="preserve">
+    <value>Zobraz filter při prohližení</value>
+  </data>
+  <data name="SummaryReportLineChartPanelLegendPosition" xml:space="preserve">
+    <value>Umístění legendy</value>
+  </data>
+  <data name="SummaryReportLineChartPanelTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="SummaryReportLineChartSeriesColor" xml:space="preserve">
+    <value>Barva</value>
+  </data>
+  <data name="SummaryReportLineChartSeriesTitle" xml:space="preserve">
+    <value>Jméno řady</value>
+  </data>
+  <data name="SummaryReportName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="SummaryReportOverviewPanelTimeQuantumInMinutes" xml:space="preserve">
+    <value>Velikost času v minutách</value>
+  </data>
+  <data name="SummaryReportOverviewPanelTitle" xml:space="preserve">
+    <value>Nadpis</value>
+  </data>
+  <data name="SummaryReportTextPanelFontSize" xml:space="preserve">
+    <value>Velikost písma</value>
+  </data>
+  <data name="SummaryReportTextPanelText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="SummaryReportTitle" xml:space="preserve">
+    <value>Nadpis</value>
+  </data>
+  <data name="SummaryReportLineChartPanel" xml:space="preserve">
+    <value>Panel pro čárový graf</value>
+  </data>
+  <data name="SummaryReportReportsOverviewPanel" xml:space="preserve">
+    <value>Přehledový panel</value>
+  </data>
+  <data name="SummaryReportTextPanel" xml:space="preserve">
+    <value>Textový panel</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_AssignDut" xml:space="preserve">
+    <value>Přiřadit k DUT</value>
+  </data>
+  <data name="Msg_Header_DeleteAct" xml:space="preserve">
+    <value>Vymazat aktivitu</value>
+  </data>
+  <data name="Msg_Body_DeleteAct" xml:space="preserve">
+    <value>Chcete opravdu vymazat tuto aktivity: {0}?</value>
+  </data>
+  <data name="Msg_Body_DeleteMoreAct" xml:space="preserve">
+    <value>Opravdu chcete vymazat aktivity? Počet: {0}</value>
+  </data>
+  <data name="Mtf_Data_Migration_Copy" xml:space="preserve">
+    <value>Kopírovat</value>
+  </data>
+  <data name="Mtf_Data_Migration_DoNothing" xml:space="preserve">
+    <value>Nic</value>
+  </data>
+  <data name="Mtf_Data_Migration_Header" xml:space="preserve">
+    <value>Převod dat</value>
+  </data>
+  <data name="Mtf_Data_Migration_Message" xml:space="preserve">
+    <value>Byla nalezena data z verze {0} Co se má provést s těmito daty?</value>
+  </data>
+  <data name="Mtf_Data_Migration_Move" xml:space="preserve">
+    <value>Přesunout</value>
+  </data>
+  <data name="Mtf_Init_DataMigration" xml:space="preserve">
+    <value>Převod data, prosím čekejte ...</value>
+  </data>
+</root>

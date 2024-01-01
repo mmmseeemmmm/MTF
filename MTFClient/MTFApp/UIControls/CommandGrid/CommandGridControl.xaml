@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="MTFApp.UIControls.CommandGrid.CommandGridControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:uiControls="clr-namespace:MTFApp.UIControls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:MTFServiceCommandIconToStyle x:Key="ServiceCommandIconConverter" />
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="EditMode">
+            <Border BorderThickness="0" BorderBrush="{StaticResource ALBlackBrush}" Width="50" Height="30"
+                    Margin="0,0,1,0" Padding="5" ToolTip="{Binding Command.Name}"
+                    PreviewMouseLeftButtonDown="Square_OnPreviewMouseLeftButtonDown">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsActual}" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsActual}" Value="False">
+                                <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Command}" Value="{x:Null}">
+                                <Setter Property="Background" Value="{StaticResource ALLightSilverBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <UserControl Style="{Binding Command.Icon, Converter={StaticResource ServiceCommandIconConverter}}"
+                             VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ButtonTemplate">
+            <uiControls:ServiceCommandButton CheckedBrush="{StaticResource ALYellowBrush}"
+                                             UnCheckedBrush="{StaticResource ALDarkerYellowBrush}"
+                                             HorizontalContentAlignment="Left" BorderThickness="0"
+                                             Command="{Binding ExecutedCommand}" CommandParameter="{Binding Command}"
+                                             ToolTip="{Binding Command.Name}"
+                                             Label="{Binding Command.Name}"
+                                             ShowLabel="{Binding ShowLabels, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                             Icon="{Binding Command.Icon}"
+                                             IsChecked="{Binding IsChecked}">
+            </uiControls:ServiceCommandButton>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ExecutionMode">
+            <ContentPresenter Content="{Binding}" Width="{Binding Width}" Margin="10">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasCommand}" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ButtonTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid Name="Root">
+        <ListBox ItemsSource="{Binding CommandGrid}" ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBox ItemsSource="{Binding}" ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <ContentPresenter Content="{Binding}">
+                                    <ContentPresenter.Style>
+                                        <Style TargetType="ContentPresenter">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                            <Style.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding Mode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                    Value="Editor">
+                                                    <Setter Property="ContentTemplate"
+                                                            Value="{StaticResource EditMode}" />
+                                                </DataTrigger>
+                                                <DataTrigger
+                                                    Binding="{Binding Mode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                    Value="Execution">
+                                                    <Setter Property="ContentTemplate"
+                                                            Value="{StaticResource ExecutionMode}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentPresenter.Style>
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,11 @@
+﻿v0.2.1.2:
+	- ALSTD SupplyPower fix before setting picture - temporary fix
+
+v0.2.1.0:
+	- Bugfix
+
+v0.2.0.0:
+	- Headlamp HSVL coding support
+
+v0.1.0.0:
+	- First release

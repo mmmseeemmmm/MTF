@@ -1,0 +1,6 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\ProductionCounter\Readme.txt
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\ProductionCounter\ProductionCounter.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\ProductionCounter\ProductionCounter.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ProductionCounter\obj\x64\Release\ProductionCounter.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ProductionCounter\obj\x64\Release\ProductionCounter.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ProductionCounter\obj\x64\Release\ProductionCounter.pdb

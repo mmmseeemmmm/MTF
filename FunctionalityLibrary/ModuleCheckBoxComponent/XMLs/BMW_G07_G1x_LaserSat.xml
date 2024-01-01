@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LEDModule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>BMW_G07_G1x_LaserSat</Name>
+  <CableCode>24000</CableCode>
+  <CableCode2>0</CableCode2>
+  <HWconfig>HW_Config</HWconfig>
+  <SelectedData>0</SelectedData>
+  <Data>
+    <LEDModuleData>
+      <Name>Left+Right</Name>
+      <GlobalTestStatus>
+        <Value>NotDefined</Value>
+        <ErrorCode>-100</ErrorCode>
+        <LastHandledErrorCode>-100</LastHandledErrorCode>
+        <ErrorText />
+        <TimeOfLastStatusChange>0001-01-01T00:00:00</TimeOfLastStatusChange>
+      </GlobalTestStatus>
+      <ModuleTTNrs>
+        <ModuleTTNr>
+          <TTNr>1408001619</TTNr>
+          <TTNrDescr />
+          <EnableTTTests />
+        </ModuleTTNr>
+      </ModuleTTNrs>
+      <TechnoTeamTest>
+        <TTTestVariants />
+        <SelectedTTTestVariantIndex>-1</SelectedTTTestVariantIndex>
+        <WaitingTime>30</WaitingTime>
+      </TechnoTeamTest>
+      <Rcv2DCode>
+        <FullCode />
+        <TTNrTxt />
+        <BinFullTxt />
+        <BinValid>false</BinValid>
+      </Rcv2DCode>
+      <LEDs>
+        <LED>
+          <Name>Laser</Name>
+          <Enable>true</Enable>
+          <MeasU />
+          <MeasI />
+          <CS>AllLedChannels</CS>
+          <Temperature>
+            <TEMPERATURE>
+              <Max>80</Max>
+              <MaxIncrease>10</MaxIncrease>
+              <MinIncrease>1</MinIncrease>
+              <Max30s>0</Max30s>
+              <Name>NTCLaser</Name>
+              <Value>0</Value>
+              <R0>0</R0>
+              <T0>0</T0>
+              <B>0</B>
+              <Parallel>0</Parallel>
+              <Serial>0</Serial>
+              <MeasU />
+              <MaxR>0</MaxR>
+            </TEMPERATURE>
+          </Temperature>
+          <Voltage>
+            <VOLTAGE>
+              <BinningName>NotDef</BinningName>
+              <Value>0</Value>
+              <Typical>0</Typical>
+              <Min>-1000</Min>
+              <Max>0</Max>
+              <MaxDecrease>10</MaxDecrease>
+              <DecToAmbTempSlope>1</DecToAmbTempSlope>
+            </VOLTAGE>
+          </Voltage>
+          <Current>
+            <CURRENT>
+              <BinningName>NotDef</BinningName>
+              <Value>0</Value>
+              <Operating>1</Operating>
+            </CURRENT>
+          </Current>
+          <MasterLedName />
+          <CurrCoeffIfMasterLedOff>0.8</CurrCoeffIfMasterLedOff>
+          <Binning>
+            <MeasU />
+            <Max>0</Max>
+            <MeasR>-1</MeasR>
+            <Values>
+              <RESISTORS>
+                <Name>NotDef</Name>
+                <Value>0</Value>
+                <Tolerance>0</Tolerance>
+              </RESISTORS>
+            </Values>
+            <StartPositionInSN>0</StartPositionInSN>
+          </Binning>
+          <SafetyClass>Danger_Laser</SafetyClass>
+          <DoFirstUsageTest>true</DoFirstUsageTest>
+          <FUTDuration>30</FUTDuration>
+          <BasicTestDuration>2</BasicTestDuration>
+          <ControlledByCommunication>true</ControlledByCommunication>
+          <CommunicationName>BmwLaserSat</CommunicationName>
+        </LED>
+      </LEDs>
+      <Motor1>
+        <END_POS1_NAME>End position Outside</END_POS1_NAME>
+        <END_POS2_NAME>End position Inside</END_POS2_NAME>
+        <Name />
+        <NickName />
+        <Status>
+          <Value>NotUsed</Value>
+          <ErrorCode>0</ErrorCode>
+          <LastHandledErrorCode>-100</LastHandledErrorCode>
+          <ErrorText />
+          <TimeOfLastStatusChange>2015-11-13T12:44:27.3804143+01:00</TimeOfLastStatusChange>
+        </Status>
+        <Enable>false</Enable>
+        <RisingEdge>false</RisingEdge>
+        <HiOutside>false</HiOutside>
+        <CircleRightward>false</CircleRightward>
+        <RunInCircle>false</RunInCircle>
+        <DefinedPositions>
+          <Position>
+            <Name>Center</Name>
+            <Value>44</Value>
+            <LedCurrCoeff>1</LedCurrCoeff>
+          </Position>
+        </DefinedPositions>
+        <Irun>-9999</Irun>
+        <Ihold>-9999</Ihold>
+        <Vmin>3</Vmin>
+        <Vmax>-9999</Vmax>
+        <Acc>-9999</Acc>
+        <StepMode>-9999</StepMode>
+        <EndPos1>0</EndPos1>
+        <EndPos2>0</EndPos2>
+        <EndPosSpec1>32767</EndPosSpec1>
+        <EndPosSpec2>32767</EndPosSpec2>
+        <SensorValue>false</SensorValue>
+        <PosRefRun>44</PosRefRun>
+        <ReferneceOffset>0</ReferneceOffset>
+        <PosRange1>0</PosRange1>
+        <PosRange2>0</PosRange2>
+        <ReferneceDoneTime>0001-01-01T00:00:00</ReferneceDoneTime>
+        <GoToPosDoneTime>0001-01-01T00:00:00</GoToPosDoneTime>
+        <RangeResult>false</RangeResult>
+        <RangeDoneTime>0001-01-01T00:00:00</RangeDoneTime>
+        <PosActual>0</PosActual>
+        <PosRequired>0</PosRequired>
+      </Motor1>
+      <Motor2>
+        <END_POS1_NAME>End position 1</END_POS1_NAME>
+        <END_POS2_NAME>End position 2</END_POS2_NAME>
+        <Name />
+        <NickName />
+        <Status>
+          <Value>NotUsed</Value>
+          <ErrorCode>0</ErrorCode>
+          <LastHandledErrorCode>-100</LastHandledErrorCode>
+          <ErrorText />
+          <TimeOfLastStatusChange>2015-11-13T12:44:27.3804143+01:00</TimeOfLastStatusChange>
+        </Status>
+        <Enable>false</Enable>
+        <RisingEdge>false</RisingEdge>
+        <HiOutside>false</HiOutside>
+        <CircleRightward>false</CircleRightward>
+        <RunInCircle>false</RunInCircle>
+        <DefinedPositions />
+        <Irun>-9999</Irun>
+        <Ihold>-9999</Ihold>
+        <Vmin>3</Vmin>
+        <Vmax>-9999</Vmax>
+        <Acc>-9999</Acc>
+        <StepMode>-9999</StepMode>
+        <EndPos1>0</EndPos1>
+        <EndPos2>0</EndPos2>
+        <EndPosSpec1>32767</EndPosSpec1>
+        <EndPosSpec2>32767</EndPosSpec2>
+        <SensorValue>false</SensorValue>
+        <PosRefRun>0</PosRefRun>
+        <ReferneceOffset>18</ReferneceOffset>
+        <PosRange1>0</PosRange1>
+        <PosRange2>0</PosRange2>
+        <ReferneceDoneTime>0001-01-01T00:00:00</ReferneceDoneTime>
+        <GoToPosDoneTime>0001-01-01T00:00:00</GoToPosDoneTime>
+        <RangeResult>false</RangeResult>
+        <RangeDoneTime>0001-01-01T00:00:00</RangeDoneTime>
+        <PosActual>0</PosActual>
+        <PosRequired>0</PosRequired>
+      </Motor2>
+      <Fan>
+        <Name />
+        <Enable>false</Enable>
+        <UsedAsModulePS>false</UsedAsModulePS>
+        <MeasI>SupplyFan_I</MeasI>
+        <MinCurrent>0.05</MinCurrent>
+        <MaxCurrent>0.3</MaxCurrent>
+        <CheckSelfDiagSignal>true</CheckSelfDiagSignal>
+      </Fan>
+      <HeatSink>
+        <VoltageMin>-0.2</VoltageMin>
+        <VoltageMax>0.7</VoltageMax>
+      </HeatSink>
+      <Communications>
+        <Communication>
+          <Enable>true</Enable>
+          <ModuleName>BmwLaserSat</ModuleName>
+          <Parameters>
+            <Parameter>
+              <Name>PWM</Name>
+              <Value>100</Value>
+            </Parameter>
+          </Parameters>
+        </Communication>
+      </Communications>
+    </LEDModuleData>
+  </Data>
+</LEDModule>

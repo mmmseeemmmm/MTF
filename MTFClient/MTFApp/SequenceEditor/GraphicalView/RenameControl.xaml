@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.GraphicalView.RenameControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300"
+             Width="250"
+             Height="130">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type alControls:Button}" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+    </UserControl.Resources>
+    <Grid Background="{StaticResource ALYellowBrush}" Name="RenameControlRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <alControls:TextBlock Grid.Row="0" LocTextKey="Mtf_RenameControl_Header" HorizontalAlignment="Center"
+                              Style="{StaticResource Heading2}" />
+        <TextBox Grid.Row="1" Text="{Binding Value}" Margin="10" />
+        <Grid Grid.Row="2">
+            <alControls:Button Command="{Binding OkCommand}" LocTextKey="Buttons_Ok" HorizontalAlignment="Left" />
+            <alControls:Button Command="{Binding CancelCommand}" LocTextKey="Buttons_Cancel"
+                               HorizontalAlignment="Right" />
+        </Grid>
+    </Grid>
+</UserControl>

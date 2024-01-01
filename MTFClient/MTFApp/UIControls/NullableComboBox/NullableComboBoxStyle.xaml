@@ -1,0 +1,111 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MTFApp.UIControls.NullableComboBox">
+    <ResourceDictionary.MergedDictionaries>
+        <!--<ResourceDictionary Source="../../Styles/StandardControlStyles/ComboBoxStyles.xaml"/>-->
+        <ResourceDictionary Source="../../Styles/Constants.xaml" />
+        <ResourceDictionary Source="../../Resources/MTFIcons/Trash.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate TargetType="ToggleButton" x:Key="ComboBoxToggleButtonTemplate">
+        <Grid Background="{TemplateBinding Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <ContentPresenter Grid.ColumnSpan="2" />
+            <Button Grid.Column="2" Background="Transparent" Padding="2" BorderThickness="0" Margin="0"
+                    Command="{Binding RemoveSelection, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:NullableComboBox}}}"
+                    Visibility="{Binding VisibleRemoveButton, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:NullableComboBox}}}"
+                    Height="{TemplateBinding ActualHeight}">
+                <UserControl Style="{StaticResource IconTrash}" />
+            </Button>
+            <Polygon Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Points="8,4 4,0, 12,0" 
+                     Stroke="{TemplateBinding Foreground}" Fill="{TemplateBinding Foreground}" />
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="local:NullableComboBox">
+        <Setter Property="Foreground" Value="{StaticResource ALBlackBrush}" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="MinWidth" Value="100" />
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Padding" Value="4 2 4 2" />
+        <Setter Property="Background" Value="{StaticResource ResourceKey=ElementBackgroundBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource ResourceKey=ElementBorderBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:NullableComboBox}">
+                    <Grid>
+                        <Border CornerRadius="0" BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            Background="{TemplateBinding Background}" />
+
+                        <!-- Button -->
+                        <ToggleButton Name="ToggleButton" Grid.ColumnSpan="3" Margin="1"
+                            ClickMode="Press" Focusable="False"
+                            Background="{TemplateBinding Background}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                            Template="{StaticResource ComboBoxToggleButtonTemplate}">
+                            <!-- Content -->
+                            <ContentPresenter
+                                Content="{TemplateBinding ComboBox.SelectionBoxItem}" 
+                                ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
+                                ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}" />
+                        </ToggleButton>
+                        <!-- Popup showing items -->
+                        <Popup Name="Popup" Placement="Bottom"
+                                Focusable="False" AllowsTransparency="True"
+                                IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}"
+                                PopupAnimation="Slide">
+                            <Border Name="DropDownBorder" Background="{TemplateBinding Background}" Margin="0"
+                                        MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
+                                        MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}"
+                                        CornerRadius="0" BorderThickness="1,0,1,1" 
+                                        BorderBrush="{StaticResource ResourceKey=ElementBorderBrush}">
+                                <ScrollViewer Margin="0" SnapsToDevicePixels="True">
+                                    <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ComboBoxItem">
+                                <Border Background="{TemplateBinding Background}" BorderThickness="0" Margin="0" Padding="5">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ResourceKey=ALYellowBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ResourceKey=ALYellowBrush}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconServiceCommandManualMode">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="-489,491,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="Nonzero" Figures="M-472.3,507.7L-453.5,507.7 -438.9,536.9 -424.3,507.7 -405.5,507.7 -405.5,574.4 -420.1,574.4 -420.1,532.7 -434.7,561.9 -443,561.9 -457.6,532.7 -457.6,574.4 -472.2,574.4 -472.2,507.7z M-478.6,491C-486.9,491,-489,495.2,-489,501.4L-489,580.6C-489,588.9,-486.9,591,-478.6,591L-399.4,591C-393.2,591,-389,588.9,-389,580.6L-389,501.4C-389,495.2,-393.2,491,-399.4,491L-478.6,491z" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

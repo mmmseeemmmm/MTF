@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://daqis.envinet.cz/DataAquisitionWebService" targetNamespace="http://daqis.envinet.cz/DataAquisitionWebService" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="changeProductData" type="tns:changeProductData" />
+  <xs:element name="changeProductDataResponse" type="tns:changeProductDataResponse" />
+  <xs:element name="componentTest" type="tns:componentTest" />
+  <xs:element name="componentTestResponse" type="tns:componentTestResponse" />
+  <xs:element name="createProductionBatch" type="tns:createProductionBatch" />
+  <xs:element name="createProductionBatchResponse" type="tns:createProductionBatchResponse" />
+  <xs:element name="getActivePartVersionFromLineCode" type="tns:getActivePartVersionFromLineCode" />
+  <xs:element name="getActivePartVersionFromLineCodeResponse" type="tns:getActivePartVersionFromLineCodeResponse" />
+  <xs:element name="getLastProductionResultForDA" type="tns:getLastProductionResultForDA" />
+  <xs:element name="getLastProductionResultForDAResponse" type="tns:getLastProductionResultForDAResponse" />
+  <xs:element name="getParts" type="tns:getParts" />
+  <xs:element name="getPartsResponse" type="tns:getPartsResponse" />
+  <xs:element name="getTypeParams" type="tns:getTypeParams" />
+  <xs:element name="getTypeParamsResponse" type="tns:getTypeParamsResponse" />
+  <xs:element name="getValidation" type="tns:getValidation" />
+  <xs:element name="getValidationResponse" type="tns:getValidationResponse" />
+  <xs:element name="login" type="tns:login" />
+  <xs:element name="loginResponse" type="tns:loginResponse" />
+  <xs:element name="logout" type="tns:logout" />
+  <xs:element name="logoutResponse" type="tns:logoutResponse" />
+  <xs:element name="plcLoginRequest" type="tns:plcLoginRequest" />
+  <xs:element name="plcLoginRequestResponse" type="tns:plcLoginRequestResponse" />
+  <xs:element name="prepareProduct" type="tns:prepareProduct" />
+  <xs:element name="prepareProductResponse" type="tns:prepareProductResponse" />
+  <xs:element name="printLabelFromDA" type="tns:printLabelFromDA" />
+  <xs:element name="printLabelFromDAResponse" type="tns:printLabelFromDAResponse" />
+  <xs:element name="saveDeviceData" type="tns:saveDeviceData" />
+  <xs:element name="saveDeviceDataResponse" type="tns:saveDeviceDataResponse" />
+  <xs:element name="saveDowntime" type="tns:saveDowntime" />
+  <xs:element name="saveDowntimeResponse" type="tns:saveDowntimeResponse" />
+  <xs:element name="saveProductionData" type="tns:saveProductionData" />
+  <xs:element name="saveProductionDataResponse" type="tns:saveProductionDataResponse" />
+  <xs:element name="saveStateParameter" type="tns:saveStateParameter" />
+  <xs:element name="saveStateParameterResponse" type="tns:saveStateParameterResponse" />
+  <xs:element name="saveTechnologicalData" type="tns:saveTechnologicalData" />
+  <xs:element name="saveTechnologicalDataResponse" type="tns:saveTechnologicalDataResponse" />
+  <xs:element name="saveTruckPassageData" type="tns:saveTruckPassageData" />
+  <xs:element name="saveTruckPassageDataResponse" type="tns:saveTruckPassageDataResponse" />
+  <xs:element name="saveWorkplaceError" type="tns:saveWorkplaceError" />
+  <xs:element name="saveWorkplaceErrorResponse" type="tns:saveWorkplaceErrorResponse" />
+  <xs:element name="saveWorkplaceEvent" type="tns:saveWorkplaceEvent" />
+  <xs:element name="saveWorkplaceEventResponse" type="tns:saveWorkplaceEventResponse" />
+  <xs:element name="setProductState" type="tns:setProductState" />
+  <xs:element name="setProductStateResponse" type="tns:setProductStateResponse" />
+  <xs:complexType name="setProductState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="setProductState" type="tns:productStateData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productStateData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="state" type="tns:productState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="message">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="clientCode" type="xs:string" />
+      <xs:element minOccurs="0" name="timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="version" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setProductStateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errorData" type="tns:errorData" />
+      <xs:element minOccurs="0" name="result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataError" type="tns:dataError" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="errorComponentData" nillable="true" type="tns:errorProductData" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="errorLimitData" nillable="true" type="tns:errorLimitData" />
+      <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="errorParamData" nillable="true" type="tns:errorParamData" />
+      <xs:element minOccurs="0" name="errorProductData" type="tns:errorProductData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errorProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataError" type="tns:dataError" />
+      <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errorLimitData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataError" type="tns:dataError" />
+      <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="limitName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errorParamData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataError" type="tns:dataError" />
+      <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="paramName" type="xs:string" />
+      <xs:element minOccurs="0" name="valueType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="printLabelFromDA">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="printLabelData" type="tns:printLabelData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="printLabelData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extSystem" type="xs:string" />
+      <xs:element minOccurs="0" name="labelType" type="tns:labelType" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="printerCode" type="xs:string" />
+      <xs:element minOccurs="0" name="versionNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="printLabelFromDAResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="changeProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="productDataChange" type="tns:productDataChange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productDataChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="newProduct" type="tns:product" />
+      <xs:element minOccurs="0" name="product" type="tns:product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="customerNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+      <xs:element minOccurs="0" name="palletNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="palletState" type="xs:short" />
+      <xs:element minOccurs="0" name="partNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="partVersion" type="xs:string" />
+      <xs:element minOccurs="0" name="productionTimestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="sample" type="xs:boolean" />
+      <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="useRootProduct" type="xs:boolean" />
+      <xs:element minOccurs="0" name="userSerialNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="changeProductDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="prepareProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="prepProductData" type="tns:prepProductData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="prepProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deviceCode" type="xs:string" />
+      <xs:element minOccurs="0" name="product" type="tns:product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="prepareProductResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveWorkplaceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="workplaceError" type="tns:workplaceError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="workplaceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateTime" type="tns:dateTime" />
+      <xs:element minOccurs="0" name="deviceCode" type="xs:string" />
+      <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+      <xs:element minOccurs="0" name="errorDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="lineCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dateTime" final="extension restriction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseDateTime">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseDateTime" abstract="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:abstractDateTime">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="abstractDateTime" abstract="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:abstractInstant">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="abstractInstant" abstract="true">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="saveWorkplaceErrorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createProductionBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="batchData" type="tns:batchData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="batchData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="deviceCode" type="xs:string" />
+      <xs:element minOccurs="0" name="duration" type="xs:int" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="productCount" type="xs:int" />
+      <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="versionNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createProductionBatchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveWorkplaceEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:workplaceEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="workplaceEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="dateTime" type="tns:dateTime" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="deviceCode" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="stateChange" type="tns:workplaceEventStateChange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveWorkplaceEventResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLastProductionResultForDA">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="productResultData" type="tns:productResultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productResultData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineCode" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="useRootProduct" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLastProductionResultForDAResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultOperationResultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultOperationResultData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:resultData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deviceWorkers" type="xs:string" />
+          <xs:element minOccurs="0" name="parameterName" type="xs:string" />
+          <xs:element minOccurs="0" name="quality" type="xs:string" />
+          <xs:element minOccurs="0" name="timestamp" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="saveDeviceData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deviceParamsData" type="tns:deviceParamsData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deviceParamsData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deviceCode" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element name="params">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string" />
+                  <xs:element minOccurs="0" name="value" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveDeviceDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logout">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="logoutRequest" type="tns:logoutRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logoutRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="device" type="tns:device" />
+      <xs:element minOccurs="0" name="worker" type="tns:worker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="device">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="treePath" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="worker">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="loginName" type="xs:string" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="personalNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logoutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:daqisLogoutResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="daqisLogoutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveStateParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stateData" type="tns:stateData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stateData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataPackage" type="tns:dataPackage" />
+      <xs:element minOccurs="0" name="idStateData" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dataPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="paramBinaryDataList" nillable="true" type="tns:paramBinaryData" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="paramDataList" nillable="true" type="tns:paramData" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="paramLimitDataList" nillable="true" type="tns:paramLimitData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramBinaryData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contentType" type="xs:string" />
+      <xs:element minOccurs="0" name="data" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="paramName" type="xs:string" />
+      <xs:element minOccurs="0" name="quality" type="xs:string" />
+      <xs:element minOccurs="0" name="timestamp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="paramName" type="xs:string" />
+      <xs:element minOccurs="0" name="quality" type="xs:string" />
+      <xs:element minOccurs="0" name="timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramLimitData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="limitName" type="xs:string" />
+      <xs:element minOccurs="0" name="timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveStateParameterResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTypeParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="partTypeParams" type="tns:partTypeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="partTypeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="partType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTypeParamsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultParams" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="typeParamName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="componentTest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="productSnEtiketSnsData" type="tns:productionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="componentPackage" type="tns:componentPackage" />
+      <xs:element minOccurs="0" name="dataPackage" type="tns:dataPackage" />
+      <xs:element minOccurs="0" name="idProductionData" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="plcErrorCode" type="xs:string" />
+      <xs:element minOccurs="0" name="product" type="tns:product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="componentPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="components" nillable="true" type="tns:component" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="component">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="partNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="partVersion" type="xs:string" />
+      <xs:element minOccurs="0" name="productionTimestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="supplierNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="userSerialNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="workplaceCodesToMoveData" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="componentTestResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveTechnologicalData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="technologicalData" type="tns:technologicalData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="technologicalData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="note" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="paramDataList" nillable="true" type="tns:paramData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveTechnologicalDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="loginRequest" type="tns:loginRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="device" type="tns:device" />
+      <xs:element minOccurs="0" name="timestampFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="timestampTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="worker" type="tns:worker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:daqisLoginResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="daqisLoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getParts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="partData" type="tns:partTypeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPartsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultParts" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultParts">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="partTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getValidation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="operationData" type="tns:operationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="operationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="componentPackage" type="tns:componentPackage" />
+      <xs:element minOccurs="0" name="initial" type="xs:boolean" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="product" type="tns:product" />
+      <xs:element minOccurs="0" name="resultParamName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getValidationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:validationResultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validationResultData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="additionalMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="allValidationsFunctionNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="errorData" type="tns:errorData" />
+      <xs:element minOccurs="0" name="product" type="tns:product" />
+      <xs:element minOccurs="0" name="textMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="validationResult" type="xs:int" />
+      <xs:element minOccurs="0" name="validationsFinished" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveDowntime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="downtimeData" type="tns:downtimeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="downtimeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="deviceCode" type="xs:string" />
+      <xs:element minOccurs="0" name="deviceState" type="xs:int" />
+      <xs:element minOccurs="0" name="downtimeEnd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="downtimeSource" type="xs:string" />
+      <xs:element minOccurs="0" name="downtimeStart" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="downtimeType" type="xs:string" />
+      <xs:element minOccurs="0" name="materialCertificate" type="xs:string" />
+      <xs:element minOccurs="0" name="materialCode" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+      <xs:element minOccurs="0" name="planned" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveDowntimeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultDowntime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultDowntime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataError" type="tns:dataError" />
+      <xs:element minOccurs="0" name="result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="plcLoginRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="truckPassageData" type="tns:unloadRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unloadRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="distributionDataId" type="xs:string" />
+      <xs:element minOccurs="0" name="distributionPointId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="plcLoginRequestResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveProductionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="productionData" type="tns:productionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveProductionDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveTruckPassageData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="truckPassageData" type="tns:truckPassageData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="truckPassageData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="locationFrom" type="xs:string" />
+      <xs:element minOccurs="0" name="locationTo" type="xs:string" />
+      <xs:element minOccurs="0" name="passage" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="readerCode" type="xs:string" />
+      <xs:element minOccurs="0" name="rfidCode" type="xs:string" />
+      <xs:element minOccurs="0" name="startPassage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveTruckPassageDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActivePartVersionFromLineCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineCodeData" type="tns:lineCodeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lineCodeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineCode" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="tns:message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getActivePartVersionFromLineCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resultPartVersionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultPartVersionData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:resultData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="extSystem" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="tns:commonState" />
+          <xs:element minOccurs="0" name="uuid" type="xs:string" />
+          <xs:element minOccurs="0" name="versionNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="productState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INITIALIZED" />
+      <xs:enumeration value="IN_PROCESS" />
+      <xs:enumeration value="MOUNTED" />
+      <xs:enumeration value="REWORK" />
+      <xs:enumeration value="PACKED" />
+      <xs:enumeration value="SCRAPPED" />
+      <xs:enumeration value="ANALYZED" />
+      <xs:enumeration value="EXCLUDED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dataError">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DATA_ERROR" />
+      <xs:enumeration value="DATA_MISSING" />
+      <xs:enumeration value="CLIENT_CONFIG" />
+      <xs:enumeration value="SAVING_VALUE" />
+      <xs:enumeration value="UPDATE_VALUE" />
+      <xs:enumeration value="JSON_PARAM_CONFIG" />
+      <xs:enumeration value="SPARAM_CONFIG" />
+      <xs:enumeration value="UNKNOWN_CONTENT_TYPE" />
+      <xs:enumeration value="UNKNOWN_COMPONENT" />
+      <xs:enumeration value="COMPONENT_NOT_INSTALL" />
+      <xs:enumeration value="UNKNOWN_PART_VERSION" />
+      <xs:enumeration value="PRODUCT_NOT_CREATE" />
+      <xs:enumeration value="COMPONENT_NOT_CREATE" />
+      <xs:enumeration value="COMPONENT_NOT_UPDATE" />
+      <xs:enumeration value="COMPONENT_ERROR" />
+      <xs:enumeration value="PRODUCT_ERROR" />
+      <xs:enumeration value="PRODUCT_VALUE_NOT_CREATE" />
+      <xs:enumeration value="LIMIT_ERROR" />
+      <xs:enumeration value="UNKNOWN_LIMIT" />
+      <xs:enumeration value="SAVING_LIMIT" />
+      <xs:enumeration value="COMPONENTS_MISSING" />
+      <xs:enumeration value="COMPONENT_VERSION" />
+      <xs:enumeration value="COMPONENT_BOM" />
+      <xs:enumeration value="BATCH_NOT_CREATE" />
+      <xs:enumeration value="UNKNOWN_LIMIT_PARAMETER" />
+      <xs:enumeration value="CLIENT_DEVICE_LINE" />
+      <xs:enumeration value="UNKNOWN_IMAGE_TYPE" />
+      <xs:enumeration value="UNKNOWN_RAW_DATA_TYPE" />
+      <xs:enumeration value="ERROR_PRODUCT_TIMESTAMP" />
+      <xs:enumeration value="ERROR_DATA_TIMESTAMP" />
+      <xs:enumeration value="UNKNOWN_PRODUCTION_TIME" />
+      <xs:enumeration value="MESSAGE_NOT_DEFINED" />
+      <xs:enumeration value="ERROR_UPDATE_DOWNTIME" />
+      <xs:enumeration value="ERROR_CREATE_DOWNTIME" />
+      <xs:enumeration value="ERROR_DOWNTIME_RUNNING" />
+      <xs:enumeration value="ERROR_DOWNTIME_TYPE" />
+      <xs:enumeration value="UNKNOWN_DOWNTIME" />
+      <xs:enumeration value="UNKNOWN_DOWNTIME_TYPE" />
+      <xs:enumeration value="COMPONENT_WARN" />
+      <xs:enumeration value="COMPONENT_INSTALLED" />
+      <xs:enumeration value="MISSING_RESULT" />
+      <xs:enumeration value="OPERATION_RESULT_NOK" />
+      <xs:enumeration value="OPERATION_TIMESTAMP" />
+      <xs:enumeration value="OPERATION_RESULT" />
+      <xs:enumeration value="ERROR_VALIDATION_RESULT" />
+      <xs:enumeration value="ERROR_VALIDATION_COMPONENT" />
+      <xs:enumeration value="ERROR_SERIAL_NUMBER" />
+      <xs:enumeration value="ERROR_PARAMETER" />
+      <xs:enumeration value="PRODUCT_MISSING" />
+      <xs:enumeration value="VALIDATION_MISSING" />
+      <xs:enumeration value="OPERATION_RESULT_PARAMETER_NOT_CONFIG" />
+      <xs:enumeration value="OPERATION_RESULT_PARAMETER_MISSING" />
+      <xs:enumeration value="PALLET_COMPATIBILITY_ERROR" />
+      <xs:enumeration value="BATCH_NOT_CLOSED" />
+      <xs:enumeration value="EMPTY_PALLET" />
+      <xs:enumeration value="DEVICE_NOT_FOUND" />
+      <xs:enumeration value="WORKER_NOT_FOUND" />
+      <xs:enumeration value="KNOWLEDGE_MATRIX_TEST" />
+      <xs:enumeration value="DEVICE_WORKER_NOT_FOUND" />
+      <xs:enumeration value="WORKPLACE_ERROR_NOT_DEFINED" />
+      <xs:enumeration value="NO_LINE_CODE" />
+      <xs:enumeration value="NO_DEVICE_CODE" />
+      <xs:enumeration value="NO_ERROR_CODE" />
+      <xs:enumeration value="UNKNOWN_PRODUCT_SN" />
+      <xs:enumeration value="UNKNOWN_PRODUCT_STATE" />
+      <xs:enumeration value="UNKNOWN_LINE_CODE" />
+      <xs:enumeration value="UNKNOWN_PRINTER_CODE" />
+      <xs:enumeration value="UNIQUE_LABEL_NOT_FOUND" />
+      <xs:enumeration value="TEMPLATE_NOT_FOUND" />
+      <xs:enumeration value="UNKNOWN_DEVICE" />
+      <xs:enumeration value="OTHER_ERROR" />
+      <xs:enumeration value="OPERATION_RESULT_OK_COUNT_EXCEEDED" />
+      <xs:enumeration value="UNKNOWN_PART_TYPE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="labelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IN" />
+      <xs:enumeration value="OUT" />
+      <xs:enumeration value="ETALON" />
+      <xs:enumeration value="SERVICE" />
+      <xs:enumeration value="ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="workplaceEventStateChange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="START" />
+      <xs:enumeration value="END" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="commonState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVE" />
+      <xs:enumeration value="INACTIVE" />
+      <xs:enumeration value="DELETED" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

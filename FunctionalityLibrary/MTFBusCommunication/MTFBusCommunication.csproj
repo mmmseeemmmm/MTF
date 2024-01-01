@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E8C8013-EA37-473D-A3F2-C5415B3F0A51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTFBusCommunication</RootNamespace>
+    <AssemblyName>MTFBusCommunication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\Server\mtfLibs\BusCommunication\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\Server\mtfLibs\BusCommunication\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin64\Debug\Server\mtfLibs\BusCommunication\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\bin64\Release\Server\mtfLibs\BusCommunication\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IMTFBusCommunication.cs" />
+    <Compile Include="MTFBusCommunication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structures\BaseConfig.cs" />
+    <Compile Include="Structures\MTFBusComDriverStatusEnum.cs" />
+    <Compile Include="Structures\MTFDaimlerCodingOffboardResponses.cs" />
+    <Compile Include="Structures\MTFFrameData.cs" />
+    <Compile Include="Structures\MTFOffBoardConfig.cs" />
+    <Compile Include="Structures\MTFOffBoardConfigEdiabas.cs" />
+    <Compile Include="Structures\MTFOffBoardErrorMemoryRequest.cs" />
+    <Compile Include="Structures\MTFOffBoardErrorMemoryResult.cs" />
+    <Compile Include="Structures\MTFOffBoardFlashJobResult.cs" />
+    <Compile Include="Structures\MTFOffBoardFlashJobSetting.cs" />
+    <Compile Include="Structures\MTFOffBoardLogicalLinkParallelResponses.cs" />
+    <Compile Include="Structures\MTFOffBoardLogicalLinkParallelServices.cs" />
+    <Compile Include="Structures\MTFOffBoardRequestParameter.cs" />
+    <Compile Include="Structures\MTFOffBoardResponse.cs" />
+    <Compile Include="Structures\MTFOffBoardResponseSetting.cs" />
+    <Compile Include="Structures\MTFOffBoardServiceResult.cs" />
+    <Compile Include="Structures\MTFOnBoardSignal.cs" />
+    <Compile Include="Structures\OffBoardService.cs" />
+    <Compile Include="Structures\OnBoardConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MTFCommon\MTFCommon.csproj">
+      <Project>{738e45bd-4be1-422f-9a61-8fbc8e3c0641}</Project>
+      <Name>MTFCommon</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BusCommunicationDriver\ALBusComDriver\ALBusComDriver.csproj">
+      <Project>{891ff528-2323-4044-83f0-aeb9a6aab8e7}</Project>
+      <Name>ALBusComDriver</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="MTFApp.ReportViewer.ValidationTableReportControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:uiReportEntities="clr-namespace:MTFClientServerCommon.DbReporting.UiReportEntities;assembly=MTFClientServerCommon"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <system:Double x:Key="TableRowHeight">30</system:Double>
+        <system:Double x:Key="PhotoIconHeight">20</system:Double>
+        <system:Double x:Key="TableCriteriaMaxWidth">100</system:Double>
+        <GridLength x:Key="TableRowGridLength">30</GridLength>
+        <GridLength x:Key="TableSpace">3</GridLength>
+        <Thickness x:Key="TableSpaceMargin" Bottom="3" />
+
+        <Style TargetType="Border" x:Key="BorderSpaceStyle">
+            <Setter Property="Background" Value="{StaticResource ALWhiteBrush}" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="TableTextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8,0,8,0" />
+        </Style>
+
+        <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource TableTextBlock}" x:Key="TableHeaderTextBlock">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="TableNameTextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <DataTemplate x:Key="RowCellHeaderTemplate" DataType="{x:Type uiReportEntities:ReportValidationTableColumnDetail}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource TableSpace}" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Style="{StaticResource BorderSpaceStyle}" />
+                <alControls:TextBlock Grid.Column="1" MaxWidth="{StaticResource TableCriteriaMaxWidth}" LocTextKey="{Binding}" Style="{StaticResource TableHeaderTextBlock}" TextWrapping="Wrap"  />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RowCellTemplate" DataType="{x:Type uiReportEntities:ReportValidationTableColumnDetail}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource TableSpace}" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Style="{StaticResource BorderSpaceStyle}" />
+                <TextBlock Grid.Column="1" MaxWidth="{StaticResource TableCriteriaMaxWidth}"  TextWrapping="Wrap">
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource CriteriaRoundingConverter}">
+                            <Binding />
+                            <Binding ElementName="ValidationTableRootGrid" Path="DataContext.RoundingRules" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock"  BasedOn="{StaticResource TableTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="False">
+                                    <Setter Property="Foreground" Value="{StaticResource ALRedBrush}" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TableRowDetail" DataType="{x:Type uiReportEntities:SequenceReportValidationTableRowDetail}">
+            <Grid MinHeight="{StaticResource TableRowHeight}" Background="{StaticResource ReportSilverEvenBrush}"
+                  Margin="{StaticResource TableSpaceMargin}" MouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="TableNameGroup" />
+                    <ColumnDefinition Width="{StaticResource TableSpace}" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="TableParamsGroup" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderThickness="0">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="{StaticResource ALSilverBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="Ok">
+                                    <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="Nok">
+                                    <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource TableTextBlock}"/>
+                </Border>
+                <Border Grid.Column="1" Style="{StaticResource BorderSpaceStyle}" />
+                <ContentPresenter Grid.Column="2" Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Style="{StaticResource TableTextBlock}">
+                                            <TextBlock.Text>
+                                                <MultiBinding Converter="{StaticResource ActualValueRoundingConverter}">
+                                                    <Binding Path="ActualValue" />
+                                                    <Binding ElementName="ValidationTableRootGrid" Path="DataContext.RoundingRules" />
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasImage}" Value="True">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <UserControl Style="{StaticResource IconPhoto}" Height="{StaticResource PhotoIconHeight}"></UserControl>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+                <ItemsControl ItemsSource="{Binding Columns}" Grid.Column="3"
+                              ItemTemplate="{StaticResource RowCellTemplate}"
+                              Background="Transparent">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+
+    <Grid Margin="0,20,0,0" Grid.IsSharedSizeScope="True" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}"
+          Name="ValidationTableRootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="{StaticResource TableRowGridLength}"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding ValidationTable.Name}" Grid.Row="0" Style="{StaticResource TableNameTextBlock}" />
+
+        <Grid Grid.Row="2" Margin="{StaticResource TableSpaceMargin}">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Background" Value="{StaticResource ALSilverBrush}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ValidationTable.TableStatus}" Value="Ok">
+                            <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ValidationTable.TableStatus}" Value="Nok">
+                            <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="TableNameGroup" />
+                <ColumnDefinition Width="{StaticResource TableSpace}" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="TableParamsGroup" />
+            </Grid.ColumnDefinitions>
+            <alControls:TextBlock LocTextKey="ValidationTable_Column_Name" Grid.Column="0" Style="{StaticResource TableHeaderTextBlock}" />
+            <Border Grid.Column="1" Style="{StaticResource BorderSpaceStyle}" />
+            <alControls:TextBlock LocTextKey="ValidationTable_Column_Actual" Grid.Column="2" Style="{StaticResource TableHeaderTextBlock}" />
+            <!--<Border Grid.Column="3" Style="{StaticResource BorderSpaceStyle}" />-->
+            <ItemsControl ItemsSource="{Binding ValidationTable.Columns}" Grid.Column="3"
+                                  ItemTemplate="{StaticResource RowCellHeaderTemplate}"
+                                  Background="Transparent">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="1" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
+
+        <ItemsControl Grid.Row="3" ItemsSource="{Binding ValidationTable.Rows}" ItemTemplate="{StaticResource TableRowDetail}" />
+    </Grid>
+</UserControl>

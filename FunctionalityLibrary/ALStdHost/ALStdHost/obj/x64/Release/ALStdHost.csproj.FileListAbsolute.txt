@@ -1,0 +1,8 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\ALStdComponent\ALStdHost\ALStdHost.exe.config
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\ALStdComponent\ALStdHost\ALStdHost.exe
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\ALStdComponent\ALStdHost\ALStdHost.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ALStdHost\ALStdHost\obj\x64\Release\ALStdHost.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ALStdHost\ALStdHost\obj\x64\Release\ALStdHost.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ALStdHost\ALStdHost\obj\x64\Release\ALStdHost.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ALStdHost\ALStdHost\obj\x64\Release\ALStdHost.exe
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ALStdHost\ALStdHost\obj\x64\Release\ALStdHost.pdb

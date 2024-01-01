@@ -1,0 +1,122 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MTFApp.UIControls.TagListBoxControl">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Styles/Constants.xaml"/>
+        <ResourceDictionary Source="../../Resources/MTFIcons/IconClose.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="ListBoxItem">
+        <Setter Property="IsTabStop" Value="False" />
+    </Style>
+
+    <DataTemplate x:Key="CompleteItem">
+        <Border Background="{Binding ItemBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:TagListBox}}}" CornerRadius="8">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Value}" Margin="3" VerticalAlignment="Center" />
+                <Button Command="{Binding RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:TagListBox}}}"
+                                                    CommandParameter="{Binding}"
+                                                    IsTabStop="False"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    VerticalAlignment="Center"
+                                                    Padding="0"
+                                                    Margin="3">
+                    <Border CornerRadius="20" Background="{StaticResource ALBlackBrush}" Width="15" Height="15" VerticalAlignment="Center">
+                        <UserControl Style="{StaticResource IconClose}" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource ALWhiteBrush}" />
+                    </Border>
+                </Button>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+    <DataTemplate x:Key="NewItem">
+        <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" 
+                                             AcceptsReturn="True" MinWidth="50" Focusable="True"
+                                             Name="NewItemTextBox" FocusVisualStyle="{x:Null}">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CanFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:TagListBox}}}"
+                                                                 Value="True">
+                            <Setter Property="FocusManager.FocusedElement" Value="{Binding RelativeSource={RelativeSource Self}}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ItemTemplateBase">
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource CompleteItem}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsClosed}" Value="False">
+                            <Setter Property="ContentTemplate" Value="{StaticResource NewItem}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type local:TagListBox}">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="ItemBackground" Value="{StaticResource ALYellowBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TagListBox}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Width="{TemplateBinding ActualWidth}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ListBox ItemsSource="{TemplateBinding SourceData}" Width="{TemplateBinding ActualWidth}" IsTabStop="False"
+                                 SelectedItem="{Binding SelectedItem, Mode=OneWayToSource, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:TagListBox}}}"
+                                 KeyboardNavigation.TabNavigation="Continue"
+                                 KeyboardNavigation.IsTabStop="False"
+                                 Background="{TemplateBinding Background}"
+                                 ItemTemplate="{StaticResource ItemTemplateBase}"
+                                 Name="baseListBox">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" Width="{TemplateBinding ActualWidth}" KeyboardNavigation.IsTabStop="False"  />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsOnlyHorizontal, RelativeSource={RelativeSource Self}}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:TagListBox}">
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                                <ListBox ItemsSource="{TemplateBinding SourceData}" IsTabStop="False"
+                                 SelectedItem="{Binding SelectedItem, Mode=OneWayToSource, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:TagListBox}}}"
+                                 KeyboardNavigation.TabNavigation="Continue"
+                                 KeyboardNavigation.IsTabStop="False"
+                                 Background="{TemplateBinding Background}"
+                                 ItemTemplate="{StaticResource ItemTemplateBase}"
+                                 Name="baseListBox">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" KeyboardNavigation.IsTabStop="False"  />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+
+    </Style>
+</ResourceDictionary>

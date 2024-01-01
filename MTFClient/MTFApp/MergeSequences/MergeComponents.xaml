@@ -1,0 +1,82 @@
+﻿<base:MergeSequencesBase x:Class="MTFApp.MergeSequences.MergeComponents"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:base="clr-namespace:MTFApp.MergeSequences"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <Grid Name="root"  Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <UserControl Style="{StaticResource IconComponentsConfig}" Height="20"  Width="20" />
+            <TextBlock Text=" Components configuration" FontSize="15" VerticalAlignment="Bottom" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Style="{StaticResource ParagraphStackPanel}">
+            <Grid Grid.Row="4" Margin="0,7,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="somponentName" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="add" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="replace" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="replacedComponent" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Component name" FontSize="12" VerticalAlignment="Top" />
+                <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" >
+                    <TextBlock Text="Add" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                    <!--<RadioButton VerticalAlignment="Center" IsChecked="{Binding AllowImport}" HorizontalAlignment="Center" Margin="1,1,0,0" />-->
+                </StackPanel>
+                <StackPanel Grid.Column="4" Orientation="Vertical" VerticalAlignment="Center" >
+                    <TextBlock Text="Replace by original" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                    <!--<RadioButton VerticalAlignment="Center" IsChecked="{Binding AllowImport}" HorizontalAlignment="Center" Margin="1,1,0,0" />-->
+                </StackPanel>
+                <StackPanel Grid.Column="6" Orientation="Vertical" VerticalAlignment="Center" >
+                    <TextBlock Text="Original component" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                    <!--<CheckBox VerticalAlignment="Center" IsChecked="{Binding AllowOverride}" HorizontalAlignment="Center"  Margin="1,1,0,0" />-->
+                </StackPanel>
+            </Grid>
+            <ListBox Grid.Row="5" ItemsSource="{Binding Components}"  ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="somponentName" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="add" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="replace" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="replacedComponent" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <UserControl Style="{Binding MergedComponent.MTFClass.Icon, Converter={StaticResource IconConverter}}"
+                                             Width="15" Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding MergedComponent.Alias}" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <RadioButton Grid.Column="2" IsChecked="{Binding Replace, Converter={StaticResource NotBool}}"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RadioButton Grid.Column="4" IsChecked="{Binding Replace}"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="6" ItemsSource="{Binding OriginalComponents, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      SelectedValue="{Binding OriginalComponent}"
+                                      DisplayMemberPath="Alias"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Center"
+                                      Visibility="{Binding Replace, Converter={StaticResource BoolToVisibilityWithHidden}}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</base:MergeSequencesBase>

@@ -1,0 +1,5 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ClimaChamber\Clima.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ClimaChamber\Clima.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Clima\obj\Debug\Clima.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Clima\obj\Debug\Clima.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Clima\obj\Debug\Clima.pdb

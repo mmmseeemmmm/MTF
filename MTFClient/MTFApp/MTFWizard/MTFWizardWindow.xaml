@@ -1,0 +1,69 @@
+﻿<Window x:Class="MTFApp.MTFWizard.MTFWizardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+        Title="MTFWizardWindow" Height="500" Width="650" ResizeMode="NoResize"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Background="{StaticResource ALBlackBrush}" Height="30" HorizontalAlignment="Stretch">
+            <Image Source="{StaticResource ResourceKey=IconALLogo}" Margin="5,5,10,5" />
+            <TextBlock DockPanel.Dock="Left" Text="{Binding Control.Title}" Foreground="{StaticResource ALWhiteBrush}"
+                       VerticalAlignment="Center" Margin="0"
+                       Style="{StaticResource Heading2}" FontWeight="Normal" />
+            <Button DockPanel.Dock="Left" Foreground="{StaticResource ALWhiteBrush}" HorizontalAlignment="Right"
+                    Style="{StaticResource CloseButton}"
+                    Margin="5"
+                    Command="{Binding CancelCommand}" />
+        </DockPanel>
+        <Border Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Background="{StaticResource ALYellowBrush}">
+                    <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+                        <TextBlock Text="{Binding Control.WizardType}" TextWrapping="Wrap"
+                                   Style="{StaticResource Heading2}" />
+                        <UserControl Style="{StaticResource IconWizard}" Margin="20,15,20,0" />
+
+                    </StackPanel>
+                </Border>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding Control.Title}" Style="{StaticResource Heading1}"
+                               Margin="20,10,20,10" />
+                    <TextBlock Grid.Row="1" Text="{Binding Control.Description}" TextWrapping="Wrap"
+                               Margin="20,0,20,10" />
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Disabled">
+                        <ContentPresenter Content="{Binding Control}" Margin="20,10,20,10"
+                                          PreviewMouseWheel="Content_PreviewMouseWheel" />
+                    </ScrollViewer>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+                        <ContentPresenter Content="{Binding Control.UserButton1}" />
+                        <ContentPresenter Content="{Binding Control.UserButton2}" />
+                        <ContentPresenter Content="{Binding Control.UserButton3}" />
+                        <alControls:Button LocTextKey="Buttons_WizardBack" Command="{Binding BackCommand}"
+                                           IsEnabled="{Binding Control.IsFirstControl, Converter={StaticResource NotBool}}" />
+                        <alControls:Button LocTextKey="Buttons_WizardNext" Command="{Binding NextCommand}"
+                                           IsEnabled="{Binding Control.CanNext}" />
+                        <alControls:Button LocTextKey="Buttons_Finnish" Command="{Binding FinishCommand}"
+                                           IsEnabled="{Binding Control.CanFinnish}" />
+                        <alControls:Button LocTextKey="Buttons_Cancel" Command="{Binding CancelCommand}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

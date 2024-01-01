@@ -1,0 +1,94 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFExecuteActivityTermEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:activityParametersControl="clr-namespace:MTFApp.UIControls.ActivityParametersControl"
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="ParamTemplate">
+
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Term.HasParameters}" Value="True">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <activityParametersControl:ActivityParametersControl Margin="5"
+                                                                                                 ActivityParameters="{Binding Term.MTFParameters}"
+                                                                                                 UsedInTermDesigner="True"
+                                                                                                 UseFullTerms="True"/>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Border Name="ExecuteActivityTermEditorRoot" BorderThickness="1" BorderBrush="{StaticResource ALGrayBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Padding="5" Background="{StaticResource ALGrayBrush}">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox ItemsSource="{Binding ClassInfos}"
+                              SelectedItem="{Binding SelectedClassInfo, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <UserControl Grid.Column="0"
+                                                 Style="{Binding MTFClass.Icon, Converter={StaticResource IconConverter}}"
+                                                 VerticalAlignment="Center"
+                                                 HorizontalAlignment="Left"
+                                                 MaxHeight="20" />
+                                    <TextBlock Grid.Column="2" Text="{Binding Alias}" VerticalAlignment="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox ItemsSource="{Binding Executables}"
+                              Margin="10,0,0,0"
+                              DisplayMemberPath="DisplayName"
+                              SelectedItem="{Binding SelectedMethod, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+                </StackPanel>
+            </Border>
+
+
+            <ContentPresenter Grid.Row="3" Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ParametersAreAssigned}" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ParamTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+
+        </Grid>
+    </Border>
+</editors:MTFEditorBase>

@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="TextAlignmentCenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,32,40" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="2.802,3.166,26.396,4" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="7.052,10.333,17.895,4" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="4.135,17.667,23.73,4" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="1.438,24.833,29.125,4" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

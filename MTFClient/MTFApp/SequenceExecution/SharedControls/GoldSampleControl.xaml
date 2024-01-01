@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="MTFApp.SequenceExecution.SharedControls.GoldSampleControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:sequenceExecution="clr-namespace:MTFApp.SequenceExecution"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <converters:GoldSampleRemainsConverter x:Key="RemainsConverter" />
+
+        <Style TargetType="TextBlock" x:Key="BoldText">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+        <DataTemplate x:Key="TimeRemains">
+            <StackPanel Orientation="Horizontal">
+                <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_GS_Remains" Style="{StaticResource BoldText}" Margin="0,0,3,0" />
+                <TextBlock Text="{Binding NonGoldSampleRemainsMinutes, Converter={StaticResource RemainsConverter}}" Style="{StaticResource BoldText}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="CountRemains">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding NonGoldSampleCount}" Style="{StaticResource BoldText}" />
+                    <TextBlock Text="/" Style="{StaticResource BoldText}" />
+                    <TextBlock Text="{Binding DataContext.Sequence.GoldSampleSetting.GoldSampleCount, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceExecution:SequenceExecutionControl}}}" Style="{StaticResource BoldText}" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CurrentVariant">
+            <Grid Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" >
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="{StaticResource ALGreenBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding GoldSampleExpired}" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource ALRedBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBlock Text="{Binding SequenceVariant}" FontSize="16" />
+                </Border>
+                <Border Grid.Row="1" Padding="5">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding GoldSampleExpired}" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <DockPanel>
+                        <TextBlock Text="{Binding GoldSampleDate}" DockPanel.Dock="Left" Style="{StaticResource BoldText}" />
+                        <ContentPresenter Content="{Binding}" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource TimeRemains}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Value="Count" Binding="{Binding DataContext.Sequence.GoldSampleSetting.GoldSampleValidationMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceExecution:SequenceExecutionControl}}}">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource CountRemains}" /> 
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OtherVariant">
+            <Grid Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding SequenceVariant}" Grid.Row="0" FontSize="16" />
+                <Border Grid.Row="1" Background="{StaticResource ALLightSilverBrush}" Padding="5">
+                    <DockPanel>
+                        <TextBlock Text="{Binding GoldSampleDate}" DockPanel.Dock="Left" Style="{StaticResource BoldText}" />
+                        <ContentPresenter Content="{Binding}" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource TimeRemains}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Value="Count" Binding="{Binding DataContext.Sequence.GoldSampleSetting.GoldSampleValidationMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceExecution:SequenceExecutionControl}}}">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource CountRemains}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MissingGoldSample">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <Grid Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="{StaticResource ALRedBrush}">
+                    <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_GS_Missing" FontSize="16" />
+                </Border>
+                <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_GS_Missing" Grid.Row="0" FontSize="16" />
+                <Border Grid.Row="1" Background="{StaticResource ALLightRedBrush}" Padding="5">
+                    <DockPanel>
+                        <TextBlock Text="---" DockPanel.Dock="Left" Style="{StaticResource BoldText}" />
+                        <TextBlock Text="-/-" Style="{StaticResource BoldText}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        
+    </UserControl.Resources>
+    <Grid Margin="5,0,0,0" >
+        <Grid.Resources>
+            <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_GS" FontSize="20" FontWeight="Bold" Grid.Row="0" Margin="0,0,40,0" />
+        <ListBox ItemsSource="{Binding GoldSampleVariants}" Grid.Row="1"
+                     HorizontalContentAlignment="Stretch"
+                     Margin="0,0,5,0"
+                     ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                     Template="{StaticResource ListBoxControlTemplate}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentPresenter Content="{Binding}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate" Value="{StaticResource OtherVariant}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource CurrentVariant}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MissingGoldSample}" Value="True">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource MissingGoldSample}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

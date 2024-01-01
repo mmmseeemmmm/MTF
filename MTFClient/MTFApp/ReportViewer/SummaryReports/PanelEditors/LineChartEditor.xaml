@@ -1,0 +1,150 @@
+﻿<uiHelpers:MTFUserControl x:Class="MTFApp.ReportViewer.SummaryReports.PanelEditors.LineChartEditor"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                          xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                          xmlns:nullableComboBox="clr-namespace:MTFApp.UIControls.NullableComboBox"
+                          xmlns:converters="clr-namespace:MTFApp.ReportViewer.Converters"
+                          xmlns:panelEditors="clr-namespace:MTFApp.ReportViewer.SummaryReports.PanelEditors"
+                          mc:Ignorable="d"
+                          d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:ChartColorToColorConverter x:Key="ChartColorConverter" />
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="SeriesTemplate">
+            <Grid Width="420" Margin="0 0 0 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="3" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <panelEditors:DontDeleteSelectedItemAfterItemsSourceChangedComboBox
+                        Style="{StaticResource {x:Type ComboBox}}" Grid.Row="0" Grid.Column="0"
+                        ItemsSource="{Binding DataContext.ValidationTableInfos, ElementName=lineChartEditorRoot}"
+                        OnItemsChangedEvent="CmbTable_OnTargetUpdated" DisplayMemberPath="Name"
+                        Text="{Binding TableName}" IsEditable="True" x:Name="cmbTable" />
+                    <panelEditors:DontDeleteSelectedItemAfterItemsSourceChangedComboBox
+                        Style="{StaticResource {x:Type ComboBox}}" Grid.Row="0" Grid.Column="1"
+                        ItemsSource="{Binding SelectedItem.Rows, ElementName=cmbTable}"
+                        OnItemsChangedEvent="CmbRow_OnTargetUpdated" DisplayMemberPath="Name" Text="{Binding RowName}"
+                        IsEditable="True" x:Name="cmbRow" />
+                    <panelEditors:DontDeleteSelectedItemAfterItemsSourceChangedComboBox
+                        Style="{StaticResource {x:Type ComboBox}}" Grid.Row="0" Grid.Column="2"
+                        ItemsSource="{Binding SelectedItem.Columns, ElementName=cmbRow}"
+                        OnItemsChangedEvent="Binding_OnTargetUpdated" DisplayMemberPath="Name"
+                        Text="{Binding ColumnName}" IsEditable="True" />
+
+                    <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button
+                            Command="{Binding DataContext.MoveLineSeriesSettingsUpCommand, ElementName=lineChartEditorRoot}"
+                            CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconTriangleUp}" />
+                        </Button>
+                        <Button
+                            Command="{Binding DataContext.MoveLineSeriesSettingsDownCommand, ElementName=lineChartEditorRoot}"
+                            CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconTriangleDown}" />
+                        </Button>
+                        <Button
+                            Command="{Binding DataContext.CopyLineSeriesSettingsCommand, ElementName=lineChartEditorRoot}"
+                            CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconCopy}" />
+                        </Button>
+                        <Button
+                            Command="{Binding DataContext.DeleteLineSeriesSettingsCommand, ElementName=lineChartEditorRoot}"
+                            CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconTrash}" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <alControls:TextBlock Grid.Row="1" Grid.Column="0" LocTextKey="SummaryReportLineChartSeriesTitle"
+                                      VerticalAlignment="Center" />
+                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Title}" />
+
+                <alControls:TextBlock Grid.Row="2" Grid.Column="0" LocTextKey="SummaryReportLineChartSeriesColor"
+                                      VerticalAlignment="Center" />
+                <nullableComboBox:NullableComboBox Grid.Row="2" Grid.Column="2" SelectedValue="{Binding Color}"
+                                                   SelectedValuePath="Value" DisplayMemberPath="Value"
+                                                   ItemsSource="{Binding DataContext.ChartColors, ElementName=lineChartEditorRoot}">
+                    <nullableComboBox:NullableComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{Binding Value, Converter={StaticResource ChartColorConverter}}"
+                                    MinWidth="30" Height="15" />
+                        </DataTemplate>
+                    </nullableComboBox:NullableComboBox.ItemTemplate>
+                </nullableComboBox:NullableComboBox>
+
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="lineChartEditorRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="PanelParameterName" />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <alControls:TextBlock Grid.Row="0" Grid.Column="0" LocTextKey="SummaryReportLineChartPanelTitle"
+                              VerticalAlignment="Center" />
+        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding LineChartPanel.Title}" />
+
+        <alControls:TextBlock Grid.Row="1" Grid.Column="0" LocTextKey="SummaryReportLineChartPanelLegendPosition"
+                              VerticalAlignment="Center" />
+        <alControls:ComboBox Grid.Row="1" Grid.Column="2" SelectedValue="{Binding LineChartPanel.LegendPosition}"
+                             ItemsSourceLocalized="{Binding LegendPositions}" SelectedValuePath="Value"
+                             LocTextKey="Description" Style="{StaticResource {x:Type ComboBox}}" />
+
+        <Button Width="200" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                Command="{Binding AddLineSeriesSettingsCommand}" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <UserControl Width="30" Style="{StaticResource IconAddPlus}" Margin="0 0 5 0" />
+                <alControls:TextBlock LocTextKey="SummaryReportAddLineChartSeriesSettings" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <ItemsControl Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" ItemsSource="{Binding LineChartPanel.Series}"
+                      HorizontalAlignment="Left">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentPresenter Content="{Binding}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate" Value="{StaticResource SeriesTemplate}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsDeleted}" Value="True">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+    </Grid>
+</uiHelpers:MTFUserControl>

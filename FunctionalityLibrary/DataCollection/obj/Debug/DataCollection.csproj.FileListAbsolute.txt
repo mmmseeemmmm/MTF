@@ -1,0 +1,5 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\DataCollection\DataCollection.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\DataCollection\DataCollection.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\DataCollection\obj\Debug\DataCollection.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\DataCollection\obj\Debug\DataCollection.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\DataCollection\obj\Debug\DataCollection.pdb

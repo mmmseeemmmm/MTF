@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC00EF32-BD20-4A0F-B7AA-0D2FCEC2A44A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTFClientServerCommon</RootNamespace>
+    <AssemblyName>MTFClientServerCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Localization">
+      <HintPath>..\MTFClient\MTFApp\Resources\Dll\Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityIdentifier.cs" />
+    <Compile Include="ActivityImageProgressChangedEventArgs.cs" />
+    <Compile Include="ActivityPercentProgressChangedEventInfo.cs" />
+    <Compile Include="ActivityStringProgressChangedEvent.cs" />
+    <Compile Include="BindChanger.cs" />
+    <Compile Include="Constants\DutConstants.cs" />
+    <Compile Include="Constants\ImportExportConstants.cs" />
+    <Compile Include="Constants\SequenceVariantConstants.cs" />
+    <Compile Include="Constants\ValidationTableConstants.cs" />
+    <Compile Include="DataMigrationInfo.cs" />
+    <Compile Include="DbEntities\DbEntity.cs" />
+    <Compile Include="DbEntities\DbEnums\DbLegendPosition.cs" />
+    <Compile Include="DbEntities\DbEnums\DbSequenceVariantType.cs" />
+    <Compile Include="DbEntities\DbEnums\DbTextAlignment.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportError.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportMessage.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportRoundingRules.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportSequenceRun.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportSequenceVariant.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportValidationTable.cs" />
+    <Compile Include="DbEntities\DbReportEntities\ReportValidationTableRow.cs" />
+    <Compile Include="DbEntities\DbReportEntities\SequenceReport.cs" />
+    <Compile Include="DbEntities\DbEnums\DbErrorTypes.cs" />
+    <Compile Include="DbEntities\DbEnums\DbReportTableValidationMode.cs" />
+    <Compile Include="DbEntities\DbEnums\DbReportValidationTableStatus.cs" />
+    <Compile Include="DbEntities\DbReportViewer\DbLineChartPanel.cs" />
+    <Compile Include="DbEntities\DbReportViewer\DbLineChartSeries.cs" />
+    <Compile Include="DbEntities\DbReportViewer\DbReportsOverviewPanel.cs" />
+    <Compile Include="DbEntities\DbReportViewer\DbTextPanel.cs" />
+    <Compile Include="DbEntities\DbReportViewer\SummaryReport.cs" />
+    <Compile Include="DbEntities\DbReportViewer\IDbReportSummaryPanel.cs" />
+    <Compile Include="DbReporting\Helpers\EntityMapper.cs" />
+    <Compile Include="DbReporting\Helpers\EnumTransformHelper.cs" />
+    <Compile Include="DbReporting\ReportFilter.cs" />
+    <Compile Include="DbReporting\ReportSorting.cs" />
+    <Compile Include="DbReporting\UiReportEntities\ReportValidationTableColumnDetail.cs" />
+    <Compile Include="DbReporting\UiReportEntities\RoundingRuleUi.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SequenceReportErrorDetail.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SequenceReportMessageDetail.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SequenceReportDetail.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SequenceReportPreview.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SequenceReportValidationTableDetail.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SequenceReportValidationTableRowDetail.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\ChartColors.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\LineChartPanel.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\LineChartSeriesSettings.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\PanelBase.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\ReportsOverviewPanel.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\SummaryReportData.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\SummaryReportSettings.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\SummaryReportUiEntityBase.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\TextAlignment.cs" />
+    <Compile Include="DbReporting\UiReportEntities\SummaryReport\TextPanel.cs" />
+    <Compile Include="DeviceUnderTestInfo.cs" />
+    <Compile Include="ExternalCallInfo.cs" />
+    <Compile Include="ClassConfiguration\GenericClassInstanceConfiguration.cs" />
+    <Compile Include="ClassConfiguration\GenericParameterValue.cs" />
+    <Compile Include="ClassConfiguration\IParameterValue.cs" />
+    <Compile Include="ClassConfiguration\MTFValueList.cs" />
+    <Compile Include="ClassInformation\ClientContolInfo.cs" />
+    <Compile Include="ClassInformation\GenericClassInfo.cs" />
+    <Compile Include="ClassInformation\GenericConstructorInfo.cs" />
+    <Compile Include="ClassInformation\GenericMethodInfo.cs" />
+    <Compile Include="ClassInformation\GenericParameterInfo.cs" />
+    <Compile Include="ClassInformation\GenericPropertyIndexer.cs" />
+    <Compile Include="ClassInformation\GenericPropertyInfo.cs" />
+    <Compile Include="ClientAssemblyInfo.cs" />
+    <Compile Include="ClassInformation\ClientControlType.cs" />
+    <Compile Include="ClientUIData.cs" />
+    <Compile Include="ComputerInfo\ApplicationInfo.cs" />
+    <Compile Include="ComputerInfo\ComputerInfo.cs" />
+    <Compile Include="ComputerInfo\CPUInfo.cs" />
+    <Compile Include="ComputerInfo\OSInfo.cs" />
+    <Compile Include="Constants\ActivityConstants.cs" />
+    <Compile Include="Constants\BaseConstants.cs" />
+    <Compile Include="GoldSamplePersist\GoldSamplePersist.cs" />
+    <Compile Include="GoldSamplePersist\GoldSampleValue.cs" />
+    <Compile Include="GoldSamplePersist\GoldSampleHelper.cs" />
+    <Compile Include="GoldSamplePersist\SequenceVariantInfo.cs" />
+    <Compile Include="GoldSampleSetting.cs" />
+    <Compile Include="GraphicalView\GraphicalViewTestItemType.cs" />
+    <Compile Include="Helpers\ComponentConfigInfo.cs" />
+    <Compile Include="GraphicalView\BitmapInfo.cs" />
+    <Compile Include="GraphicalView\GraphicalViewImg.cs" />
+    <Compile Include="GraphicalView\GraphicalViewInfo.cs" />
+    <Compile Include="GraphicalView\GraphicalViewSetting.cs" />
+    <Compile Include="GraphicalView\GraphicalViewTestItem.cs" />
+    <Compile Include="Helpers\DirectoryPathHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\GuidHelper.cs" />
+    <Compile Include="Helpers\LanguageHelper.cs" />
+    <Compile Include="Helpers\MTFSequenceActivityHelper.cs" />
+    <Compile Include="Helpers\RoundModesEnum.cs" />
+    <Compile Include="Helpers\SequenceVariantHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\ValidationTableHelper.cs" />
+    <Compile Include="Helpers\XmlOperations.cs" />
+    <Compile Include="DbReporting\IDbReportingService.cs" />
+    <Compile Include="Import\ZipArchiveOperations.cs" />
+    <Compile Include="IIdentifier.cs" />
+    <Compile Include="Import\ImportSerializationBinder.cs" />
+    <Compile Include="Import\ImportConflict.cs" />
+    <Compile Include="Import\SequenceMetaData.cs" />
+    <Compile Include="ISequenceClassInfo.cs" />
+    <Compile Include="Mathematics\AbsoluteValueTerm.cs" />
+    <Compile Include="Mathematics\ActivityTargetTerm.cs" />
+    <Compile Include="Mathematics\AvgTerm.cs" />
+    <Compile Include="Mathematics\CastTerm.cs" />
+    <Compile Include="Mathematics\CollectionTerm.cs" />
+    <Compile Include="Mathematics\CreateInstanceTerm.cs" />
+    <Compile Include="Mathematics\DivideTerm.cs" />
+    <Compile Include="Mathematics\ExecuteActivityTerm.cs" />
+    <Compile Include="Mathematics\GenericClassInstanceTerm.cs" />
+    <Compile Include="Mathematics\BitAndTerm.cs" />
+    <Compile Include="Mathematics\BitOrTerm.cs" />
+    <Compile Include="Mathematics\GoldSampleTerm.cs" />
+    <Compile Include="Mathematics\IsNullTerm.cs" />
+    <Compile Include="Mathematics\ITermErrorHandling.cs" />
+    <Compile Include="Mathematics\ListOperationTerm.cs" />
+    <Compile Include="Mathematics\ListTerm.cs" />
+    <Compile Include="Mathematics\MaxTerm.cs" />
+    <Compile Include="Mathematics\MinTerm.cs" />
+    <Compile Include="Mathematics\ModuloTerm.cs" />
+    <Compile Include="Mathematics\MultiplyTerm.cs" />
+    <Compile Include="Mathematics\NotIsInListTerm.cs" />
+    <Compile Include="Mathematics\PowerTerm.cs" />
+    <Compile Include="Mathematics\RangeTerm.cs" />
+    <Compile Include="Mathematics\RegExMatchTerm.cs" />
+    <Compile Include="Mathematics\RegExValueTerm.cs" />
+    <Compile Include="Mathematics\RootTerm.cs" />
+    <Compile Include="Mathematics\RoundTerm.cs" />
+    <Compile Include="Mathematics\RoundToValueTerm.cs" />
+    <Compile Include="Mathematics\StringFormatTerm.cs" />
+    <Compile Include="Mathematics\SumTerm.cs" />
+    <Compile Include="Mathematics\TermWrapper.cs" />
+    <Compile Include="Mathematics\UnaryExponentTerm.cs" />
+    <Compile Include="Mathematics\UnaryNumberTerm.cs" />
+    <Compile Include="Mathematics\UnaryRoundTerm.cs" />
+    <Compile Include="Mathematics\ValidationTableResultTerm.cs" />
+    <Compile Include="Mathematics\ValidationTableTerm.cs" />
+    <Compile Include="MessageInfo.cs" />
+    <Compile Include="MTFAccessControl\AccessKey.cs" />
+    <Compile Include="MTFAccessControl\AccessKeyProvider.cs" />
+    <Compile Include="MTFAccessControl\AccessRoleNameConvertor.cs" />
+    <Compile Include="MTFAccessControl\AnetAccessKey\AnetAccessKeyProvider.cs" />
+    <Compile Include="MTFAccessControl\AnetAccessKey\ANETConfigControl.xaml.cs">
+      <DependentUpon>ANETConfigControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MTFAccessControl\AnetAccessKey\ANETConfigPresenter.cs" />
+    <Compile Include="Helpers\Command.cs" />
+    <Compile Include="MTFAccessControl\AnetAccessKey\DataTypePerson.cs" />
+    <Compile Include="MTFAccessControl\AnetAccessKey\Person.cs" />
+    <Compile Include="MTFAccessControl\AnetAccessKey\Role.cs" />
+    <Compile Include="MTFAccessControl\AnetAccessKey\SecurityHelper.cs" />
+    <Compile Include="MTFAccessControl\Machine.cs" />
+    <Compile Include="MTFAccessControl\AccessRole.cs" />
+    <Compile Include="MTFAccessControl\AccessSequence.cs" />
+    <Compile Include="MTFAccessControl\NamedPipe\NamedPipeHelper.cs" />
+    <Compile Include="MTFAccessControl\NamedPipe\PipeClient.cs" />
+    <Compile Include="MTFAccessControl\NamedPipe\PipeEventArgs.cs" />
+    <Compile Include="MTFAccessControl\NamedPipe\PipeServer.cs" />
+    <Compile Include="MTFAccessControl\USBAccessKeyHandler.cs" />
+    <Compile Include="MTFAccessControl\AccessKeySerializer.cs" />
+    <Compile Include="MTFAccessControl\AccessRequest.cs" />
+    <Compile Include="MTFAccessControl\AccessRequestSerializer.cs" />
+    <Compile Include="MTFAccessControl\USBAccessKey\USBAccessKeyProvider.cs" />
+    <Compile Include="MTFAccessControl\UsbDrive\ManagementObjectExtension.cs" />
+    <Compile Include="MTFAccessControl\UsbDrive\UsbManager.cs" />
+    <Compile Include="MTFAccessControl\UsbDrive\UsbKey.cs" />
+    <Compile Include="MTFAccessControl\UsbDrive\UsbStateChangedEventArgs.cs" />
+    <Compile Include="MTFAccessControl\UsbDrive\UsbKeysCollection.cs" />
+    <Compile Include="MTFActivityResultWrapper.cs" />
+    <Compile Include="MTFCallActivityBase.cs" />
+    <Compile Include="MTFCase.cs" />
+    <Compile Include="MTFDialogItemTypes.cs" />
+    <Compile Include="MTFErrorHandlingActivity.cs" />
+    <Compile Include="MTFExecutionActivityStatus.cs" />
+    <Compile Include="Helpers\TryParseValueHelper.cs" />
+    <Compile Include="Helpers\TypeInfo.cs" />
+    <Compile Include="Helpers\VersionConvertHelper.cs" />
+    <Compile Include="IMTFCoreService.cs" />
+    <Compile Include="IMTFCoreServiceCallback.cs" />
+    <Compile Include="Mathematics\LogicalAndTerm.cs" />
+    <Compile Include="Mathematics\LogicalOrTerm.cs" />
+    <Compile Include="Mathematics\VariableTerm.cs" />
+    <Compile Include="MTFActivityVisualisationWrapper.cs" />
+    <Compile Include="MTFDialogResult.cs" />
+    <Compile Include="MTFExternalActivity.cs" />
+    <Compile Include="MTFExternalSequenceInfo.cs" />
+    <Compile Include="MTFFillValidationTableActivity.cs" />
+    <Compile Include="Import\MTFImportSetting.cs" />
+    <Compile Include="MTFListOperation.cs" />
+    <Compile Include="MTFLockingThread.cs" />
+    <Compile Include="MTFLoggingActivity.cs" />
+    <Compile Include="MTFLogMessageResult.cs" />
+    <Compile Include="MTFMessageActivityResult.cs" />
+    <Compile Include="MTFSequenceMessageActivity.cs" />
+    <Compile Include="MTFSequneceHandlingActivity.cs" />
+    <Compile Include="MTFServiceCommandType.cs" />
+    <Compile Include="MTFServiceDesignSetting.cs" />
+    <Compile Include="MTFServiceCommand.cs" />
+    <Compile Include="MTFServiceCommandIcon.cs" />
+    <Compile Include="MTFUserCommand.cs" />
+    <Compile Include="MTFUserCommandAccessRole.cs" />
+    <Compile Include="MTFUserCommandType.cs" />
+    <Compile Include="MTFValidationTable\ITableStatus.cs" />
+    <Compile Include="OpenClientSetupControlArgs.cs" />
+    <Compile Include="RestApi\JsonSerializer.cs" />
+    <Compile Include="RestApi\LicenseAccessRequest.cs" />
+    <Compile Include="RestApi\RestApiClient.cs" />
+    <Compile Include="RestApi\RestApiMethod.cs" />
+    <Compile Include="ResultRequestTypes.cs" />
+    <Compile Include="SequenceExecutionUISetting.cs" />
+    <Compile Include="SequenceExecutionViewType.cs" />
+    <Compile Include="SequenceLocalization\ActivityNames.Designer.cs">
+      <DependentUpon>ActivityNames.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SequenceLocalization\SequenceLocalizationHelper.cs" />
+    <Compile Include="SequenceVariant\SequenceVariantStringValues.cs" />
+    <Compile Include="SequenceVersionSettings.cs" />
+    <Compile Include="MTFServiceModes.cs" />
+    <Compile Include="MTFStringFormat.cs" />
+    <Compile Include="MTFTable\IMTFDataTable.cs" />
+    <Compile Include="MTFTable\IMTFTable.cs" />
+    <Compile Include="MTFTable\MTFConstantTable.cs" />
+    <Compile Include="MTFTable\MTFTableCell.cs" />
+    <Compile Include="MTFTable\MTFTableColumn.cs" />
+    <Compile Include="MTFTable\MTFTableColumnType.cs" />
+    <Compile Include="MTFTable\MTFTableRow.cs" />
+    <Compile Include="MTFTable\MTFTableRowVariant.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTable.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTableCell.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTableColumn.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTableExecutionMode.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTableRow.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTableRowResult.cs" />
+    <Compile Include="MTFValidationTable\MTFValidationTableRowVariant.cs" />
+    <Compile Include="MTFValidationTable\ValidationTableCondition.cs" />
+    <Compile Include="MTFValidationTable\ValidationTableResultType.cs" />
+    <Compile Include="MTFVariable.cs" />
+    <Compile Include="MTFVariableActivity.cs" />
+    <Compile Include="MTFVariableActivityResult.cs" />
+    <Compile Include="PagedList.cs" />
+    <Compile Include="Persistence\IMTFPersist.cs" />
+    <Compile Include="Mathematics\ActivityResultTerm.cs" />
+    <Compile Include="Mathematics\AddTerm.cs" />
+    <Compile Include="Mathematics\BinaryLogicalTerm.cs" />
+    <Compile Include="Mathematics\BinaryTerm.cs" />
+    <Compile Include="Mathematics\ConstantTerm.cs" />
+    <Compile Include="Mathematics\EmptyTerm.cs" />
+    <Compile Include="Mathematics\EqualTerm.cs" />
+    <Compile Include="Mathematics\GreaterOrEqualTerm.cs" />
+    <Compile Include="Mathematics\GreaterThanTerm.cs" />
+    <Compile Include="Mathematics\IsInListTerm.cs" />
+    <Compile Include="Mathematics\LessOrEqualTerm.cs" />
+    <Compile Include="Mathematics\LessThanTerm.cs" />
+    <Compile Include="Mathematics\NotEqualTerm.cs" />
+    <Compile Include="Mathematics\NotTerm.cs" />
+    <Compile Include="Mathematics\SubtractTerm.cs" />
+    <Compile Include="Mathematics\Term.cs" />
+    <Compile Include="Mathematics\TermFactory.cs" />
+    <Compile Include="Mathematics\TermHelper.cs" />
+    <Compile Include="Mathematics\UnaryLogicalTerm.cs" />
+    <Compile Include="Mathematics\UnaryTerm.cs" />
+    <Compile Include="MTFActivityResult.cs" />
+    <Compile Include="ClassInformation\MTFAllowedValue.cs" />
+    <Compile Include="ClassInformation\MTFClassInfo.cs" />
+    <Compile Include="ClassConfiguration\MTFClassInstanceConfiguration.cs" />
+    <Compile Include="MTFClient.cs" />
+    <Compile Include="MTFClientCallbackHandler.cs" />
+    <Compile Include="ClassInformation\MTFConstructorInfo.cs" />
+    <Compile Include="MTFDataTransferObject.cs" />
+    <Compile Include="ClassInformation\MTFClassCategory.cs" />
+    <Compile Include="MTFExecuteActivity.cs" />
+    <Compile Include="ClassInformation\MTFMethodInfo.cs" />
+    <Compile Include="ClassInformation\MTFParameterInfo.cs" />
+    <Compile Include="MTFParameterValue.cs" />
+    <Compile Include="MTFPersist.cs" />
+    <Compile Include="MTFPersistDataInfo.cs" />
+    <Compile Include="ClassInformation\MTFProgressEventInfo.cs" />
+    <Compile Include="ClassInformation\MTFPropertyInfo.cs" />
+    <Compile Include="MTFSequence.cs" />
+    <Compile Include="MTFSequenceClassInfo.cs" />
+    <Compile Include="MTFSequenceActivity.cs" />
+    <Compile Include="MTFSequenceExecutionState.cs" />
+    <Compile Include="MTFSequenceHelper.cs" />
+    <Compile Include="MTFSequenceResult.cs" />
+    <Compile Include="MTFSubSequenceActivity.cs" />
+    <Compile Include="Persistence\MTFIdentityObject.cs" />
+    <Compile Include="Persistence\MTFPersistIdOnlyAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundingRule.cs" />
+    <Compile Include="SequenceVariant\SequenceVariant.cs" />
+    <Compile Include="SequenceVariant\SequenceVariantGroup.cs" />
+    <Compile Include="SequenceVariant\SequenceVariantGroupValue.cs" />
+    <Compile Include="SequenceVariant\SequenceVariantValue.cs" />
+    <Compile Include="SequenceVariant\SetupVariantSelectionResult.cs" />
+    <Compile Include="ServerSettings.cs" />
+    <Compile Include="Services\IComponentsService.cs" />
+    <Compile Include="Services\IComponentsServiceCallback.cs" />
+    <Compile Include="Services\IServerStatusService.cs" />
+    <Compile Include="StateDebugSetup.cs" />
+    <Compile Include="StatusMessage.cs" />
+    <Compile Include="SystemLog.cs" />
+    <Compile Include="UIHelpers\IOnClosing.cs" />
+    <Compile Include="Version.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MTFCommon\MTFCommon.csproj">
+      <Project>{738e45bd-4be1-422f-9a61-8fbc8e3c0641}</Project>
+      <Name>MTFCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MTFAccessControl\AnetAccessKey\ANETConfigControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SequenceLocalization\ActivityNames.cs-CZ.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SequenceLocalization\ActivityNames.it-IT.resx" />
+    <EmbeddedResource Include="SequenceLocalization\ActivityNames.de-DE.resx" />
+    <EmbeddedResource Include="SequenceLocalization\ActivityNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ActivityNames.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

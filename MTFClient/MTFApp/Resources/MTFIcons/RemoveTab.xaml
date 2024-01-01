@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconRemoveTab">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,15,17" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <DrawingGroup>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="EvenOdd" Figures="M11,11.7595L11,11.7595 7,11.7595 7,13.7595 11,13.7595 15,13.7595 15,11.7595z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="EvenOdd" Figures="M2,2.7595L2,2.7595 8,2.7595 8,6.7595 12,6.7595 12,8.7595 14,8.7595 14,4.7595 10,4.7595 10,0.7595 0,0.7595 0,16.7595 7,16.7595 7,14.7595 2,14.7595z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="EvenOdd" Figures="M12,1.7595L12,1.7595 11,0.7595 11,3.7595 14,3.7595z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>                                   
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

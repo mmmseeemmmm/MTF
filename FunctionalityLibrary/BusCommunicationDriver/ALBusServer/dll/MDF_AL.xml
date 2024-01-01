@@ -1,0 +1,2611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MVCI_MODULE_DESCRIPTION xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pdu.xsd" FILE_VERSION="1.1.0" MVCI_PART2_STANDARD_VERSION="2.2.0">
+  <DESCRIPTION>AL Module Description File</DESCRIPTION>
+  <SUPPLIER_NAME>Automotive Lighting Reutlingen GmbH</SUPPLIER_NAME>
+  <!--  D-PDU-API pintype definitions  -->
+  <PINTYPE EID="AL_ID_HI">
+    <ID>1</ID>
+    <SHORT_NAME>HI</SHORT_NAME>
+    <!-- Short name must correspond to ODX data! -->
+    <DESCRIPTION>AL Data Link Connector (DLC) PIN Type for Differential Line High (e.g. DW_CAN High)</DESCRIPTION>
+  </PINTYPE>
+  <PINTYPE EID="AL_ID_LOW">
+    <ID>2</ID>
+    <SHORT_NAME>LOW</SHORT_NAME>
+    <!-- Short name must correspond to ODX data! -->
+    <DESCRIPTION>AL Data Link Connector (DLC) PIN Type for Differential Line Low (e.g. DW_CAN Low)</DESCRIPTION>
+  </PINTYPE>
+  <PINTYPE EID="AL_ID_SINGLE">
+    <ID>5</ID>
+    <SHORT_NAME>SINGLE</SHORT_NAME>
+    <!-- Short name must correspond to ODX data! -->
+    <DESCRIPTION>AL Data Link Connector (DLC) PIN Type for Differential Line Single (e.g. DW_LIN)</DESCRIPTION>
+  </PINTYPE>
+  <!--  D-PDU-API module definitions  -->
+  <MODULETYPE>
+    <ID>1</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>Virtual CAN Bus</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH Virtual CAN </DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_Virtual_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_Virtual_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_Virtual_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_Virtual_CAN_CH2_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>21</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>CANcaseXL</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH CANcaseXL</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_CAN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_LIN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANcaseXL_LIN_CH2_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>25</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>CANboardXL</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH CANboardXL with PCI or PCI Express interface (not included Compact PCI/PXI interface)</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_CAN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_LIN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_CANboardXL_LIN_CH2_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>45</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>VN8900</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH VN8900 connected by USB</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH4_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH5"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH5_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH6"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH6_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH7"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH7_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH8"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_CAN_CH8_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH5_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH5"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH5_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH6"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH6_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH7"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH7_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH8"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN8900_LIN_CH8_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>55</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>VN1610</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH VN1610</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_VN1610_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1610_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1610_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1610_CAN_CH2"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>57</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>VN1630</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH VN1630</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_CAN_CH4_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_LIN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1630_LIN_CH2_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>59</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>VN1640</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH VN1640</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_CAN_CH4_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1640_LIN_CH4_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>63</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>VN1611</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH VN1611</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_LIN_CH2" />
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_LIN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_VN1611_CAN_CH2_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <MODULETYPE>
+    <ID>69</ID>
+    <!-- ID must correspond to hwTypeId of VCI! -->
+    <SHORT_NAME>VectorIPClient</SHORT_NAME>
+    <DESCRIPTION>Vector Informatik GmbH VN8900 Ethernet (vnIpClient)</DESCRIPTION>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH4_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH5"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH5_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH6"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH6_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH7"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH7_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH8"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_CAN_CH8_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH1"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH1_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH2"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH2_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH3"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH3_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH4"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH5_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH5"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH5_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH6"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH6_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH7"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH7_DIAG"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH8"></RESOURCE>
+    <RESOURCE IDREF="AL_ID_Resource_vnIpClient_LIN_CH8_DIAG"></RESOURCE>
+  </MODULETYPE>
+  <!--  D-PDU-API resource definitions-->
+  <!--PIN_ON_MODULE for CAN: channel number & connector pin number-->
+  <!--PIN_ON_MODULE for LIN: channel number & channel number & connector pin number-->
+  <!--Example - Channel 1 and connector pin 2 PIN_ON_MODULE for CAN is 12 and PIN_ON_MODULE for LIN 112-->
+  <RESOURCE EID="AL_ID_Resource_Virtual_CAN_CH1">
+    <ID>1</ID>
+    <SHORT_NAME>Resource_Virtual_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the Virtual CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_Virtual_CAN_CH1_DIAG">
+    <ID>2</ID>
+    <SHORT_NAME>Resource_Virtual_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the Virtual CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_Virtual_CAN_CH2">
+    <ID>3</ID>
+    <SHORT_NAME>Resource_Virtual_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the Virtual CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_Virtual_CAN_CH2_DIAG">
+    <ID>4</ID>
+    <SHORT_NAME>Resource_Virtual_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the Virtual CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH1">
+    <ID>5</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH1_DIAG">
+    <ID>6</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH2">
+    <ID>7</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH2_DIAG">
+    <ID>8</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH3">
+    <ID>9</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 3 with module pin 31 (CAN Low) and module pin 38 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>31</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>38</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH3_DIAG">
+    <ID>10</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 3 with module pin 31 (CAN Low) and module pin 38 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>31</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>38</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH4">
+    <ID>11</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 4 with module pin 41 (CAN Low) and pin 48 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>41</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>48</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_CAN_CH4_DIAG">
+    <ID>12</ID>
+    <SHORT_NAME>Resource_VN1630_CAN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with CAN Interface on channel 4 with module pin 41 (CAN Low) and module pin 48 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>41</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>48</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_LIN_CH1">
+    <ID>13</ID>
+    <SHORT_NAME>Resource_VN1630_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_LIN_CH1_DIAG">
+    <ID>14</ID>
+    <SHORT_NAME>Resource_VN1630_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_LIN_CH2">
+    <ID>15</ID>
+    <SHORT_NAME>Resource_VN1630_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1630_LIN_CH2_DIAG">
+    <ID>16</ID>
+    <SHORT_NAME>Resource_VN1630_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1630 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_LIN_CH1">
+    <ID>17</ID>
+    <SHORT_NAME>Resource_VN1611_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_LIN_CH1_DIAG">
+    <ID>18</ID>
+    <SHORT_NAME>Resource_VN1611_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_CAN_CH1">
+    <ID>19</ID>
+    <SHORT_NAME>Resource_VN1611_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with CAN Interface on channel 1 with module pin 11 (CAN Low) and module pin 18 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>11</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>18</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_CAN_CH1_DIAG">
+    <ID>20</ID>
+    <SHORT_NAME>Resource_VN1611_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with CAN Interface on channel 1 with with module pin 11 (CAN Low) and module pin 18 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>11</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>18</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_LIN_CH2">
+    <ID>21</ID>
+    <SHORT_NAME>Resource_VN1611_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987"></PROTOCOL>
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_LIN_CH2_DIAG">
+    <ID>22</ID>
+    <SHORT_NAME>Resource_VN1611_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_CAN_CH2">
+    <ID>23</ID>
+    <SHORT_NAME>Resource_VN1611_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with CAN Interface on channel 2 with module pin 21 (CAN Low) and module pin 28 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>21</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>28</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1611_CAN_CH2_DIAG">
+    <ID>24</ID>
+    <SHORT_NAME>Resource_VN1611_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1611 with CAN Interface on channel 2 with with module pin 21 (CAN Low) and module pin 28 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>21</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>28</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1610_CAN_CH1">
+    <ID>25</ID>
+    <SHORT_NAME>Resource_VN1610_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1610 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1610_CAN_CH1_DIAG">
+    <ID>26</ID>
+    <SHORT_NAME>Resource_VN1610_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1610 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1610_CAN_CH2">
+    <ID>27</ID>
+    <SHORT_NAME>Resource_VN1610_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1610 with CAN Interface on channel 2 with module pin 21 (CAN Low) and module pin 28 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>21</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>28</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1610_CAN_CH2_DIAG">
+    <ID>28</ID>
+    <SHORT_NAME>Resource_VN1610_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1610 with CAN Interface on channel 2 with module pin 21 (CAN Low) and module pin 28 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>21</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>28</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_CAN_CH1">
+    <ID>29</ID>
+    <SHORT_NAME>Resource_CANcaseXL_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_CAN_CH1_DIAG">
+    <ID>30</ID>
+    <SHORT_NAME>Resource_CANcaseXL_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_LIN_CH1">
+    <ID>31</ID>
+    <SHORT_NAME>Resource_CANcaseXL_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_LIN_CH1_DIAG">
+    <ID>32</ID>
+    <SHORT_NAME>Resource_CANcaseXL_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_CAN_CH2">
+    <ID>33</ID>
+    <SHORT_NAME>Resource_CANcaseXL_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_CAN_CH2_DIAG">
+    <ID>34</ID>
+    <SHORT_NAME>Resource_CANcaseXL_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_LIN_CH2">
+    <ID>35</ID>
+    <SHORT_NAME>Resource_CANcaseXL_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANcaseXL_LIN_CH2_DIAG">
+    <ID>36</ID>
+    <SHORT_NAME>Resource_CANcaseXL_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANcaseXL with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_CAN_CH1">
+    <ID>37</ID>
+    <SHORT_NAME>Resource_CANboardXL_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_CAN_CH1_DIAG">
+    <ID>38</ID>
+    <SHORT_NAME>Resource_CANboardXL_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_LIN_CH1">
+    <ID>39</ID>
+    <SHORT_NAME>Resource_CANboardXL_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_LIN_CH1_DIAG">
+    <ID>40</ID>
+    <SHORT_NAME>Resource_CANboardXL_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_CAN_CH2">
+    <ID>41</ID>
+    <SHORT_NAME>Resource_CANboardXL_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_CAN_CH2_DIAG">
+    <ID>42</ID>
+    <SHORT_NAME>Resource_CANboardXL_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_LIN_CH2">
+    <ID>43</ID>
+    <SHORT_NAME>Resource_CANboardXL_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_CANboardXL_LIN_CH2_DIAG">
+    <ID>44</ID>
+    <SHORT_NAME>Resource_CANboardXL_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver CANboardXL with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH1">
+    <ID>45</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH1_DIAG">
+    <ID>46</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH2">
+    <ID>47</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH2_DIAG">
+    <ID>48</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH3">
+    <ID>49</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 3 with module pin 32 (CAN Low) and module pin 37 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH3_DIAG">
+    <ID>50</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 3 with module pin 32 (CAN Low) and module pin 37 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH4">
+    <ID>51</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 4 with module pin 42 (CAN Low) and module pin 47 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH4_DIAG">
+    <ID>52</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 4 with module pin 42 (CAN Low) and module pin 47 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH5">
+    <ID>53</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH5</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 5 with module pin 51 (CAN Low) and module pin 58 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>51</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>58</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH5_DIAG">
+    <ID>54</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH5_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 5 with module pin 51 (CAN Low) and module pin 58 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>51</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>58</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH6">
+    <ID>55</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH6</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 6 with module pin 61 (CAN Low) and module pin 68 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>61</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>68</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH6_DIAG">
+    <ID>56</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH6_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 6 with module pin 61 (CAN Low) and module pin 68 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>61</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>68</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH7">
+    <ID>57</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH7</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 7 with module pin 71 (CAN Low) and module pin 78 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>71</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>78</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH7_DIAG">
+    <ID>58</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH7_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 7 with module pin 71 (CAN Low) and module pin 78 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>71</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>78</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH8">
+    <ID>59</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH8</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 8 with module pin 81 (CAN Low) and module pin 88 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>81</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>88</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_CAN_CH8_DIAG">
+    <ID>60</ID>
+    <SHORT_NAME>Resource_VN8900_CAN_CH8_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with CAN Interface on channel 8 with module pin 81 (CAN Low) and module pin 88 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>81</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>88</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH1">
+    <ID>61</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH1_DIAG">
+    <ID>62</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH2">
+    <ID>63</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH2_DIAG">
+    <ID>64</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH3">
+    <ID>65</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 3 with module pin 337 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH3_DIAG">
+    <ID>66</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 3 with module pin 337 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH4">
+    <ID>67</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 4 with module pin 447 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH4_DIAG">
+    <ID>68</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 4 with module pin 447 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH5">
+    <ID>69</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH5</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 5 with module pin 558 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>558</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH5_DIAG">
+    <ID>70</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH5_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 5 with module pin 558 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>558</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH6">
+    <ID>71</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH6</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 6 with module pin 668 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>668</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH6_DIAG">
+    <ID>72</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH6_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 6 with module pin 668 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>668</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH7">
+    <ID>73</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH7</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 7 with module pin 778 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>778</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH7_DIAG">
+    <ID>74</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH7_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 7 with module pin 778 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>778</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH8">
+    <ID>75</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH8</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 8 with module pin 888 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>888</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN8900_LIN_CH8_DIAG">
+    <ID>76</ID>
+    <SHORT_NAME>Resource_VN8900_LIN_CH8_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN8900 with LIN Interface on channel 8 with module pin 888 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>888</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH1">
+    <ID>77</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH1_DIAG">
+    <ID>78</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH2">
+    <ID>79</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH2_DIAG">
+    <ID>80</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH3">
+    <ID>81</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 3 with module pin 32 (CAN Low) and module pin 37 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH3_DIAG">
+    <ID>82</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 3 with module pin 32 (CAN Low) and module pin 37 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH4">
+    <ID>83</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 4 with module pin 42 (CAN Low) and pin 47 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_CAN_CH4_DIAG">
+    <ID>84</ID>
+    <SHORT_NAME>Resource_VN1640_CAN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with CAN Interface on channel 4 with module pin 42 (CAN Low) and module pin 47 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH1">
+    <ID>85</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH1_DIAG">
+    <ID>86</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH2">
+    <ID>87</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH2_DIAG">
+    <ID>88</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH3">
+    <ID>89</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 3 with module pin 337 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH3_DIAG">
+    <ID>90</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 3 with module pin 337 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH4">
+    <ID>91</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 4 with module pin 447 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_VN1640_LIN_CH4_DIAG">
+    <ID>92</ID>
+    <SHORT_NAME>Resource_VN1640_LIN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver VN1640 with LIN Interface on channel 4 with module pin 447 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH1">
+    <ID>93</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH1_DIAG">
+    <ID>94</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 1 with module pin 12 (CAN Low) and module pin 17 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH2">
+    <ID>95</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH2_DIAG">
+    <ID>96</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 2 with module pin 22 (CAN Low) and module pin 27 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH3">
+    <ID>97</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 3 with module pin 32 (CAN Low) and module pin 37 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH3_DIAG">
+    <ID>98</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 3 with module pin 32 (CAN Low) and module pin 37 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH4">
+    <ID>99</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 4 with module pin 42 (CAN Low) and module pin 47 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH4_DIAG">
+    <ID>100</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 4 with module pin 42 (CAN Low) and module pin 47 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH5">
+    <ID>101</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH5</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 5 with module pin 51 (CAN Low) and module pin 58 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>51</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>58</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH5_DIAG">
+    <ID>102</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH5_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 5 with module pin 51 (CAN Low) and module pin 58 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>51</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>58</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH6">
+    <ID>103</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH6</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 6 with module pin 61 (CAN Low) and module pin 68 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>61</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>68</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH6_DIAG">
+    <ID>104</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH6_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 6 with module pin 61 (CAN Low) and module pin 68 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>61</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>68</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH7">
+    <ID>105</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH7</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 7 with module pin 71 (CAN Low) and module pin 78 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>71</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>78</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH7_DIAG">
+    <ID>106</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH7_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 7 with module pin 71 (CAN Low) and module pin 78 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>71</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>78</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH8">
+    <ID>107</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH8</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 8 with module pin 81 (CAN Low) and module pin 88 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_11898_RAW</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>81</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>88</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_11898_RAW" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_CAN_CH8_DIAG">
+    <ID>108</ID>
+    <SHORT_NAME>Resource_vnIpClient_CAN_CH8_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with CAN Interface on channel 8 with module pin 81 (CAN Low) and module pin 88 (CAN high), bus type ISO_11898_2_DWCAN and protocol ISO_15765_3_on_ISO_15765_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>81</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_LOW" />
+    </PIN_ON_MODULE>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>88</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_HI" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_11898_2_DWCAN" />
+    <PROTOCOL IDREF="AL_ID_ISO_15765_3_on_ISO_15765_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH1">
+    <ID>109</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH1</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH1_DIAG">
+    <ID>110</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH1_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 1 with module pin 117 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH2">
+    <ID>111</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH2</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH2_DIAG">
+    <ID>112</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH2_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 2 with module pin 227 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH3">
+    <ID>113</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH3</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 3 with module pin 337 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH3_DIAG">
+    <ID>114</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH3_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 3 with module pin 337 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH4">
+    <ID>115</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH4</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 4 with module pin 447 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH4_DIAG">
+    <ID>116</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH4_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 4 with module pin 447 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH5">
+    <ID>117</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH5</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 5 with module pin 558 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>558</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH5_DIAG">
+    <ID>118</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH5_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 5 with module pin 558 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>558</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH6">
+    <ID>119</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH6</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 6 with module pin 668 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>668</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH6_DIAG">
+    <ID>120</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH6_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 6 with module pin 668 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>668</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH7">
+    <ID>121</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH7</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 7 with module pin 778 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>778</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH7_DIAG">
+    <ID>122</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH7_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 7 with module pin 778 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>778</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH8">
+    <ID>123</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH8</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 8 with module pin 888 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_17987</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>888</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_17987" />
+  </RESOURCE>
+  <RESOURCE EID="AL_ID_Resource_vnIpClient_LIN_CH8_DIAG">
+    <ID>124</ID>
+    <SHORT_NAME>Resource_vnIpClient_LIN_CH8_DIAG</SHORT_NAME>
+    <DESCRIPTION>Resource for the driver vnIpClient with LIN Interface on channel 8 with module pin 888 (LIN), bus type ISO_17987_4 and protocol MSP_ISO_14229_7_on_ISO_17987_2</DESCRIPTION>
+    <PIN_ON_MODULE>
+      <PIN_ON_MODULE>888</PIN_ON_MODULE>
+      <PINTYPE IDREF="AL_ID_SINGLE" />
+    </PIN_ON_MODULE>
+    <BUSTYPE IDREF="AL_ID_ISO_17987_4" />
+    <PROTOCOL IDREF="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2" />
+  </RESOURCE>
+  <!--   D-PDU-API bustype definitions  -->
+  <BUSTYPE EID="AL_ID_ISO_11898_2_DWCAN">
+    <ID>1</ID>
+    <SHORT_NAME>ISO_11898_2_DWCAN</SHORT_NAME>
+    <!-- Short name must correspond to ODX data! (Pysical link in Monaco configuration) -->
+    <!--NOTE: ISO_11898 also include CAN-FD -> CAN_FD COMPARAMs are also included here like it is done from Softing MDF-->
+    <!--      ... CAN_FD COMPARAMs are also included to this BUSTYPE in the Softing MDF-->
+    <!--... CAN-FD default values are toke from the vector hardware-->
+    <DESCRIPTION>CAN according to ISO 11898 High Speed</DESCRIPTION>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>500000</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_Baudrate" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CANFD_Mode_Enabled" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>1</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_SampleJumpWidthAbr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_TimeSegment1Abr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>3</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_TimeSegment2Abr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_DataBitrate" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_SampleJumpWidthDbr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_TimeSegment1Dbr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_CANFD_TimeSegment2Dbr" />
+    </COMPARAM_REF>
+  </BUSTYPE>
+  <BUSTYPE EID="AL_ID_ISO_17987_4">
+    <ID>2</ID>
+    <SHORT_NAME>ISO_17987_4</SHORT_NAME>
+    <!-- Short name must correspond to ODX data! (Pysical link in Monaco configuration) -->
+    <DESCRIPTION>LIN according to ISO 17987-4 Low Speed</DESCRIPTION>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>19200</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_Baudrate" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>1</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_Mode" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>1</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_Version" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 </DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_SlaveIDs" />
+    </COMPARAM_REF>
+  </BUSTYPE>
+  <!--   D-PDU-API protocol definitions  -->
+  <PROTOCOL EID="AL_ID_ISO_11898_RAW">
+    <ID>1</ID>
+    <SHORT_NAME>ISO_11898_RAW</SHORT_NAME>
+    <DESCRIPTION>ISO RAW CAN</DESCRIPTION>
+  </PROTOCOL>
+  <PROTOCOL EID="AL_ID_ISO_15765_3_on_ISO_15765_2">
+    <ID>2</ID>
+    <SHORT_NAME>ISO_15765_3_on_ISO_15765_2</SHORT_NAME>
+    <DESCRIPTION>ISO unified diagnostic services (UDS) on CAN</DESCRIPTION>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>5</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanPhysReqFormat" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>2016</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanPhysReqId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanPhysReqExtAddr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>5</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanRespUSDTFormat" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>2024</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanRespUSDTId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanRespUSDTExtAddr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanRespUUDTFormat" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanRespUUDTExtAddr" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_CanRespUUDTId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentHandling" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentReqRsp" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentSendType" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentAddrMode" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentTime" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0 0 0 0 0 0 0 0 0 0 0 0 </DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentMessage" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0 0 0 0 0 0 0 0 0 0 0 0 </DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentExpPosResp" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0 0 0 0 0 0 0 0 0 0 0 0 </DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentExpNegResp" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>4294967295</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_TesterPresentTime_Ecu" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>150000</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_P2Max" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>0</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CP_P2Min" />
+    </COMPARAM_REF>
+  </PROTOCOL>
+  <PROTOCOL EID="AL_ID_MSP_ISO_17987">
+    <ID>3</ID>
+    <SHORT_NAME>MSP_ISO_17987</SHORT_NAME>
+    <DESCRIPTION>ISO LIN</DESCRIPTION>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>60</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_MasterRequestId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>61</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_SlaveResponseId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>114</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_PhysReqNAD" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>114</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_PhysRespNAD" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_MasterRequestDelay" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_SlaveResponseDelay" />
+    </COMPARAM_REF>
+  </PROTOCOL>
+  <PROTOCOL EID="AL_ID_MSP_ISO_14229_7_on_ISO_17987_2">
+    <ID>4</ID>
+    <SHORT_NAME>MSP_ISO_14229_7_on_ISO_17987_2</SHORT_NAME>
+    <DESCRIPTION>ISO unified diagnostic services (UDS) on LIN</DESCRIPTION>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>60</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_MasterRequestId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>61</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_SlaveResponseId" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>114</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_PhysReqNAD" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>114</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_PhysRespNAD" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_MasterRequestDelay" />
+    </COMPARAM_REF>
+    <COMPARAM_REF>
+      <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+      <COMPARAM IDREF="ID_CPM_LIN_SlaveResponseDelay" />
+    </COMPARAM_REF>
+  </PROTOCOL>
+  <!--   D-PDU-API Communication Parameter definitions  -->
+  <COMPARAM EID="ID_CP_CanPhysReqFormat">
+    <ID>169197569</ID>
+    <SHORT_NAME>CP_CanPhysReqFormat</SHORT_NAME>
+    <DESCRIPTION>CAN format used for a physical request - KEY: a15c001</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanPhysReqId">
+    <ID>169197570</ID>
+    <SHORT_NAME>CP_CanPhysReqId</SHORT_NAME>
+    <DESCRIPTION>CAN ID for physical request - KEY: a15c002</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanPhysReqExtAddr">
+    <ID>169197571</ID>
+    <SHORT_NAME>CP_CanPhysReqExtAddr</SHORT_NAME>
+    <DESCRIPTION>CAN extended address for physical request - KEY: a15c003</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanRespUSDTFormat">
+    <ID>169197572</ID>
+    <SHORT_NAME>CP_CanRespUSDTFormat</SHORT_NAME>
+    <DESCRIPTION>CAN ID format for a USDT response - KEY: a15c004</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanRespUSDTId">
+    <ID>169197573</ID>
+    <SHORT_NAME>CP_CanRespUSDTId</SHORT_NAME>
+    <DESCRIPTION>CAN ID for a USDT response - KEY: a15c005</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanRespUSDTExtAddr">
+    <ID>169197574</ID>
+    <SHORT_NAME>CP_CanRespUSDTExtAddr</SHORT_NAME>
+    <DESCRIPTION>CAN extended address for a USDT response - KEY: a15c006</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanRespUUDTFormat">
+    <ID>169197575</ID>
+    <SHORT_NAME>CP_CanRespUUDTFormat</SHORT_NAME>
+    <DESCRIPTION>CAN ID format for a UUDT response - KEY: a15c007</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanRespUUDTExtAddr">
+    <ID>169197576</ID>
+    <SHORT_NAME>CP_CanRespUUDTExtAddr</SHORT_NAME>
+    <DESCRIPTION>CAN ID extended address for a UUDT response - KEY: a15c008</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanRespUUDTId">
+    <ID>169197577</ID>
+    <SHORT_NAME>CP_CanRespUUDTId</SHORT_NAME>
+    <DESCRIPTION>CAN ID for a UUDT response - KEY: a15c009</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Baudrate">
+    <ID>169197578</ID>
+    <SHORT_NAME>CP_Baudrate</SHORT_NAME>
+    <DESCRIPTION>Desired baud rate - KEY: a15c00a</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentHandling">
+    <ID>169197579</ID>
+    <SHORT_NAME>CP_TesterPresentHandling</SHORT_NAME>
+    <DESCRIPTION>Define Tester Present message generation settings - KEY: a15c00b</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentReqRsp">
+    <ID>169197580</ID>
+    <SHORT_NAME>CP_TesterPresentReqRsp</SHORT_NAME>
+    <DESCRIPTION>Define settings for handling Tester Present ECU responses - KEY: a15c00c</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentSendType">
+    <ID>169197581</ID>
+    <SHORT_NAME>CP_TesterPresentSendType</SHORT_NAME>
+    <DESCRIPTION>Define settings for the type of tester present transmits - KEY: a15c00d</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentAddrMode">
+    <ID>169197582</ID>
+    <SHORT_NAME>CP_TesterPresentAddrMode</SHORT_NAME>
+    <DESCRIPTION>Addressing Mode to be used for periodic Tester Present messages - KEY: a15c00e</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentTime">
+    <ID>169197583</ID>
+    <SHORT_NAME>CP_TesterPresentTime</SHORT_NAME>
+    <DESCRIPTION>Time between Tester Present messages, or Time bus shall be idle before transmitting a Tester Present Message - KEY: a15c00f</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentMessage">
+    <ID>169197584</ID>
+    <SHORT_NAME>CP_TesterPresentMessage</SHORT_NAME>
+    <DESCRIPTION>Define the Tester Present Message - KEY: a15c010</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_BYTEFIELD</DATA_TYPE>
+    <DEFAULT_VALUE>12 0</DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentExpPosResp">
+    <ID>169197585</ID>
+    <SHORT_NAME>CP_TesterPresentExpPosResp</SHORT_NAME>
+    <DESCRIPTION>Define the expected ECU positive response to a Tester Present Message - KEY: a15c011</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_BYTEFIELD</DATA_TYPE>
+    <DEFAULT_VALUE>12 0</DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentExpNegResp">
+    <ID>169197586</ID>
+    <SHORT_NAME>CP_TesterPresentExpNegResp</SHORT_NAME>
+    <DESCRIPTION>Define the expected ECU negative response to a Tester Present Message - KEY: a15c012</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_BYTEFIELD</DATA_TYPE>
+    <DEFAULT_VALUE>12 0</DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_TesterPresentTime_Ecu">
+    <ID>169197587</ID>
+    <SHORT_NAME>CP_TesterPresentTime_Ecu</SHORT_NAME>
+    <DESCRIPTION>Time for the server to keep a diagnostic session - KEY: a15c013</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>TESTER_PRESENT</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CanFillerByte">
+    <ID>169197588</ID>
+    <SHORT_NAME>CP_CanFillerByte</SHORT_NAME>
+    <DESCRIPTION>Padding data byte to be used to pad all USDT type transmits frames (SF, FC, and last CF) - KEY: a15c014</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>0xAA</DEFAULT_VALUE>
+    <CLASS>COM</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_FillerByte">
+    <ID>169197589</ID>
+    <SHORT_NAME>CP_FillerByte</SHORT_NAME>
+    <DESCRIPTION>Padding data byte to be used to pad all SAE J1850, ISO 9141-2 and ISO 14230-4 messages to the full length - KEY: a15c015</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>0xAA</DEFAULT_VALUE>
+    <CLASS>COM</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Br">
+    <ID>169197590</ID>
+    <SHORT_NAME>CP_Br</SHORT_NAME>
+    <DESCRIPTION>Time until transmission of the next FlowControl - KEY: a15c016</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Br_Ecu">
+    <ID>169197591</ID>
+    <SHORT_NAME>CP_Br_Ecu</SHORT_NAME>
+    <DESCRIPTION>Time until transmission of the next FlowControl	 - KEY: a15c017</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Bs">
+    <ID>169197592</ID>
+    <SHORT_NAME>CP_Bs</SHORT_NAME>
+    <DESCRIPTION>Timeout until reception of the next FlowControl - KEY: a15c018</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>1000000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Bs_Ecu">
+    <ID>169197593</ID>
+    <SHORT_NAME>CP_Bs_Ecu</SHORT_NAME>
+    <DESCRIPTION>Timeout until reception of the next FlowControl - KEY: a15c019</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>1000000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Cr">
+    <ID>169197594</ID>
+    <SHORT_NAME>CP_Cr</SHORT_NAME>
+    <DESCRIPTION>Timeout for reception of the next ConsecutiveFrame - KEY: a15c01a</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>1000000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Cr_Ecu">
+    <ID>169197595</ID>
+    <SHORT_NAME>CP_Cr_Ecu</SHORT_NAME>
+    <DESCRIPTION>Timeout for reception of the next ConsecutiveFrame</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>1000000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Cs">
+    <ID>169197596</ID>
+    <SHORT_NAME>CP_Cs</SHORT_NAME>
+    <DESCRIPTION>Time until transmission of the next ConsecutiveFrame</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_Cs_Ecu">
+    <ID>169197597</ID>
+    <SHORT_NAME>CP_Cs_Ecu</SHORT_NAME>
+    <DESCRIPTION>Time until transmission of the next ConsecutiveFrame - KEY: a15c01d</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_P2Max">
+    <ID>169197598</ID>
+    <SHORT_NAME>CP_P2Max</SHORT_NAME>
+    <DESCRIPTION>Timeout in receiving an expected frame after a successful transmit complete</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>150000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_P2Min">
+    <ID>169197599</ID>
+    <SHORT_NAME>CP_P2Min</SHORT_NAME>
+    <DESCRIPTION>Minimum time between tester request and ECU responses, or two ECU responses - KEY: a15c01f</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>0</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_P2Star">
+    <ID>169198080</ID>
+    <SHORT_NAME>CP_P2Star</SHORT_NAME>
+    <DESCRIPTION>Timeout for the client to expect the start of the response message after the reception of a negative response message with response code 0x78 - KEY: a15c01f</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE>10000</DEFAULT_VALUE>
+    <CLASS>TIMING</CLASS>
+    <LAYER>APPLICATION</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_MasterRequestId">
+    <ID>169198081</ID>
+    <SHORT_NAME>CPM_LIN_MasterRequestId</SHORT_NAME>
+    <DESCRIPTION> LIN ID for master request - KEY: a15c201</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_SlaveResponseId">
+    <ID>169198082</ID>
+    <SHORT_NAME>CPM_LIN_SlaveResponseId</SHORT_NAME>
+    <DESCRIPTION>LIN ID for slave response - KEY: a15c202</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_PhysReqNAD">
+    <ID>169198083</ID>
+    <SHORT_NAME>CPM_LIN_PhysReqNAD</SHORT_NAME>
+    <DESCRIPTION>LIN ID format for a physical request - KEY: a15c203</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_PhysRespNAD">
+    <ID>169198084</ID>
+    <SHORT_NAME>CPM_LIN_PhysRespNAD</SHORT_NAME>
+    <DESCRIPTION>LIN ID format for a physical response - KEY: a15c204</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_ECULayerShortName">
+    <ID>169198085</ID>
+    <SHORT_NAME>CP_ECULayerShortName</SHORT_NAME>
+    <DESCRIPTION>LIN short name for ECU layer - KEY: a15c205</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_MasterRequestDelay">
+    <ID>169198086</ID>
+    <SHORT_NAME>CPM_LIN_MasterRequestDelay</SHORT_NAME>
+    <DESCRIPTION>LIN delay for master request - KEY: a15c206</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_SlaveResponseDelay">
+    <ID>169198087</ID>
+    <SHORT_NAME>CPM_LIN_SlaveResponseDelay</SHORT_NAME>
+    <DESCRIPTION>LIN delay for slave response - KEY: a15c207</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>UNIQUE_ID</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_Mode">
+    <ID>169198088</ID>
+    <SHORT_NAME>CPM_LIN_Mode</SHORT_NAME>
+    <DESCRIPTION>LIN mode - KEY: a15c208</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM16</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_Version">
+    <ID>169198089</ID>
+    <SHORT_NAME>CPM_LIN_Version</SHORT_NAME>
+    <DESCRIPTION>LIN version - KEY: a15c209</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM16</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_LIN_SlaveIDs">
+    <ID>169198090</ID>
+    <SHORT_NAME>CPM_LIN_SlaveIDs</SHORT_NAME>
+    <DESCRIPTION>LIN slave ID - KEY: a15c20a</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_BYTEFIELD</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>TRANSPORT</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CP_CANFD_Mode_Enabled">
+    <ID>169198091</ID>
+    <SHORT_NAME>CP_CANFD_Mode_Enabled</SHORT_NAME>
+    <DESCRIPTION>CAN-FD mode state ID - KEY: a15c20b</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM8</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_SampleJumpWidthAbr">
+    <ID>169198093</ID>
+    <SHORT_NAME>CPM_CANFD_SampleJumpWidthAbr</SHORT_NAME>
+    <DESCRIPTION>CAN-FD arbitration sample jump width ID - KEY: a15c20d</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_TimeSegment1Abr">
+    <ID>169198094</ID>
+    <SHORT_NAME>CPM_CANFD_TimeSegment1Abr</SHORT_NAME>
+    <DESCRIPTION>CAN-FD arbitration first bus timing segment ID - KEY: a15c20e</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_TimeSegment2Abr">
+    <ID>169198095</ID>
+    <SHORT_NAME>CPM_CANFD_TimeSegment2Abr</SHORT_NAME>
+    <DESCRIPTION>CAN-FD arbitration second bus timing segment ID - KEY: a15c20f</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_DataBitrate">
+    <ID>169198096</ID>
+    <SHORT_NAME>CPM_CANFD_DataBitrate</SHORT_NAME>
+    <DESCRIPTION>CAN-FD data bit rate ID - KEY: a15c210</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_SampleJumpWidthDbr">
+    <ID>169198097</ID>
+    <SHORT_NAME>CPM_CANFD_SampleJumpWidthDbr</SHORT_NAME>
+    <DESCRIPTION>CAN-FD sample jump width ID - KEY: a15c211</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_TimeSegment1Dbr">
+    <ID>169198098</ID>
+    <SHORT_NAME>CPM_CANFD_TimeSegment1Dbr</SHORT_NAME>
+    <DESCRIPTION>CAN-FD first bus timing segment ID - KEY: a15c212</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+  <COMPARAM EID="ID_CPM_CANFD_TimeSegment2Dbr">
+    <ID>169198099</ID>
+    <SHORT_NAME>CPM_CANFD_TimeSegment2Dbr</SHORT_NAME>
+    <DESCRIPTION>CAN-FD second bus timing segment ID - KEY: a15c213</DESCRIPTION>
+    <DATA_TYPE>PDU_PT_UNUM32</DATA_TYPE>
+    <DEFAULT_VALUE></DEFAULT_VALUE>
+    <CLASS>BUSTYPE</CLASS>
+    <LAYER>PHYSICAL</LAYER>
+    <MIN_VALUE></MIN_VALUE>
+    <MAX_VALUE></MAX_VALUE>
+  </COMPARAM>
+</MVCI_MODULE_DESCRIPTION>

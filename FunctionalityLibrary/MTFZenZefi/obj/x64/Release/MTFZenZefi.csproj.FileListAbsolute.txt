@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\MTFZenZefi\MTFZenZefi.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\MTFZenZefi\MTFZenZefi.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFZenZefi\obj\x64\Release\MTFZenZefi.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFZenZefi\obj\x64\Release\MTFZenZefi.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFZenZefi\obj\x64\Release\MTFZenZefi.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFZenZefi\obj\x64\Release\MTFZenZefi.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFZenZefi\obj\x64\Release\MTFZenZefi.pdb

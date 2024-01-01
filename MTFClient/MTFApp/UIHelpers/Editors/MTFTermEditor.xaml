@@ -1,0 +1,545 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFTermEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"          
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:math="clr-namespace:MTFClientServerCommon.Mathematics;assembly=MTFClientServerCommon"     
+             xmlns:seqEditor="clr-namespace:MTFApp.SequenceEditor"
+             xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+             xmlns:editableListParameter="clr-namespace:MTFApp.UIControls.EditableListParameter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+            <Setter Property="MinWidth" Value="20" />
+        </Style>
+
+        <converters:TermToVisibilityConverter x:Key="termToVisibilityConverter" />
+        <converters:IsValidationTableVariableConverter x:Key="IsValidationTableVariableConverter"/>
+
+        <UserControl x:Key="addTarget">
+            <Border Background="{StaticResource ALLightSilverBrush}" CornerRadius="50" Padding="15" Width="50" Height="50" Opacity="0.7">
+                <UserControl Style="{StaticResource TermAddIcon}" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.7" />
+            </Border>
+        </UserControl>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="termIcon">
+            <Border Background="{StaticResource ALYellowBrush}" CornerRadius="50" Padding="15"
+                    HorizontalAlignment="Center" Width="60" Height="60" VerticalAlignment="Top"
+                    BorderBrush="{StaticResource ALBlackBrush}"
+                    Tag="{Binding}"
+                    PreviewMouseLeftButtonDown="Term_PreviewMouseLeftButtonDown"
+                    PreviewMouseMove="Term_PreviewMouseMove"
+                    PreviewMouseLeftButtonUp="Term_PreviewMouseLeftButtonUp"
+                    PreviewDragOver="Term_PreviewDragOver"
+                    Drop="Term_Drop"
+                    AllowDrop="True">
+                <UserControl Style="{Binding Icon, Converter={StaticResource IconConverter}}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+        </DataTemplate>
+
+        <Style TargetType="ContentPresenter" x:Key="addTargetStyle">
+            <Setter Property="AllowDrop" Value="True" />
+        </Style>
+
+        <DataTemplate DataType="{x:Type math:ExecuteActivityTerm}">
+            <StackPanel Orientation="Horizontal">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"
+                                  VerticalAlignment="Center"/>
+                <editors:MTFExecuteActivityTermEditor
+                    ClassInfos="{Binding DataContext.Sequence.MTFSequenceClassInfos,
+                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                    Term="{Binding}"
+                    VerticalAlignment="Center"
+                    MethodResultTypeChanged="MTFExecuteActivityTermEditor_OnMethodResultTypeChanged"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ConstantTermTemplate">
+            <uiHelpers:MTFEditor ValueChanged="MTFEditor_ValueChanged"
+                                 Value="{Binding Value, Mode=TwoWay}"
+                                 TypeName="{Binding ResultType}"
+                                 ShowValueList="{Binding ShowValueList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                 ReadOnly="False"
+                                 TextBlock.TextAlignment="Center" HorizontalAlignment="Center" />
+        </DataTemplate>
+        <DataTemplate x:Key="EditableListTemplate">
+            <editableListParameter:EditableListParameter UsePlainValue="True" Value="{Binding Value}">
+                <editableListParameter:EditableListParameter.ItemsSource>
+                    <MultiBinding Converter="{StaticResource ValueListMultiConverter}">
+                        <Binding />
+                        <Binding Path="DataContext.MainSequence" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}" />
+                    </MultiBinding>
+                </editableListParameter:EditableListParameter.ItemsSource>
+            </editableListParameter:EditableListParameter>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:ConstantTerm}">
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}" Margin="0,0,0,5" />
+                <ContentPresenter Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ConstantTermTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ShowValueList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                             Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EditableListTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </StackPanel>
+        </DataTemplate >
+
+        <DataTemplate DataType="{x:Type math:EmptyTerm}">
+            <Border Background="{StaticResource ALLightSilverBrush}" CornerRadius="50" Padding="20" Width="50" Height="50" Opacity="0.5"
+                    AllowDrop="True"
+                    Drop="EmptyTerm_Drop"
+                    PreviewDragOver="EmptyTerm_DragOver"
+                    PreviewMouseLeftButtonDown="EmptyTerm_PreviewMouseLeftButtonDown"
+                    MouseLeftButtonDown="EmptyTerm_MouseLeftButtonDown"
+                    Tag="{Binding}">
+                <UserControl Style="{StaticResource TermAddIcon}" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:BinaryTerm}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="1,1,0,0" />
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1,0,0,1" />
+                </Grid>
+                <ContentPresenter Grid.Row="0" Grid.Column="1" Content="{Binding Value1}" HorizontalAlignment="Left" />
+                <ContentPresenter Grid.Row="1" Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource termIcon}" HorizontalAlignment="Left"/>
+                <ContentPresenter Grid.Row="2" Grid.Column="1" Content="{Binding Value2}" HorizontalAlignment="Left" />
+            </Grid>
+        </DataTemplate >
+
+        <DataTemplate DataType="{x:Type math:UnaryTerm}">
+            <StackPanel Orientation="Horizontal">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}" VerticalAlignment="Center"/>
+                <StackPanel Width="25" Height="10">
+                    <Line X1="0" X2="25" Y1="5" Y2="5" Stroke="{StaticResource ALBlackBrush}"
+                          StrokeThickness="1"
+                          SnapsToDevicePixels="True"/>
+                </StackPanel>
+                <ContentPresenter Content="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:UnaryExponentTerm}">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                    <TextBox MinWidth="10" Margin="0,5,0,5" TextAlignment="Center"
+                             Text="{Binding Exponent}"/>
+                </StackPanel>
+                <StackPanel Width="25" Height="10">
+                    <Line X1="0" X2="25" Y1="5" Y2="5" Stroke="{StaticResource ALBlackBrush}"
+                          StrokeThickness="1"
+                          SnapsToDevicePixels="True"/>
+                </StackPanel>
+                <ContentPresenter Content="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:RegExMatchTerm}">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                    <TextBox MinWidth="10" Margin="0,5,0,5" TextAlignment="Center"
+                             Text="{Binding Parameter}"/>
+                </StackPanel>
+                <StackPanel Width="25" Height="10">
+                    <Line X1="0" X2="25" Y1="5" Y2="5" Stroke="{StaticResource ALBlackBrush}"
+                          StrokeThickness="1"
+                          SnapsToDevicePixels="True"/>
+                </StackPanel>
+                <ContentPresenter Content="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:RegExValueTerm}">
+            <StackPanel Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ContentPresenter Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Pattern:"  />
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Substring:" />
+                    <TextBox Grid.Column="2" Grid.Row="1" MinWidth="10" Margin="0,5,0,5" TextAlignment="Center" Text="{Binding Pattern}"/>
+                    <TextBox Grid.Column="2" Grid.Row="2" MinWidth="10" Margin="0,5,0,5" TextAlignment="Center" Text="{Binding Substring}"/>
+                </Grid>
+                <StackPanel Width="25" Height="10">
+                    <Line X1="0" X2="25" Y1="5" Y2="5" Stroke="{StaticResource ALBlackBrush}"
+                          StrokeThickness="1" SnapsToDevicePixels="True"/>
+                </StackPanel>
+                <ContentPresenter Content="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:ListTerm}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="1,1,0,0" />
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1,0,0,1" />
+                </Grid>
+                <ContentPresenter Grid.Row="0" Grid.Column="1" Content="{Binding Value1}" />
+                <ContentPresenter Grid.Row="1" Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                <!--<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ArrayType}" VerticalAlignment="Center" Margin="3,0,0,0" />-->
+                <uiHelpers:MTFEditor ValueChanged="MTFEditor_ValueChanged" Grid.Row="2" Grid.Column="1"
+                                     Value="{Binding Value2}"
+                                     TypeName="{Binding ArrayType}"
+                                     ShowValueList="{Binding ShowValueList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:ListOperationTerm}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ContentPresenter Grid.Row="0" Content="{Binding}" ContentTemplate="{StaticResource termIcon}" />
+                <uiHelpers:MTFEditor ValueChanged="MTFEditor_ValueChanged" Grid.Row="1" Value="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                     TypeName="MTFClientServerCommon.MTFListOperation"
+                                     ShowValueList="{Binding ShowValueList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                     EditorMode="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:ActivityResultTerm}">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+
+                    <UserControl Style="{StaticResource IconActivityTarget}" Margin="0,5,0,5"
+                                         Tag="{Binding}"
+                                         PreviewMouseMove="target_MouseMove"
+                                         PreviewMouseUp="target_PreviewMouseUp"
+                                         PreviewMouseLeftButtonDown="target_PreviewMouseLeftButtonDown"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding Value.ActivityName}" UniqueIndexer="{Binding Value.UniqueIndexer}" />
+                </StackPanel>
+                <localizedString:LocalizedActivityPathTextBlock Activity="{Binding Value}" />
+                <editors:MTFActivityResultEditor Margin="20,0,0,0" HorizontalAlignment="Left"
+                                                    Path="{Binding PropertyPath, Mode=TwoWay}"
+                                                 PropertyChanged="ActivityResultTerm_PathChanged"
+                                                    TypeName="{Binding Value.ReturnType}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:VariableTerm}">
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                <ComboBox Margin="0,5,0,5" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left"
+                            MinWidth="50"
+                            DisplayMemberPath="Name"
+                            SelectionChanged="ComboBox_selectionChanged"
+                            ItemsSource="{Binding DataContext.Sequence.MTFVariables, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                            SelectedValue="{Binding MTFVariable, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                            Tag="{Binding}">
+                </ComboBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:UnaryRoundTerm}">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                    <ComboBox Margin="0,5,0,5" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left"
+                            MinWidth="50"
+                            SelectionChanged="ComboBox_selectionChanged"
+                            Tag="{Binding}"
+                            ItemsSource="{Binding ListRoundModes}"
+                            SelectedValuePath="Value" DisplayMemberPath="Description" 
+                            SelectedValue="{Binding SelectedRoundMode, Mode=TwoWay, UpdateSourceTrigger=Explicit}">
+
+                    </ComboBox>
+                    <TextBox MinWidth="10" Margin="0,5,0,5" TextAlignment="Center"
+                             Text="{Binding RoundValue}"/>
+                </StackPanel>
+                <StackPanel Width="25" Height="10">
+                    <Line X1="0" X2="25" Y1="5" Y2="5" Stroke="{StaticResource ALBlackBrush}"
+                          StrokeThickness="1"
+                          SnapsToDevicePixels="True"/>
+                </StackPanel>
+                <ContentPresenter Content="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:ValidationTableResultTerm}">
+            <DataTemplate.Resources>
+                <DataTemplate x:Key="RowResult">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="title" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center" Text="Row name: " HorizontalAlignment="Left" />
+                        <ComboBox Grid.Column="1"  Margin="0,0,0,0" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left" MinWidth="50"
+                               DisplayMemberPath="Header"
+                               SelectionChanged="ComboBox_selectionChanged"
+                               ItemsSource="{Binding ValidationTable.Rows}"
+                               SelectedValue="{Binding SelectedRowId, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                               SelectedValuePath="Id" />
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="CellResult">
+                    <Grid Grid.IsSharedSizeScope="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource RowResult}" />
+                        <Grid Grid.Row="1" Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="title" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Text="Column name: " HorizontalAlignment="Left" />
+                            <ComboBox Grid.Column="1" Margin="0,0,0,0" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left" MinWidth="50"
+                               ItemsSource="{Binding ValidationTable.ColumnNames}"
+                               SelectionChanged="ComboBox_selectionChanged"
+                               SelectedValue="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=Explicit}"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+
+                <DataTemplate x:Key="ValidationTableTemplate">
+                    <StackPanel Orientation="Vertical">
+                        <ComboBox Margin="0,0,0,5" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left"
+                            MinWidth="50"
+                            DisplayMemberPath="Description"
+                            SelectionChanged="ComboBox_selectionChanged"
+                            ItemsSource="{Binding ValidationTableResultTypes}"
+                            SelectedValue="{Binding SelectedResultType, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                          SelectedValuePath="Value"
+                          Visibility="{Binding IsTableSelected, Converter={StaticResource BoolToVisibility}}">
+                        </ComboBox>
+
+                        <ContentPresenter Content="{Binding}">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding  SelectedResultType}" Value="LineResult">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource RowResult}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding  SelectedResultType}" Value="CellResult">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource CellResult}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </StackPanel>
+
+                </DataTemplate>
+
+                <DataTemplate x:Key="DataTableTemplate">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource CellResult}" />
+                </DataTemplate>
+
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                <ComboBox Margin="0,5,0,5" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left"
+                            MinWidth="50"
+                            DisplayMemberPath="Name"
+                            SelectionChanged="ComboBox_selectionChanged"
+                            ItemsSource="{Binding DataContext.Tables, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                            SelectedValue="{Binding ValidationTable, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                            Tag="{Binding}">
+                </ComboBox>
+
+
+                <ContentPresenter Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource DataTableTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger  Binding="{Binding ValidationTable}" Value="{x:Null}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ValidationTable, Converter={StaticResource IsValidationTableVariableConverter}}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource ValidationTableTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:TermWrapper}">
+            <StackPanel Orientation="Vertical">
+                <uiHelpers:MTFEditor ValueChanged="MTFEditor_ValueChanged"
+                                     Value="{Binding Value, Mode=TwoWay}"
+                                     TypeName="{Binding ResultType}"
+                                     ShowValueList="{Binding ShowValueList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                     ReadOnly="False" TextBlock.TextAlignment="Center" HorizontalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:StringFormatTerm}">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" Name="stringFormatTermPanel">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"/>
+                    <uiHelpers:MTFEditor ValueChanged="MTFEditor_ValueChanged" Value="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                 TypeName="MTFClientServerCommon.MTFStringFormat"
+                                 ShowValueList="{Binding ShowValueList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                 EditorMode="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                 ReadOnly="{Binding ReadOnly, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:ValidationTableTerm}">
+            <StackPanel Orientation="Vertical">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}" />
+                <ComboBox Margin="0,5,0,5" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left"
+                          HorizontalAlignment="Center"
+                          MinWidth="50"
+                          DisplayMemberPath="Name"
+                          SelectionChanged="ComboBox_selectionChanged"
+                          ItemsSource="{Binding DataContext.ValidationTables, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                          SelectedValue="{Binding ValidationTable, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                          Tag="{Binding}" />
+                <editors:MTFValidationTableEditor EditorMode="SetValidationTable" TableData="{Binding ValidationTable}"  />
+
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type math:CastTerm}">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource termIcon}"
+                                      VerticalAlignment="Center" />
+                    <ComboBox ItemsSource="{Binding Types}"
+                              Margin="0,5,0,5" HorizontalContentAlignment="Left" TextBlock.TextAlignment="Left"
+                              MinWidth="50"
+                              SelectedItem="{Binding SelectedType}"
+                              DisplayMemberPath="Name"/>
+                </StackPanel>
+                <StackPanel Width="25" Height="10">
+                    <Line X1="0" X2="25" Y1="5" Y2="5" Stroke="{StaticResource ALBlackBrush}"
+                          StrokeThickness="1"
+                          SnapsToDevicePixels="True" />
+                </StackPanel>
+                <ContentPresenter Content="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+
+    </UserControl.Resources>
+    <!--<ScrollViewer Name="TermScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                  MouseWheel="TermScrollViewerOnMouseWheel">-->
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical" Name="root">
+                <Grid Name="termGrid" Visibility="{Binding ReadOnly, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Converter={StaticResource NotBoolToVisibility}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Border Background="{StaticResource ALLightSilverBrush}" CornerRadius="50" Padding="20" Width="50" Height="50" Opacity="0.5"
+                            AllowDrop="True"
+                            Drop="ParentEmptyTerm_Drop"
+                            PreviewDragOver="EmptyTerm_DragOver"
+                            PreviewMouseLeftButtonDown="ParentEmptyTerm_PreviewMouseLeftButtonDown"
+                            Grid.Row="0" Grid.Column="0"
+                            Margin="0,0,25,0"
+                            Visibility="{Binding Value, Converter={StaticResource termToVisibilityConverter}, Mode=OneWay}">
+                        <UserControl Style="{StaticResource TermAddIcon}" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    </Border>
+                    <StackPanel Grid.Row="0" Grid.Column="1" >
+                        <ContentPresenter  Content="{Binding Term}" />
+                    </StackPanel>
+                </Grid>
+                <TextBlock Text="{Binding Term}" Visibility="{Binding ReadOnly, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibility}}" />
+            </StackPanel>
+        </Grid>
+    <!--</ScrollViewer>-->
+</editors:MTFEditorBase>

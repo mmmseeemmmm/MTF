@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="MTFApp.UIControls.EditableListParameter.EditableListParameter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MTFApp.UIControls.EditableListParameter"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="PopupTemplate">
+            <Popup IsOpen="{Binding IsPopupOpen}" Placement="Bottom" StaysOpen="False" Focusable="False"
+                   Width="{Binding ElementName=Header, Path=ActualWidth}"
+                   AllowsTransparency="True"
+                   PopupAnimation="Slide">
+                <Border BorderThickness="1,0,1,1" BorderBrush="{StaticResource ElementBorderBrush}"
+                        MaxHeight="300">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                  Background="{StaticResource ALWhiteBrush}">
+                        <ItemsControl SnapsToDevicePixels="True"
+                                      Padding="0"
+                                      ItemsSource="{Binding ItemsSource, IsAsync=True}"
+                                      HorizontalContentAlignment="Stretch"
+                                      BorderThickness="0">
+                            <ItemsControl.Template>
+                                <ControlTemplate>
+                                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Background="{TemplateBinding Background}" Padding="0"
+                                            SnapsToDevicePixels="True">
+                                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </ItemsControl.Template>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button SnapsToDevicePixels="True"
+                                            Focusable="False"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Left"
+                                            BorderThickness="0,0,0,0"
+                                            Content="{Binding DisplayName}"
+                                            CommandParameter="{Binding}"
+                                            Click="ListItemOnClick" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+            </Popup>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ComplexTerm">
+            <TextBlock Text="{Binding Value}" TextWrapping="Wrap" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ReadOnlyTemplate">
+            <TextBox Style="{StaticResource TextBoxAsTextBlox}">
+                <TextBox.Text>
+                    <MultiBinding StringFormat="{}{0} ({1})">
+                        <Binding Path="DisplayValue" />
+                        <Binding Path="Value" />
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="EditableTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" BorderThickness="1" BorderBrush="{StaticResource ElementBorderBrush}"
+                        Name="Header"
+                        SnapsToDevicePixels="True">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="{StaticResource ElementBackgroundBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsValid}" Value="False">
+                                    <Setter Property="Background" Value="{StaticResource ALRedBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Text="{Binding DisplayValue, UpdateSourceTrigger=PropertyChanged}"
+                                 BorderThickness="0"
+                                 MinWidth="50"
+                                 Background="Transparent" />
+                        <Button Grid.Column="1" Margin="0" BorderThickness="0" Click="OpenPopupButton"
+                                Background="Transparent">
+                            <UserControl Style="{StaticResource IsCollapsedStyle}">
+                                <UserControl.LayoutTransform>
+                                    <RotateTransform CenterX="0.5" CenterY="0.5" Angle="90" />
+                                </UserControl.LayoutTransform>
+                            </UserControl>
+                        </Button>
+                    </Grid>
+
+                </Border>
+                <ContentPresenter Grid.Row="1" Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsPopupOpen}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource PopupTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid Name="EditableListParameterRoot" MinWidth="100">
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ComplexTerm}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsComplexTerm}" Value="False">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EditableTemplate}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ReadOnly}" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ReadOnlyTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </Grid>
+</UserControl>

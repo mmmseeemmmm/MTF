@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconServiceDisconnect">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,375,374.8" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup x:Name="g3101" Transform="1,0,0,1,-68.5,-68.7">
+                                                <GeometryDrawing x:Name="path3103" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M164.5,241.2L270.7,347.6 204.3,387.6 173,418.9C165.7,426.2,153.8,426.2,146.3,418.9L133.4,405.8 95.8,443.5 68.5,416.4 106.1,378.7 93.2,365.6C85.9,358.3,85.9,346.4,93.2,339.1L124.7,307.6 164.5,241.2z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                                <GeometryDrawing x:Name="path3105" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M420.3,144.1C427.4,151.4,427.4,163.1,420.3,170.4L389.4,201.3 350,267 336.9,253.8 302.9,288C295.6,295.1 283.9,295.1 276.6,288 269.5,280.7 269.5,269 276.6,261.7L310.7,227.6 284.4,201.5 250.3,235.5C243.2,242.8 231.3,242.8 224.2,235.5 216.9,228.4 216.9,216.5 224.2,209.4L258.1,175.3 245.1,162.1 310.7,122.8 341.6,91.9C348.9,84.6,360.6,84.6,367.7,91.9L381.4,105.6 418.3,68.7 443.5,93.8 406.6,130.7 420.3,144.1z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

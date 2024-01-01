@@ -1,0 +1,122 @@
+﻿<debugSetupWindow:DebugSetupBase x:Class="MTFApp.DebugSetupWindow.SetupSettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+        xmlns:debugSetupWindow="clr-namespace:MTFApp.DebugSetupWindow"
+                                 xmlns:setupWindow="clr-namespace:MTFApp.DebugSetupWindow"
+        WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize"
+        BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}"
+        Topmost="{Binding Source={x:Static Application.Current}, Path=MainWindow.IsActive, Mode=OneWay}">
+    
+    <Window.Resources>
+        <DataTemplate x:Key="ListBoxItemTempltate">
+            <Grid>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsLoaded}" Value="False">
+                                <Setter Property="Background" Value="{StaticResource ALSilverBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition SharedSizeGroup="col1" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition SharedSizeGroup="col2" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <UserControl Grid.Column="0" Margin="5, 0, 10, 0"
+                                     Foreground="{Binding State, Converter={StaticResource DebugEnumToBrushConverter}}"
+                                     Style="{StaticResource IconTune}" MaxHeight="25"
+                                     MouseLeftButtonDown="SetupPointOnMouseLeftButtonDown"
+                                     Tag="{Binding}" />
+
+                <TextBlock Grid.Column="1" Text="{Binding ActivityName}" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Column="3" Text="{Binding SequenceName}" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Column="5" Text="{Binding Path}" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+
+        <Style TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}" x:Key="ListBoxStyle">
+            <Setter Property="ItemContainerStyle" Value="{StaticResource SelectableListBoxItem}" />
+            <Setter Property="SelectedItem" Value="{Binding SelectedItem}" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+            <Setter Property="ItemTemplate" Value="{StaticResource ListBoxItemTempltate}" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+
+        <DataTemplate x:Key="FiltredItems">
+            <ListBox ItemsSource="{Binding FiltredItems}" Style="{StaticResource ListBoxStyle}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="AllItems">
+            <ListBox ItemsSource="{Binding DataCollection}" Style="{StaticResource ListBoxStyle}" />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid Name="Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Background="{StaticResource ALBlackBrush}" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Setup setting" Grid.Column="0" Foreground="{StaticResource ALWhiteBrush}" VerticalAlignment="Center" Margin="5" />
+            <Button Margin="5" Grid.Column="3" Foreground="{StaticResource ResourceKey=ALWhiteBrush}" Style="{StaticResource ResourceKey=CloseButton}"
+                    Command="{Binding CloseCommand}"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal" Margin="10">
+            <Button Style="{StaticResource FindUsagesCommandButton}" Command="{Binding EnableAllPointsCommand}"
+                    Background="Transparent"
+                    ToolTip="Enable or disable all points.">
+                <Button.Content>
+                    <UserControl Style="{StaticResource IconActiveBreakPoint}"/>
+                </Button.Content>
+            </Button>
+
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" VerticalAlignment="Center" Margin="10, 0, 0, 0" />
+
+            <Button Style="{StaticResource FindUsagesCommandButton}" Command="{Binding ClearSearchTextCommand}" Background="Transparent" Width="18" Height="18">
+                <Button.Content>
+                    <UserControl Style="{StaticResource IconClose}"/>
+                </Button.Content>
+            </Button>
+
+            <CheckBox IsChecked="{Binding OnlyActivePoints}"  Margin="10, 0, 5, 0"/>
+            
+            <TextBlock Text="Only active setup points." VerticalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="{StaticResource ALYellowBrush}" Margin="10, 0, 10, 0" />
+
+        <ContentPresenter Grid.Row="3" Margin="10" Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource AllItems}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ShowFiltredItems}" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource FiltredItems}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </Grid>
+</debugSetupWindow:DebugSetupBase>

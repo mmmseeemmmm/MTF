@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="MTFApp.SequenceExecution.MainViews.TimeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"  
+             xmlns:execution="clr-namespace:MTFApp.SequenceExecution"
+             xmlns:imageHandling="clr-namespace:MTFApp.SequenceExecution.ImageHandling"
+             xmlns:sharedControls="clr-namespace:MTFApp.SequenceExecution.SharedControls"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="tableDetail">
+            <editors:MTFValidationTableEditor EditorMode="OnlyRowTable"
+                                              Value="{Binding GlobalValidationTable, Mode=OneWay}"
+                                              ParentSequence="{Binding DataContext.Sequence, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type execution:SequenceExecutionControl}}}"
+                                              />
+        </DataTemplate>
+        <DataTemplate x:Key="imageDetail">
+            <imageHandling:ImageControl UseSlider="True" ImagePresenter="{Binding ImageHandler.ImageBuffer}" IsPreview="False"
+                                        Background="{StaticResource ALBlackBrush}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ContentPresenter Content="{Binding}" Grid.Row="0">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource tableDetail}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DetailMode}" Value="Image">
+                            <Setter Property="ContentTemplate" Value="{StaticResource imageDetail}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+        <Border Grid.Row="1" >
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource ALLightSilver}" Opacity="0.5" />
+            </Border.Background>
+            <sharedControls:StatusBar DataContext="{Binding}" />
+        </Border>
+    </Grid>
+</UserControl>

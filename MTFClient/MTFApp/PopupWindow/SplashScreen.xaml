@@ -1,0 +1,33 @@
+﻿<Window x:Class="MTFApp.PopupWindow.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+        Title="SplashScreen" Height="300" Width="500"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        WindowStyle="None" ShowInTaskbar="False">
+    <Window.Resources>
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+    </Window.Resources>
+
+
+    <Grid Background="{StaticResource ALBlackBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1"
+                    VerticalAlignment="Center">
+            <Image Width="80" Source="{StaticResource ResourceKey=IconALLogo}" Margin="0 10 20 0"/>
+            <TextBlock Text="Industrial Development" HorizontalAlignment="Center" Margin="0 5 20 10" Foreground="{StaticResource ALWhiteBrush}" />
+        </StackPanel>
+        <alControls:TextBlock Grid.Row="1" Grid.Column="1" LocTextKey="MTF_Splash_Starting" FontSize="32" Foreground="{StaticResource ALWhiteBrush}" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Text="{Binding SplashInfo}" FontSize="16" Margin="0 8 0 0" Foreground="{StaticResource ALWhiteBrush}" />
+    </Grid>
+</Window>

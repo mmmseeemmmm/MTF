@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconVariantAdd">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,744.09448819,1052.3622047" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup x:Name="layer1">
+                                                <GeometryDrawing x:Name="path4138" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M350.65486,292.30177C345.13886,292.30177,340.52386,296.20677,339.41986,301.39677L299.68786,301.39677C299.46186,300.10377,299.05586,298.87577,298.49786,297.73077L321.41786,281.18077C323.45686,283.02677 326.14986,284.16177 329.11086,284.16177 335.44786,284.16177 340.59986,279.00777 340.59986,272.67277 340.59986,266.33877 335.44786,261.18477 329.11086,261.18477 322.77586,261.18477 317.62186,266.33877 317.62186,272.67277 317.62186,274.32177 317.97786,275.88677 318.60586,277.30577L295.69486,293.84877C293.19286,291.41477 289.78386,289.90777 286.02586,289.90777 278.37086,289.90777 272.14286,296.13577 272.14286,303.79077 272.14286,311.44477 278.37086,317.67377 286.02586,317.67377 289.78586,317.67377 293.19586,316.16577 295.69786,313.72977L318.60586,330.27477C317.97786,331.69377 317.62186,333.25877 317.62186,334.90877 317.62186,341.24377 322.77586,346.39677 329.11086,346.39677 335.44786,346.39677 340.59986,341.24377 340.59986,334.90877 340.59986,328.57277 335.44786,323.41977 329.11086,323.41977 326.15086,323.41977 323.45786,324.55477 321.41886,326.39877L298.49886,309.84577C299.05686,308.70277,299.46186,307.47577,299.68686,306.18377L339.41686,306.18377C340.52086,311.37377 345.13786,315.28077 350.65286,315.28077 356.99086,315.27977 362.14286,310.12677 362.14286,303.79077 362.14286,297.45477 356.99086,292.30177 350.65486,292.30177z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                                <DrawingGroup x:Name="g4165" Transform="1,0,0,1,254.1957,658.98965">
+                                                    <DrawingGroup x:Name="g4149" Transform="0.46449745,0,0,0.46449745,12.659767,-413.62461">
+                                                        <GeometryDrawing x:Name="path4151" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                            <GeometryDrawing.Geometry>
+                                                                <PathGeometry FillRule="Nonzero" Figures="M20.7,20.7C4.5,36.9 4.5,63.2 20.7,79.4 36.9,95.6 63.2,95.6 79.4,79.4 95.6,63.2 95.6,36.9 79.4,20.7 63.2,4.5 36.8,4.5 20.7,20.7z M74.5,74.5C61,88 39,88 25.5,74.5 12,61 12,39 25.5,25.5 39,12 61,12 74.5,25.5 88,39 88,61 74.5,74.5z" />
+                                                            </GeometryDrawing.Geometry>
+                                                        </GeometryDrawing>
+                                                        <GeometryDrawing x:Name="path4153" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                            <GeometryDrawing.Geometry>
+                                                                <PathGeometry FillRule="Nonzero" Figures="M50,30.3L50,30.3C48.1,30.3,46.6,31.8,46.6,33.7L46.6,46.7 33.6,46.7C31.7,46.7 30.2,48.2 30.2,50.1 30.2,52 31.7,53.5 33.6,53.5L46.6,53.5 46.6,66.5C46.6,68.4 48.1,69.9 50,69.9 50.9,69.9 51.8,69.5 52.4,68.9 53,68.3 53.4,67.4 53.4,66.5L53.4,53.5 66.4,53.5C67.3,53.5 68.2,53.1 68.8,52.5 69.4,51.9 69.8,51 69.8,50.1 69.8,48.2 68.3,46.7 66.4,46.7L53.4,46.7 53.4,33.7C53.4,31.8,51.9,30.3,50,30.3z" />
+                                                            </GeometryDrawing.Geometry>
+                                                        </GeometryDrawing>
+                                                    </DrawingGroup>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

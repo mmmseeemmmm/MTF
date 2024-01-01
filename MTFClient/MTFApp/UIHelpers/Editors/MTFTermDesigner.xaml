@@ -1,0 +1,513 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFTermDesigner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"          
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:app="clr-namespace:MTFApp"          
+             xmlns:MTFClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+             xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.Resources>
+        <converters:CompareTwoObjectsConverter x:Key="SelectedActivityConverter" />
+
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="toolBoxItemStyle">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive"
+                                            Value="False" />
+                                    <Condition Property="IsSelected"
+                                            Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="Transparent" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive"
+                                            Value="True" />
+                                    <Condition Property="IsSelected"
+                                            Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="Transparent" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--<Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource ALLightSilverBrush}" />
+                </Trigger>
+
+            </Style.Triggers>-->
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <Style x:Key="ActivityListBox" TargetType="{x:Type ListBox}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template" Value="{StaticResource ListBoxControlTemplate}" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+            <Setter Property="AllowDrop" Value="True" />
+            <Setter Property="ItemContainerStyle" Value="{StaticResource NoSelectionListBoxItem}" />
+        </Style>
+
+        <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource ActivityGridBase}" x:Key="TermDesignerActivityGrid">
+            <EventSetter Event="Drop" Handler="target_Drop" />
+            <Setter Property="Tag" Value="{Binding}" />
+            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="Sequence_PreviewMouseLeftButtonDown" />
+            <Setter Property="Background" Value="{StaticResource ALLightSilverBrush}" />
+            <Style.Triggers>
+                <DataTrigger Value="True">
+                    <DataTrigger.Binding>
+                        <MultiBinding Converter="{StaticResource SelectedActivityConverter}">
+                            <Binding />
+                            <Binding Path="SelectedActivity" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                        </MultiBinding>
+                    </DataTrigger.Binding>
+                    <Setter Property="Background" Value="{StaticResource ALDarkYellowBrush}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource ActivityGridBase}" x:Key="TermDesignerSubSequenceGrid">
+            <EventSetter Event="Drop" Handler="target_Drop" />
+            <Setter Property="Tag" Value="{Binding}" />
+            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="Sequence_PreviewMouseLeftButtonDown" />
+            <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+            <Style.Triggers>
+                <DataTrigger Value="True">
+                    <DataTrigger.Binding>
+                        <MultiBinding Converter="{StaticResource SelectedActivityConverter}">
+                            <Binding />
+                            <Binding Path="SelectedActivity" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                        </MultiBinding>
+                    </DataTrigger.Binding>
+                    <Setter Property="Background" Value="{StaticResource ALDarkYellowBrush}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource SelectedActivityCheckBox}" x:Key="DisabledCheckBox">
+            <Setter Property="IsEnabled" Value="False" />
+        </Style>
+
+        <DataTemplate x:Key="SubSequenceList">
+            <ListBox ItemsSource="{Binding Activities}"
+                         Style="{StaticResource ActivityListBox}"
+                         PreviewMouseWheel="Control_PreviewMouseWheel"
+                         SelectedItem="{Binding SelectedActivity, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                         Margin="50,0,0,0">
+            </ListBox>
+        </DataTemplate>
+        <DataTemplate x:Key="SubSequenceCase">
+            <TabControl ItemsSource="{Binding Cases}" BorderThickness="0" SelectedIndex="{Binding ActualCaseIndex}" MaxWidth="1200"
+                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" DisplayMemberPath="Name">
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource SubSequenceList}" />
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </DataTemplate>
+        <DataTemplate x:Key="SubSequenceContent">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SubSequenceList}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ExecutionType}" Value="ExecuteByCase">
+                                <Setter Property="ContentTemplate" Value="{StaticResource SubSequenceCase}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSequenceActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfMethodName" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}"/>
+                <Label Grid.Column="3" Content="{Binding ClassInfo.Alias}" Style="{StaticResource UnSelectedStringLabel}"/>
+                <Label Grid.Column="4" Content="{Binding MTFMethodDisplayName}" Style="{StaticResource LabelInsteadComboBox}"/>
+                <TextBlock Grid.Column="5" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSubSequenceActivity}">
+            <Grid HorizontalAlignment="Stretch" Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Style="{StaticResource TermDesignerSubSequenceGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource CollapsedButton}" Foreground="{StaticResource ALBlackBrush}" HorizontalAlignment="Center"
+                            Command="{Binding DataContext.ChangeCollapsedStateCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                    <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                    <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource SelectedActivityLabel}"/>
+                    <Label Grid.Column="3" Content="{Binding ExecutionType, Converter={StaticResource EnumToDescription}}"
+                           Style="{StaticResource LabelInsteadComboBox}" BorderBrush="{StaticResource ALBlackBrush}"/>
+                    <TextBlock Grid.Column="4" Style="{StaticResource ActivityCommentTextBlock}"/>
+                </Grid>
+                <ContentPresenter Grid.Row="1" Content="{Binding}" IsEnabled="{Binding IsActive}" >
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCollapsed}" Value="False">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource SubSequenceContent}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFExecuteActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedCallActivityLabel}"/>
+                <Label Grid.Column="3" Content="{Binding Type, Converter={StaticResource EnumToDescription}}"
+                       Style="{StaticResource LabelInsteadComboBox}" />
+                <ContentPresenter Grid.Column="4" Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Type}" Value="Local">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Name="acitivityToCallStackPanel"
+                                                            VerticalAlignment="Center" Margin="0,0,20,0">
+                                                    <StackPanel.Style>
+                                                        <Style TargetType="StackPanel">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ActivityToCall}"
+                                                                             Value="{x:Null}">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </StackPanel.Style>
+                                                    <TextBlock Text="SubSequence to call: "
+                                                               Style="{StaticResource ActivityTextBlockBase}" />
+                                                    <TextBlock Text="{Binding ActivityToCall.ActivityName}"
+                                                               FontWeight="Bold"
+                                                               Style="{StaticResource ActivityTextBlockBase}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Type}" Value="External">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                                            Visibility="{Binding ExternalCall.ExternalSequenceToCall, Converter={StaticResource NotNullToVisibility}}">
+                                                    <TextBlock Text="{Binding ExternalCall.ExternalSequenceToCall}" />
+                                                    <TextBlock Text=": " Margin="0,0,3,0" />
+                                                    <TextBlock Text="{Binding ExternalCall.InnerSubSequenceByCallId}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Type}" Value="Dynamic">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <Label Margin="0"
+                                                    Content="{Binding DynamicActivityType, Converter={StaticResource EnumToDescription}}"
+                                                    Style="{StaticResource LabelInsteadComboBox}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+
+                <TextBlock Grid.Column="5" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSequenceHandlingActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}"/>
+                <Label Grid.Column="3" Content="{Binding SequenceHandlingType, Converter={StaticResource EnumToDescription}}" Style="{StaticResource LabelInsteadComboBox}"/>
+                <TextBlock Grid.Column="4" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFErrorHandlingActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}"/>
+                <Label Grid.Column="3" Content="{Binding ErrorHandlingType, Converter={StaticResource EnumToDescription}}" Style="{StaticResource LabelInsteadComboBox}"/>
+                <TextBlock Grid.Column="4" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSequenceMessageActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}"/>
+                <Label Grid.Column="3" Content="{Binding MessageType, Converter={StaticResource EnumToDescription}}" Style="{StaticResource LabelInsteadComboBox}"/>
+                <TextBlock Grid.Column="4" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFVariableActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}"/>
+                <TextBlock Grid.Column="3" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFFillValidationTableActivity}">
+            <Grid Style="{StaticResource TermDesignerActivityGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Grid.Column="0" Content="{Binding}" ContentTemplate="{StaticResource ActivityIcon}" />
+                <CheckBox Grid.Column="1" Style="{StaticResource DisabledCheckBox}" />
+                <Label Grid.Column="2" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}"/>
+                <TextBlock Grid.Column="3" Style="{StaticResource ActivityCommentTextBlock}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ActivityListTemplate">
+            <Grid Grid.IsSharedSizeScope="True" Name="ActivityListInTermDesignerGrid" Loaded="GridOnLoaded">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <ListBox Grid.Row="0" Style="{StaticResource ActivityListBox}"
+                         SelectedItem="{Binding SelectedActivity, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                     ItemsSource="{Binding MTFSequenceActivities}">
+                </ListBox>
+                <ListBox Grid.Row="1" Style="{StaticResource ActivityListBox}"
+                         SelectedItem="{Binding SelectedActivity, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                     ItemsSource="{Binding ActivitiesByCall}">
+
+                </ListBox>
+                <GridSplitter Grid.Row="1" Style="{StaticResource HorizontalGridSplitter}" DragCompleted="GridSplitterDragCompleted" />
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid  Name="TermDesignerRoot" Background="{StaticResource ALWhiteBrush}" Loaded="GridOnLoaded" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ContentControl Grid.Column="0" ContentTemplate="{StaticResource ActivityListTemplate}"
+                            Content="{Binding DataContext.SequenceEditorPresenter.Sequence, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type app:MainWindow}}}" />
+        <GridSplitter DragCompleted="GridSplitterDragCompleted" />
+        <Grid Grid.Column="1" Background="{StaticResource ALWhiteBrush}" Name="TermDesignerPalleteWithFunctions" Loaded="GridOnLoaded">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid Name="palette">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0">
+                        <Button DockPanel.Dock="Right" Style="{StaticResource CloseButton}" Width="20" Height="20" Margin="5" ToolTip="Close" 
+                                HorizontalAlignment="Right"
+                                Click="CloseDesigner_Click"/>
+                        <Button DockPanel.Dock="Right" Style="{StaticResource ResetButton}" Width="20" Height="20" Margin="5" Click="ResetTerm_Click" ToolTip="Erase term" />
+                        <TextBlock Text="Selected Activity: " DockPanel.Dock="Left" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource Heading3}" />
+                        <localizedString:LocalizedStringTextBlock Identifier="{Binding SelectedActivity.ActivityName}" UniqueIndexer="{Binding SelectedActivity.UniqueIndexer}"
+                                       DockPanel.Dock="Left" Margin="5,0,0,0" VerticalAlignment="Center" TextBlockStyle="{StaticResource Heading3}"  >
+                        </localizedString:LocalizedStringTextBlock>                         
+                    </DockPanel>
+                    <ScrollViewer Grid.Row="1" Name="zoomPaletteFixed" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid Name="zoomPaletteResizable" MouseWheel="Control_PreviewMouseWheel" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid.LayoutTransform>
+                                <ScaleTransform ScaleX="{Binding Scale}" ScaleY="{Binding Scale}"/>
+                            </Grid.LayoutTransform>
+                            <uiHelpers:MTFEditor ValueChanged="MTFEditor_ValueChanged" Value="{Binding Term, Mode=TwoWay}" ReadOnly="False"
+                                                 EditorMode="{Binding EditorMode}"
+                                             TextBlock.TextAlignment="Center"
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Stretch"
+                                             TypeName="MTFClientServerCommon.Mathematics.Term"/>
+                        </Grid>
+                    </ScrollViewer>
+                    <DockPanel Grid.Row="2" Height="45">
+                        <Button Command="{Binding ZoomInCommand}" Padding="0" BorderThickness="0" Height="20" Margin="5" ToolTip="Zoom In">
+                            <Button.Content>
+                                <UserControl Style="{StaticResource TermAddIcon}" />
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding ZoomOutCommand}" Padding="0" BorderThickness="0" Height="20" Width="20"  Margin="5"  ToolTip="Zoom Out">
+                            <Button.Content>
+                                <UserControl Style="{StaticResource TermSubtractIcon}" VerticalAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding ActualSizeCommand}" Padding="0" BorderThickness="0" Height="20"   Margin="5" ToolTip="Actual Size" >
+                            <Button.Content>
+                                <UserControl Style="{StaticResource IconZoomActualSize}" VerticalAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding FitSizeCommand}" Padding="0" BorderThickness="0" Height="20"  Margin="5" ToolTip="Fit to Screen">
+                            <Button.Content>
+                                <UserControl Style="{StaticResource IconZoomFitSize}" VerticalAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding CopyToClipboardCommand}" Padding="0" BorderThickness="0" Height="20"  Margin="5" ToolTip="Copy" >
+                            <Button.Content>
+                                <UserControl Style="{StaticResource IconCopy}" VerticalAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding PasteFromClipboardCommand}" Padding="0" BorderThickness="0" Height="20"  Margin="5" ToolTip="Paste" >
+                            <Button.Content>
+                                <UserControl Style="{StaticResource IconPaste}" VerticalAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                        <TextBlock Text="Select Target" VerticalAlignment="Center" Visibility="{Binding AllowPaste, Converter={StaticResource BoolToVisibility}}" />
+                        <UserControl Style="{StaticResource IconTrash}" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="5" ToolTip="Remove"
+                                     AllowDrop="True"
+                                     PreviewDragOver="Trash_DragOver"
+                                     PreviewDragLeave="Trash_DragLeave"
+                                     PreviewMouseLeftButtonDown="Trash_PreviewMouseLeftButtonDown"
+                                     MouseLeave="Trash_MouseLeave"
+                                     MouseEnter="Trash_MouseEnter"
+                                     Drop="Trash_Drop"/>
+                    </DockPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Background="{StaticResource ALYellowBrush}" Padding="3"
+                          VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                    <TextBlock Text="{Binding Term}" HorizontalAlignment="Center" />
+                </ScrollViewer>
+                <TextBlock Grid.Row="1" Text="List of functions" Margin="2,2,0,0" Foreground="{StaticResource ALSilverBrush}" />
+                <ListBox Grid.Row="2" ItemsSource="{Binding Term.TermCollection}"
+                                 VerticalContentAlignment="Top"
+                                 ItemContainerStyle="{StaticResource toolBoxItemStyle}"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             PreviewMouseDown="ToolBox_PreviewMouseDown"
+                             PreviewMouseMove="ToolBox_PreviewMouseMove"
+                             GiveFeedback="ToolBox_GiveFeedback">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel VerticalAlignment="Top" Width="{TemplateBinding ActualWidth}" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="10" Width="70">
+                                <Border Background="{StaticResource ALYellowBrush}" CornerRadius="50" Padding="15" HorizontalAlignment="Center" Width="60" Height="60" VerticalAlignment="Top"
+                                        BorderBrush="{StaticResource ALBlackBrush}"
+                                        PreviewMouseLeftButtonDown="ToolBox_PreviewMouseLeftDown">
+                                    <UserControl Style="{Binding Icon, Converter={StaticResource IconConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <TextBlock Text="{Binding Label}" TextAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+            <GridSplitter Grid.Row="1" Style="{StaticResource HorizontalGridSplitter}" DragCompleted="GridSplitterDragCompleted"/>
+        </Grid>
+    </Grid>
+</editors:MTFEditorBase>

@@ -1,0 +1,2880 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CD4F84D-6779-4236-8F91-D4F477F94A4D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTFApp</RootNamespace>
+    <AssemblyName>MTFApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\Client\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MTFApp.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\MTFIcon-32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin64\Debug\Client\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\bin64\Release\Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="ALControls, Version=1.0.9.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Dll\ALControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ALControlsCommon, Version=1.0.0.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Dll\ALControlsCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Localization, Version=1.0.0.2, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Dll\Localization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AccessKeyDialog\AccessKeyInfoControl.xaml.cs">
+      <DependentUpon>AccessKeyInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AccessKeyDialog\AccessKeyRequest.xaml.cs">
+      <DependentUpon>AccessKeyRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DebugSetupWindow\DebugSetupBase.cs" />
+    <Compile Include="DebugSetupWindow\DebugSettingWindow.xaml.cs">
+      <DependentUpon>DebugSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentConfig\ParameterTabControl.xaml.cs">
+      <DependentUpon>ParameterTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDialog\ConnectionContainer.cs" />
+    <Compile Include="DebugSetupWindow\SetupSettingWindow.xaml.cs">
+      <DependentUpon>SetupSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorTest\IconsPresenter.cs" />
+    <Compile Include="EditorTest\LocalizedTestPresenter.cs" />
+    <Compile Include="EmailHelper.cs" />
+    <Compile Include="ExportSequence\ComponentWrapper.cs" />
+    <Compile Include="ExportSequence\ExportImages.xaml.cs">
+      <DependentUpon>ExportImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExportSequence\ExportSetting.cs" />
+    <Compile Include="ExportSequence\ImageExportWrapper.cs" />
+    <Compile Include="ExportSequence\SequenceExportWrapper.cs" />
+    <Compile Include="FindUsages\DisplayModes.cs" />
+    <Compile Include="FindUsages\FindActivityControl.xaml.cs">
+      <DependentUpon>FindActivityControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FindUsages\FindComponentUsagesWindow.xaml.cs">
+      <DependentUpon>FindComponentUsagesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FindUsages\FindMtfHandlingUsagesWindow.xaml.cs">
+      <DependentUpon>FindMtfHandlingUsagesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FindUsages\FindSubSequenceUsagesWindow.xaml.cs">
+      <DependentUpon>FindSubSequenceUsagesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FindUsages\FindUsagesBase.cs" />
+    <Compile Include="FindUsages\FindUsagesSetting.cs" />
+    <Compile Include="FindUsages\FindVariableUsagesWindow.xaml.cs">
+      <DependentUpon>FindVariableUsagesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FindUsages\IFindActivityUsages.cs" />
+    <Compile Include="IAccess.cs" />
+    <Compile Include="IControlStatus.cs" />
+    <Compile Include="ImportSequence\ImageImportWrapper.cs" />
+    <Compile Include="ImportSequence\ImportGraphicalViewImages.xaml.cs">
+      <DependentUpon>ImportGraphicalViewImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportSequence\ImportHelper.cs" />
+    <Compile Include="ImportSequence\ImportSharedData.cs" />
+    <Compile Include="ImportSequence\SequenceInZip.cs" />
+    <Compile Include="Localizations\UIStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UIStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\Components\ComponentsManager.cs" />
+    <Compile Include="Managers\ManagerBase.cs" />
+    <Compile Include="Managers\ManagersContainer.cs" />
+    <Compile Include="Managers\Sequence\SequenceManager.cs" />
+    <Compile Include="MergeActivities\MergeActivitiesBase.cs" />
+    <Compile Include="MergeActivities\MergeComponents.xaml.cs">
+      <DependentUpon>MergeComponents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeActivities\MergeActivitiesSumary.xaml.cs">
+      <DependentUpon>MergeActivitiesSumary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeActivities\MergeSharedData.cs" />
+    <Compile Include="MergeActivities\MergeVariables.xaml.cs">
+      <DependentUpon>MergeVariables.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeActivities\NewSequenceClassInfo.cs" />
+    <Compile Include="MergeActivities\NewVariable.cs" />
+    <Compile Include="MessageBoxes\MessageBoxDataMigration.xaml.cs">
+      <DependentUpon>MessageBoxDataMigration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Controls\ReportFilterControl.xaml.cs">
+      <DependentUpon>ReportFilterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Converters\ChartColorToColorConverter.cs" />
+    <Compile Include="ReportViewer\Converters\TextAlignmentToWpfAlignmentConverter.cs" />
+    <Compile Include="ReportViewer\ListOfReports\ListOfReportsControl.xaml.cs">
+      <DependentUpon>ListOfReportsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\ListOfReports\ListOfReportsPresenter.cs" />
+    <Compile Include="ReportViewer\ListOfReports\ReportImageGrid.xaml.cs">
+      <DependentUpon>ReportImageGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\ReportingWcf\ReportingClient.cs" />
+    <Compile Include="PopupWindow\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\ListOfReports\ReportDetailControl.xaml.cs">
+      <DependentUpon>ReportDetailControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\PanelEditors\LineChartEditor.xaml.cs">
+      <DependentUpon>LineChartEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\PanelEditors\ReportsOverviewEditor.xaml.cs">
+      <DependentUpon>ReportsOverviewEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\PanelEditors\TextPanelEditor.xaml.cs">
+      <DependentUpon>TextPanelEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\PanelViews\LineChartView.xaml.cs">
+      <DependentUpon>LineChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\PanelViews\ReportsOverviewView.xaml.cs">
+      <DependentUpon>ReportsOverviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\PanelViews\TextPanelView.xaml.cs">
+      <DependentUpon>TextPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\ReportDataManager.cs" />
+    <Compile Include="ReportViewer\SummaryReports\SummaryReportEditor.xaml.cs">
+      <DependentUpon>SummaryReportEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\SummaryReportsEditor.xaml.cs">
+      <DependentUpon>SummaryReportsEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\ReportViewerControl.xaml.cs">
+      <DependentUpon>ReportViewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\ReportViewerPresenter.cs" />
+    <Compile Include="ReportViewer\SequenceReportPreviews.cs" />
+    <Compile Include="ReportViewer\ListOfReports\ValidationTableReportControl.xaml.cs">
+      <DependentUpon>ValidationTableReportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\SummaryReports\SummaryReportsEditorPresenter.cs" />
+    <Compile Include="ReportViewer\SummaryReports\SummaryReportViewer.xaml.cs">
+      <DependentUpon>SummaryReportViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\ValidationTableInfo.cs" />
+    <Compile Include="ResultDetail\ActivityHeaderPreview.xaml.cs">
+      <DependentUpon>ActivityHeaderPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\ActivityStylesCodeBehind.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\DutInfo.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\GraphicalViewTableItemBase.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\ValidationRowWrapper.cs" />
+    <Compile Include="SequenceEditor\Handlers\ActivityNavigationHandler.cs" />
+    <Compile Include="SequenceEditor\DetailDataTemplates\MessageActivity.xaml.cs">
+      <DependentUpon>MessageActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\EditorViewMode.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\GraphicalViewWrapper.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\GraphicalViewControl.xaml.cs">
+      <DependentUpon>GraphicalViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\GraphicalView\GraphicalViewEditor.xaml.cs">
+      <DependentUpon>GraphicalViewEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\GraphicalView\GraphicalViewEditorPresenter.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\ImageWrapper.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\GraphicalViewResourcesHelper.cs" />
+    <Compile Include="SequenceEditor\GraphicalView\RenameControl.xaml.cs">
+      <DependentUpon>RenameControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\GraphicalView\ResourcesManager.xaml.cs">
+      <DependentUpon>ResourcesManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\GraphicalView\ValidationTableWrapper.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\EditVariantMode.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\EmptyVariantChoices.cs" />
+    <Compile Include="SequenceEditor\Handlers\EmptyVariantHandler.cs" />
+    <Compile Include="SequenceEditor\Settings\ClientUISetting.xaml.cs">
+      <DependentUpon>ClientUISetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\CloneDataControl.xaml.cs">
+      <DependentUpon>CloneDataControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\DataPackageWrapper.cs" />
+    <Compile Include="SequenceEditor\DetailDataTemplates\ActivityDetailBase.cs" />
+    <Compile Include="SequenceEditor\DetailDataTemplates\DetailHeader.xaml.cs">
+      <DependentUpon>DetailHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\DetailDataTemplates\EditorDisplayMode.cs" />
+    <Compile Include="SequenceEditor\DetailDataTemplates\ErrorHandling.xaml.cs">
+      <DependentUpon>ErrorHandling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\DetailDataTemplates\ExecuteActivityDetail.xaml.cs">
+      <DependentUpon>ExecuteActivityDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\DetailDataTemplates\MTFSequenceClassInfo.xaml.cs">
+      <DependentUpon>MTFSequenceClassInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\DetailDataTemplates\SequenceHandling.xaml.cs">
+      <DependentUpon>SequenceHandling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\DragAndDrop.cs" />
+    <Compile Include="SequenceEditor\Settings\DeviceUnderTestSettings.xaml.cs">
+      <DependentUpon>DeviceUnderTestSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Settings\ExternalSequenceSettings.xaml.cs">
+      <DependentUpon>ExternalSequenceSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Settings\GoldSampleSettings.xaml.cs">
+      <DependentUpon>GoldSampleSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Handlers\ChangeVariantHandler.cs" />
+    <Compile Include="SequenceEditor\Handlers\ComponentDataHandler.cs" />
+    <Compile Include="SequenceEditor\MTFListBox.cs" />
+    <Compile Include="SequenceEditor\Settings\IntegrityCheckControl.xaml.cs">
+      <DependentUpon>IntegrityCheckControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Settings\RoundingRulesSettings.xaml.cs">
+      <DependentUpon>RoundingRulesSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\SelectionHelper.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariantsSettings.xaml.cs">
+      <DependentUpon>SequenceVariantsSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\ServiceCommandSettings.xaml.cs">
+      <DependentUpon>ServiceCommandSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\ExternalSequenceVariantGroup.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\ExternalSequenceVariantResult.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\GroupDataPackage.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\MainSequenceVariantResult.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\SequenceDataPackage.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\SequenceVariantWizardModes.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\VariantGroupPackage.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\SequenceVariantWizard.xaml.cs">
+      <DependentUpon>SequenceVariantWizard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\SequenceVariantWizardPresenter.cs" />
+    <Compile Include="SequenceEditor\Settings\SequenceVariant\VariantValueSetting.cs" />
+    <Compile Include="SequenceEditor\Settings\ServiceSetting.xaml.cs">
+      <DependentUpon>ServiceSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\Settings\VersionSettingsControl.xaml.cs">
+      <DependentUpon>VersionSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\UserCommandSettings.xaml.cs">
+      <DependentUpon>UserCommandSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\DutPresenter.cs" />
+    <Compile Include="SequenceExecution\ExecutionStatus.cs" />
+    <Compile Include="SequenceExecution\ExtendedMode\ExtendedModeTypes.cs" />
+    <Compile Include="SequenceExecution\ExtendedMode\ExtendedModeActions.cs" />
+    <Compile Include="SequenceExecution\GraphicalViewHandling\ExecutionGraphicalViewTestedItem.cs" />
+    <Compile Include="SequenceExecution\GraphicalViewHandling\ExecutionGraphicalViewWrapper.cs" />
+    <Compile Include="SequenceExecution\GraphicalViewHandling\GraphicalViewManager.cs" />
+    <Compile Include="SequenceExecution\MainViews\ExecutionDetailModes.cs" />
+    <Compile Include="SequenceExecution\MainViews\GraphicalView.xaml.cs">
+      <DependentUpon>GraphicalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\MainViews\GraphicalViewWrap.xaml.cs">
+      <DependentUpon>GraphicalViewWrap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\AdditionalInfo.xaml.cs">
+      <DependentUpon>AdditionalInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\AdditionalInfoType.cs" />
+    <Compile Include="SequenceExecution\Helpers\ExtendedModeActivitySetting.cs" />
+    <Compile Include="SequenceExecution\ExtendedMode\ExtendedModeManager.cs" />
+    <Compile Include="SequenceExecution\Helpers\DynamicSequenceHelper.cs" />
+    <Compile Include="SequenceExecution\Helpers\ExecutionPointerHelper.cs" />
+    <Compile Include="SequenceExecution\Helpers\TreeViewManager.cs" />
+    <Compile Include="SequenceExecution\ImageHandling\BufferImagePresenter.cs" />
+    <Compile Include="SequenceExecution\ImageHandling\ImageControl.xaml.cs">
+      <DependentUpon>ImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\ImageHandling\ImageHandler.cs" />
+    <Compile Include="SequenceExecution\ImageHandling\ImagePresenter.cs" />
+    <Compile Include="SequenceExecution\ImageHandling\TableImagePresenter.cs" />
+    <Compile Include="SequenceExecution\Helpers\MessageBoxHandler.cs" />
+    <Compile Include="SequenceExecution\Helpers\SettingDebugAndSetupMode.cs" />
+    <Compile Include="ServerService\Components\ComponentsClient.cs" />
+    <Compile Include="ServerService\Components\ComponentsServiceCallbackHandler.cs" />
+    <Compile Include="ServerService\IServiceClientBase.cs" />
+    <Compile Include="ServerService\ServerStatus\ServerStatusClient.cs" />
+    <Compile Include="ServerService\ServiceClientBase.cs" />
+    <Compile Include="ServerService\ServiceClientsContainer.cs" />
+    <Compile Include="UIControls\ActivityParametersControl\ActivityParametersControl.xaml.cs">
+      <DependentUpon>ActivityParametersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\DateTimePicker\DateTimePicker.xaml.cs">
+      <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\EditableListParameter\EditableListParameter.xaml.cs">
+      <DependentUpon>EditableListParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\UserCommands\MTFUserCommandWrapper.cs" />
+    <Compile Include="UIControls\UserCommands\UserCommandsPanel.xaml.cs">
+      <DependentUpon>UserCommandsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\TableHandling\TableManager.cs" />
+    <Compile Include="Settings\AccessKeyProviderControl.xaml.cs">
+      <DependentUpon>AccessKeyProviderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\EditorSettings.xaml.cs">
+      <DependentUpon>EditorSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\LanguageSettings.xaml.cs">
+      <DependentUpon>LanguageSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\MTFLanguage.cs" />
+    <Compile Include="UIHelpers\ClientUiHelper.cs" />
+    <Compile Include="SequenceExecution\SharedControls\GoldSampleControl.xaml.cs">
+      <DependentUpon>GoldSampleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\Helpers\MarkedDebugItems.cs" />
+    <Compile Include="SequenceExecution\MainViews\ServiceView.xaml.cs">
+      <DependentUpon>ServiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\SetupVariantControl.xaml.cs">
+      <DependentUpon>SetupVariantControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\StatusBar.xaml.cs">
+      <DependentUpon>StatusBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\TimeResult.xaml.cs">
+      <DependentUpon>TimeResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\VariablesWatchControl.xaml.cs">
+      <DependentUpon>VariablesWatchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\VariablesWatch.cs" />
+    <Compile Include="Settings\ApplicationInfo.xaml.cs">
+      <DependentUpon>ApplicationInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BackupSettings.xaml.cs">
+      <DependentUpon>BackupSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\CpuInfo.xaml.cs">
+      <DependentUpon>CpuInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Logging.xaml.cs">
+      <DependentUpon>Logging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\OsInfo.xaml.cs">
+      <DependentUpon>OsInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetVariantDialog.xaml.cs">
+      <DependentUpon>SetVariantDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ActivityTargetControl\ActivityTarget.xaml.cs">
+      <DependentUpon>ActivityTarget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ActivityNameTextBox.cs" />
+    <Compile Include="UIControls\CommandGrid\CommandGridControl.xaml.cs">
+      <DependentUpon>CommandGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\CommandGrid\CommandGridMode.cs" />
+    <Compile Include="UIControls\CommandGrid\MTFServiceCommandWrapper.cs" />
+    <Compile Include="UIControls\MultiSelectComboBox\ComboBoxItem.cs" />
+    <Compile Include="UIControls\MultiSelectComboBox\MultiSelectComboBox.xaml.cs">
+      <DependentUpon>MultiSelectComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\NullableComboBox\NullableComboBox.cs" />
+    <Compile Include="UIControls\ServiceCommandButton.cs" />
+    <Compile Include="UIControls\TagListBoxControl\ItemsSourceConverter.cs" />
+    <Compile Include="UIControls\TagListBoxControl\TagListBox.cs" />
+    <Compile Include="UIControls\TagListBoxControl\TagListBoxItem.cs" />
+    <Compile Include="EditorTest\EditorTestControl.xaml.cs">
+      <DependentUpon>EditorTestControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorTest\EditorTestPresenter.cs" />
+    <Compile Include="EnvironmentHelper.cs" />
+    <Compile Include="ExportSequence\ExportClassInstances.xaml.cs">
+      <DependentUpon>ExportClassInstances.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExportSequence\ExportHelper.cs" />
+    <Compile Include="ExportSequence\ExportPreview.xaml.cs">
+      <DependentUpon>ExportPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExportSequence\ExportSequenceBase.cs" />
+    <Compile Include="ExportSequence\ExportSequences.xaml.cs">
+      <DependentUpon>ExportSequences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExportSequence\ExportSharedData.cs" />
+    <Compile Include="ExportSequence\ExportSummary.xaml.cs">
+      <DependentUpon>ExportSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IHeaderText.cs" />
+    <Compile Include="IMainCommands.cs" />
+    <Compile Include="ImportSequence\ImportClassInstance.xaml.cs">
+      <DependentUpon>ImportClassInstance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportSequence\ImportPreview.xaml.cs">
+      <DependentUpon>ImportPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportSequence\ImportDestination.xaml.cs">
+      <DependentUpon>ImportDestination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportSequence\ImportSequenceBase.cs" />
+    <Compile Include="ImportSequence\ImportSequenceConflicts.xaml.cs">
+      <DependentUpon>ImportSequenceConflicts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportSequence\ImportSummary.xaml.cs">
+      <DependentUpon>ImportSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginControl\LoginControl.xaml.cs">
+      <DependentUpon>LoginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeSequences\MergeComponents.xaml.cs">
+      <DependentUpon>MergeComponents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeSequences\MergeHelper.cs" />
+    <Compile Include="MergeSequences\MergePreview.xaml.cs">
+      <DependentUpon>MergePreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeSequences\MergeSequencesBase.cs" />
+    <Compile Include="MergeSequences\MergeSharedData.cs" />
+    <Compile Include="MergeSequences\MergeSummary.xaml.cs">
+      <DependentUpon>MergeSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeSequences\MergeVariables.xaml.cs">
+      <DependentUpon>MergeVariables.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxControl\MessageBoxControl.xaml.cs">
+      <DependentUpon>MessageBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MTFWizard\MTFWizardPresenter.cs" />
+    <Compile Include="MTFWizard\MTFWizardUserControl.cs" />
+    <Compile Include="MTFWizard\MTFWizardWindow.xaml.cs">
+      <DependentUpon>MTFWizardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpenSaveSequencesDialog\DialogTypeEnum.cs" />
+    <Compile Include="OpenSaveSequencesDialog\OpenSaveSequenceDialogContainer.xaml.cs">
+      <DependentUpon>OpenSaveSequenceDialogContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindow\IRaiseCloseEvent.cs" />
+    <Compile Include="PopupWindow\PopupWindow.xaml.cs">
+      <DependentUpon>PopupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResultDetail\ActivityHeaderDetail.xaml.cs">
+      <DependentUpon>ActivityHeaderDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResultDetail\ActivityHeaderParameters.xaml.cs">
+      <DependentUpon>ActivityHeaderParameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResultDetail\ActivityResultDetail.xaml.cs">
+      <DependentUpon>ActivityResultDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDialog\ConnectionDialog.xaml.cs">
+      <DependentUpon>ConnectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDialog\ConnectionDialogControl.xaml.cs">
+      <DependentUpon>ConnectionDialogControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDialog\ConnectionDialogPresenter.cs" />
+    <Compile Include="ComponentConfig\ComponentConfigControl.xaml.cs">
+      <DependentUpon>ComponentConfigControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentConfig\ComponentConfigPresenter.cs" />
+    <Compile Include="OpenSaveSequencesDialog\OpenSaveSequencesDialogPresenter.cs" />
+    <Compile Include="OpenSaveSequencesDialog\OpenSaveSequencesDialogControl.xaml.cs">
+      <DependentUpon>OpenSaveSequencesDialogControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpenSaveSequencesDialog\NameStructure.cs" />
+    <Compile Include="OpenSaveSequencesDialog\SequenceFileContainer.cs" />
+    <Compile Include="SequenceExecution\SharedControls\ActivityProgress.xaml.cs">
+      <DependentUpon>ActivityProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\ActivityProgress\ActivityProgressBar.cs" />
+    <Compile Include="SequenceExecution\ActivityProgress\ActivityProgressBase.cs" />
+    <Compile Include="SequenceExecution\ActivityProgress\ActivityProgressImage.cs" />
+    <Compile Include="SequenceExecution\ActivityProgress\ActivityProgressText.cs" />
+    <Compile Include="SequenceExecution\TableHandling\ExecutionTableBase.cs" />
+    <Compile Include="SequenceExecution\TableHandling\ExecutionValidTable.cs" />
+    <Compile Include="SequenceExecution\MainViews\ExecutionViewMode.cs" />
+    <Compile Include="SequenceExecution\SharedControls\FinalResult.xaml.cs">
+      <DependentUpon>FinalResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SharedControls\Header.xaml.cs">
+      <DependentUpon>Header.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\ImageHandling\ImageContainer.cs" />
+    <Compile Include="SequenceExecution\SequenceExecutionControl.xaml.cs">
+      <DependentUpon>SequenceExecutionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\SequenceExecutionPresenter.cs" />
+    <Compile Include="SequenceExecution\MainViews\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\MainViews\TimeView.xaml.cs">
+      <DependentUpon>TimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceExecution\MainViews\TreeView.xaml.cs">
+      <DependentUpon>TreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsClass.cs" />
+    <Compile Include="Settings\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingsExecution.xaml.cs">
+      <DependentUpon>SettingsExecution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingsPresenter.cs" />
+    <Compile Include="Settings\SettinsConnection.xaml.cs">
+      <DependentUpon>SettinsConnection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettinsOnStart.xaml.cs">
+      <DependentUpon>SettinsOnStart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StoreSetting.cs" />
+    <Compile Include="SequenceEditor\SequenceEditorControl.xaml.cs">
+      <DependentUpon>SequenceEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SequenceEditor\SequenceEditorPresenter.cs" />
+    <Compile Include="TermDesigner\TermDesignerWindow.xaml.cs">
+      <DependentUpon>TermDesignerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControls\ThreeStateCheckBox.cs" />
+    <Compile Include="UIControls\ToggleButton.cs" />
+    <Compile Include="UIHelpers\Command.cs" />
+    <Compile Include="UIHelpers\ComplexTypeViewer.xaml.cs">
+      <DependentUpon>ComplexTypeViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Converters\AccessRoleConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ActivityNestingToMarginConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ActivityResultEditorVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ActivityResultTermToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ActivityStatusImageConverter.cs" />
+    <Compile Include="UIHelpers\Converters\BasicMultiBindingConverter.cs" />
+    <Compile Include="UIHelpers\Converters\BoolMultiValueConverter.cs" />
+    <Compile Include="UIHelpers\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ComponentHeightToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ControlStatusToColorConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TableReportActualValueRoundingConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TableReportCriteriaRoundingConverter.cs" />
+    <Compile Include="UIHelpers\Converters\DebugSetupEnumToBoolConverter.cs" />
+    <Compile Include="UIHelpers\Converters\DebugEnumToBrushConverter.cs" />
+    <Compile Include="UIHelpers\Converters\EditorListBoxVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\EditorModeToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\EmptyCollectionToVisibility.cs" />
+    <Compile Include="UIHelpers\Converters\EnumToBoleanConverter.cs" />
+    <Compile Include="UIHelpers\Converters\EnumToDescriptionLocalizedConverter.cs" />
+    <Compile Include="UIHelpers\Converters\EnumToDescriptionConverter.cs" />
+    <Compile Include="UIHelpers\Converters\EnumToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ExecuteActivityToSubSequenceConverter.cs" />
+    <Compile Include="UIHelpers\Converters\GoldSampleRemainsConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsICollectionConverter.cs" />
+    <Compile Include="UIHelpers\Converters\MessageTypeToColorConverter.cs" />
+    <Compile Include="UIHelpers\Converters\MillisecondsToHumanReadableConverter.cs" />
+    <Compile Include="UIHelpers\Converters\MTFServiceCommandIconToStyle.cs" />
+    <Compile Include="UIHelpers\Converters\NullableBoolToIconConverter.cs" />
+    <Compile Include="UIHelpers\Converters\RowVariantVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\SelectedServiceModesToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\SetupEnumToBrushConverter.cs" />
+    <Compile Include="UIHelpers\Converters\StatusMessageTypeToIconConverter.cs" />
+    <Compile Include="UIHelpers\Converters\SubSequenceCasesVisibilityMultiConverter.cs" />
+    <Compile Include="UIHelpers\Converters\SubSequenceConditionVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\GenericTypeNameConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsNullToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsSelectedConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsSimpleTermConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsTermToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsTermToVisibilityMultiConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsValidationTableVariableConverter.cs" />
+    <Compile Include="UIHelpers\Converters\IsZeroToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\MTFColorConverter.cs" />
+    <Compile Include="UIHelpers\Converters\MTFIconToStyle.cs" />
+    <Compile Include="UIHelpers\Converters\NotBoolConverter.cs" />
+    <Compile Include="UIHelpers\Converters\NullImageConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ObjectToTypeNameConverter.cs" />
+    <Compile Include="UIHelpers\Converters\OnlyForTestConverter.cs" />
+    <Compile Include="UIHelpers\Converters\NullToDefaultValueConverter.cs" />
+    <Compile Include="UIHelpers\Converters\CompareTwoObjectsToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ParameterToValueListConverter.cs" />
+    <Compile Include="UIHelpers\Converters\SimpleTermVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\SizeToHumanReadableConverter.cs" />
+    <Compile Include="UIHelpers\Converters\StringToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\CompareTwoObjectsConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TableResultConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TermToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TimeStampConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TypeToIconStyleConverter.cs" />
+    <Compile Include="UIHelpers\Converters\TypeToVisibilityConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValidationTableAssignEvaluationConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValidationTableCellStatusConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValidationTableActualValueConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValidationTableValueToStringConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValueListMultiConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValueToBoolConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValueToMTFObjectConverter.cs" />
+    <Compile Include="UIHelpers\Converters\ValueToStringByCultureConverter.cs" />
+    <Compile Include="UIHelpers\Converters\VariableByTypeConverter.cs" />
+    <Compile Include="UIHelpers\Converters\VariableByTypeGroupConverter.cs" />
+    <Compile Include="UIHelpers\Converters\VisibilityMultiBindingConverter.cs" />
+    <Compile Include="UIHelpers\DataTemplateByTypeSelector.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\DragAndDropTypes.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\DropInfo.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\DropTarget.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\DropTargetAdorner.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\DropTargetInsertionAdorner.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\ItemsControlExtensions.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\ITouchHelper.cs" />
+    <Compile Include="UIHelpers\DragAndDrop\TouchHelper.cs" />
+    <Compile Include="UIHelpers\EditorContentTemplateSelector.cs" />
+    <Compile Include="UIHelpers\Editors\EditorModes.cs" />
+    <Compile Include="UIHelpers\Editors\LocalizedString\LocalizedActivityPathTextBlock.xaml.cs">
+      <DependentUpon>LocalizedActivityPathTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\LocalizedString\LocalizedCallActivity.xaml.cs">
+      <DependentUpon>LocalizedCallActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\LocalizedString\LocalizedStringBase.cs" />
+    <Compile Include="UIHelpers\Editors\LocalizedString\LocalizedStringEditor.xaml.cs">
+      <DependentUpon>LocalizedStringEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\LocalizedString\LocalizedStringTextBlock.xaml.cs">
+      <DependentUpon>LocalizedStringTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\LocalizedString\LocalizedStringTextBlockBase.cs" />
+    <Compile Include="UIHelpers\Editors\MTFActivityTargetEditor.xaml.cs">
+      <DependentUpon>MTFActivityTargetEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFCaseEditor.xaml.cs">
+      <DependentUpon>MTFCaseEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFCharEditor.xaml.cs">
+      <DependentUpon>MTFCharEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFDataTableEditor.xaml.cs">
+      <DependentUpon>MTFDataTableEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFEnumEditor.xaml.cs">
+      <DependentUpon>MTFEnumEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFExecuteActivityTermEditor.xaml.cs">
+      <DependentUpon>MTFExecuteActivityTermEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFImageEditor.xaml.cs">
+      <DependentUpon>MTFImageEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFActivityResultEditor.xaml.cs">
+      <DependentUpon>MTFActivityResultEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFBoolEditor.xaml.cs">
+      <DependentUpon>MTFBoolEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFEditorBase.cs" />
+    <Compile Include="UIHelpers\Editors\MTFListEditor.xaml.cs">
+      <DependentUpon>MTFListEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFListOperationEditor.xaml.cs">
+      <DependentUpon>MTFListOperationEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFNotDefinedEditor.xaml.cs">
+      <DependentUpon>MTFNotDefinedEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFNumericEditor.xaml.cs">
+      <DependentUpon>MTFNumericEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFObjectEditor.xaml.cs">
+      <DependentUpon>MTFObjectEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFSimpleTermEditor.xaml.cs">
+      <DependentUpon>MTFSimpleTermEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFTableEditor.xaml.cs">
+      <DependentUpon>MTFTableEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFTermDesigner.xaml.cs">
+      <DependentUpon>MTFTermDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFValidationTableEditor.xaml.cs">
+      <DependentUpon>MTFValidationTableEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFVariantEditor.xaml.cs">
+      <DependentUpon>MTFVariantEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\FocusExtension.cs" />
+    <Compile Include="UIHelpers\KeyboardHandler.cs" />
+    <Compile Include="UIHelpers\LicenseDestroyManager.cs" />
+    <Compile Include="UIHelpers\ListBoxBehavior.cs" />
+    <Compile Include="UIHelpers\MTFMessageBox.cs" />
+    <Compile Include="UIHelpers\MTFObjectEditorDataTemplateSelector.cs" />
+    <Compile Include="UIHelpers\Editors\MTFStringEditor.xaml.cs">
+      <DependentUpon>MTFStringEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFStringFormatEditor.xaml.cs">
+      <DependentUpon>MTFStringFormatEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\Editors\MTFTermEditor.xaml.cs">
+      <DependentUpon>MTFTermEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindow\IReturnsDialogResult.cs" />
+    <Compile Include="UIHelpers\LongTask\LongTask.cs" />
+    <Compile Include="UIHelpers\MTFClipboard.cs" />
+    <Compile Include="UIHelpers\MTFEditor.xaml.cs">
+      <DependentUpon>MTFEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\MTFUserControl.cs" />
+    <Compile Include="UIHelpers\NotifyPropertyBase.cs" />
+    <Compile Include="UIHelpers\PresenterBase.cs" />
+    <Compile Include="UIHelpers\PropertyInfoHelper.cs" />
+    <Compile Include="UIHelpers\RoundingHelper.cs" />
+    <Compile Include="UIHelpers\SequenceTree\SequenceTree.cs" />
+    <Compile Include="UIHelpers\SequenceTree\SequenceTreeNode.cs" />
+    <Compile Include="UIHelpers\ToggleCommand.cs" />
+    <Compile Include="UIHelpers\UIHelper.cs" />
+    <Compile Include="UIHelpers\UniqueNameHeleper.cs" />
+    <Compile Include="UIHelpers\ValidationRules\EmailValidationRule.cs" />
+    <Compile Include="UIHelpers\ValidationRules\EmptyStringValidationRule.cs" />
+    <Compile Include="UIHelpers\ValidationRules\ValidationExtension.cs" />
+    <Compile Include="Warning.cs" />
+    <Compile Include="WarningsViewer\WarningsViewerControl.xaml.cs">
+      <DependentUpon>WarningsViewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarningsViewer\WarningsViewerPresenter.cs" />
+    <Page Include="AccessKeyDialog\AccessKeyInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AccessKeyDialog\AccessKeyRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DebugSetupWindow\DebugSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComponentConfig\ParameterTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DebugSetupWindow\SetupSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExportSequence\ExportImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FindUsages\FindActivityControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FindUsages\FindComponentUsagesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FindUsages\FindMtfHandlingUsagesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FindUsages\FindSubSequenceUsagesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FindUsages\FindVariableUsagesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSequence\ImportGraphicalViewImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localizations\Icons\Mx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localizations\Icons\It.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localizations\Icons\De.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localizations\Icons\Cz.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localizations\Icons\En.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeActivities\MergeComponents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeActivities\MergeActivitiesSumary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeActivities\MergeVariables.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageBoxes\MessageBoxDataMigration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindow\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\Controls\ReportFilterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\ListOfReports\ListOfReportsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\ListOfReports\ReportDetailControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\ListOfReports\ReportImageGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\PanelEditors\LineChartEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\PanelEditors\ReportsOverviewEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\PanelEditors\TextPanelEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\PanelViews\LineChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\PanelViews\ReportsOverviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\PanelViews\TextPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\SummaryReportEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\SummaryReportsEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\ReportViewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\ListOfReports\ValidationTableReportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportViewer\SummaryReports\SummaryReportViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\AlarmIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\AutoModeIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\HomeIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\ManualModeIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\Temperature.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\Binning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\Laser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\Configuration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\Connect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\Disconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconDrl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconCommingHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconCornerLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconSideMarker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconErrorMemory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconIdentification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconParking.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\IconClean.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleCenterVertical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullLeftDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullLeftTop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullRight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullRightDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullRightTop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleFullUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleRight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ActiveBreakPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\DUT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\GraphicalView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Graph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Pin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TextAlignmentCenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TextAlignmentJustify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TextAlignmentLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TextAlignmentRight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\RowArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\VideoCamera.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Printer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ProductionCounter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\LaserMarker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Certificate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Convert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Language.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermRegEx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Restore.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\DeleteBreakPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconVariantInsert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconVariantAdd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Next.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\AddNewPlus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ArrowRight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\LoggingIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Conveyor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\RemovableDrive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\LocalDrive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\NetworkDrive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Cd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\FindUsages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Refresh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\FindUsagesRead.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\FindUsagesWrite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\FindUsagesAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Back.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Backup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ExpandAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\CollapseAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconClean.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconFilter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconAL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconHighBeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconLowBeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconPositionLight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconRangeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconTurnIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Mathematics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Motor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\SaveFloppy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconInputMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Service.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\RightArrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconVariant.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Teaching.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommandIcons\TriangleCenterHorizontal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermAbsoluteValue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermAvg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermIsNull.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermMax.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermMin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermModulo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermPower.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermRegExValue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermRoot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermRound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermRoundToValue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermSum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Version.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Writing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Confirm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Eye.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Application.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Cpu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\StepInto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\StepOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\StepOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\RemoveTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermNotIsInList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\WindowsLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconDuration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconErrors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconGoldSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconHourGlass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconMachine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconPhoto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconStartTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconStopTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ReportIcons\IconUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResultDetail\ActivityHeaderPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\MessageActivity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\GraphicalView\GraphicalViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\GraphicalView\GraphicalViewEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\GraphicalView\RenameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\GraphicalView\ResourcesManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\ClientUISetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\CloneDataControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\DetailHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\EditorBaseTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\ErrorHandling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\ExecuteActivityDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\MTFSequenceClassInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\DetailDataTemplates\SequenceHandling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\DeviceUnderTestSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\ExternalSequenceSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SequenceEditor\Settings\GoldSampleSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\IntegrityCheckControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\RoundingRulesSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\SequenceVariantsSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\ServiceCommandSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\SequenceVariant\SequenceVariantWizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\ServiceSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\Settings\VersionSettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\UserCommandSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\MainViews\GraphicalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\MainViews\GraphicalViewWrap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\AdditionalInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\GoldSampleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\ImageHandling\ImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\MainViews\ServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\SetupVariantControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\StatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\TimeResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DatePickerStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\ActivityParametersControl\ActivityParametersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\DateTimePicker\DateTimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\EditableListParameter\EditableListParameter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\UserCommands\UserCommandsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\VariablesWatchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\AccessKeyProviderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\ApplicationInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\BackupSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\CpuInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\EditorSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\LanguageSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\Logging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\OsInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetVariantDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ActivityStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\GroupBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\SharedConverters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\SequenceEditorBaseStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ServiceCommandButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StatusWindowStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ToggleButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ToolTipStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\ActivityTargetControl\ActivityTarget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\CommandGrid\CommandGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\MultiSelectComboBox\MultiSelectComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\NullableComboBox\NullableComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControls\TagListBoxControl\TagListBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditorTest\EditorTestControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExportSequence\ExportClassInstances.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExportSequence\ExportPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExportSequence\ExportSequences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExportSequence\ExportSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSequence\ImportClassInstance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSequence\ImportPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSequence\ImportDestination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSequence\ImportSequenceConflicts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSequence\ImportSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginControl\LoginControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeSequences\MergeComponents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeSequences\MergePreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeSequences\MergeSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MergeSequences\MergeVariables.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageBoxControl\MessageBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MTFWizard\MTFWizardStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MTFWizard\MTFWizardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpenSaveSequencesDialog\OpenSaveSequenceDialogContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindow\PopupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ALLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Photo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\NoPhoto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconZoomIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Maximize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Minimize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Network.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Power.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\CollapsedArrows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermValidationTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\ValidationTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\AddCol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\AddRow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Bug.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ALCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Computer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\GoldSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Keys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TypeTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Cut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Link.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Merge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\AddExisting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\AddNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Database.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Global.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconSaveAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\RemoveFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Rename.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\RFID.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermDivide.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermMultiply.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TypeBool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TypeNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\TypeString.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\UserRole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ZipFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Wizard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconImport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconJumpToActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconExport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Paste.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconZoomFitSize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconZoomActualSize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\CDaq.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Trash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconClose.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconReset.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermBitOr.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermStringFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermLessOrEqual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermGreaterOrEqual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermIsInList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermVar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermOr.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermBitAnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermNotEqual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermNot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermVal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermAct.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermGreater.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermAdd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermLess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermAnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermSubtract.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\TermEqual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\BarcodeScanner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\CheckMark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Clima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Communication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconFolder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\DataCollection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Parsing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconChoice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Presentation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Tune.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Variable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\EnduranceCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ErrorHandling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Execute.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconActivityTarget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\LED.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Message.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Ok.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ComponentsConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconOpenFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconSaveFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconSaveFileAs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconSequencePause.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconSequenceStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconSequenceStop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Oscilloscope.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Pencil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\PLC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\PowerSupply.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\ProfiNet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Relay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Sequence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\SkullAndCrossbones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Vision.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\Warning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\Nok.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\DurationTimer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\StartTimer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconNewFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\IconNone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ResultViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\SequenceEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\SequenceExecution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ConnectionDialogIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MTFIcons\StopTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultDetail\ActivityHeaderDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultDetail\ActivityHeaderParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultDetail\ActivityResultDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConnectionDialog\ConnectionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConnectionDialog\ConnectionDialogControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComponentConfig\ComponentConfigControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="OpenSaveSequencesDialog\OpenSaveSequencesDialogControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceEditor\SequenceEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\ActivityProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\FinalResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SharedControls\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\SequenceExecutionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\MainViews\TableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\MainViews\TimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SequenceExecution\MainViews\TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SettingsExecution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SettinsConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SettinsOnStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SharedStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\BorderStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\CheckBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Constants.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ContentControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\GridSpliterStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\LabelStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ListBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\PopupStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ProgressBarStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\RadioButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ScrollBarStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\SliderStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TabControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBlockStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TermDesigner\TermDesignerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\ComplexTypeViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\LocalizedString\LocalizedActivityPathTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\LocalizedString\LocalizedCallActivity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\LocalizedString\LocalizedStringEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\LocalizedString\LocalizedStringTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFActivityTargetEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFCaseEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFCharEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFDataTableEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFEnumEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFExecuteActivityTermEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFImageEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFActivityResultEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFBoolEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFListEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFListOperationEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFNotDefinedEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFNumericEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFObjectEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFSimpleTermEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFStringEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFStringFormatEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFTableEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFTermDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFTermEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFValidationTableEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\Editors\MTFVariantEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIHelpers\MTFEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarningsViewer\WarningsViewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainWindowPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Localizations\UIStrings.es-MX.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localizations\UIStrings.it-IT.resx" />
+    <EmbeddedResource Include="Localizations\UIStrings.de-DE.resx" />
+    <EmbeddedResource Include="Localizations\UIStrings.cs-CZ.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localizations\UIStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>UIStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MTFClientServerCommon\MTFClientServerCommon.csproj">
+      <Project>{fc00ef32-bd20-4a0f-b7aa-0d2fcec2a44a}</Project>
+      <Name>MTFClientServerCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MTFCommon\MTFCommon.csproj">
+      <Project>{738e45bd-4be1-422f-9a61-8fbc8e3c0641}</Project>
+      <Name>MTFCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ErrorIcon.png" />
+    <Resource Include="Resources\InfoIcon.png" />
+    <Resource Include="Resources\QuestionIcon.png" />
+    <Resource Include="Resources\WarningIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MTFIcon-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MTFIcon-32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UIHelpers\DataTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Dll\ALControls.dll" />
+    <Content Include="Resources\Dll\ALControlsCommon.dll" />
+    <Content Include="Resources\Dll\Localization.dll" />
+    <Content Include="Resources\ReportIcons\Svg\downLog.svg" />
+    <Content Include="Resources\ReportIcons\Svg\duration.svg" />
+    <Content Include="Resources\ReportIcons\Svg\errors.svg" />
+    <Content Include="Resources\ReportIcons\Svg\goldSample.svg" />
+    <Content Include="Resources\ReportIcons\Svg\hourglass.svg" />
+    <Content Include="Resources\ReportIcons\Svg\machine.svg" />
+    <Content Include="Resources\ReportIcons\Svg\message.svg" />
+    <Content Include="Resources\ReportIcons\Svg\photo.svg" />
+    <Content Include="Resources\ReportIcons\Svg\startTime.svg" />
+    <Content Include="Resources\ReportIcons\Svg\stopTime.svg" />
+    <Content Include="Resources\ReportIcons\Svg\user.svg" />
+    <Content Include="Resources\Svg\AbsoluteValue.svg" />
+    <Content Include="Resources\Svg\activeBreakPoint.svg" />
+    <Content Include="Resources\Svg\AddExistSequence.svg" />
+    <Content Include="Resources\Svg\AL.svg" />
+    <Content Include="Resources\Svg\ALCheck.svg" />
+    <Content Include="Resources\Svg\Avg.svg" />
+    <Content Include="Resources\Svg\Backup.svg" />
+    <Content Include="Resources\Svg\Binning.svg" />
+    <Content Include="Resources\Svg\Calendar.svg" />
+    <Content Include="Resources\Svg\Cd.svg" />
+    <Content Include="Resources\Svg\cDaq.svg" />
+    <Content Include="Resources\Svg\Certificate.svg" />
+    <Content Include="Resources\Svg\Ch.svg" />
+    <Content Include="Resources\Svg\Choice.svg" />
+    <Content Include="Resources\Svg\Cl.svg" />
+    <Content Include="Resources\Svg\Clean.svg" />
+    <Content Include="Resources\Svg\CollapsedArrow.svg" />
+    <Content Include="Resources\Svg\Configuration.svg" />
+    <Content Include="Resources\Svg\Confirm.svg" />
+    <Content Include="Resources\Svg\convert.svg" />
+    <Content Include="Resources\Svg\Conveyor.svg" />
+    <Content Include="Resources\Svg\Copy.svg" />
+    <Content Include="Resources\Svg\CzFlag.svg" />
+    <Content Include="Resources\Svg\DataCollection.svg" />
+    <Content Include="Resources\Svg\DeFlag.svg" />
+    <Content Include="Resources\Svg\deleteBreakPoint.svg" />
+    <Content Include="Resources\Svg\Division.svg" />
+    <Content Include="Resources\Svg\Drl.svg" />
+    <Content Include="Resources\Svg\Duration.svg" />
+    <Content Include="Resources\Svg\DurationTimer.svg" />
+    <Content Include="Resources\Svg\DUT.svg" />
+    <Content Include="Resources\Svg\Eraser.svg" />
+    <Content Include="Resources\Svg\ErrorHandling.svg" />
+    <Content Include="Resources\Svg\ErrorMem.svg" />
+    <Content Include="Resources\Svg\Errors.svg" />
+    <Content Include="Resources\Svg\execute.svg" />
+    <Content Include="Resources\Svg\Export.svg" />
+    <Content Include="Resources\Svg\Eye.svg" />
+    <Content Include="Resources\Svg\File.svg" />
+    <Content Include="Resources\Svg\Filter.svg" />
+    <Content Include="Resources\Svg\FindUsages.svg" />
+    <Content Include="Resources\Svg\Folder.svg" />
+    <Content Include="Resources\Svg\Graph.svg" />
+    <Content Include="Resources\Svg\GraphicalView.svg" />
+    <Content Include="Resources\Svg\GreaterThanOrEqual.svg" />
+    <Content Include="Resources\Svg\IconClean.svg" />
+    <Content Include="Resources\Svg\Identification.svg" />
+    <Content Include="Resources\Svg\Import.svg" />
+    <Content Include="Resources\Svg\InputMessage.svg" />
+    <Content Include="Resources\Svg\IsInListTerm.svg" />
+    <Content Include="Resources\Svg\IsNull.svg" />
+    <Content Include="Resources\Svg\ItFlag.svg" />
+    <Content Include="Resources\Svg\Jump.svg" />
+    <Content Include="Resources\Svg\Laser.svg" />
+    <Content Include="Resources\Svg\LaserMarker.svg" />
+    <Content Include="Resources\Svg\Left.svg" />
+    <Content Include="Resources\Svg\List.svg" />
+    <Content Include="Resources\Svg\LocalDrive.svg" />
+    <Content Include="Resources\Svg\logging.svg" />
+    <Content Include="Resources\Svg\Mathematics.svg" />
+    <Content Include="Resources\Svg\Max.svg" />
+    <Content Include="Resources\Svg\Merge.svg" />
+    <Content Include="Resources\Svg\Message.svg" />
+    <Content Include="Resources\Svg\MessageActivity.svg" />
+    <Content Include="Resources\Svg\Min.svg" />
+    <Content Include="Resources\Svg\Modulo.svg" />
+    <Content Include="Resources\Svg\Motor.svg" />
+    <Content Include="Resources\Svg\MxFlag.svg" />
+    <Content Include="Resources\Svg\NetworkDrive.svg" />
+    <Content Include="Resources\Svg\New.svg" />
+    <Content Include="Resources\Svg\Next.svg" />
+    <Content Include="Resources\Svg\NotIsInListTerm.svg" />
+    <Content Include="Resources\Svg\Number.svg" />
+    <Content Include="Resources\Svg\Ok.svg" />
+    <Content Include="Resources\Svg\Ok2.svg" />
+    <Content Include="Resources\Svg\Parking.svg" />
+    <Content Include="Resources\Svg\Parsing.svg" />
+    <Content Include="Resources\Svg\Paste.svg" />
+    <Content Include="Resources\Svg\PencilWrite.svg" />
+    <Content Include="Resources\Svg\Pin.svg" />
+    <Content Include="Resources\Svg\Power.svg" />
+    <Content Include="Resources\Svg\printer.svg" />
+    <Content Include="Resources\Svg\ProductionCounter.svg" />
+    <Content Include="Resources\Svg\Range.svg" />
+    <Content Include="Resources\Svg\refresh.svg" />
+    <Content Include="Resources\Svg\RegExMatch.svg" />
+    <Content Include="Resources\Svg\RegExValue.svg" />
+    <Content Include="Resources\Svg\Relay.svg" />
+    <Content Include="Resources\Svg\RemovableDrive.svg" />
+    <Content Include="Resources\Svg\restore.svg" />
+    <Content Include="Resources\Svg\Right.svg" />
+    <Content Include="Resources\Svg\Root.svg" />
+    <Content Include="Resources\Svg\RowArrow.svg" />
+    <Content Include="Resources\Svg\Save.svg" />
+    <Content Include="Resources\Svg\SaveAll.svg" />
+    <Content Include="Resources\Svg\SaveAs.svg" />
+    <Content Include="Resources\Svg\SequenceHandling.svg" />
+    <Content Include="Resources\Svg\Service.svg" />
+    <Content Include="Resources\Svg\Sm.svg" />
+    <Content Include="Resources\Svg\StartTime.svg" />
+    <Content Include="Resources\Svg\StartTimer.svg" />
+    <Content Include="Resources\Svg\StopTime.svg" />
+    <Content Include="Resources\Svg\StopTimer.svg" />
+    <Content Include="Resources\Svg\Substraction.svg" />
+    <Content Include="Resources\Svg\Sum.svg" />
+    <Content Include="Resources\Svg\Table.svg" />
+    <Content Include="Resources\Svg\Target.svg" />
+    <Content Include="Resources\Svg\Teaching.svg" />
+    <Content Include="Resources\Svg\Temperature.svg" />
+    <Content Include="Resources\Svg\Text.svg" />
+    <Content Include="Resources\Svg\TextAlignmentCenter.svg" />
+    <Content Include="Resources\Svg\TextAlignmentJustify.svg" />
+    <Content Include="Resources\Svg\TextAlignmentLeft.svg" />
+    <Content Include="Resources\Svg\TextAlignmentRight.svg" />
+    <Content Include="Resources\Svg\TriangleCenterHorizontal.svg" />
+    <Content Include="Resources\Svg\TriangleCenterVertical.svg" />
+    <Content Include="Resources\Svg\TriangleDown.svg" />
+    <Content Include="Resources\Svg\TriangleFullDown.svg" />
+    <Content Include="Resources\Svg\TriangleFullLeft.svg" />
+    <Content Include="Resources\Svg\TriangleFullLeftDown.svg" />
+    <Content Include="Resources\Svg\TriangleFullLeftTop.svg" />
+    <Content Include="Resources\Svg\TriangleFullRight.svg" />
+    <Content Include="Resources\Svg\TriangleFullRightDown.svg" />
+    <Content Include="Resources\Svg\TriangleFullRightTop.svg" />
+    <Content Include="Resources\Svg\TriangleFullUp.svg" />
+    <Content Include="Resources\Svg\TriangleLeft.svg" />
+    <Content Include="Resources\Svg\TriangleRight.svg" />
+    <Content Include="Resources\Svg\TriangleUp.svg" />
+    <Content Include="Resources\Svg\Up.svg" />
+    <Content Include="Resources\Svg\usageAll.svg" />
+    <Content Include="Resources\Svg\usagesRead.svg" />
+    <Content Include="Resources\Svg\usageWrite.svg" />
+    <Content Include="Resources\Svg\USFlag.svg" />
+    <Content Include="Resources\Svg\ValidationTable.svg" />
+    <Content Include="Resources\Svg\ValidationTableTerm2.svg" />
+    <Content Include="Resources\Svg\Variable.svg" />
+    <Content Include="Resources\Svg\Variant.svg" />
+    <Content Include="Resources\Svg\VariantAdd.svg" />
+    <Content Include="Resources\Svg\VariantInsert.svg" />
+    <Content Include="Resources\Svg\Version.svg" />
+    <Content Include="Resources\Svg\VideoCamera.svg" />
+    <Content Include="Resources\Svg\Warning.svg" />
+    <Content Include="Resources\Svg\Wizard.svg" />
+    <Content Include="Resources\Svg\Wrong.svg" />
+    <Content Include="Resources\Svg\ZipFile.svg" />
+    <Content Include="Resources\Svg\Zoom100.svg" />
+    <Content Include="Resources\Svg\ZoomFit.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>RD /S /Q "mtfClientUICache\"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

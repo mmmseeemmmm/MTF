@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconNoPhoto">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <DrawingGroup>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M38,52C38,53.1 38.9,54 40,54 41.1,54 42,53.1 42,52 42,47.6 45.6,44 50,44 51.1,44 52,43.1 52,42 52,40.9 51.1,40 50,40 43.4,40 38,45.4 38,52z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M72,42C72,43.1,72.9,44,74,44L84,44C85.1,44,86,43.1,86,42L86,38C86,36.9,85.1,36,84,36L74,36C72.9,36,72,36.9,72,38L72,42z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M50,68C48,68,46.1,67.6,44.3,66.9L41.4,70C44,71.2 46.9,72 50,72 61,72 70,63 70,52 70,48.5 69.1,45.2 67.5,42.3L64.6,45.4C65.5,47.4 66,49.7 66,52 66,60.8 58.8,68 50,68z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M88,28L80.8,28 77,32 88,32C89.1,32,90,32.9,90,34L90,74C90,75.1,89.1,76,88,76L35.8,76 32,80 88,80C91.3,80,94,77.3,94,74L94,34C94,30.7,91.3,28,88,28z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M83.4,16.5C82.6,15.7,81.3,15.8,80.6,16.6L69.9,28 69.1,28 64.8,20.9C63.7,19.1,61.8,18,59.7,18L40.3,18C38.2,18,36.2,19.1,35.2,20.9L30.9,28 12,28C8.7,28,6,30.7,6,34L6,74C6,77.3,8.7,80,12,80L21.1,80 20.5,80.6C19.7,81.4 19.8,82.7 20.6,83.4 21,83.8 21.5,84 22,84 22.5,84 23.1,83.8 23.5,83.4L83.5,19.4C84.2,18.6,84.2,17.3,83.4,16.5z M12,76C10.9,76,10,75.1,10,74L10,34C10,32.9,10.9,32,12,32L32,32C32.7,32,33.4,31.6,33.7,31L38.5,22.9C38.9,22.3,39.5,21.9,40.2,21.9L59.7,21.9C60.4,21.9,61.1,22.3,61.4,22.9L66.2,31C66.3,31.2,66.4,31.3,66.6,31.4L62.2,36.1C58.8,33.6 54.6,32 50,32 39,32 30,41 30,52 30,57.1 31.9,61.7 35,65.2L24.9,76 12,76z M59.4,39.1L37.8,62.3C35.4,59.5 34,55.9 34,52 34,43.2 41.2,36 50,36 53.5,36 56.8,37.2 59.4,39.1z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

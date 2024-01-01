@@ -1,0 +1,512 @@
+﻿<uiHelpers:MTFUserControl x:Class="MTFApp.EditorTest.EditorTestControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uiControl="clr-namespace:MTFApp.UIControls.TagListBoxControl"             
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+             xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="900">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Editor test" FontSize="18" FontWeight="Bold" Margin="0,10" />
+        <TextBlock Grid.Row="1" Text="Only for testing of UI controls. Don't use this on production line." />
+        <TabControl Grid.Row="2">
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="Basic editors">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Basic editors" FontSize="18" FontWeight="Bold" Margin="0,10" />
+                    <TextBlock Grid.Row="1" Text="Test of all basic MTF editors with possibility to edit values with standard WPF controls." Margin="0,0,0,10" />
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- header -->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Type name" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="MTF editor" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="Read only MTF editor" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="3" Text="Standart control" FontWeight="Bold" Margin="5" />
+                        <!-- string editor -->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="System.String" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="1" Value="{Binding StringValue}" TypeName="System.String" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="2" Value="{Binding StringValue}" TypeName="System.String" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding StringValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- bool editor -->
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="System.Boolean" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="1" Value="{Binding BoolValue}" TypeName="System.Boolean" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="2" Value="{Binding BoolValue}" TypeName="System.Boolean" ReadOnly="True" Margin="5" />
+                        <CheckBox Grid.Row="2" Grid.Column="3" IsChecked="{Binding BoolValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- sbyte editor -->
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="System.SByte" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="1" Value="{Binding SByteValue}" TypeName="System.SByte" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="2" Value="{Binding SByteValue}" TypeName="System.SByte" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding SByteValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- byte editor -->
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="System.Byte" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="1" Value="{Binding ByteValue}" TypeName="System.Byte" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="2" Value="{Binding ByteValue}" TypeName="System.Byte" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding ByteValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- int16 editor -->
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="System.Int16" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="5" Grid.Column="1" Value="{Binding Int16Value}" TypeName="System.Int16" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="5" Grid.Column="2" Value="{Binding Int16Value}" TypeName="System.Int16" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding Int16Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- uint16 editor -->
+                        <TextBlock Grid.Row="6" Grid.Column="0" Text="System.UInt16" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="6" Grid.Column="1" Value="{Binding UInt16Value}" TypeName="System.UInt16" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="6" Grid.Column="2" Value="{Binding UInt16Value}" TypeName="System.UInt16" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding UInt16Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- int32 editor -->
+                        <TextBlock Grid.Row="7" Grid.Column="0" Text="System.Int32" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="7" Grid.Column="1" Value="{Binding IntValue}" TypeName="System.Int32" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="7" Grid.Column="2" Value="{Binding IntValue}" TypeName="System.Int32" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="7" Grid.Column="3" Text="{Binding IntValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- uint32 editor -->
+                        <TextBlock Grid.Row="8" Grid.Column="0" Text="System.UInt32" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="8" Grid.Column="1" Value="{Binding UIntValue}" TypeName="System.UInt32" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="8" Grid.Column="2" Value="{Binding UIntValue}" TypeName="System.UInt32" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding UIntValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- int64 editor -->
+                        <TextBlock Grid.Row="9" Grid.Column="0" Text="System.Int64" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="9" Grid.Column="1" Value="{Binding Int64Value}" TypeName="System.Int64" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="9" Grid.Column="2" Value="{Binding Int64Value}" TypeName="System.Int64" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="9" Grid.Column="3" Text="{Binding Int64Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- uint64 editor -->
+                        <TextBlock Grid.Row="10" Grid.Column="0" Text="System.UInt64" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="10" Grid.Column="1" Value="{Binding UInt64Value}" TypeName="System.UInt64" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="10" Grid.Column="2" Value="{Binding UInt64Value}" TypeName="System.UInt64" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="10" Grid.Column="3" Text="{Binding UInt64Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- single(float) editor -->
+                        <TextBlock Grid.Row="11" Grid.Column="0" Text="System.Single(float)" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="11" Grid.Column="1" Value="{Binding FloatValue}" TypeName="System.Single" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="11" Grid.Column="2" Value="{Binding FloatValue}" TypeName="System.Single" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="11" Grid.Column="3" Text="{Binding FloatValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- double editor -->
+                        <TextBlock Grid.Row="12" Grid.Column="0" Text="System.Double" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="12" Grid.Column="1" Value="{Binding DoubleValue}" TypeName="System.Double" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="12" Grid.Column="2" Value="{Binding DoubleValue}" TypeName="System.Double" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="12" Grid.Column="3" Text="{Binding DoubleValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!-- decimal editor -->
+                        <TextBlock Grid.Row="13" Grid.Column="0" Text="System.Decimal" FontWeight="Bold" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="13" Grid.Column="1" Value="{Binding DecimalValue}" TypeName="System.Decimal" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="13" Grid.Column="2" Value="{Binding DecimalValue}" TypeName="System.Decimal" ReadOnly="True" Margin="5" />
+                        <TextBox Grid.Row="13" Grid.Column="3" Text="{Binding DecimalValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                        <!--TagListBox-->
+                        <TextBlock Grid.Row="14" Grid.Column="0" Text="TagListBox" FontWeight="Bold" Margin="5" />
+                        <uiControl:TagListBox ItemSource="{Binding TagList}" Grid.Row="14" Grid.Column="1"  />
+                        <ListBox ItemsSource="{Binding TagList}"  Grid.Row="14" Grid.Column="2">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <!-- ************************************************************************************************************************* -->
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="Term editor">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Term editor" FontSize="18" FontWeight="Bold" Margin="0,10" />
+                    <TextBlock Grid.Row="1" Text="Test of MTF term editor. Here you can see all styles of term editor." Margin="0,0,0,10" />
+                    <ListBox Grid.Row="2" AllowDrop="True" Drop="ListBox_Drop">
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result Int" Tag="System.Int32" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result bool" Tag="System.Boolean" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result SubSetting" Tag="MTFTestingLibrary.SubSettings" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result TestSettings" Tag="MTFTestingLibrary.TestSettings" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result TestSettings[]" Tag="MTFTestingLibrary.TestSettings[]" />
+                        </ListBoxItem>
+                    </ListBox>
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- header -->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="MTF term editor" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Read only editor" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="Term to string" FontWeight="Bold" Margin="5" />
+                        <!-- string editor -->
+                        <!--<uiHelpers:MTFEditor Grid.Row="1" Grid.Column="0" Value="{Binding TermValue}" TypeName="MTFClientServerCommon.Mathematics.Term" Margin="5" />-->
+                        <!--<uiHelpers:MTFEditor Grid.Row="1" Grid.Column="0" Value="{Binding TermValue}" EditorMode="UseTerm" TypeName="System.Int32" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="1" Value="{Binding TermValue}" EditorMode="UseTerm" TypeName="System.Int32" ReadOnly="True" Margin="5" />
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding TermValue}" FontWeight="Bold" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="0" Value="{Binding TermValue2}" EditorMode="UseTerm" TypeName="System.Boolean" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="1" Value="{Binding TermValue2}" EditorMode="UseTerm" TypeName="System.Boolean" ReadOnly="True" Margin="5" />
+                        <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding TermValue2}" FontWeight="Bold" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="0" Value="{Binding TermValue3}" EditorMode="UseTerm" TypeName="System.String" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="1" Value="{Binding TermValue3}" EditorMode="UseTerm" TypeName="System.String" ReadOnly="True" Margin="5" />
+                        <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding TermValue3}" FontWeight="Bold" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="0" Value="{Binding TermValue4}" EditorMode="UseTerm" TypeName="System.Byte" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="1" Value="{Binding TermValue4}" EditorMode="UseTerm" TypeName="System.Byte" ReadOnly="True" Margin="5" />
+                        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding TermValue4}" FontWeight="Bold" Margin="5" />-->
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <!-- ************************************************************************************************************************* -->
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="List editor" >
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="List editor" FontSize="18" FontWeight="Bold" Margin="0,10" />
+                        <TextBlock Grid.Row="1" Text="Test of MTF list editor. Here you can see all styles of list editor." Margin="0,0,0,10" />
+                        <ListBox Grid.Row="2" AllowDrop="True" Drop="ListBox_Drop">
+                            <ListBoxItem>
+                                <TextBlock Text="Activity Result 01" Tag="MTFTestingLibrary.SubSettings" />
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <TextBlock Text="Activity Result 02" Tag="MTFTestingLibrary.TestSettings" />
+                            </ListBoxItem>
+                        </ListBox>
+                        <Grid Grid.Row="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!-- header -->
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="MTF list editor" FontWeight="Bold" Margin="5" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="Read only editor" FontWeight="Bold" Margin="5" />
+                            <!-- string editor -->
+
+                            <!-- List<int> editor -->
+                            <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="0" EditorMode="UseTerm" Value="{Binding IntListValue}" TypeName="{Binding IntListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="1" EditorMode="UseTerm" Value="{Binding IntListValue}" TypeName="{Binding IntListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <!-- List<string> editor -->
+                            <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="0" Value="{Binding StringListValue}" TypeName="{Binding StringListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="1" Value="{Binding StringListValue}" TypeName="{Binding StringListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <!-- List<byte> editor -->
+                            <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="0" Value="{Binding ByteListValue}" TypeName="{Binding ByteListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="1" Value="{Binding ByteListValue}" TypeName="{Binding ByteListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <!-- List<bool> editor -->
+                            <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="0" Value="{Binding BoolListValue}" TypeName="{Binding BoolListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="1" Value="{Binding BoolListValue}" TypeName="{Binding BoolListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <!-- bool[] editor -->
+                            <uiHelpers:MTFEditor Grid.Row="5" Grid.Column="0" Value="{Binding BoolArrayValue}" TypeName="{Binding BoolArrayListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="5" Grid.Column="1" Value="{Binding BoolArrayValue}" TypeName="{Binding BoolArrayListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <uiHelpers:MTFEditor Grid.Row="7" Grid.Column="0" EditorMode="UseTerm" Value="{Binding KnownObjectListValue}" TypeName="{Binding KnownObjectListValueListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="7" Grid.Column="1" EditorMode="UseTerm" Value="{Binding KnownObjectListValue}" TypeName="{Binding KnownObjectListValueListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <uiHelpers:MTFEditor Grid.Row="8" Grid.Column="0" EditorMode="UseTerm" Value="{Binding UnKnownObjectListValue}" TypeName="{Binding UnKnownObjectListValueListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="8" Grid.Column="1" EditorMode="UseTerm" Value="{Binding UnKnownObjectListValue}" TypeName="{Binding UnKnownObjectListValueListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <Separator Grid.Row="9" Grid.ColumnSpan="3" VerticalAlignment="Top" />
+                            <!--////////////////////////////////////////////////////////////////////////-->
+                            <uiHelpers:MTFEditor Grid.Row="9" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ListList1}" TypeName="{Binding ListList1Type}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="9" Grid.Column="1" EditorMode="UseTerm" Value="{Binding ListList1}" TypeName="{Binding ListList1Type}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+                            <uiHelpers:MTFEditor Grid.Row="10" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ListList2}" TypeName="{Binding ListList2Type}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="10" Grid.Column="1" Value="{Binding ListList2}" TypeName="{Binding ListList2Type}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+                            <uiHelpers:MTFEditor Grid.Row="11" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ListList3}" TypeName="{Binding ListList3Type}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="11" Grid.Column="1" Value="{Binding ListList3}" TypeName="{Binding ListList3Type}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+
+
+                            <uiHelpers:MTFEditor Grid.Row="12" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ArrayArray1}" TypeName="{Binding ArrayArray1Type}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="12" Grid.Column="1" Value="{Binding ArrayArray1}" TypeName="{Binding ArrayArray1Type}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+                            <uiHelpers:MTFEditor Grid.Row="13" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ArrayArray2}" TypeName="{Binding ArrayArray2Type}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="13" Grid.Column="1" Value="{Binding ArrayArray2}" TypeName="{Binding ArrayArray2Type}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+                            <uiHelpers:MTFEditor Grid.Row="14" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ArrayArray3}" TypeName="{Binding ArrayArray3Type}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="14" Grid.Column="1" Value="{Binding ArrayArray3}" TypeName="{Binding ArrayArray3Type}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+
+                            <uiHelpers:MTFEditor Grid.Row="15" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ListArray}" TypeName="{Binding ListArrayType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="15" Grid.Column="1" Value="{Binding ListArray}" TypeName="{Binding ListArrayType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+                            <uiHelpers:MTFEditor Grid.Row="16" Grid.Column="0" EditorMode="UseTerm" Value="{Binding ArrayList}" TypeName="{Binding ArrayListType}" Margin="5" />
+                            <uiHelpers:MTFEditor Grid.Row="16" Grid.Column="1" Value="{Binding ArrayList}" TypeName="{Binding ArrayListType}" ReadOnly="True" Margin="5" VerticalAlignment="Center" />
+
+
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <!-- ************************************************************************************************************************* -->
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="Object editor">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Object editor" FontSize="18" FontWeight="Bold" Margin="0,10" />
+                    <TextBlock Grid.Row="1" Text="Test of MTF object editor. Here you can see all styles of object editor." Margin="0,0,0,10" />
+                    <ListBox Grid.Row="2" AllowDrop="True" Drop="ListBox_Drop">
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result 01" Tag="MTFTestingLibrary.SubSettings" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <TextBlock Text="Activity Result 02" Tag="MTFTestingLibrary.TestSettings" />
+                        </ListBoxItem>
+                    </ListBox>
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- header -->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="MTF object editor" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Read only editor" FontWeight="Bold" Margin="5" />
+                        <!-- string editor -->
+
+
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="0" Value="{Binding Obj}" TypeName="{Binding ObjTypeName}" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="1" Value="{Binding Obj}" TypeName="{Binding ObjTypeName}" ReadOnly="True" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="0" Value="{Binding Bitmap}" TypeName="{Binding BitmapTypeName}" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="1" Value="{Binding Bitmap}" TypeName="{Binding BitmapTypeName}" ReadOnly="True" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="0" Value="{Binding UnknownObj}" TypeName="{Binding UnknownObjTypeName}" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="3" Grid.Column="1" Value="{Binding UnknownObj}" TypeName="{Binding UnknownObjTypeName}" ReadOnly="True" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="0" Value="{Binding KnownObj}" TypeName="{Binding KnownObjTypeName}" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="4" Grid.Column="1" Value="{Binding KnownObj}" TypeName="{Binding KnownObjTypeName}" ReadOnly="True" Margin="5" />
+
+                        <uiHelpers:MTFEditor Grid.Row="5" Grid.Column="0" Value="{Binding CommonObj}" TypeName="{Binding CommonObjTypeName}" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="5" Grid.Column="1" Value="{Binding CommonObj}" TypeName="{Binding CommonObjTypeName}" ReadOnly="True" Margin="5" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <!-- ************************************************************************************************************************* -->
+
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="String format editor">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="String format editor" FontSize="18" FontWeight="Bold" Margin="0,10" />
+                    <TextBlock Grid.Row="1" Text="Test of MTF string format editor. Here you can see all styles of string format editor." Margin="0,0,0,10" />
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- header -->
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="MTF list editor" FontWeight="Bold" Margin="5" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Read only editor" FontWeight="Bold" Margin="5" />
+                        <!-- string editor -->
+
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="0" Value="{Binding StringFormat}" TypeName="MTFClientServerCommon.MTFStringFormat" Margin="5" />
+                        <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="1" Value="{Binding StringFormat}" TypeName="MTFClientServerCommon.MTFStringFormat" ReadOnly="True" Margin="5" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="Term designer">
+                <uiHelpers:MTFEditor Grid.Row="1" Grid.Column="0" Value="{Binding NewTerm}" TypeName="TermDesigner" Margin="5" />
+            </TabItem>
+            <!-- ************************************************************************************************************************* -->
+            <!-- ************************************************************************************************************************* -->
+            <TabItem Header="DataTable">
+                <uiHelpers:MTFEditor TypeName="{Binding DataTableType}" />
+            </TabItem>
+            <TabItem Header="Warnings">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Add Warning" Command="{Binding AddWarningCommand}" />
+                    <Button Grid.Row="1" Content="Remove Warning" Command="{Binding RemoveWarningCommand}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="LocalizedEditor">
+                <StackPanel DataContext="{Binding LocalizedTestPresenter}">
+                    <localizedString:LocalizedStringEditor Width="200" VerticalAlignment="Top" Identifier="{Binding Key}" />
+                    <Ellipse Width="500" Height="500" Fill="Aqua"></Ellipse>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Icons" IsSelected="True" DataContext="{Binding IconsPresenter}">
+                <ScrollViewer>
+                    <StackPanel>
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                <Setter Property="FontSize" Value="24" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Style>
+                            <Style TargetType="ItemsControl">
+                                <Setter Property="ItemTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <StackPanel Margin="5">
+                                                <UserControl Style="{Binding Style}" Height="60" MaxWidth="60" />
+                                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="ItemsPanel">
+                                    <Setter.Value>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel />
+                                        </ItemsPanelTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="0 0 0 2" />
+                                <Setter Property="BorderBrush" Value="{StaticResource ALYellowBrush}" />
+                                <Setter Property="Margin" Value="10" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <Border>
+                            <TextBlock>
+                                <TextBlock Text="MTF Icons" />(<TextBlock Text="{Binding MTFIcons.Count}" />)
+                            </TextBlock>
+                        </Border>
+                        <ItemsControl ItemsSource="{Binding MTFIcons}" />
+
+                        <Border>
+                            <TextBlock>
+                                <TextBlock Text="Command Icons" />(<TextBlock Text="{Binding CommandIcons.Count}" />)
+                            </TextBlock>
+                        </Border>
+                        <ItemsControl ItemsSource="{Binding CommandIcons}" />
+
+                        <Border>
+                            <TextBlock>
+                                <TextBlock Text="Localization Icons" />(<TextBlock Text="{Binding LocalizationIcons.Count}" />)
+                            </TextBlock>
+                        </Border>
+                        <ItemsControl ItemsSource="{Binding LocalizationIcons}" />
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</uiHelpers:MTFUserControl>

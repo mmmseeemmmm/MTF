@@ -1,0 +1,34 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFCaseEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Name="Root">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Is default" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Value" VerticalAlignment="Center"
+                   Visibility="{Binding Value.IsDefault, Converter={StaticResource NotBoolToVisibility}}"/>
+
+        <TextBox Grid.Row="0" Grid.Column="2"  Text="{Binding Value.Name, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding EditableName}" />
+        <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Value.IsDefault}" Checked="IsDefaultCheckBoxChecked" Unchecked="IsDefaultCheckBoxUnChecked" />
+        <uiHelpers:MTFEditor Grid.Row="2" Grid.Column="2" Value="{Binding Value.Value}" TypeName="{Binding ElementTypeName}"
+                             ParentActivity="{Binding ParentActivity}"
+                             ParentSequence="{Binding ParentSequence}"
+                             Visibility="{Binding Value.IsDefault, Converter={StaticResource NotBoolToVisibility}}"
+                             ValueChanged="Editor_OnValueChanged"/> 
+    </Grid>
+</editors:MTFEditorBase>

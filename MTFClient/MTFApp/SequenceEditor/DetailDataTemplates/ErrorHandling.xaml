@@ -1,0 +1,283 @@
+﻿<detailDataTemplates:ActivityDetailBase x:Class="MTFApp.SequenceEditor.DetailDataTemplates.ErrorHandling"
+                                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                        xmlns:detailDataTemplates="clr-namespace:MTFApp.SequenceEditor.DetailDataTemplates"
+                                        xmlns:sequenceEditor="clr-namespace:MTFApp.SequenceEditor"
+                                        xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                                        xmlns:mtfClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+                                        xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                                        xmlns:nullableComboBox="clr-namespace:MTFApp.UIControls.NullableComboBox"
+                                        xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+                                        mc:Ignorable="d"
+                                        d:DesignHeight="300" d:DesignWidth="300">
+    <detailDataTemplates:ActivityDetailBase.Resources>
+        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource ActivityDetailGroupBox}" />
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+        <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="DescText">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Width"
+                    Value="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollContentPresenter}}" />
+            <Setter Property="Padding" Value="10,0,10,0" />
+        </Style>
+
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="CheckErrors">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock
+                    LocTextKey="Activity_ErrorHandling_CheckErr_Title"
+                    Style="{StaticResource DescText}" />
+                <alControls:GroupBox LocTextKey="Activity_ErrorHandling_GetErr_Params" BorderThickness="0" Padding="5"
+                                     Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                        <CheckBox IsChecked="{Binding IncludeValidationTables}" Margin="0,0,5,0" />
+                        <alControls:TextBlock LocTextKey="Activity_ErrorHandling_CheckErr_UseTable"
+                                              VerticalAlignment="Center" />
+                    </StackPanel>
+                </alControls:GroupBox>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource CheckOutputValueDataTemplate}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OnOutputValueFailed}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource AssignOutputValueDataTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CleanErrors">
+            <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                <alControls:TextBlock LocTextKey="Activity_ErrorHandling_CleanErr_CleanErrWindow"
+                                      VerticalAlignment="Center" Style="{StaticResource {x:Type TextBlock}}"
+                                      Margin="0,0,3,0" />
+                <CheckBox IsChecked="{Binding CleanErrorWindow}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RaiseError">
+            <StackPanel Orientation="Vertical">
+                <uiHelpers:MTFEditor Value="{Binding RaiseError, UpdateSourceTrigger=PropertyChanged}"
+                                     TypeName="MTFClientServerCommon.MTFStringFormat"
+                                     Margin="10 3 3 3" />
+                <alControls:GroupBox LocTextKey="Activity_Base_OnErrorFailed" Style="{StaticResource {x:Type GroupBox}}">
+                    <StackPanel Orientation="Vertical">
+                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OnErrorFailedCombo}" />
+                        <StackPanel Orientation="Horizontal">
+                            <alControls:TextBlock LocTextKey="Activity_Base_AppendError" VerticalAlignment="Center" Margin="0,0,3,0"
+                                                  Style="{StaticResource {x:Type TextBlock}}"/>
+                            <nullableComboBox:NullableComboBox Margin="2"
+                                                               DisplayMemberPath="Name"
+                                                               SelectedValue="{Binding ErrorOutput, UpdateSourceTrigger=Explicit}">
+                                <nullableComboBox:NullableComboBox.ItemsSource>
+                                    <MultiBinding Converter="{StaticResource VariableByTypeConverter}">
+                                        <Binding Path="DataContext.Sequence.MTFVariables"
+                                                 RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceEditor:SequenceEditorControl}}" />
+                                    </MultiBinding>
+                                </nullableComboBox:NullableComboBox.ItemsSource>
+                            </nullableComboBox:NullableComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </alControls:GroupBox>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetErrors">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock LocTextKey="Activity_ErrorHandling_GetErr_Title"
+                                      Style="{StaticResource DescText}" />
+                <alControls:GroupBox LocTextKey="Activity_ErrorHandling_GetErr_Params" BorderThickness="0" Padding="5" Margin="0,10,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                            <CheckBox IsChecked="{Binding ErrorRenderTimeStamp}" Margin="0,0,5,0" />
+                            <alControls:TextBlock LocTextKey="Activity_ErrorHandling_GetErr_TimeStamp" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                            <CheckBox IsChecked="{Binding ErrorRenderActivityName}" Margin="0,0,5,0" />
+                            <alControls:TextBlock LocTextKey="Activity_ErrorHandling_GetErr_ActivityName" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                            <CheckBox IsChecked="{Binding ErrorRenderActivityPathShort}" Margin="0,0,5,0" />
+                            <alControls:TextBlock LocTextKey="Activity_ErrorHandling_GetErr_ShortPath" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                            <CheckBox IsChecked="{Binding ErrorRenderActivityPathLong}" Margin="0,0,5,0" />
+                            <alControls:TextBlock LocTextKey="Activity_ErrorHandling_GetErr_LongPath" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10 3 3 3">
+                            <CheckBox IsChecked="{Binding ErrorRenderErroMessage}" Margin="0,0,5,0" />
+                            <alControls:TextBlock LocTextKey="Activity_ErrorHandling_GetErr_ErrMsg" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </alControls:GroupBox>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+            </StackPanel>
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetInvalidValidationTables">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock
+                    LocTextKey="Activity_ErrorHandling_GetTables_Title"
+                    Style="{StaticResource DescText}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetLastErrorActivityName">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock
+                    LocTextKey="Activity_ErrorHandling_GetLastActivityErr_Title"
+                    Style="{StaticResource DescText}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GetErrorImages">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock
+                    LocTextKey="Activity_ErrorHandling_ErrImg_Title"
+                    Style="{StaticResource DescText}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource OutputTypeDataTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DetailMode">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <detailDataTemplates:DetailHeader Grid.Row="0" DetailType="Activity_BuildIn_ErrHandling" />
+                <alControls:GroupBox Grid.Row="1" LocTextKey="Activity_Base_Type">
+                    <alControls:TextBlock
+                        LocTextKey="{Binding ErrorHandlingType, Converter={StaticResource EnumToDescription}}" />
+                </alControls:GroupBox>
+                <ContentPresenter Content="{Binding}" Grid.Row="2">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.CheckErrors}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource CheckErrors}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.CleanErrors}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource CleanErrors}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.RaiseError}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource RaiseError}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.GetErrors}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource GetErrors}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.GetInvalidValidationTables}">
+                                    <Setter Property="ContentTemplate"
+                                            Value="{StaticResource GetInvalidValidationTables}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.GetLastErrorActivityName}">
+                                    <Setter Property="ContentTemplate"
+                                            Value="{StaticResource GetLastErrorActivityName}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}"
+                                             Value="{x:Static mtfClientServerCommon:ErrorHandlingType.GetErrorImages}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource GetErrorImages}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+                <alControls:GroupBox Grid.Row="5"
+                                     LocTextKey="Activity_Base_Comment"
+                                     BorderThickness="0">
+                    <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}"
+                             TextWrapping="Wrap"
+                             MinHeight="100"
+                             VerticalContentAlignment="Top"
+                             AcceptsReturn="True" />
+                </alControls:GroupBox>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SelectedMode">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <localizedString:LocalizedStringEditor Grid.Column="0" Style="{StaticResource ActivityNameEditor}" />
+                <alControls:ComboBox Grid.Column="1"
+                                     ItemsSourceLocalized="{Binding DataContext.ErrorHandlingTypes, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}"
+                                     SelectedValuePath="Value"
+                                     LocTextKey="Description"
+                                     SelectedValue="{Binding ErrorHandlingType}"
+                                     Style="{StaticResource ActivityComboBox}" />
+                <TextBlock Grid.Column="2" Style="{StaticResource ActivityCommentTextBlock}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UnSelectedMode">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}" />
+                <Label Grid.Column="1"
+                       Content="{Binding ErrorHandlingType, Converter={StaticResource EnumToDescription}}"
+                       Style="{StaticResource LabelInsteadComboBox}" />
+                <TextBlock Grid.Column="2" Style="{StaticResource ActivityCommentTextBlock}" />
+            </Grid>
+        </DataTemplate>
+
+    </detailDataTemplates:ActivityDetailBase.Resources>
+    <ContentPresenter Content="{Binding}">
+        <ContentPresenter.Style>
+            <Style TargetType="ContentPresenter">
+                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding DisplayMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        Value="Detail">
+                        <Setter Property="ContentTemplate" Value="{StaticResource DetailMode}" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding DisplayMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        Value="Selected">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SelectedMode}" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding DisplayMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        Value="Unselected">
+                        <Setter Property="ContentTemplate" Value="{StaticResource UnSelectedMode}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentPresenter.Style>
+    </ContentPresenter>
+</detailDataTemplates:ActivityDetailBase>

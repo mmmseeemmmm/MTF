@@ -1,0 +1,6 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\release\Server\mtfLibs\Printer\Printer.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\release\Server\mtfLibs\Printer\Printer.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Printer\obj\x64\Release\Printer.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Printer\obj\x64\Release\Printer.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Printer\obj\x64\Release\Printer.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Printer\obj\x64\Release\Printer.pdb

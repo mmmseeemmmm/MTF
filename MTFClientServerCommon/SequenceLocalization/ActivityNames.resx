@@ -1,0 +1,2862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Activity_Acquire_Image_key" xml:space="preserve">
+    <value>Acquire Image</value>
+  </data>
+  <data name="Activity_Add_Serial_Number_To_List_key" xml:space="preserve">
+    <value>Add Serial Number To List</value>
+  </data>
+  <data name="Activity_Adjust_CL_production_key" xml:space="preserve">
+    <value>Adjust CL production</value>
+  </data>
+  <data name="Activity_Adjust_CL_Target_key" xml:space="preserve">
+    <value>Adjust CL Target</value>
+  </data>
+  <data name="Activity_Adjust_HB_key" xml:space="preserve">
+    <value>Adjust HB</value>
+  </data>
+  <data name="Activity_Adjust_HB_Production_key" xml:space="preserve">
+    <value>Adjust HB Production</value>
+  </data>
+  <data name="Activity_AHL_Reference_key" xml:space="preserve">
+    <value>AHL Reference</value>
+  </data>
+  <data name="Activity_All_LEDs_Off_key" xml:space="preserve">
+    <value>All LEDs Off</value>
+  </data>
+  <data name="Activity_All_Lights_Off_key" xml:space="preserve">
+    <value>All Lights Off</value>
+  </data>
+  <data name="Activity_All_Light_Functions_Off_key" xml:space="preserve">
+    <value>All Light Functions Off</value>
+  </data>
+  <data name="Activity_All_Relays_off_key" xml:space="preserve">
+    <value>All Relays off</value>
+  </data>
+  <data name="Activity_Automatic_Test_key" xml:space="preserve">
+    <value>Automatic Test</value>
+  </data>
+  <data name="Activity_Bar_Code_Readers_key" xml:space="preserve">
+    <value>Bar Code Readers</value>
+  </data>
+  <data name="Activity_BusCom_Configuration_key" xml:space="preserve">
+    <value>BusCom Configuration</value>
+  </data>
+  <data name="Activity_CallDynamic_Key" xml:space="preserve">
+    <value>Dynamic call</value>
+  </data>
+  <data name="Activity_CallWholeSequence_Key" xml:space="preserve">
+    <value>Whole sequence</value>
+  </data>
+  <data name="Activity_Call_Key" xml:space="preserve">
+    <value>Call</value>
+  </data>
+  <data name="Activity_Change_service_commands_status_key" xml:space="preserve">
+    <value>Change service commands status</value>
+  </data>
+  <data name="Activity_Check_AHL_Position_key" xml:space="preserve">
+    <value>Check AHL Position</value>
+  </data>
+  <data name="Activity_Check_Binnig_Class_key" xml:space="preserve">
+    <value>Check Binnig Class</value>
+  </data>
+  <data name="Activity_Check_CL_key" xml:space="preserve">
+    <value>Check CL</value>
+  </data>
+  <data name="Activity_Check_CL_Off_key" xml:space="preserve">
+    <value>Check CL Off</value>
+  </data>
+  <data name="Activity_Check_CL_On_key" xml:space="preserve">
+    <value>Check CL On</value>
+  </data>
+  <data name="Activity_Check_CL_Position_key" xml:space="preserve">
+    <value>Check CL Position</value>
+  </data>
+  <data name="Activity_Check_Coding_HLI_key" xml:space="preserve">
+    <value>Check Coding HLI</value>
+  </data>
+  <data name="Activity_Check_Coding_key" xml:space="preserve">
+    <value>Check Coding</value>
+  </data>
+  <data name="Activity_Check_Coding_LCU_key" xml:space="preserve">
+    <value>Check Coding LCU</value>
+  </data>
+  <data name="Activity_Check_Contacting_Head_Coding_key" xml:space="preserve">
+    <value>Check Contacting Head Coding</value>
+  </data>
+  <data name="Activity_Check_Current_CL_key" xml:space="preserve">
+    <value>Check Current CL</value>
+  </data>
+  <data name="Activity_Check_Current_DRL_key" xml:space="preserve">
+    <value>Check Current DRL</value>
+  </data>
+  <data name="Activity_Check_Current_HB_key" xml:space="preserve">
+    <value>Check Current HB</value>
+  </data>
+  <data name="Activity_Check_Current_LB_key" xml:space="preserve">
+    <value>Check Current LB</value>
+  </data>
+  <data name="Activity_Check_DABL1_key" xml:space="preserve">
+    <value>Check DABL1</value>
+  </data>
+  <data name="Activity_Check_DABL2_key" xml:space="preserve">
+    <value>Check DABL2</value>
+  </data>
+  <data name="Activity_Check_DMD_Position_key" xml:space="preserve">
+    <value>Check DMD Position</value>
+  </data>
+  <data name="Activity_Check_DRL_Off_key" xml:space="preserve">
+    <value>Check DRL Off</value>
+  </data>
+  <data name="Activity_Check_DRL_On_key" xml:space="preserve">
+    <value>Check DRL On</value>
+  </data>
+  <data name="Activity_Check_errors_key" xml:space="preserve">
+    <value>Check errors</value>
+  </data>
+  <data name="Activity_Check_GFHB_Position_key" xml:space="preserve">
+    <value>Check GFHB Position</value>
+  </data>
+  <data name="Activity_Check_HB_Base_Off_key" xml:space="preserve">
+    <value>Check HB Base Off</value>
+  </data>
+  <data name="Activity_Check_HB_Base_On_key" xml:space="preserve">
+    <value>Check HB Base On</value>
+  </data>
+  <data name="Activity_Check_HB_Base_Position_key" xml:space="preserve">
+    <value>Check HB Base Position</value>
+  </data>
+  <data name="Activity_Check_HB_Laser_Position_key" xml:space="preserve">
+    <value>Check HB Laser Position</value>
+  </data>
+  <data name="Activity_Check_HB_Off_key" xml:space="preserve">
+    <value>Check HB Off</value>
+  </data>
+  <data name="Activity_Check_HB_On_key" xml:space="preserve">
+    <value>Check HB On</value>
+  </data>
+  <data name="Activity_Check_HB_Position_key" xml:space="preserve">
+    <value>Check HB Position</value>
+  </data>
+  <data name="Activity_Check_HB_Spot_Off_key" xml:space="preserve">
+    <value>Check HB Spot Off</value>
+  </data>
+  <data name="Activity_Check_HB_Spot_On_key" xml:space="preserve">
+    <value>Check HB Spot On</value>
+  </data>
+  <data name="Activity_Check_HB_Spot_Position_key" xml:space="preserve">
+    <value>Check HB Spot Position</value>
+  </data>
+  <data name="Activity_Check_is_left_DUT_key" xml:space="preserve">
+    <value>Check is left DUT</value>
+  </data>
+  <data name="Activity_Check_is_not_left_DUT_key" xml:space="preserve">
+    <value>Check is not left DUT</value>
+  </data>
+  <data name="Activity_Check_is_not_right_DUT_key" xml:space="preserve">
+    <value>Check is not right DUT</value>
+  </data>
+  <data name="Activity_Check_is_right_DUT_key" xml:space="preserve">
+    <value>Check is right DUT</value>
+  </data>
+  <data name="Activity_Check_Laser_LED_key" xml:space="preserve">
+    <value>Check Laser LED</value>
+  </data>
+  <data name="Activity_Check_LB_Base_Center_Position_key" xml:space="preserve">
+    <value>Check LB Base Center Position</value>
+  </data>
+  <data name="Activity_Check_LB_Base_key" xml:space="preserve">
+    <value>Check LB Base</value>
+  </data>
+  <data name="Activity_Check_LB_Base_Off_key" xml:space="preserve">
+    <value>Check LB Base Off</value>
+  </data>
+  <data name="Activity_Check_LB_Base_On_key" xml:space="preserve">
+    <value>Check LB Base On</value>
+  </data>
+  <data name="Activity_Check_LB_Base_Position_key" xml:space="preserve">
+    <value>Check LB Base Position</value>
+  </data>
+  <data name="Activity_Check_LB_C190M_key" xml:space="preserve">
+    <value>Check LB C190M</value>
+  </data>
+  <data name="Activity_Check_LB_Off_key" xml:space="preserve">
+    <value>Check LB Off</value>
+  </data>
+  <data name="Activity_Check_LB_On_key" xml:space="preserve">
+    <value>Check LB On</value>
+  </data>
+  <data name="Activity_Check_LB_Position_key" xml:space="preserve">
+    <value>Check LB Position</value>
+  </data>
+  <data name="Activity_Check_LB_Spot_Off_key" xml:space="preserve">
+    <value>Check LB Spot Off</value>
+  </data>
+  <data name="Activity_Check_LB_Spot_On_key" xml:space="preserve">
+    <value>Check LB Spot On</value>
+  </data>
+  <data name="Activity_Check_LB_Spot_Position_key" xml:space="preserve">
+    <value>Check LB Spot Position</value>
+  </data>
+  <data name="Activity_Check_LEDs_key" xml:space="preserve">
+    <value>Check LEDs</value>
+  </data>
+  <data name="Activity_Check_LWR_Position_key" xml:space="preserve">
+    <value>Check LWR Position</value>
+  </data>
+  <data name="Activity_Check_MXB_Off_key" xml:space="preserve">
+    <value>Check MXB Off</value>
+  </data>
+  <data name="Activity_Check_MXB_On_key" xml:space="preserve">
+    <value>Check MXB On</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_key" xml:space="preserve">
+    <value>Check MXB Position</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_04_key" xml:space="preserve">
+    <value>Check MXB Position LED 04</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_05_key" xml:space="preserve">
+    <value>Check MXB Position LED 05</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_06_key" xml:space="preserve">
+    <value>Check MXB Position LED 06</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_07_key" xml:space="preserve">
+    <value>Check MXB Position LED 07</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_08_key" xml:space="preserve">
+    <value>Check MXB Position LED 08</value>
+  </data>
+  <data name="Activity_Check_palette_is_ready_key" xml:space="preserve">
+    <value>Check palette is ready</value>
+  </data>
+  <data name="Activity_Check_Reference_Run_key" xml:space="preserve">
+    <value>Check Reference Run</value>
+  </data>
+  <data name="Activity_Check_SABL1_key" xml:space="preserve">
+    <value>Check SABL1</value>
+  </data>
+  <data name="Activity_Check_SABL2_key" xml:space="preserve">
+    <value>Check SABL2</value>
+  </data>
+  <data name="Activity_Check_SM_Off_key" xml:space="preserve">
+    <value>Check SM Off</value>
+  </data>
+  <data name="Activity_Check_SM_On_key" xml:space="preserve">
+    <value>Check SM On</value>
+  </data>
+  <data name="Activity_Check_Temperatures_sensors_key" xml:space="preserve">
+    <value>Check Temperatures sensors</value>
+  </data>
+  <data name="Activity_Check_TI_Off_key" xml:space="preserve">
+    <value>Check TI Off</value>
+  </data>
+  <data name="Activity_Check_TI_On_key" xml:space="preserve">
+    <value>Check TI On</value>
+  </data>
+  <data name="Activity_Check_VAC_motor_stopped_key" xml:space="preserve">
+    <value>Check VAC motor stopped</value>
+  </data>
+  <data name="Activity_Check_Voltage_CL_key" xml:space="preserve">
+    <value>Check Voltage CL</value>
+  </data>
+  <data name="Activity_Check_Voltage_DRL_key" xml:space="preserve">
+    <value>Check Voltage DRL</value>
+  </data>
+  <data name="Activity_Check_Voltage_HB_key" xml:space="preserve">
+    <value>Check Voltage HB</value>
+  </data>
+  <data name="Activity_Check_Voltage_LB_key" xml:space="preserve">
+    <value>Check Voltage LB</value>
+  </data>
+  <data name="Activity_Clean_after_service_key" xml:space="preserve">
+    <value>Clean after service</value>
+  </data>
+  <data name="Activity_Clean_errors_key" xml:space="preserve">
+    <value>Clean errors</value>
+  </data>
+  <data name="Activity_Clean_LCB_key" xml:space="preserve">
+    <value>Clean LCB</value>
+  </data>
+  <data name="Activity_Clean_Machine_after_service_key" xml:space="preserve">
+    <value>Clean Machine after service</value>
+  </data>
+  <data name="Activity_Clean_Machine_backward_key" xml:space="preserve">
+    <value>Clean Machine backward</value>
+  </data>
+  <data name="Activity_Clean_machine_key" xml:space="preserve">
+    <value>Clean machine</value>
+  </data>
+  <data name="Activity_Clean_up_Test_key" xml:space="preserve">
+    <value>Clean up Test</value>
+  </data>
+  <data name="Activity_Clear_Validation_Tables_Communication_key" xml:space="preserve">
+    <value>Clear Validation Tables Communication</value>
+  </data>
+  <data name="Activity_Clear_validation_tables_HeadlampControl_key" xml:space="preserve">
+    <value>Clear validation tables HeadlampControl</value>
+  </data>
+  <data name="Activity_Clear_validation_tables_key" xml:space="preserve">
+    <value>Clear validation tables</value>
+  </data>
+  <data name="Activity_Clear_Validation_Tables_Machine_key" xml:space="preserve">
+    <value>Clear Validation Tables Machine</value>
+  </data>
+  <data name="Activity_Clear_validation_tables_Main_key" xml:space="preserve">
+    <value>Clear validation tables Main</value>
+  </data>
+  <data name="Activity_Clear_Validation_Tables_Vision_key" xml:space="preserve">
+    <value>Clear Validation Tables Vision</value>
+  </data>
+  <data name="Activity_Close_key" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Activity_CL_key" xml:space="preserve">
+    <value>CL</value>
+  </data>
+  <data name="Activity_CL_Off_key" xml:space="preserve">
+    <value>CL Off</value>
+  </data>
+  <data name="Activity_CL_On_key" xml:space="preserve">
+    <value>CL On</value>
+  </data>
+  <data name="Activity_CL_test_key" xml:space="preserve">
+    <value>CL test</value>
+  </data>
+  <data name="Activity_Coding_HLI_key" xml:space="preserve">
+    <value>Coding HLI</value>
+  </data>
+  <data name="Activity_Coding_key" xml:space="preserve">
+    <value>Coding</value>
+  </data>
+  <data name="Activity_Coding_LCU_key" xml:space="preserve">
+    <value>Coding LCU</value>
+  </data>
+  <data name="Activity_Cofigure_Communication_key" xml:space="preserve">
+    <value>Cofigure Communication</value>
+  </data>
+  <data name="Activity_Cofigure_Diagnosis_key" xml:space="preserve">
+    <value>Cofigure Diagnosis</value>
+  </data>
+  <data name="Activity_Collect_By_Template_key" xml:space="preserve">
+    <value>Collect By Template</value>
+  </data>
+  <data name="Activity_Collect_Error_Count_key" xml:space="preserve">
+    <value>Collect Error Count</value>
+  </data>
+  <data name="Activity_Collect_Error_Images_key" xml:space="preserve">
+    <value>Collect Error Images</value>
+  </data>
+  <data name="Activity_Collect_Error_Text_key" xml:space="preserve">
+    <value>Collect Error Text</value>
+  </data>
+  <data name="Activity_Compare_Labels_With_Database_key" xml:space="preserve">
+    <value>Compare Labels With Database</value>
+  </data>
+  <data name="Activity_Compile_Code_key" xml:space="preserve">
+    <value>Compile Code</value>
+  </data>
+  <data name="Activity_Configure_All_Cameras_key" xml:space="preserve">
+    <value>Configure All Cameras</value>
+  </data>
+  <data name="Activity_Configure_Cameras_key" xml:space="preserve">
+    <value>Configure Cameras</value>
+  </data>
+  <data name="Activity_Configure_CL_Detection_Data_key" xml:space="preserve">
+    <value>Configure CL Detection Data</value>
+  </data>
+  <data name="Activity_Configure_DABL1_Detection_Data_key" xml:space="preserve">
+    <value>Configure DABL1 Detection Data</value>
+  </data>
+  <data name="Activity_Configure_DABL2_Detection_Data_key" xml:space="preserve">
+    <value>Configure DABL2 Detection Data</value>
+  </data>
+  <data name="Activity_Configure_GFHB_Detection_Data_key" xml:space="preserve">
+    <value>Configure GFHB Detection Data</value>
+  </data>
+  <data name="Activity_Configure_HB_Base_Detection_Data_key" xml:space="preserve">
+    <value>Configure HB Base Detection Data</value>
+  </data>
+  <data name="Activity_Configure_HB_Detection_Data_key" xml:space="preserve">
+    <value>Configure HB Detection Data</value>
+  </data>
+  <data name="Activity_Configure_HB_Laser_Detection_Data_key" xml:space="preserve">
+    <value>Configure HB Laser Detection Data</value>
+  </data>
+  <data name="Activity_Configure_HB_Spot_Detection_Data_key" xml:space="preserve">
+    <value>Configure HB Spot Detection Data</value>
+  </data>
+  <data name="Activity_Configure_LB_Base_Center_Detection_Data_key" xml:space="preserve">
+    <value>Configure LB Base Center Detection Data</value>
+  </data>
+  <data name="Activity_Configure_LB_Base_Detection_Data_key" xml:space="preserve">
+    <value>Configure LB Base Detection Data</value>
+  </data>
+  <data name="Activity_Configure_LB_Detection_Data_key" xml:space="preserve">
+    <value>Configure LB Detection Data</value>
+  </data>
+  <data name="Activity_Configure_LB_Spot_Detection_Data_key" xml:space="preserve">
+    <value>Configure LB Spot Detection Data</value>
+  </data>
+  <data name="Activity_Configure_SABL1_Detection_Data_key" xml:space="preserve">
+    <value>Configure SABL1 Detection Data</value>
+  </data>
+  <data name="Activity_Configure_SABL2_Detection_Data_key" xml:space="preserve">
+    <value>Configure SABL2 Detection Data</value>
+  </data>
+  <data name="Activity_Configute_MXB_Detection_Data_key" xml:space="preserve">
+    <value>Configute MXB Detection Data</value>
+  </data>
+  <data name="Activity_Contacting_Head_Coding_Update_key" xml:space="preserve">
+    <value>Contacting Head Coding Update</value>
+  </data>
+  <data name="Activity_Continue_on_Error_key" xml:space="preserve">
+    <value>Continue on Error</value>
+  </data>
+  <data name="Activity_Cycle_key" xml:space="preserve">
+    <value>Cycle</value>
+  </data>
+  <data name="Activity_DABL_Off_key" xml:space="preserve">
+    <value>DABL Off</value>
+  </data>
+  <data name="Activity_DABL_On_key" xml:space="preserve">
+    <value>DABL On</value>
+  </data>
+  <data name="Activity_Data_Collection_key" xml:space="preserve">
+    <value>Data Collection</value>
+  </data>
+  <data name="Activity_DC_Motor_off_key" xml:space="preserve">
+    <value>DC Motor off</value>
+  </data>
+  <data name="Activity_Decide_HL_Type_key" xml:space="preserve">
+    <value>Decide HL Type</value>
+  </data>
+  <data name="Activity_Decide_If_Already_Coded_key" xml:space="preserve">
+    <value>Decide If Already Coded</value>
+  </data>
+  <data name="Activity_Delay_key" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_DMD_key" xml:space="preserve">
+    <value>Delete Error Memory DMD</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Delete Error Memory HLI</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_key" xml:space="preserve">
+    <value>Delete Error Memory</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_Laser_key" xml:space="preserve">
+    <value>Delete Error Memory Laser</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_LCU_key" xml:space="preserve">
+    <value>Delete Error Memory LCU</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_only_if_errors_exists_key" xml:space="preserve">
+    <value>Delete Error Memory only if errors exists</value>
+  </data>
+  <data name="Activity_Delete_Info_Memory_key" xml:space="preserve">
+    <value>Delete Info Memory</value>
+  </data>
+  <data name="Activity_Diagnosis_Start_key" xml:space="preserve">
+    <value>Diagnosis Start</value>
+  </data>
+  <data name="Activity_Diagnosis_Stop_key" xml:space="preserve">
+    <value>Diagnosis Stop</value>
+  </data>
+  <data name="Activity_Disable_camera_config_key" xml:space="preserve">
+    <value>Disable camera config</value>
+  </data>
+  <data name="Activity_DMD_Off_key" xml:space="preserve">
+    <value>DMD Off</value>
+  </data>
+  <data name="Activity_DMD_On_key" xml:space="preserve">
+    <value>DMD On</value>
+  </data>
+  <data name="Activity_DMD_Set_Test_Pattern_key" xml:space="preserve">
+    <value>DMD Set Test Pattern</value>
+  </data>
+  <data name="Activity_DMD_Test_key" xml:space="preserve">
+    <value>DMD Test</value>
+  </data>
+  <data name="Activity_DMD_Test_OFF_key" xml:space="preserve">
+    <value>DMD Test OFF</value>
+  </data>
+  <data name="Activity_DMD_Test_ON_key" xml:space="preserve">
+    <value>DMD Test ON</value>
+  </data>
+  <data name="Activity_DMD_Video_Signal_OFF_key" xml:space="preserve">
+    <value>DMD Video Signal OFF</value>
+  </data>
+  <data name="Activity_DMD_Video_Signal_ON_key" xml:space="preserve">
+    <value>DMD Video Signal ON</value>
+  </data>
+  <data name="Activity_DML_key" xml:space="preserve">
+    <value>DML</value>
+  </data>
+  <data name="Activity_Drive_To_Adjust_Position_key" xml:space="preserve">
+    <value>Drive To &lt;Adjust&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_BottomInside_Position_key" xml:space="preserve">
+    <value>Drive To &lt;BottomInside&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_BottomOutside_Position_key" xml:space="preserve">
+    <value>Drive To &lt;BottomOutside&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_Bottom_Position_key" xml:space="preserve">
+    <value>Drive To &lt;Bottom&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_Intside_Position_key" xml:space="preserve">
+    <value>Drive To &lt;Intside&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_Outside_Position_key" xml:space="preserve">
+    <value>Drive To &lt;Outside&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_Test_moving_Position_key" xml:space="preserve">
+    <value>Drive To &lt;Test moving&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_TopInside_Position_key" xml:space="preserve">
+    <value>Drive To &lt;TopInside&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_TopOutside_Position_key" xml:space="preserve">
+    <value>Drive To &lt;TopOutside&gt; Position</value>
+  </data>
+  <data name="Activity_Drive_To_Top_Position_key" xml:space="preserve">
+    <value>Drive To &lt;Top&gt; Position</value>
+  </data>
+  <data name="Activity_DRL1_Off_key" xml:space="preserve">
+    <value>DRL1 Off</value>
+  </data>
+  <data name="Activity_DRL1_On_key" xml:space="preserve">
+    <value>DRL1 On</value>
+  </data>
+  <data name="Activity_DRL2_Off_key" xml:space="preserve">
+    <value>DRL2 Off</value>
+  </data>
+  <data name="Activity_DRL2_On_key" xml:space="preserve">
+    <value>DRL2 On</value>
+  </data>
+  <data name="Activity_DRL_key" xml:space="preserve">
+    <value>DRL</value>
+  </data>
+  <data name="Activity_DRL_Off_key" xml:space="preserve">
+    <value>DRL Off</value>
+  </data>
+  <data name="Activity_DRL_On_key" xml:space="preserve">
+    <value>DRL On</value>
+  </data>
+  <data name="Activity_DRL_test_key" xml:space="preserve">
+    <value>DRL test</value>
+  </data>
+  <data name="Activity_ECE_SAE_key" xml:space="preserve">
+    <value>ECE/SAE</value>
+  </data>
+  <data name="Activity_ECU_Off_key" xml:space="preserve">
+    <value>ECU Off</value>
+  </data>
+  <data name="Activity_ECU_On_key" xml:space="preserve">
+    <value>ECU On</value>
+  </data>
+  <data name="Activity_ECU_Serial_Number_Read_key" xml:space="preserve">
+    <value>ECU Serial Number Read</value>
+  </data>
+  <data name="Activity_Enable_camera_config_key" xml:space="preserve">
+    <value>Enable camera config</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CheckErr" xml:space="preserve">
+    <value>Check errors</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CleanErr" xml:space="preserve">
+    <value>Clean errors</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_ErrImg" xml:space="preserve">
+    <value>Get error images</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetErr" xml:space="preserve">
+    <value>Get errors</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetLastActivityErr" xml:space="preserve">
+    <value>Get last error activity name</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetTables" xml:space="preserve">
+    <value>Get invalid validation tables</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_RaiseErr" xml:space="preserve">
+    <value>Raise error</value>
+  </data>
+  <data name="Activity_ExecuteCode_key" xml:space="preserve">
+    <value>ExecuteCode</value>
+  </data>
+  <data name="Activity_Execute_compiled_code_key" xml:space="preserve">
+    <value>Execute compiled code</value>
+  </data>
+  <data name="Activity_Execute_home_key" xml:space="preserve">
+    <value>Execute home</value>
+  </data>
+  <data name="Activity_Execute_package_async_LCB_Inside_key" xml:space="preserve">
+    <value>Execute package async LCB Inside</value>
+  </data>
+  <data name="Activity_Execute_package_async_LCB_Middle_key" xml:space="preserve">
+    <value>Execute package async LCB Middle</value>
+  </data>
+  <data name="Activity_Execute_package_async_LCB_Outside_key" xml:space="preserve">
+    <value>Execute package async LCB Outside</value>
+  </data>
+  <data name="Activity_Execute_package_async_Prepare_next_cycle_key" xml:space="preserve">
+    <value>Execute package async Prepare next cycle</value>
+  </data>
+  <data name="Activity_Execute_package_async_Work_HB_key" xml:space="preserve">
+    <value>Execute package async Work HB</value>
+  </data>
+  <data name="Activity_Execute_package_Clean_key" xml:space="preserve">
+    <value>Execute package Clean</value>
+  </data>
+  <data name="Activity_Execute_package_key" xml:space="preserve">
+    <value>Execute package</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_clean_key" xml:space="preserve">
+    <value>Execute package LCB clean</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_CL_async_key" xml:space="preserve">
+    <value>Execute package LCB CL async</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_CL_key" xml:space="preserve">
+    <value>Execute package LCB CL</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_MID_key" xml:space="preserve">
+    <value>Execute package LCB MID</value>
+  </data>
+  <data name="Activity_Execute_package_Move_To_Base_key" xml:space="preserve">
+    <value>Execute package Move To Base</value>
+  </data>
+  <data name="Activity_Execute_package_readers_home_key" xml:space="preserve">
+    <value>Execute package readers home</value>
+  </data>
+  <data name="Activity_Execute_package_readers_read_key" xml:space="preserve">
+    <value>Execute package readers read</value>
+  </data>
+  <data name="Activity_Execute_package_Ready_key" xml:space="preserve">
+    <value>Execute package Ready</value>
+  </data>
+  <data name="Activity_Execute_package_without_possition_lag_key" xml:space="preserve">
+    <value>Execute package without possition lag</value>
+  </data>
+  <data name="Activity_Execute_package_WORK_CL_key" xml:space="preserve">
+    <value>Execute package WORK CL</value>
+  </data>
+  <data name="Activity_Execute_package_Work_HB_key" xml:space="preserve">
+    <value>Execute package Work HB</value>
+  </data>
+  <data name="Activity_Execute_package_Work_key" xml:space="preserve">
+    <value>Execute package Work</value>
+  </data>
+  <data name="Activity_Execute_Reference_Run_key" xml:space="preserve">
+    <value>Execute Reference Run</value>
+  </data>
+  <data name="Activity_Execute_reverse_to_first_step_key" xml:space="preserve">
+    <value>Execute reverse to first step</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Clean_Asynchronously_key" xml:space="preserve">
+    <value>Execute Step LCB Clean Asynchronously</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Work_Asynchronously_key" xml:space="preserve">
+    <value>Execute Step LCB Work Asynchronously</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Work_HB_Asynchronously_key" xml:space="preserve">
+    <value>Execute Step LCB Work HB Asynchronously</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Work_LB_Asynchronously_key" xml:space="preserve">
+    <value>Execute Step LCB Work LB Asynchronously</value>
+  </data>
+  <data name="Activity_Execute_Test_key" xml:space="preserve">
+    <value>Execute Test</value>
+  </data>
+  <data name="Activity_Fan_1_Off_key" xml:space="preserve">
+    <value>Fan 1 Off</value>
+  </data>
+  <data name="Activity_Fan_1_On_key" xml:space="preserve">
+    <value>Fan 1 On</value>
+  </data>
+  <data name="Activity_Find_Patterns_key" xml:space="preserve">
+    <value>Find Patterns</value>
+  </data>
+  <data name="Activity_Find_Patterns_Side_Camera_key" xml:space="preserve">
+    <value>Find Patterns Side Camera</value>
+  </data>
+  <data name="Activity_Find_Patterns_Top_Camera_key" xml:space="preserve">
+    <value>Find Patterns Top Camera</value>
+  </data>
+  <data name="Activity_Force_Coding_key" xml:space="preserve">
+    <value>Force Coding</value>
+  </data>
+  <data name="Activity_Force_Reinitialize_key" xml:space="preserve">
+    <value>Force Reinitialize</value>
+  </data>
+  <data name="Activity_General_Parameter_Write_key" xml:space="preserve">
+    <value>General Parameter Write</value>
+  </data>
+  <data name="Activity_Get_Absolute_Seconds_key" xml:space="preserve">
+    <value>Get Absolute Seconds</value>
+  </data>
+  <data name="Activity_Get_ALCZ_code_key" xml:space="preserve">
+    <value>Get ALCZ code</value>
+  </data>
+  <data name="Activity_Get_ALCZ_Part_Number_key" xml:space="preserve">
+    <value>Get ALCZ Part Number</value>
+  </data>
+  <data name="Activity_Get_analog_input_voltage_key" xml:space="preserve">
+    <value>Get analog input voltage</value>
+  </data>
+  <data name="Activity_Get_change_index_if_production_key" xml:space="preserve">
+    <value>Get change index if production</value>
+  </data>
+  <data name="Activity_Get_change_index_key" xml:space="preserve">
+    <value>Get change index</value>
+  </data>
+  <data name="Activity_Get_customer_AI_key" xml:space="preserve">
+    <value>Get customer AI</value>
+  </data>
+  <data name="Activity_Get_Customer_Code_key" xml:space="preserve">
+    <value>Get Customer Code</value>
+  </data>
+  <data name="Activity_Get_customer_PN_key" xml:space="preserve">
+    <value>Get customer PN</value>
+  </data>
+  <data name="Activity_Get_cycle_number_key" xml:space="preserve">
+    <value>Get cycle number</value>
+  </data>
+  <data name="Activity_Get_cycle_time_key" xml:space="preserve">
+    <value>Get cycle time</value>
+  </data>
+  <data name="Activity_Get_date_time_key" xml:space="preserve">
+    <value>Get date time</value>
+  </data>
+  <data name="Activity_Get_date_time_now_key" xml:space="preserve">
+    <value>Get date time now</value>
+  </data>
+  <data name="Activity_Get_errors_key" xml:space="preserve">
+    <value>Get errors</value>
+  </data>
+  <data name="Activity_Get_error_images_key" xml:space="preserve">
+    <value>Get error images</value>
+  </data>
+  <data name="Activity_Get_HL_variant_key" xml:space="preserve">
+    <value>Get HL variant</value>
+  </data>
+  <data name="Activity_Get_Image_and_Meas_Intensity_key" xml:space="preserve">
+    <value>Get Image and Meas Intensity</value>
+  </data>
+  <data name="Activity_Get_logged_users_key" xml:space="preserve">
+    <value>Get logged users</value>
+  </data>
+  <data name="Activity_Get_Mounting_side_from_optical_sensors_key" xml:space="preserve">
+    <value>Get Mounting side from optical sensors</value>
+  </data>
+  <data name="Activity_Get_operator_result_key" xml:space="preserve">
+    <value>Get operator result</value>
+  </data>
+  <data name="Activity_Get_power_supply_voltage_key" xml:space="preserve">
+    <value>Get power supply voltage</value>
+  </data>
+  <data name="Activity_Get_proccess_or_not_key" xml:space="preserve">
+    <value>Get proccess or not</value>
+  </data>
+  <data name="Activity_Get_Process_Or_Not_key" xml:space="preserve">
+    <value>Get Process Or Not</value>
+  </data>
+  <data name="Activity_Get_sequence_variant_key" xml:space="preserve">
+    <value>Get sequence variant</value>
+  </data>
+  <data name="Activity_GFHB_Off_key" xml:space="preserve">
+    <value>GFHB Off</value>
+  </data>
+  <data name="Activity_GFHB_On_key" xml:space="preserve">
+    <value>GFHB On</value>
+  </data>
+  <data name="Activity_GFHB_Test_key" xml:space="preserve">
+    <value>GFHB Test</value>
+  </data>
+  <data name="Activity_HB_Base_Off_key" xml:space="preserve">
+    <value>HB Base Off</value>
+  </data>
+  <data name="Activity_HB_Base_On_key" xml:space="preserve">
+    <value>HB Base On</value>
+  </data>
+  <data name="Activity_HB_Base_Test_key" xml:space="preserve">
+    <value>HB Base Test</value>
+  </data>
+  <data name="Activity_HB_key" xml:space="preserve">
+    <value>HB</value>
+  </data>
+  <data name="Activity_HB_Off_key" xml:space="preserve">
+    <value>HB Off</value>
+  </data>
+  <data name="Activity_HB_On_key" xml:space="preserve">
+    <value>HB On</value>
+  </data>
+  <data name="Activity_HB_Spot_Laser_Test_key" xml:space="preserve">
+    <value>HB Spot Laser Test</value>
+  </data>
+  <data name="Activity_HB_Spot_Off_key" xml:space="preserve">
+    <value>HB Spot Off</value>
+  </data>
+  <data name="Activity_HB_Spot_On_key" xml:space="preserve">
+    <value>HB Spot On</value>
+  </data>
+  <data name="Activity_HB_Spot_Test_key" xml:space="preserve">
+    <value>HB Spot Test</value>
+  </data>
+  <data name="Activity_HB_Test_key" xml:space="preserve">
+    <value>HB Test</value>
+  </data>
+  <data name="Activity_High_Beam_key" xml:space="preserve">
+    <value>High Beam</value>
+  </data>
+  <data name="Activity_HLI_LCU_L_Off_key" xml:space="preserve">
+    <value>HLI LCU L Off</value>
+  </data>
+  <data name="Activity_HLI_LCU_L_on_key" xml:space="preserve">
+    <value>HLI LCU L on</value>
+  </data>
+  <data name="Activity_HLI_Off_key" xml:space="preserve">
+    <value>HLI Off</value>
+  </data>
+  <data name="Activity_HLI_On_key" xml:space="preserve">
+    <value>HLI On</value>
+  </data>
+  <data name="Activity_HLI_Reset_key" xml:space="preserve">
+    <value>HLI Reset</value>
+  </data>
+  <data name="Activity_HL_Initialization_and_identification_key" xml:space="preserve">
+    <value>HL Initialization and identification</value>
+  </data>
+  <data name="Activity_HL_Rezistor_key" xml:space="preserve">
+    <value>HL Rezistor</value>
+  </data>
+  <data name="Activity_HL_Test_key" xml:space="preserve">
+    <value>HL Test</value>
+  </data>
+  <data name="Activity_Home_Machine_key" xml:space="preserve">
+    <value>Home Machine</value>
+  </data>
+  <data name="Activity_Identification_and_tracebility_HLI_key" xml:space="preserve">
+    <value>Identification and tracebility HLI</value>
+  </data>
+  <data name="Activity_Identification_and_tracebility_LCU_key" xml:space="preserve">
+    <value>Identification and tracebility LCU</value>
+  </data>
+  <data name="Activity_Identification_and_Variant_Selection_HLI_key" xml:space="preserve">
+    <value>Identification and Variant Selection HLI</value>
+  </data>
+  <data name="Activity_Identification_and_Variant_Selection_key" xml:space="preserve">
+    <value>Identification and Variant Selection</value>
+  </data>
+  <data name="Activity_Identification_and_Variant_Selection_LCU_key" xml:space="preserve">
+    <value>Identification and Variant Selection LCU</value>
+  </data>
+  <data name="Activity_Identification_key" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="Activity_If_Both_key" xml:space="preserve">
+    <value>If Both</value>
+  </data>
+  <data name="Activity_If_coding_data_mismatch_key" xml:space="preserve">
+    <value>If coding data mismatch</value>
+  </data>
+  <data name="Activity_If_different_mounting_side_key" xml:space="preserve">
+    <value>If different mounting side</value>
+  </data>
+  <data name="Activity_If_errors_exists_key" xml:space="preserve">
+    <value>If errors exists</value>
+  </data>
+  <data name="Activity_If_first_run_key" xml:space="preserve">
+    <value>If first run</value>
+  </data>
+  <data name="Activity_IF_GS_key" xml:space="preserve">
+    <value>IF GS</value>
+  </data>
+  <data name="Activity_if_Left_key" xml:space="preserve">
+    <value>if Left</value>
+  </data>
+  <data name="Activity_If_NOK_key" xml:space="preserve">
+    <value>If NOK</value>
+  </data>
+  <data name="Activity_If_not_coded_key" xml:space="preserve">
+    <value>If not coded</value>
+  </data>
+  <data name="Activity_If_not_repeating_key" xml:space="preserve">
+    <value>If not repeating</value>
+  </data>
+  <data name="Activity_If_ok_key" xml:space="preserve">
+    <value>If OK</value>
+  </data>
+  <data name="Activity_if_Right_key" xml:space="preserve">
+    <value>if Right</value>
+  </data>
+  <data name="Activity_If_Top_key" xml:space="preserve">
+    <value>If Top</value>
+  </data>
+  <data name="Activity_Important_Question_key" xml:space="preserve">
+    <value>Important Question</value>
+  </data>
+  <data name="Activity_Initialization_and_Identification_key" xml:space="preserve">
+    <value>Initialization and Identification</value>
+  </data>
+  <data name="Activity_Initialization_Bus_Communication_key" xml:space="preserve">
+    <value>Initialization Bus Communication</value>
+  </data>
+  <data name="Activity_Initialize_key" xml:space="preserve">
+    <value>Initialize</value>
+  </data>
+  <data name="Activity_Init_bus_com_machine_key" xml:space="preserve">
+    <value>Init bus com +machine</value>
+  </data>
+  <data name="Activity_Init_Can_Signals_key" xml:space="preserve">
+    <value>Init Can Signals</value>
+  </data>
+  <data name="Activity_Init_Machine_after_sequence_start_key" xml:space="preserve">
+    <value>Init Machine - after sequence start</value>
+  </data>
+  <data name="Activity_Init_test_key" xml:space="preserve">
+    <value>Init test</value>
+  </data>
+  <data name="Activity_Init_Vision_key" xml:space="preserve">
+    <value>Init Vision</value>
+  </data>
+  <data name="Activity_Laser_Identification_key" xml:space="preserve">
+    <value>Laser Identification</value>
+  </data>
+  <data name="Activity_Laser_off_key" xml:space="preserve">
+    <value>Laser off</value>
+  </data>
+  <data name="Activity_Laser_On_key" xml:space="preserve">
+    <value>Laser On</value>
+  </data>
+  <data name="Activity_LBB_Off_key" xml:space="preserve">
+    <value>LBB Off</value>
+  </data>
+  <data name="Activity_LBB_On_key" xml:space="preserve">
+    <value>LBB On</value>
+  </data>
+  <data name="Activity_LBS_Off_key" xml:space="preserve">
+    <value>LBS Off</value>
+  </data>
+  <data name="Activity_LBS_On_key" xml:space="preserve">
+    <value>LBS On</value>
+  </data>
+  <data name="Activity_LB_Base_Center_Off_key" xml:space="preserve">
+    <value>LB Base Center Off</value>
+  </data>
+  <data name="Activity_LB_Base_Center_On_key" xml:space="preserve">
+    <value>LB Base Center On</value>
+  </data>
+  <data name="Activity_LB_Base_Center_Test_key" xml:space="preserve">
+    <value>LB Base Center Test</value>
+  </data>
+  <data name="Activity_LB_Base_Off_key" xml:space="preserve">
+    <value>LB Base Off</value>
+  </data>
+  <data name="Activity_LB_Base_On_key" xml:space="preserve">
+    <value>LB Base On</value>
+  </data>
+  <data name="Activity_LB_Base_Side_Off_key" xml:space="preserve">
+    <value>LB Base Side Off</value>
+  </data>
+  <data name="Activity_LB_Base_Side_On_key" xml:space="preserve">
+    <value>LB Base Side On</value>
+  </data>
+  <data name="Activity_LB_Base_Side_Test_key" xml:space="preserve">
+    <value>LB Base Side Test</value>
+  </data>
+  <data name="Activity_LB_Base_Test_key" xml:space="preserve">
+    <value>LB Base Test</value>
+  </data>
+  <data name="Activity_LB_key" xml:space="preserve">
+    <value>LB</value>
+  </data>
+  <data name="Activity_LB_Off_key" xml:space="preserve">
+    <value>LB Off</value>
+  </data>
+  <data name="Activity_LB_On_key" xml:space="preserve">
+    <value>LB On</value>
+  </data>
+  <data name="Activity_LB_Spot_Off_key" xml:space="preserve">
+    <value>LB Spot Off</value>
+  </data>
+  <data name="Activity_LB_Spot_On_key" xml:space="preserve">
+    <value>LB Spot On</value>
+  </data>
+  <data name="Activity_LB_Spot_Test_key" xml:space="preserve">
+    <value>LB Spot Test</value>
+  </data>
+  <data name="Activity_LB_Test_key" xml:space="preserve">
+    <value>LB Test</value>
+  </data>
+  <data name="Activity_LCU_Off_key" xml:space="preserve">
+    <value>LCU Off</value>
+  </data>
+  <data name="Activity_LCU_On_key" xml:space="preserve">
+    <value>LCU On</value>
+  </data>
+  <data name="Activity_LCU_Temperatures_key" xml:space="preserve">
+    <value>LCU Temperatures</value>
+  </data>
+  <data name="Activity_Left_or_Right_key" xml:space="preserve">
+    <value>Left or Right</value>
+  </data>
+  <data name="Activity_Leimo_off_key" xml:space="preserve">
+    <value>Leimo off</value>
+  </data>
+  <data name="Activity_Leimo_on_key" xml:space="preserve">
+    <value>Leimo on</value>
+  </data>
+  <data name="Activity_Lens_Check_key" xml:space="preserve">
+    <value>Lens Check</value>
+  </data>
+  <data name="Activity_Lock_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Lock Error Memory HLI</value>
+  </data>
+  <data name="Activity_Loop_key" xml:space="preserve">
+    <value>Loop</value>
+  </data>
+  <data name="Activity_LWR_Off_key" xml:space="preserve">
+    <value>LWR Off</value>
+  </data>
+  <data name="Activity_LWR_On_key" xml:space="preserve">
+    <value>LWR On</value>
+  </data>
+  <data name="Activity_LWR_Reference_key" xml:space="preserve">
+    <value>LWR Reference</value>
+  </data>
+  <data name="Activity_Main_Loop_key" xml:space="preserve">
+    <value>Main Loop</value>
+  </data>
+  <data name="Activity_Manual_Lens_Check_key" xml:space="preserve">
+    <value>Manual Lens Check</value>
+  </data>
+  <data name="Activity_Matrix_Beam_key" xml:space="preserve">
+    <value>Matrix Beam</value>
+  </data>
+  <data name="Activity_Measure_Color_DRL1_key" xml:space="preserve">
+    <value>Measure Color DRL1</value>
+  </data>
+  <data name="Activity_Measure_Color_DRL2_key" xml:space="preserve">
+    <value>Measure Color DRL2</value>
+  </data>
+  <data name="Activity_Measure_Color_DRL_key" xml:space="preserve">
+    <value>Measure Color DRL</value>
+  </data>
+  <data name="Activity_Measure_Color_key" xml:space="preserve">
+    <value>Measure Color</value>
+  </data>
+  <data name="Activity_Measure_Color_SCL_key" xml:space="preserve">
+    <value>Measure Color SCL</value>
+  </data>
+  <data name="Activity_Measure_Color_SM_key" xml:space="preserve">
+    <value>Measure Color SM</value>
+  </data>
+  <data name="Activity_Measure_Color_TI_key" xml:space="preserve">
+    <value>Measure Color TI</value>
+  </data>
+  <data name="Activity_Measure_current_CL_key" xml:space="preserve">
+    <value>Measure current CL</value>
+  </data>
+  <data name="Activity_Measure_current_DMD_key" xml:space="preserve">
+    <value>Measure current DMD</value>
+  </data>
+  <data name="Activity_Measure_current_DRL1_key" xml:space="preserve">
+    <value>Measure current DRL1</value>
+  </data>
+  <data name="Activity_Measure_current_DRL2_key" xml:space="preserve">
+    <value>Measure current DRL2</value>
+  </data>
+  <data name="Activity_Measure_current_DRL_key" xml:space="preserve">
+    <value>Measure current DRL</value>
+  </data>
+  <data name="Activity_Measure_current_ECUs_key" xml:space="preserve">
+    <value>Measure current ECUs</value>
+  </data>
+  <data name="Activity_Measure_current_ECU_key" xml:space="preserve">
+    <value>Measure current ECU</value>
+  </data>
+  <data name="Activity_Measure_current_Fan_key" xml:space="preserve">
+    <value>Measure current Fan</value>
+  </data>
+  <data name="Activity_Measure_current_GFHB_key" xml:space="preserve">
+    <value>Measure current GFHB</value>
+  </data>
+  <data name="Activity_Measure_current_HB_Base_key" xml:space="preserve">
+    <value>Measure current HB Base</value>
+  </data>
+  <data name="Activity_Measure_current_HB_key" xml:space="preserve">
+    <value>Measure current HB</value>
+  </data>
+  <data name="Activity_Measure_current_HB_Laser_key" xml:space="preserve">
+    <value>Measure current HB Laser</value>
+  </data>
+  <data name="Activity_Measure_current_HB_Spot_key" xml:space="preserve">
+    <value>Measure current HB Spot</value>
+  </data>
+  <data name="Activity_Measure_current_HLI_key" xml:space="preserve">
+    <value>Measure current HLI</value>
+  </data>
+  <data name="Activity_Measure_current_key" xml:space="preserve">
+    <value>Measure current</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Base_Center_key" xml:space="preserve">
+    <value>Measure current LB Base Center</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Base_key" xml:space="preserve">
+    <value>Measure current LB Base</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Base_Side_key" xml:space="preserve">
+    <value>Measure current LB Base Side</value>
+  </data>
+  <data name="Activity_Measure_current_LB_key" xml:space="preserve">
+    <value>Measure current LB</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Spot_key" xml:space="preserve">
+    <value>Measure current LB Spot</value>
+  </data>
+  <data name="Activity_Measure_current_LCU_key" xml:space="preserve">
+    <value>Measure current LCU</value>
+  </data>
+  <data name="Activity_Measure_current_LMS_key" xml:space="preserve">
+    <value>Measure current LMS</value>
+  </data>
+  <data name="Activity_Measure_current_MxB_key" xml:space="preserve">
+    <value>Measure current MxB</value>
+  </data>
+  <data name="Activity_Measure_current_POS1_key" xml:space="preserve">
+    <value>Measure current POS1</value>
+  </data>
+  <data name="Activity_Measure_current_POS2_key" xml:space="preserve">
+    <value>Measure current POS2</value>
+  </data>
+  <data name="Activity_Measure_current_POS_key" xml:space="preserve">
+    <value>Measure current POS</value>
+  </data>
+  <data name="Activity_Measure_current_SCL_key" xml:space="preserve">
+    <value>Measure current SCL</value>
+  </data>
+  <data name="Activity_Measure_current_SM_key" xml:space="preserve">
+    <value>Measure current SM</value>
+  </data>
+  <data name="Activity_Measure_current_TI1_key" xml:space="preserve">
+    <value>Measure current TI1</value>
+  </data>
+  <data name="Activity_Measure_current_TI2_key" xml:space="preserve">
+    <value>Measure current TI2</value>
+  </data>
+  <data name="Activity_Measure_current_TI_key" xml:space="preserve">
+    <value>Measure current TI</value>
+  </data>
+  <data name="Activity_Measure_Intensity_CL_key" xml:space="preserve">
+    <value>Measure Intensity CL</value>
+  </data>
+  <data name="Activity_Measure_Intensity_DRL1_key" xml:space="preserve">
+    <value>Measure Intensity DRL1</value>
+  </data>
+  <data name="Activity_Measure_Intensity_DRL2_key" xml:space="preserve">
+    <value>Measure Intensity DRL2</value>
+  </data>
+  <data name="Activity_Measure_Intensity_DRL_key" xml:space="preserve">
+    <value>Measure Intensity DRL</value>
+  </data>
+  <data name="Activity_Measure_Intensity_key" xml:space="preserve">
+    <value>Measure Intensity</value>
+  </data>
+  <data name="Activity_Measure_Intensity_LB_Base_Side_key" xml:space="preserve">
+    <value>Measure Intensity LB Base Side</value>
+  </data>
+  <data name="Activity_Measure_Intensity_POS_key" xml:space="preserve">
+    <value>Measure Intensity POS</value>
+  </data>
+  <data name="Activity_Measure_Intensity_SCL_key" xml:space="preserve">
+    <value>Measure Intensity SCL</value>
+  </data>
+  <data name="Activity_Measure_Intensity_SM_key" xml:space="preserve">
+    <value>Measure Intensity SM</value>
+  </data>
+  <data name="Activity_Measure_Intensity_TI_key" xml:space="preserve">
+    <value>Measure Intensity TI</value>
+  </data>
+  <data name="Activity_Movement_Inside_key" xml:space="preserve">
+    <value>Movement Inside</value>
+  </data>
+  <data name="Activity_Movement_Middle_key" xml:space="preserve">
+    <value>Movement Middle</value>
+  </data>
+  <data name="Activity_Movement_Outside_key" xml:space="preserve">
+    <value>Movement Outside</value>
+  </data>
+  <data name="Activity_Movement_test_key" xml:space="preserve">
+    <value>Movement test</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_0_key" xml:space="preserve">
+    <value>Movement Test Pos 0</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_1_key" xml:space="preserve">
+    <value>Movement Test Pos 1</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_2_key" xml:space="preserve">
+    <value>Movement Test Pos 2</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_3_key" xml:space="preserve">
+    <value>Movement Test Pos 3</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_4_key" xml:space="preserve">
+    <value>Movement Test Pos 4</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_5_key" xml:space="preserve">
+    <value>Movement Test Pos 5</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_6_key" xml:space="preserve">
+    <value>Movement Test Pos 6</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Clean_async_key" xml:space="preserve">
+    <value>Move LCB to Clean async</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_async_key" xml:space="preserve">
+    <value>Move LCB to Work async</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_HB_async_key" xml:space="preserve">
+    <value>Move LCB to Work HB async</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_LB_async_key" xml:space="preserve">
+    <value>Move LCB to Work LB async</value>
+  </data>
+  <data name="Activity_Move_to_LCB_CL_async_key" xml:space="preserve">
+    <value>Move to LCB CL async</value>
+  </data>
+  <data name="Activity_Move_to_LCB_CL_key" xml:space="preserve">
+    <value>Move to LCB CL</value>
+  </data>
+  <data name="Activity_Move_to_LCB_MID_async_key" xml:space="preserve">
+    <value>Move to LCB MID async</value>
+  </data>
+  <data name="Activity_Move_to_LCB_MID_key" xml:space="preserve">
+    <value>Move to LCB MID</value>
+  </data>
+  <data name="Activity_Move_to_LCB_Work_HB_key" xml:space="preserve">
+    <value>Move to LCB Work HB</value>
+  </data>
+  <data name="Activity_Move_to_LCB_Work_LB_key" xml:space="preserve">
+    <value>Move to LCB Work LB</value>
+  </data>
+  <data name="Activity_Move_to_PREPARE_NEXT_CYCLE_async_key" xml:space="preserve">
+    <value>Move to PREPARE NEXT CYCLE async</value>
+  </data>
+  <data name="Activity_Move_to_WORK_CL_key" xml:space="preserve">
+    <value>Move to WORK CL</value>
+  </data>
+  <data name="Activity_Move_to_WORK_HB_async_key" xml:space="preserve">
+    <value>Move to WORK HB async</value>
+  </data>
+  <data name="Activity_Move_to_WORK_HB_key" xml:space="preserve">
+    <value>Move to WORK HB</value>
+  </data>
+  <data name="Activity_Move_to_WORK_key" xml:space="preserve">
+    <value>Move to WORK</value>
+  </data>
+  <data name="Activity_MxB_key" xml:space="preserve">
+    <value>MxB</value>
+  </data>
+  <data name="Activity_MXB_LED10_Off_key" xml:space="preserve">
+    <value>MXB LED10 Off</value>
+  </data>
+  <data name="Activity_MXB_LED10_On_key" xml:space="preserve">
+    <value>MXB LED10 On</value>
+  </data>
+  <data name="Activity_MXB_LED11_Off_key" xml:space="preserve">
+    <value>MXB LED11 Off</value>
+  </data>
+  <data name="Activity_MXB_LED11_On_key" xml:space="preserve">
+    <value>MXB LED11 On</value>
+  </data>
+  <data name="Activity_MXB_LED12_Off_key" xml:space="preserve">
+    <value>MXB LED12 Off</value>
+  </data>
+  <data name="Activity_MXB_LED12_On_key" xml:space="preserve">
+    <value>MXB LED12 On</value>
+  </data>
+  <data name="Activity_MXB_LED1_Off_key" xml:space="preserve">
+    <value>MXB LED1 Off</value>
+  </data>
+  <data name="Activity_MXB_LED1_On_key" xml:space="preserve">
+    <value>MXB LED1 On</value>
+  </data>
+  <data name="Activity_MXB_LED2_Off_key" xml:space="preserve">
+    <value>MXB LED2 Off</value>
+  </data>
+  <data name="Activity_MXB_LED2_On_key" xml:space="preserve">
+    <value>MXB LED2 On</value>
+  </data>
+  <data name="Activity_MXB_LED3_Off_key" xml:space="preserve">
+    <value>MXB LED3 Off</value>
+  </data>
+  <data name="Activity_MXB_LED3_On_key" xml:space="preserve">
+    <value>MXB LED3 On</value>
+  </data>
+  <data name="Activity_MXB_LED4_Off_key" xml:space="preserve">
+    <value>MXB LED4 Off</value>
+  </data>
+  <data name="Activity_MXB_LED4_On_key" xml:space="preserve">
+    <value>MXB LED4 On</value>
+  </data>
+  <data name="Activity_MXB_LED5_Off_key" xml:space="preserve">
+    <value>MXB LED5 Off</value>
+  </data>
+  <data name="Activity_MXB_LED5_On_key" xml:space="preserve">
+    <value>MXB LED5 On</value>
+  </data>
+  <data name="Activity_MXB_LED6_Off_key" xml:space="preserve">
+    <value>MXB LED6 Off</value>
+  </data>
+  <data name="Activity_MXB_LED6_On_key" xml:space="preserve">
+    <value>MXB LED6 On</value>
+  </data>
+  <data name="Activity_MXB_LED7_Off_key" xml:space="preserve">
+    <value>MXB LED7 Off</value>
+  </data>
+  <data name="Activity_MXB_LED7_On_key" xml:space="preserve">
+    <value>MXB LED7 On</value>
+  </data>
+  <data name="Activity_MXB_LED8_Off_key" xml:space="preserve">
+    <value>MXB LED8 Off</value>
+  </data>
+  <data name="Activity_MXB_LED8_On_key" xml:space="preserve">
+    <value>MXB LED8 On</value>
+  </data>
+  <data name="Activity_MXB_LED9_Off_key" xml:space="preserve">
+    <value>MXB LED9 Off</value>
+  </data>
+  <data name="Activity_MXB_LED9_On_key" xml:space="preserve">
+    <value>MXB LED9 On</value>
+  </data>
+  <data name="Activity_MXB_LED_FULL_Off_key" xml:space="preserve">
+    <value>MXB LED FULL Off</value>
+  </data>
+  <data name="Activity_MXB_LED_FULL_On_key" xml:space="preserve">
+    <value>MXB LED FULL On</value>
+  </data>
+  <data name="Activity_MXB_Pattern1_Off_key" xml:space="preserve">
+    <value>MXB Pattern1 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern1_On_key" xml:space="preserve">
+    <value>MXB Pattern1 On</value>
+  </data>
+  <data name="Activity_MXB_Pattern2_Off_key" xml:space="preserve">
+    <value>MXB Pattern2 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern2_On_key" xml:space="preserve">
+    <value>MXB Pattern2 On</value>
+  </data>
+  <data name="Activity_MXB_Pattern3_Off_key" xml:space="preserve">
+    <value>MXB Pattern3 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern3_On_key" xml:space="preserve">
+    <value>MXB Pattern3 On</value>
+  </data>
+  <data name="Activity_MXB_Pattern4_Off_key" xml:space="preserve">
+    <value>MXB Pattern4 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern4_On_key" xml:space="preserve">
+    <value>MXB Pattern4 On</value>
+  </data>
+  <data name="Activity_MxB_Test_key" xml:space="preserve">
+    <value>MxB Test</value>
+  </data>
+  <data name="Activity_PalleteID_key" xml:space="preserve">
+    <value>PalleteID</value>
+  </data>
+  <data name="Activity_Parse_ALCZ_Part_Number_key" xml:space="preserve">
+    <value>Parse ALCZ Part Number</value>
+  </data>
+  <data name="Activity_Parse_Barcode_key" xml:space="preserve">
+    <value>Parse Barcode</value>
+  </data>
+  <data name="Activity_Parsing_key" xml:space="preserve">
+    <value>Parsing</value>
+  </data>
+  <data name="Activity_Part_presence_key" xml:space="preserve">
+    <value>Part presence</value>
+  </data>
+  <data name="Activity_POS1_Off_key" xml:space="preserve">
+    <value>POS1 Off</value>
+  </data>
+  <data name="Activity_POS1_On_key" xml:space="preserve">
+    <value>POS1 On</value>
+  </data>
+  <data name="Activity_POS2_Off_key" xml:space="preserve">
+    <value>POS2 Off</value>
+  </data>
+  <data name="Activity_POS2_On_key" xml:space="preserve">
+    <value>POS2 On</value>
+  </data>
+  <data name="Activity_POS_Off_key" xml:space="preserve">
+    <value>POS Off</value>
+  </data>
+  <data name="Activity_POS_On_key" xml:space="preserve">
+    <value>POS On</value>
+  </data>
+  <data name="Activity_POS_test_key" xml:space="preserve">
+    <value>POS test</value>
+  </data>
+  <data name="Activity_Prepare_and_Execute_Test_key" xml:space="preserve">
+    <value>Prepare and Execute Test</value>
+  </data>
+  <data name="Activity_Prepare_for_service_key" xml:space="preserve">
+    <value>Prepare for service</value>
+  </data>
+  <data name="Activity_Prepare_Machine_each_new_cycle_key" xml:space="preserve">
+    <value>Prepare Machine - each new cycle</value>
+  </data>
+  <data name="Activity_Prepare_Machine_key" xml:space="preserve">
+    <value>Prepare Machine</value>
+  </data>
+  <data name="Activity_Prepare_Test_key" xml:space="preserve">
+    <value>Prepare Test</value>
+  </data>
+  <data name="Activity_Range_Test_Bottom_Left_key" xml:space="preserve">
+    <value>Range Test Bottom Left</value>
+  </data>
+  <data name="Activity_Range_test_key" xml:space="preserve">
+    <value>Range test</value>
+  </data>
+  <data name="Activity_Range_Test_Target_key" xml:space="preserve">
+    <value>Range Test Target</value>
+  </data>
+  <data name="Activity_Range_Test_Top_Right_key" xml:space="preserve">
+    <value>Range Test Top Right</value>
+  </data>
+  <data name="Activity_Readers_key" xml:space="preserve">
+    <value>Readers</value>
+  </data>
+  <data name="Activity_Readers_to_home_possition_key" xml:space="preserve">
+    <value>Readers to home possition</value>
+  </data>
+  <data name="Activity_Readers_to_read_possition_key" xml:space="preserve">
+    <value>Readers to read possition</value>
+  </data>
+  <data name="Activity_Read_and_delete_Error_Memory_key" xml:space="preserve">
+    <value>Read and delete Error Memory</value>
+  </data>
+  <data name="Activity_Read_Axel_Sensor_Value_key" xml:space="preserve">
+    <value>Read Axel Sensor Value</value>
+  </data>
+  <data name="Activity_Read_barcodes_SF1_key" xml:space="preserve">
+    <value>Read barcodes SF1</value>
+  </data>
+  <data name="Activity_Read_barcodes_SF2_key" xml:space="preserve">
+    <value>Read barcodes SF2</value>
+  </data>
+  <data name="Activity_Read_barcode_FL_key" xml:space="preserve">
+    <value>Read barcode FL</value>
+  </data>
+  <data name="Activity_Read_barcode_FR_key" xml:space="preserve">
+    <value>Read barcode FR</value>
+  </data>
+  <data name="Activity_Read_barcode_key" xml:space="preserve">
+    <value>Read barcode</value>
+  </data>
+  <data name="Activity_Read_Binnig_Class_key" xml:space="preserve">
+    <value>Read Binnig Class</value>
+  </data>
+  <data name="Activity_Read_ECU_Identification_HWEL_BTLD_SWFL_key" xml:space="preserve">
+    <value>Read ECU Identification (HWEL, BTLD, SWFL)</value>
+  </data>
+  <data name="Activity_Read_ECU_Identification_SWFK_CAFD_After_Coding_key" xml:space="preserve">
+    <value>Read ECU Identification (SWFK, CAFD) After Coding</value>
+  </data>
+  <data name="Activity_Read_ECU_Identification_SWFK_CAFD_Before_Coding_key" xml:space="preserve">
+    <value>Read ECU Identification (SWFK, CAFD) Before Coding</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_DMD_key" xml:space="preserve">
+    <value>Read Error Memory DMD</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Read Error Memory HLI</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_key" xml:space="preserve">
+    <value>Read Error Memory</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_LCU_key" xml:space="preserve">
+    <value>Read Error Memory LCU</value>
+  </data>
+  <data name="Activity_Read_HW_Ident_DMD_key" xml:space="preserve">
+    <value>Read HW Ident DMD</value>
+  </data>
+  <data name="Activity_Read_HW_Ident_key" xml:space="preserve">
+    <value>Read HW Ident</value>
+  </data>
+  <data name="Activity_Read_Info_Memory_key" xml:space="preserve">
+    <value>Read Info Memory</value>
+  </data>
+  <data name="Activity_Read_LMS_DataSet_key" xml:space="preserve">
+    <value>Read LMS DataSet</value>
+  </data>
+  <data name="Activity_Read_Software_Before_coding_key" xml:space="preserve">
+    <value>Read Software Before coding</value>
+  </data>
+  <data name="Activity_Read_Software_Coding_Identification_After_coding_key" xml:space="preserve">
+    <value>Read Software &amp; Coding Identification After coding</value>
+  </data>
+  <data name="Activity_Read_Software_Coding_Identification_Before_Coding_key" xml:space="preserve">
+    <value>Read Software &amp; Coding Identification Before Coding</value>
+  </data>
+  <data name="Activity_Read_SW_Ident_DMD_key" xml:space="preserve">
+    <value>Read SW Ident DMD</value>
+  </data>
+  <data name="Activity_Read_Temperature_Sensors_key" xml:space="preserve">
+    <value>Read Temperature Sensors</value>
+  </data>
+  <data name="Activity_Reference_key" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="Activity_Refresh_Camera_key" xml:space="preserve">
+    <value>Refresh Camera</value>
+  </data>
+  <data name="Activity_Reset_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Reset Error Memory HLI</value>
+  </data>
+  <data name="Activity_Reset_Sequnece_Variant_key" xml:space="preserve">
+    <value>Reset Sequnece Variant</value>
+  </data>
+  <data name="Activity_Reset_Timer_key" xml:space="preserve">
+    <value>Reset Timer</value>
+  </data>
+  <data name="Activity_Reset_Variables_and_Tables_key" xml:space="preserve">
+    <value>Reset Variables and Tables</value>
+  </data>
+  <data name="Activity_Restart_ECU_key" xml:space="preserve">
+    <value>Restart ECU</value>
+  </data>
+  <data name="Activity_SABL1_key" xml:space="preserve">
+    <value>SABL1</value>
+  </data>
+  <data name="Activity_SABL2_key" xml:space="preserve">
+    <value>SABL2</value>
+  </data>
+  <data name="Activity_SABL_1_On_key" xml:space="preserve">
+    <value>SABL 1 On</value>
+  </data>
+  <data name="Activity_SABL_2_On_key" xml:space="preserve">
+    <value>SABL 2 On</value>
+  </data>
+  <data name="Activity_SABL_Off_key" xml:space="preserve">
+    <value>SABL Off</value>
+  </data>
+  <data name="Activity_SABL_On_key" xml:space="preserve">
+    <value>SABL On</value>
+  </data>
+  <data name="Activity_SAE_only_key" xml:space="preserve">
+    <value>SAE only</value>
+  </data>
+  <data name="Activity_SCL_Off_key" xml:space="preserve">
+    <value>SCL Off</value>
+  </data>
+  <data name="Activity_SCL_On_key" xml:space="preserve">
+    <value>SCL On</value>
+  </data>
+  <data name="Activity_SCL_test_key" xml:space="preserve">
+    <value>SCL test</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeServiceCmd" xml:space="preserve">
+    <value>Change service commands status</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ClearValidTables" xml:space="preserve">
+    <value>Clear validation tables</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetExecState" xml:space="preserve">
+    <value>Get Execution state</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetSeqVariant" xml:space="preserve">
+    <value>Get sequence variant</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetUsers" xml:space="preserve">
+    <value>Get logged users</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_LogMsg" xml:space="preserve">
+    <value>Log message</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_PauseSeq" xml:space="preserve">
+    <value>Pause sequence</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SaveReport" xml:space="preserve">
+    <value>Save report and clean errors</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetSeqVariant" xml:space="preserve">
+    <value>Set sequence variant</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetStatusMsg" xml:space="preserve">
+    <value>Set sequence status message</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StartCounter" xml:space="preserve">
+    <value>Start duration counter</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StopSeq" xml:space="preserve">
+    <value>Stop sequence</value>
+  </data>
+  <data name="Activity_Service_Clean_LCB_key" xml:space="preserve">
+    <value>Service Clean LCB</value>
+  </data>
+  <data name="Activity_Service_CL_key" xml:space="preserve">
+    <value>Service CL</value>
+  </data>
+  <data name="Activity_Service_HB_key" xml:space="preserve">
+    <value>Service HB</value>
+  </data>
+  <data name="Activity_Service_key" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Activity_Service_LCB_MID_key" xml:space="preserve">
+    <value>Service LCB MID</value>
+  </data>
+  <data name="Activity_Set_AHL_Position_key" xml:space="preserve">
+    <value>Set AHL Position</value>
+  </data>
+  <data name="Activity_Set_Analog_output_voltage_key" xml:space="preserve">
+    <value>Set Analog output voltage</value>
+  </data>
+  <data name="Activity_Set_Logging_key" xml:space="preserve">
+    <value>Set Logging</value>
+  </data>
+  <data name="Activity_Set_LWR_Position_key" xml:space="preserve">
+    <value>Set LWR Position</value>
+  </data>
+  <data name="Activity_Set_power_supply_voltage_key" xml:space="preserve">
+    <value>Set power supply voltage</value>
+  </data>
+  <data name="Activity_Set_PWM_0_key" xml:space="preserve">
+    <value>Set PWM 0</value>
+  </data>
+  <data name="Activity_Set_PWM_100_key" xml:space="preserve">
+    <value>Set PWM 100</value>
+  </data>
+  <data name="Activity_Set_PWM_key" xml:space="preserve">
+    <value>Set PWM</value>
+  </data>
+  <data name="Activity_Set_relay_CL_off_key" xml:space="preserve">
+    <value>Set relay CL off</value>
+  </data>
+  <data name="Activity_Set_relay_CL_on_key" xml:space="preserve">
+    <value>Set relay CL on</value>
+  </data>
+  <data name="Activity_Set_relay_DRL_off_key" xml:space="preserve">
+    <value>Set relay DRL off</value>
+  </data>
+  <data name="Activity_Set_relay_DRL_On_key" xml:space="preserve">
+    <value>Set relay DRL On</value>
+  </data>
+  <data name="Activity_Set_relay_HB_off_key" xml:space="preserve">
+    <value>Set relay HB off</value>
+  </data>
+  <data name="Activity_Set_relay_HB_on_key" xml:space="preserve">
+    <value>Set relay HB on</value>
+  </data>
+  <data name="Activity_Set_relay_key" xml:space="preserve">
+    <value>Set relay</value>
+  </data>
+  <data name="Activity_Set_relay_LB_off_key" xml:space="preserve">
+    <value>Set relay LB off</value>
+  </data>
+  <data name="Activity_Set_relay_LB_on_key" xml:space="preserve">
+    <value>Set relay LB on</value>
+  </data>
+  <data name="Activity_Set_relay_Leimo_off_key" xml:space="preserve">
+    <value>Set relay Leimo off</value>
+  </data>
+  <data name="Activity_Set_relay_Leimo_on_key" xml:space="preserve">
+    <value>Set relay Leimo on</value>
+  </data>
+  <data name="Activity_Set_relay_POS_off_key" xml:space="preserve">
+    <value>Set relay POS off</value>
+  </data>
+  <data name="Activity_Set_relay_POS_On_key" xml:space="preserve">
+    <value>Set relay POS On</value>
+  </data>
+  <data name="Activity_Set_relay_TI_off_key" xml:space="preserve">
+    <value>Set relay TI off</value>
+  </data>
+  <data name="Activity_Set_relay_TI_on_key" xml:space="preserve">
+    <value>Set relay TI on</value>
+  </data>
+  <data name="Activity_Set_Sequence_Variant_in_code_key" xml:space="preserve">
+    <value>Set Sequence Variant in code</value>
+  </data>
+  <data name="Activity_Set_Sequence_Variant_key" xml:space="preserve">
+    <value>Set Sequence Variant</value>
+  </data>
+  <data name="Activity_Set_test_Done_key" xml:space="preserve">
+    <value>Set test Done</value>
+  </data>
+  <data name="Activity_Set_test_NOK_key" xml:space="preserve">
+    <value>Set test NOK</value>
+  </data>
+  <data name="Activity_Set_test_OK_key" xml:space="preserve">
+    <value>Set test OK</value>
+  </data>
+  <data name="Activity_SIGN_OFF_key" xml:space="preserve">
+    <value>SIGN OFF</value>
+  </data>
+  <data name="Activity_SIGN_On_key" xml:space="preserve">
+    <value>SIGN On</value>
+  </data>
+  <data name="Activity_SM_Off_key" xml:space="preserve">
+    <value>SM Off</value>
+  </data>
+  <data name="Activity_SM_On_key" xml:space="preserve">
+    <value>SM On</value>
+  </data>
+  <data name="Activity_SM_PARK_OFF_key" xml:space="preserve">
+    <value>SM/PARK OFF</value>
+  </data>
+  <data name="Activity_SM_PARK_On_key" xml:space="preserve">
+    <value>SM/PARK On</value>
+  </data>
+  <data name="Activity_SM_test_key" xml:space="preserve">
+    <value>SM test</value>
+  </data>
+  <data name="Activity_Start_flash_mode_key" xml:space="preserve">
+    <value>Start flash mode</value>
+  </data>
+  <data name="Activity_Start_key" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Activity_Start_operation_mode_key" xml:space="preserve">
+    <value>Start operation mode</value>
+  </data>
+  <data name="Activity_Stop_key" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Activity_SubSequence_Key" xml:space="preserve">
+    <value>SubSequence</value>
+  </data>
+  <data name="Activity_Temperature_sensors_HLI_key" xml:space="preserve">
+    <value>Temperature sensors HLI</value>
+  </data>
+  <data name="Activity_Temperature_sensors_LCU_key" xml:space="preserve">
+    <value>Temperature sensors LCU</value>
+  </data>
+  <data name="Activity_Test_Finnished_NOK_key" xml:space="preserve">
+    <value>Test Finnished NOK</value>
+  </data>
+  <data name="Activity_Test_Finnished_OK_key" xml:space="preserve">
+    <value>Test Finnished OK</value>
+  </data>
+  <data name="Activity_Test_result_key" xml:space="preserve">
+    <value>Test result</value>
+  </data>
+  <data name="Activity_TI_key" xml:space="preserve">
+    <value>TI</value>
+  </data>
+  <data name="Activity_TI_Off_key" xml:space="preserve">
+    <value>TI Off</value>
+  </data>
+  <data name="Activity_TI_On_key" xml:space="preserve">
+    <value>TI On</value>
+  </data>
+  <data name="Activity_TI_test_key" xml:space="preserve">
+    <value>TI test</value>
+  </data>
+  <data name="Activity_Ti_Wiping_key" xml:space="preserve">
+    <value>Ti Wiping</value>
+  </data>
+  <data name="Activity_TI_Wipping_cyclus_Off_key" xml:space="preserve">
+    <value>TI Wipping cyclus Off</value>
+  </data>
+  <data name="Activity_TI_Wipping_cyclus_On_key" xml:space="preserve">
+    <value>TI Wipping cyclus On</value>
+  </data>
+  <data name="Activity_TI_Wipping_Test_key" xml:space="preserve">
+    <value>TI Wipping Test</value>
+  </data>
+  <data name="Activity_TI_Wipping_Test_Off_key" xml:space="preserve">
+    <value>TI Wipping Test Off</value>
+  </data>
+  <data name="Activity_TI_Wipping_Test_On_key" xml:space="preserve">
+    <value>TI Wipping Test On</value>
+  </data>
+  <data name="Activity_Try_to_read_barcode_key" xml:space="preserve">
+    <value>Try to read barcode</value>
+  </data>
+  <data name="Activity_Turn_Light_Center_down_Off_key" xml:space="preserve">
+    <value>Turn Light Center down Off</value>
+  </data>
+  <data name="Activity_Turn_Light_Center_down_On_key" xml:space="preserve">
+    <value>Turn Light Center down On</value>
+  </data>
+  <data name="Activity_Turn_Light_Left_Off_key" xml:space="preserve">
+    <value>Turn Light Left Off</value>
+  </data>
+  <data name="Activity_Turn_Light_Left_On_key" xml:space="preserve">
+    <value>Turn Light Left On</value>
+  </data>
+  <data name="Activity_Turn_Light_Right_Off_key" xml:space="preserve">
+    <value>Turn Light Right Off</value>
+  </data>
+  <data name="Activity_Turn_Light_Right_On_key" xml:space="preserve">
+    <value>Turn Light Right On</value>
+  </data>
+  <data name="Activity_Turn_Light_Side_Off_key" xml:space="preserve">
+    <value>Turn Light Side Off</value>
+  </data>
+  <data name="Activity_Turn_Light_Side_On_key" xml:space="preserve">
+    <value>Turn Light Side On</value>
+  </data>
+  <data name="Activity_Turn_Light_Top_Off_key" xml:space="preserve">
+    <value>Turn Light Top Off</value>
+  </data>
+  <data name="Activity_Turn_Light_Top_On_key" xml:space="preserve">
+    <value>Turn Light Top On</value>
+  </data>
+  <data name="Activity_Turn_On_VAC_Motor_key" xml:space="preserve">
+    <value>Turn On VAC Motor</value>
+  </data>
+  <data name="Activity_Vision_CL_key" xml:space="preserve">
+    <value>Vision CL</value>
+  </data>
+  <data name="Activity_Vision_Configure_All_Cameras_01_key" xml:space="preserve">
+    <value>Vision Configure All Cameras_01</value>
+  </data>
+  <data name="Activity_Vision_Configure_Cameras_key" xml:space="preserve">
+    <value>Vision Configure Cameras</value>
+  </data>
+  <data name="Activity_Vision_DABL1_key" xml:space="preserve">
+    <value>Vision DABL1</value>
+  </data>
+  <data name="Activity_Vision_DABL2_key" xml:space="preserve">
+    <value>Vision DABL2</value>
+  </data>
+  <data name="Activity_Vision_DMD_key" xml:space="preserve">
+    <value>Vision DMD</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos0_key" xml:space="preserve">
+    <value>Vision Do Movement Pos0</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos1_key" xml:space="preserve">
+    <value>Vision Do Movement Pos1</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos2_key" xml:space="preserve">
+    <value>Vision Do Movement Pos2</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos3_key" xml:space="preserve">
+    <value>Vision Do Movement Pos3</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos4_key" xml:space="preserve">
+    <value>Vision Do Movement Pos4</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos5_key" xml:space="preserve">
+    <value>Vision Do Movement Pos5</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos6_key" xml:space="preserve">
+    <value>Vision Do Movement Pos6</value>
+  </data>
+  <data name="Activity_Vision_DRL1_key" xml:space="preserve">
+    <value>Vision DRL1</value>
+  </data>
+  <data name="Activity_Vision_DRL2_key" xml:space="preserve">
+    <value>Vision DRL2</value>
+  </data>
+  <data name="Activity_Vision_DRL_key" xml:space="preserve">
+    <value>Vision DRL</value>
+  </data>
+  <data name="Activity_Vision_GFHB_key" xml:space="preserve">
+    <value>Vision GFHB</value>
+  </data>
+  <data name="Activity_Vision_HB_Base_key" xml:space="preserve">
+    <value>Vision HB Base</value>
+  </data>
+  <data name="Activity_Vision_HB_key" xml:space="preserve">
+    <value>Vision HB</value>
+  </data>
+  <data name="Activity_Vision_HB_Laser_key" xml:space="preserve">
+    <value>Vision HB Laser</value>
+  </data>
+  <data name="Activity_Vision_HB_Spot_key" xml:space="preserve">
+    <value>Vision HB Spot</value>
+  </data>
+  <data name="Activity_Vision_LB_Base_Center_key" xml:space="preserve">
+    <value>Vision LB Base Center</value>
+  </data>
+  <data name="Activity_Vision_LB_Base_key" xml:space="preserve">
+    <value>Vision LB Base</value>
+  </data>
+  <data name="Activity_Vision_LB_key" xml:space="preserve">
+    <value>Vision LB</value>
+  </data>
+  <data name="Activity_Vision_LB_Spot_key" xml:space="preserve">
+    <value>Vision LB Spot</value>
+  </data>
+  <data name="Activity_Vision_MXB_key" xml:space="preserve">
+    <value>Vision MXB</value>
+  </data>
+  <data name="Activity_Vision_MXB_pattern_01_key" xml:space="preserve">
+    <value>Vision MXB pattern 01</value>
+  </data>
+  <data name="Activity_Vision_MXB_pattern_02_key" xml:space="preserve">
+    <value>Vision MXB pattern 02</value>
+  </data>
+  <data name="Activity_Vision_MXB_pattern_03_key" xml:space="preserve">
+    <value>Vision MXB pattern 03</value>
+  </data>
+  <data name="Activity_Vision_POS_key" xml:space="preserve">
+    <value>Vision POS</value>
+  </data>
+  <data name="Activity_Vision_SABL1_key" xml:space="preserve">
+    <value>Vision SABL1</value>
+  </data>
+  <data name="Activity_Vision_SABL2_key" xml:space="preserve">
+    <value>Vision SABL2</value>
+  </data>
+  <data name="Activity_Vision_SCL_key" xml:space="preserve">
+    <value>Vision SCL</value>
+  </data>
+  <data name="Activity_Vision_SM_key" xml:space="preserve">
+    <value>Vision SM</value>
+  </data>
+  <data name="Activity_Vision_TI_key" xml:space="preserve">
+    <value>Vision TI</value>
+  </data>
+  <data name="Activity_Waiting_for_DC_motor_stopped_key" xml:space="preserve">
+    <value>Waiting for DC motor stopped</value>
+  </data>
+  <data name="Activity_Waiting_for_Machine_key" xml:space="preserve">
+    <value>Waiting for Machine</value>
+  </data>
+  <data name="Activity_Waiting_for_movement_key" xml:space="preserve">
+    <value>Waiting for movement</value>
+  </data>
+  <data name="Activity_Waiting_for_next_cycle_key" xml:space="preserve">
+    <value>Waiting for next cycle</value>
+  </data>
+  <data name="Activity_Waiting_for_Operator_Cotrol_key" xml:space="preserve">
+    <value>Waiting for Operator Cotrol</value>
+  </data>
+  <data name="Activity_Waiting_for_package_complete_key" xml:space="preserve">
+    <value>Waiting for package complete</value>
+  </data>
+  <data name="Activity_Waiting_for_pallete_key" xml:space="preserve">
+    <value>Waiting for pallete</value>
+  </data>
+  <data name="Activity_Waiting_for_Pallete_START_key" xml:space="preserve">
+    <value>Waiting for Pallete START</value>
+  </data>
+  <data name="Activity_Waiting_for_Pallete_STOP_key" xml:space="preserve">
+    <value>Waiting for Pallete STOP</value>
+  </data>
+  <data name="Activity_Waiting_for_step_complete_key" xml:space="preserve">
+    <value>Waiting for step complete</value>
+  </data>
+  <data name="Activity_Waiting_for_VAC_stopped_key" xml:space="preserve">
+    <value>Waiting for VAC stopped</value>
+  </data>
+  <data name="Activity_Write_coding_key" xml:space="preserve">
+    <value>Write coding</value>
+  </data>
+  <data name="Activity_Write_production_date_HLI_key" xml:space="preserve">
+    <value>Write production date HLI</value>
+  </data>
+  <data name="Activity_Write_production_date_key" xml:space="preserve">
+    <value>Write production date</value>
+  </data>
+  <data name="Activity_Write_production_date_LCU_key" xml:space="preserve">
+    <value>Write production date LCU</value>
+  </data>
+  <data name="Activity_Msg_Type_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Activity_Msg_Type_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Activity_Msg_Type_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Activity_Msg_Type_Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Activity_Msg_Type_ImportantQuestion" xml:space="preserve">
+    <value>Important Question</value>
+  </data>
+  <data name="Activity_Msg_Type_Choice" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="Activity_Msg_Type_NoBlocking" xml:space="preserve">
+    <value>Non-blocking</value>
+  </data>
+  <data name="Activity_Msg_Type_Input" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="Activity_Msg_Type_Picture" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="Activity_Msg_Type_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ComboBox" xml:space="preserve">
+    <value>Listbox</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_Buttons" xml:space="preserve">
+    <value>Buttons</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ToggleButtons" xml:space="preserve">
+    <value>Toggle Buttons</value>
+  </data>
+  <data name="Activity_Check_Fan_Off_key" xml:space="preserve">
+    <value>Check Fan Off</value>
+  </data>
+  <data name="Activity_Check_Fan_On_key" xml:space="preserve">
+    <value>Check Fan On</value>
+  </data>
+  <data name="Activity_HSX_Off_key" xml:space="preserve">
+    <value>HSX Off</value>
+  </data>
+  <data name="Activity_Leaving_Home_Off_key" xml:space="preserve">
+    <value>Leaving Home Off</value>
+  </data>
+  <data name="Activity_Leaving_Home_On_key" xml:space="preserve">
+    <value>Leaving Home On</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Clean_key" xml:space="preserve">
+    <value>Move LCB to Clean</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_key" xml:space="preserve">
+    <value>Move LCB to Work</value>
+  </data>
+  <data name="Activity_Read_SW_after_coding_key" xml:space="preserve">
+    <value>Read SW after coding</value>
+  </data>
+  <data name="Activity_Status_Line_HB_ON_key" xml:space="preserve">
+    <value>Status Line HB ON</value>
+  </data>
+  <data name="Activity_Status_Line_LB_HB_Off_key" xml:space="preserve">
+    <value>Status Line LB+HB Off</value>
+  </data>
+  <data name="Activity_Status_Line_LB_ON_key" xml:space="preserve">
+    <value>Status Line LB ON</value>
+  </data>
+  <data name="Activity_Turn_Off_additional_lights_key" xml:space="preserve">
+    <value>Turn Off additional lights</value>
+  </data>
+  <data name="Activity_Turn_Off_VAC_Motor_key" xml:space="preserve">
+    <value>Turn Off VAC Motor</value>
+  </data>
+  <data name="Activity_Turn_On_additional_lights_key" xml:space="preserve">
+    <value>Turn On additional lights</value>
+  </data>
+  <data name="Activity_Adjust_HB_Horizontal_key" xml:space="preserve">
+    <value>Adjust HB Horizontal</value>
+  </data>
+  <data name="Activity_Adjust_HB_Range_Test_key" xml:space="preserve">
+    <value>Adjust HB + Range Test</value>
+  </data>
+  <data name="Activity_Adjust_LB_key" xml:space="preserve">
+    <value>Adjust LB</value>
+  </data>
+  <data name="Activity_Adjust_LB_Spot_Range_Test_key" xml:space="preserve">
+    <value>Adjust LB Spot + Range Test</value>
+  </data>
+  <data name="Activity_Adjust_LB_Wide_key" xml:space="preserve">
+    <value>Adjust LB Wide</value>
+  </data>
+  <data name="Activity_Adjust_LB_Wide_Range_Test_key" xml:space="preserve">
+    <value>Adjust LB Wide + Range Test</value>
+  </data>
+  <data name="Activity_Adjust_LB_Wide_Vertical_key" xml:space="preserve">
+    <value>Adjust LB Wide Vertical</value>
+  </data>
+  <data name="Activity_Adjust_S_Light_Horizontal_key" xml:space="preserve">
+    <value>Adjust S Light Horizontal</value>
+  </data>
+  <data name="Activity_Adjust_S_Light_Vertical_key" xml:space="preserve">
+    <value>Adjust S Light Vertical</value>
+  </data>
+  <data name="Activity_All_Light_Function_Off_key" xml:space="preserve">
+    <value>All Light Function Off</value>
+  </data>
+  <data name="Activity_Check_Error_Memory_key" xml:space="preserve">
+    <value>Check Error Memory</value>
+  </data>
+  <data name="Activity_Check_Fan_key" xml:space="preserve">
+    <value>Check Fan</value>
+  </data>
+  <data name="Activity_Check_HB_key" xml:space="preserve">
+    <value>Check HB</value>
+  </data>
+  <data name="Activity_Check_if_GS_DUT_was_selected_key" xml:space="preserve">
+    <value>Check if GS / DUT was selected</value>
+  </data>
+  <data name="Activity_Check_LB_Wide_Off_key" xml:space="preserve">
+    <value>Check LB Wide Off</value>
+  </data>
+  <data name="Activity_Check_LB_Wide_On_key" xml:space="preserve">
+    <value>Check LB Wide On</value>
+  </data>
+  <data name="Activity_Check_LB_Wide_Vertical_key" xml:space="preserve">
+    <value>Check LB Wide Vertical</value>
+  </data>
+  <data name="Activity_Check_motor_position_key" xml:space="preserve">
+    <value>Check motor position</value>
+  </data>
+  <data name="Activity_Check_motor_supply_voltage_off_key" xml:space="preserve">
+    <value>Check motor supply voltage off</value>
+  </data>
+  <data name="Activity_Check_motor_supply_voltage_on_key" xml:space="preserve">
+    <value>Check motor supply voltage on</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_1_Off_key" xml:space="preserve">
+    <value>Check MXB pattern 1 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_1_On_key" xml:space="preserve">
+    <value>Check MXB pattern 1 On</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_2_Off_key" xml:space="preserve">
+    <value>Check MXB pattern 2 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_2_On_key" xml:space="preserve">
+    <value>Check MXB pattern 2 On</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_3_Off_key" xml:space="preserve">
+    <value>Check MXB pattern 3 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_3_On_key" xml:space="preserve">
+    <value>Check MXB pattern 3 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_10_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 10 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_10_On_key" xml:space="preserve">
+    <value>Check MXB Segment 10 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_11_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 11 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_11_On_key" xml:space="preserve">
+    <value>Check MXB Segment 11 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_12_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 12 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_12_On_key" xml:space="preserve">
+    <value>Check MXB Segment 12 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_1_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 1 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_1_On_key" xml:space="preserve">
+    <value>Check MXB Segment 1 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_2_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 2 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_2_On_key" xml:space="preserve">
+    <value>Check MXB Segment 2 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_3_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 3 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_3_On_key" xml:space="preserve">
+    <value>Check MXB Segment 3 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_4_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 4 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_4_On_key" xml:space="preserve">
+    <value>Check MXB Segment 4 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_5_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 5 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_5_On_key" xml:space="preserve">
+    <value>Check MXB Segment 5 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_6_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 6 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_6_On_key" xml:space="preserve">
+    <value>Check MXB Segment 6 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_7_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 7 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_7_On_key" xml:space="preserve">
+    <value>Check MXB Segment 7 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_8_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 8 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_8_On_key" xml:space="preserve">
+    <value>Check MXB Segment 8 On</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_9_Off_key" xml:space="preserve">
+    <value>Check MXB Segment 9 Off</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_9_On_key" xml:space="preserve">
+    <value>Check MXB Segment 9 On</value>
+  </data>
+  <data name="Activity_Check_POS_Off_key" xml:space="preserve">
+    <value>Check POS Off</value>
+  </data>
+  <data name="Activity_Check_POS_On_key" xml:space="preserve">
+    <value>Check POS On</value>
+  </data>
+  <data name="Activity_Check_RGB1_Off_key" xml:space="preserve">
+    <value>Check RGB1 Off</value>
+  </data>
+  <data name="Activity_Check_RGB1_On_key" xml:space="preserve">
+    <value>Check RGB1 On</value>
+  </data>
+  <data name="Activity_Check_RGB2_Off_key" xml:space="preserve">
+    <value>Check RGB2 Off</value>
+  </data>
+  <data name="Activity_Check_RGB2_On_key" xml:space="preserve">
+    <value>Check RGB2 On</value>
+  </data>
+  <data name="Activity_Check_RGB_Color_key" xml:space="preserve">
+    <value>Check RGB Color</value>
+  </data>
+  <data name="Activity_Check_RGB_Intensity_key" xml:space="preserve">
+    <value>Check RGB Intensity</value>
+  </data>
+  <data name="Activity_Check_RGB_Off_key" xml:space="preserve">
+    <value>Check RGB Off</value>
+  </data>
+  <data name="Activity_Check_RGB_On_key" xml:space="preserve">
+    <value>Check RGB On</value>
+  </data>
+  <data name="Activity_Choose_HL_Type_key" xml:space="preserve">
+    <value>Choose HL Type</value>
+  </data>
+  <data name="Activity_Clean_Validation_Tables_key" xml:space="preserve">
+    <value>Clean Validation Tables</value>
+  </data>
+  <data name="Activity_CompileCodes_key" xml:space="preserve">
+    <value>CompileCodes</value>
+  </data>
+  <data name="Activity_Configure_LB_Base_Vertical_Detection_Data_key" xml:space="preserve">
+    <value>Configure LB Base Vertical Detection Data</value>
+  </data>
+  <data name="Activity_Configure_LB_Wide_Detection_Data_key" xml:space="preserve">
+    <value>Configute LB Wide Detection Data</value>
+  </data>
+  <data name="Activity_Delay_to_see_result_key" xml:space="preserve">
+    <value>Delay to see result</value>
+  </data>
+  <data name="Activity_Disable_Logging_key" xml:space="preserve">
+    <value>Disable Logging</value>
+  </data>
+  <data name="Activity_Enable_Logging_key" xml:space="preserve">
+    <value>Enable Logging</value>
+  </data>
+  <data name="Activity_Execute_step_async_key" xml:space="preserve">
+    <value>Execute step async</value>
+  </data>
+  <data name="Activity_Execute_step_async_LCB_MID_key" xml:space="preserve">
+    <value>Execute step async LCB MID</value>
+  </data>
+  <data name="Activity_Execute_step_Clean_key" xml:space="preserve">
+    <value>Execute step Clean</value>
+  </data>
+  <data name="Activity_Execute_step_key" xml:space="preserve">
+    <value>Execute step</value>
+  </data>
+  <data name="Activity_Execute_step_LCB_Work_key" xml:space="preserve">
+    <value>Execute step LCB Work</value>
+  </data>
+  <data name="Activity_Execute_step_work_key" xml:space="preserve">
+    <value>Execute step work</value>
+  </data>
+  <data name="Activity_Fan_Off_key" xml:space="preserve">
+    <value>Fan Off</value>
+  </data>
+  <data name="Activity_Fan_On_key" xml:space="preserve">
+    <value>Fan On</value>
+  </data>
+  <data name="Activity_FAN_Test_key" xml:space="preserve">
+    <value>FAN Test</value>
+  </data>
+  <data name="Activity_Fill_Vision_Logging_key" xml:space="preserve">
+    <value>Fill Vision Logging</value>
+  </data>
+  <data name="Activity_Get_AL_Code_key" xml:space="preserve">
+    <value>Get AL Code</value>
+  </data>
+  <data name="Activity_Get_Image_and_Find_Patterns_key" xml:space="preserve">
+    <value>Get Image and Find Patterns</value>
+  </data>
+  <data name="Activity_GS_Production_key" xml:space="preserve">
+    <value>GS / Production</value>
+  </data>
+  <data name="Activity_HL_Variant_key" xml:space="preserve">
+    <value>HL Variant</value>
+  </data>
+  <data name="Activity_Ignition_Off_key" xml:space="preserve">
+    <value>Ignition Off</value>
+  </data>
+  <data name="Activity_Ignition_On_key" xml:space="preserve">
+    <value>Ignition On</value>
+  </data>
+  <data name="Activity_Info_key" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Activity_Init_Bus_Com_key" xml:space="preserve">
+    <value>Init Bus Com</value>
+  </data>
+  <data name="Activity_Init_cyklic_comunication_key" xml:space="preserve">
+    <value>Init cyklic comunication</value>
+  </data>
+  <data name="Activity_Init_diagnostic_communication_key" xml:space="preserve">
+    <value>Init diagnostic communication</value>
+  </data>
+  <data name="Activity_LB_Wide_Off_key" xml:space="preserve">
+    <value>LB Wide Off</value>
+  </data>
+  <data name="Activity_LB_Wide_On_key" xml:space="preserve">
+    <value>LB Wide On</value>
+  </data>
+  <data name="Activity_LCB_CL_Async_key" xml:space="preserve">
+    <value>LCB CL Async</value>
+  </data>
+  <data name="Activity_LCB_Work_Async_key" xml:space="preserve">
+    <value>LCB Work Async</value>
+  </data>
+  <data name="Activity_LCB_Work_key" xml:space="preserve">
+    <value>LCB Work</value>
+  </data>
+  <data name="Activity_LED_Off_key" xml:space="preserve">
+    <value>LED + Off</value>
+  </data>
+  <data name="Activity_LED_On_key" xml:space="preserve">
+    <value>LED + On</value>
+  </data>
+  <data name="Activity_Light_Distribution_key" xml:space="preserve">
+    <value>Light Distribution</value>
+  </data>
+  <data name="Activity_LMM_Test_key" xml:space="preserve">
+    <value>LMM Test</value>
+  </data>
+  <data name="Activity_Manual_variant_selection_key" xml:space="preserve">
+    <value>Manual variant selection</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Wide_key" xml:space="preserve">
+    <value>Measure current LB Wide</value>
+  </data>
+  <data name="Activity_Measure_current_RGB1_key" xml:space="preserve">
+    <value>Measure current RGB1</value>
+  </data>
+  <data name="Activity_Measure_current_RGB2_key" xml:space="preserve">
+    <value>Measure current RGB2</value>
+  </data>
+  <data name="Activity_Measure_LMM_5V_key" xml:space="preserve">
+    <value>Measure LMM + 5V</value>
+  </data>
+  <data name="Activity_Movement_Test_Entry_Bottom_key" xml:space="preserve">
+    <value>Movement Test Entry Bottom</value>
+  </data>
+  <data name="Activity_Movement_test_Entry_key" xml:space="preserve">
+    <value>Movement test Entry</value>
+  </data>
+  <data name="Activity_Movement_Test_Entry_Mid_Adjustment_key" xml:space="preserve">
+    <value>Movement Test Entry Mid, Adjustment</value>
+  </data>
+  <data name="Activity_Movement_Test_Entry_Top_key" xml:space="preserve">
+    <value>Movement Test Entry Top</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Bottom_Inside_key" xml:space="preserve">
+    <value>Movement Test Upper Bottom Inside</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Bottom_Outside_key" xml:space="preserve">
+    <value>Movement Test Upper Bottom Outside</value>
+  </data>
+  <data name="Activity_Movement_test_Upper_key" xml:space="preserve">
+    <value>Movement test Upper</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Mid_Straight_Adjustment_key" xml:space="preserve">
+    <value>Movement Test Upper Mid Straight, Adjustment</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Top_Inside_key" xml:space="preserve">
+    <value>Movement Test Upper Top Inside</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Top_Outside_key" xml:space="preserve">
+    <value>Movement Test Upper Top Outside</value>
+  </data>
+  <data name="Activity_MXB_pattern_1_Off_key" xml:space="preserve">
+    <value>MXB pattern 1 Off</value>
+  </data>
+  <data name="Activity_MXB_pattern_1_On_key" xml:space="preserve">
+    <value>MXB pattern 1 On</value>
+  </data>
+  <data name="Activity_MXB_pattern_2_Off_key" xml:space="preserve">
+    <value>MXB pattern 2 Off</value>
+  </data>
+  <data name="Activity_MXB_pattern_2_On_key" xml:space="preserve">
+    <value>MXB pattern 2 On</value>
+  </data>
+  <data name="Activity_MXB_pattern_3_Off_key" xml:space="preserve">
+    <value>MXB pattern 3 Off</value>
+  </data>
+  <data name="Activity_MXB_pattern_3_On_key" xml:space="preserve">
+    <value>MXB pattern 3 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_10_Off_key" xml:space="preserve">
+    <value>MXB Segment 10 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_10_On_key" xml:space="preserve">
+    <value>MXB Segment 10 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_11_Off_key" xml:space="preserve">
+    <value>MXB Segment 11 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_11_On_key" xml:space="preserve">
+    <value>MXB Segment 11 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_12_Off_key" xml:space="preserve">
+    <value>MXB Segment 12 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_12_On_key" xml:space="preserve">
+    <value>MXB Segment 12 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_1_key" xml:space="preserve">
+    <value>MXB Segment 1</value>
+  </data>
+  <data name="Activity_MXB_Segment_1_Off_key" xml:space="preserve">
+    <value>MXB Segment 1 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_1_On_key" xml:space="preserve">
+    <value>MXB Segment 1 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_2_Off_key" xml:space="preserve">
+    <value>MXB Segment 2 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_2_On_key" xml:space="preserve">
+    <value>MXB Segment 2 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_3_Off_key" xml:space="preserve">
+    <value>MXB Segment 3 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_3_On_key" xml:space="preserve">
+    <value>MXB Segment 3 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_4_Off_key" xml:space="preserve">
+    <value>MXB Segment 4 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_4_On_key" xml:space="preserve">
+    <value>MXB Segment 4 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_5_Off_key" xml:space="preserve">
+    <value>MXB Segment 5 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_5_On_key" xml:space="preserve">
+    <value>MXB Segment 5 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_6_Off_key" xml:space="preserve">
+    <value>MXB Segment 6 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_6_On_key" xml:space="preserve">
+    <value>MXB Segment 6 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_7_Off_key" xml:space="preserve">
+    <value>MXB Segment 7 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_7_On_key" xml:space="preserve">
+    <value>MXB Segment 7 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_8_Off_key" xml:space="preserve">
+    <value>MXB Segment 8 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_8_On_key" xml:space="preserve">
+    <value>MXB Segment 8 On</value>
+  </data>
+  <data name="Activity_MXB_Segment_9_Off_key" xml:space="preserve">
+    <value>MXB Segment 9 Off</value>
+  </data>
+  <data name="Activity_MXB_Segment_9_On_key" xml:space="preserve">
+    <value>MXB Segment 9 On</value>
+  </data>
+  <data name="Activity_OffBoardStart_key" xml:space="preserve">
+    <value>OffBoardStart</value>
+  </data>
+  <data name="Activity_OffboardStop_key" xml:space="preserve">
+    <value>OffboardStop</value>
+  </data>
+  <data name="Activity_OffBoard_Flash_Job_Session_1_key" xml:space="preserve">
+    <value>OffBoard Flash Job Session 1</value>
+  </data>
+  <data name="Activity_OffBoard_Flash_Job_Session_2_key" xml:space="preserve">
+    <value>OffBoard Flash Job Session 2</value>
+  </data>
+  <data name="Activity_OnBoardStart_key" xml:space="preserve">
+    <value>OnBoardStart</value>
+  </data>
+  <data name="Activity_Prepare_machine_init_bus_com_key" xml:space="preserve">
+    <value>Prepare machine + init bus com</value>
+  </data>
+  <data name="Activity_Read_authentification_zone_key" xml:space="preserve">
+    <value>Read authentification zone</value>
+  </data>
+  <data name="Activity_Read_barcodes_key" xml:space="preserve">
+    <value>Read barcodes</value>
+  </data>
+  <data name="Activity_Read_boost_buck_temperature_key" xml:space="preserve">
+    <value>Read boost buck temperature</value>
+  </data>
+  <data name="Activity_Read_calibration_data_key" xml:space="preserve">
+    <value>Read calibration data</value>
+  </data>
+  <data name="Activity_Read_ECU_Manufacturing_Date_Identifier_key" xml:space="preserve">
+    <value>Read ECU Manufacturing Date Identifier</value>
+  </data>
+  <data name="Activity_Read_ECU_serial_number_key" xml:space="preserve">
+    <value>Read ECU serial number</value>
+  </data>
+  <data name="Activity_Read_ECU_SW_version_key" xml:space="preserve">
+    <value>Read ECU SW version</value>
+  </data>
+  <data name="Activity_Read_factory_data_key" xml:space="preserve">
+    <value>Read factory data</value>
+  </data>
+  <data name="Activity_Read_LDM_Coding_After_Coding_key" xml:space="preserve">
+    <value>Read LDM Coding After Coding</value>
+  </data>
+  <data name="Activity_Read_LDM_Coding_Before_Coding_key" xml:space="preserve">
+    <value>Read LDM Coding Before Coding</value>
+  </data>
+  <data name="Activity_Read_voltages_NTC_Coding_resistors_key" xml:space="preserve">
+    <value>Read voltages NTC, Coding resistors</value>
+  </data>
+  <data name="Activity_Refresh_Cameras_key" xml:space="preserve">
+    <value>Refresh Cameras</value>
+  </data>
+  <data name="Activity_Reset_ECU_key" xml:space="preserve">
+    <value>Reset ECU</value>
+  </data>
+  <data name="Activity_Reset_Flash_Counter_key" xml:space="preserve">
+    <value>Reset Flash Counter</value>
+  </data>
+  <data name="Activity_Reset_test_Done_key" xml:space="preserve">
+    <value>Reset test Done</value>
+  </data>
+  <data name="Activity_Reset_test_NOK_key" xml:space="preserve">
+    <value>Reset test NOK 01</value>
+  </data>
+  <data name="Activity_Reset_test_OK_key" xml:space="preserve">
+    <value>Reset test OK 01</value>
+  </data>
+  <data name="Activity_RestartTimer_key" xml:space="preserve">
+    <value>RestartTimer</value>
+  </data>
+  <data name="Activity_RGB1_Off_key" xml:space="preserve">
+    <value>RGB1 Off</value>
+  </data>
+  <data name="Activity_RGB1_On_key" xml:space="preserve">
+    <value>RGB1 On</value>
+  </data>
+  <data name="Activity_RGB2_Off_key" xml:space="preserve">
+    <value>RGB2 Off</value>
+  </data>
+  <data name="Activity_RGB2_On_key" xml:space="preserve">
+    <value>RGB2 On</value>
+  </data>
+  <data name="Activity_RGBTest_Aim_key" xml:space="preserve">
+    <value>RGBTest Aim</value>
+  </data>
+  <data name="Activity_RGB_Off_key" xml:space="preserve">
+    <value>RGB Off</value>
+  </data>
+  <data name="Activity_RGB_On_key" xml:space="preserve">
+    <value>RGB On</value>
+  </data>
+  <data name="Activity_RGB_Test_PreAim_key" xml:space="preserve">
+    <value>RGB Test PreAim</value>
+  </data>
+  <data name="Activity_Send_Result_and_Clean_key" xml:space="preserve">
+    <value>Send Result and Clean</value>
+  </data>
+  <data name="Activity_Set_Camera_Configure_key" xml:space="preserve">
+    <value>Set Camera Configure</value>
+  </data>
+  <data name="Activity_Set_Code_key" xml:space="preserve">
+    <value>Set Code</value>
+  </data>
+  <data name="Activity_Set_empty_variant_key" xml:space="preserve">
+    <value>Set empty variant</value>
+  </data>
+  <data name="Activity_Set_GS_DUT_key" xml:space="preserve">
+    <value>Set GS / DUT</value>
+  </data>
+  <data name="Activity_Set_HL_Variant_key" xml:space="preserve">
+    <value>Set HL Variant</value>
+  </data>
+  <data name="Activity_Set_Img_Log_Path_key" xml:space="preserve">
+    <value>Set Img Log Path</value>
+  </data>
+  <data name="Activity_Set_motor_position_key" xml:space="preserve">
+    <value>Set motor position</value>
+  </data>
+  <data name="Activity_Set_OffBoardDTS_key" xml:space="preserve">
+    <value>Set OffBoardDTS</value>
+  </data>
+  <data name="Activity_Set_OnBoards_key" xml:space="preserve">
+    <value>Set OnBoards</value>
+  </data>
+  <data name="Activity_Set_relays_key" xml:space="preserve">
+    <value>Set relays</value>
+  </data>
+  <data name="Activity_Set_segments_from_a_table_key" xml:space="preserve">
+    <value>Set segments from a table</value>
+  </data>
+  <data name="Activity_Set_Vision_Logging_key" xml:space="preserve">
+    <value>Set Vision Logging</value>
+  </data>
+  <data name="Activity_Start_duration_counter_key" xml:space="preserve">
+    <value>Start duration counter</value>
+  </data>
+  <data name="Activity_Start_extended_diagnostic_mode_key" xml:space="preserve">
+    <value>Start extended diagnostic mode</value>
+  </data>
+  <data name="Activity_Start_Image_Log_key" xml:space="preserve">
+    <value>Start Image Log</value>
+  </data>
+  <data name="Activity_Start_production_diagnostic_mode_key" xml:space="preserve">
+    <value>Start production diagnostic mode</value>
+  </data>
+  <data name="Activity_StopTimer_key" xml:space="preserve">
+    <value>StopTimer</value>
+  </data>
+  <data name="Activity_Stop_Image_Log_key" xml:space="preserve">
+    <value>Stop Image Log</value>
+  </data>
+  <data name="Activity_StringContain_Left_key" xml:space="preserve">
+    <value>StringContain Left</value>
+  </data>
+  <data name="Activity_StringContain_Right_key" xml:space="preserve">
+    <value>StringContain Right</value>
+  </data>
+  <data name="Activity_Switch_ECUs_OFF_key" xml:space="preserve">
+    <value>Switch ECUs OFF</value>
+  </data>
+  <data name="Activity_Switch_ECUs_ON_key" xml:space="preserve">
+    <value>Switch ECUs ON</value>
+  </data>
+  <data name="Activity_Turn_off_motor_supply_voltage_key" xml:space="preserve">
+    <value>Turn off motor supply voltage</value>
+  </data>
+  <data name="Activity_Turn_on_motor_supply_voltage_key" xml:space="preserve">
+    <value>Turn on motor supply voltage</value>
+  </data>
+  <data name="Activity_Verify_Mounting_side_key" xml:space="preserve">
+    <value>Verify Mounting side</value>
+  </data>
+  <data name="Activity_Vision_Adjust_LB_with_Range_Test_key" xml:space="preserve">
+    <value>Vision Adjust LB with Range Test</value>
+  </data>
+  <data name="Activity_Vision_check_LB_spot_key" xml:space="preserve">
+    <value>Vision check LB spot</value>
+  </data>
+  <data name="Activity_Vision_Configure_All_Cameras_key" xml:space="preserve">
+    <value>Vision Configure All Cameras</value>
+  </data>
+  <data name="Activity_Vision_Init_key" xml:space="preserve">
+    <value>Vision Init</value>
+  </data>
+  <data name="Activity_Vision_LB_Base_Vertical_Check_key" xml:space="preserve">
+    <value>Vision LB Base Vertical Check</value>
+  </data>
+  <data name="Activity_Vision_Movement_Bottom_Inside_key" xml:space="preserve">
+    <value>Vision Movement Bottom Inside</value>
+  </data>
+  <data name="Activity_Vision_Movement_Bottom_Outside_key" xml:space="preserve">
+    <value>Vision Movement Bottom Outside</value>
+  </data>
+  <data name="Activity_Vision_Movement_Mid_Straight_Adjustment_key" xml:space="preserve">
+    <value>Vision Movement Mid Straight, Adjustment</value>
+  </data>
+  <data name="Activity_Vision_Movement_Top_Inside_key" xml:space="preserve">
+    <value>Vision Movement Top Inside</value>
+  </data>
+  <data name="Activity_Vision_Movement_Top_Outside_key" xml:space="preserve">
+    <value>Vision Movement Top Outside</value>
+  </data>
+  <data name="Activity_Vision_PP_cover_frame_key" xml:space="preserve">
+    <value>Vision PP cover frame</value>
+  </data>
+  <data name="Activity_Vision_PP_module_frame_key" xml:space="preserve">
+    <value>Vision PP module frame</value>
+  </data>
+  <data name="Activity_Vision_PP_Ramecek_Reflektoru_key" xml:space="preserve">
+    <value>Vision PP Ramecek Reflektoru</value>
+  </data>
+  <data name="Activity_Vision_RGB_Aim_key" xml:space="preserve">
+    <value>Vision RGB Aim</value>
+  </data>
+  <data name="Activity_Vision_RGB_PreAim_key" xml:space="preserve">
+    <value>Vision RGB PreAim</value>
+  </data>
+  <data name="Activity_Vision_Swivel_Test_Center_key" xml:space="preserve">
+    <value>Vision Swivel Test Center</value>
+  </data>
+  <data name="Activity_Vision_Swivel_Test_Left_key" xml:space="preserve">
+    <value>Vision Swivel Test Left</value>
+  </data>
+  <data name="Activity_Vision_Swivel_Test_Right_key" xml:space="preserve">
+    <value>Vision Swivel Test Right</value>
+  </data>
+  <data name="Activity_Vision_Vertical_Movement_Bottom_key" xml:space="preserve">
+    <value>Vision Vertical Movement Bottom</value>
+  </data>
+  <data name="Activity_Vision_Vertical_Movement_Center_key" xml:space="preserve">
+    <value>Vision Vertical Movement Center</value>
+  </data>
+  <data name="Activity_Vision_Vertical_Movement_Top_key" xml:space="preserve">
+    <value>Vision Vertical Movement Top</value>
+  </data>
+  <data name="Activity_Wait_for_ECU_ON_key" xml:space="preserve">
+    <value>Wait for ECU ON</value>
+  </data>
+  <data name="Activity_Wait_key" xml:space="preserve">
+    <value>Wait</value>
+  </data>
+  <data name="Activity_Wait_to_step_complete_key" xml:space="preserve">
+    <value>Wait to step complete</value>
+  </data>
+  <data name="Activity_Wake_Up_In_Specified_Up_Time_key" xml:space="preserve">
+    <value>Wake Up In Specified Up Time</value>
+  </data>
+  <data name="Activity_Write_name_of_the_light_function_key" xml:space="preserve">
+    <value>Write name of the light function</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SwitchView" xml:space="preserve">
+    <value>Switch View</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SynchronizationExecuteInParallel" xml:space="preserve">
+    <value>Synchronization for execute in parallel</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeUserCmd" xml:space="preserve">
+    <value>Change user command status</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetUserIndicatorValue" xml:space="preserve">
+    <value>Set user indicator value</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetMTFVersion" xml:space="preserve">
+    <value>Get MTF version</value>
+  </data>
+</root>

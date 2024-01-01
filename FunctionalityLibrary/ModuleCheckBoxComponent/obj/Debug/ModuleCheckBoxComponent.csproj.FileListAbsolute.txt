@@ -1,0 +1,15 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\Dlls\CommunicationModule.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\Dlls\LED_Module_Check_Common.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\Dlls\ModuleCheckBox.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\Dlls\Utils.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\HEXs\AudiAU516DmlPavSoftware.txt
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\HEXs\BmwLaserSatDeleteData.txt
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\HEXs\BmwLaserSatPavSoftware.txt
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\XMLs\BMW_G07_G1x_LaserSat.xml
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\ModuleCheckBoxComponent.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\ModuleCheckBoxComponent\ModuleCheckBoxComponent.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ModuleCheckBoxComponent\obj\Debug\ModuleCheckBoxComponent.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ModuleCheckBoxComponent\obj\Debug\ModuleCheckBoxComponent.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ModuleCheckBoxComponent\obj\Debug\ModuleCheckBoxComponent.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ModuleCheckBoxComponent\obj\Debug\ModuleCheckBoxComponent.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\ModuleCheckBoxComponent\obj\Debug\ModuleCheckBoxComponent.pdb

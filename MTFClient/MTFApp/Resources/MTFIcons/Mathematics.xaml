@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconMathematics">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup Transform="1,0,0,1,0,-952.36218">
+                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Transform="1,0,0,1,0,952.36218" Figures="M10.6875,8A3.0003,3.0003,0,0,0,8,11L8,45A3.0003,3.0003,0,0,0,11,48L45,48A3.0003,3.0003,0,0,0,48,45L48,11A3.0003,3.0003,0,0,0,45,8L11,8A3.0003,3.0003,0,0,0,10.6875,8z M55,8A3.0003,3.0003,0,0,0,52,11L52,45A3.0003,3.0003,0,0,0,55,48L89,48A3.0003,3.0003,0,0,0,92,45L92,21A3.0003,3.0003,0,1,0,86,21L86,42 58,42 58,14 89,14A3.0003,3.0003,0,1,0,89,8L55,8z M14,14L42,14 42,42 14,42 14,14z M27.96875,17.9375A3.0003,3.0003,0,0,0,25,21L25,25 21,25A3.0003,3.0003,0,0,0,20.6875,25A3.0040663,3.0040663,0,1,0,21,31L25,31 25,35A3.0003,3.0003,0,1,0,31,35L31,31 35,31A3.0003,3.0003,0,1,0,35,25L31,25 31,21A3.0003,3.0003,0,0,0,27.96875,17.9375z M64.6875,25A3.0040663,3.0040663,0,1,0,65,31L79,31A3.0003,3.0003,0,1,0,79,25L65,25A3.0003,3.0003,0,0,0,64.6875,25z M11,52A3.0003,3.0003,0,0,0,8,55L8,89A3.0003,3.0003,0,0,0,10.96875,92.03125A3.0003,3.0003,0,0,0,14,89L14,58 42,58 42,86 21,86A3.0003,3.0003,0,1,0,21,92L45,92A3.0003,3.0003,0,0,0,48,89L48,55A3.0003,3.0003,0,0,0,45,52L11,52z M55,52A3.0003,3.0003,0,0,0,52,55L52,89A3.0003,3.0003,0,0,0,55,92L89,92A3.0003,3.0003,0,0,0,92,89L92,55A3.0003,3.0003,0,0,0,89.3125,52A3.0003,3.0003,0,0,0,89,52L55,52z M58,58L86,58 86,86 58,86 58,58z M72,61C70.343146,61 69,62.343146 69,64 69,65.656854 70.343146,67 72,67 73.656854,67 75,65.656854 75,64 75,62.343146 73.656854,61 72,61z M20.65625,61.96875A3.0003,3.0003,0,0,0,18.875,67.09375L23.75,72 18.875,76.875A3.0003,3.0003,0,1,0,23.125,81.09375L28,76.21875 32.875,81.09375A3.0003,3.0003,0,1,0,37.125,76.875L32.25,72 37.125,67.09375A3.0003,3.0003,0,0,0,34.65625,61.96875A3.0003,3.0003,0,0,0,32.875,62.875L28,67.75 23.125,62.875A3.0003,3.0003,0,0,0,20.65625,61.96875z M64.6875,69A3.0040663,3.0040663,0,1,0,65,75L79,75A3.0003,3.0003,0,1,0,79,69L65,69A3.0003,3.0003,0,0,0,64.6875,69z M72,77C70.343146,77 69,78.343146 69,80 69,81.656854 70.343146,83 72,83 73.656854,83 75,81.656854 75,80 75,78.343146 73.656854,77 72,77z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

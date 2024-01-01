@@ -1,0 +1,480 @@
+﻿<uiHelpers:MTFUserControl x:Class="MTFApp.ComponentConfig.ComponentConfigControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+             xmlns:mtfEditors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:controls="clr-namespace:MTFApp.ComponentConfig"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:mtfCommon="clr-namespace:AutomotiveLighting.MTFCommon;assembly=MTFCommon"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:GenericTypeNameConverter x:Key="typeNameConverter" />
+
+        <Style x:Key="HideEmpty" TargetType="TextBlock">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="BaseInstanceParamListTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="paramName"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="paramType"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="15" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding DisplayName}" Style="{StaticResource Normal}" />
+                <TextBlock Grid.Column="1" Text="{Binding TypeName, Converter={StaticResource typeNameConverter}}"
+                                                Style="{StaticResource Normal}" MaxWidth="500" />
+                <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource Normal}" Visibility="{Binding MinValue, Converter={StaticResource NotNullToVisibility}}">
+                    <TextBlock Text="{Binding MinValue}" /> - <TextBlock Text="{Binding MaxValue}" />
+                </TextBlock>
+                <alControls:TextBlock Grid.Column="0" Grid.Row="1" LocTextKey="Parameter_Is_Optional" Visibility="{Binding IsOptional, Converter={StaticResource BoolToVisibility}}" />
+                <uiHelpers:MTFEditor Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                                                            TypeName="{Binding TypeName}"
+                                                            Value="{Binding Value}"
+                                                            EditorMode="HideTarget"
+                                                            Visibility="{Binding AllowedValues, Converter={StaticResource NullToVisibility}}"
+                                                            />
+                <ComboBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                                                  ItemsSource="{Binding AllowedValues}" 
+                                                  DisplayMemberPath="DisplayName"  
+                                                  SelectedValuePath="Value"
+                                                  SelectedValue="{Binding Value}" 
+                                                  Visibility="{Binding AllowedValues, Converter={StaticResource NotNullToVisibility}}"
+                                                  Margin="0,3,0,0"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Description}" 
+                                                TextWrapping="Wrap"
+                                                Visibility="{Binding Description, Converter={StaticResource NotNullToVisibility}}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="BaseInstaceParameters">
+            <ListBox Grid.IsSharedSizeScope="True" 
+                                ItemsSource="{Binding ParameterValues, IsAsync=True}"
+                                ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" 
+                                Background="Transparent" 
+                                BorderThickness="0" 
+                                HorizontalContentAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                ScrollViewer.CanContentScroll="False"
+                                KeyboardNavigation.TabNavigation="Continue" 
+                                PreviewMouseWheel="UIElement_OnPreviewMouseWheel" 
+                                ItemTemplate="{StaticResource BaseInstanceParamListTemplate}">
+
+            </ListBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ParamHelperTextBox">
+            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" />
+        </DataTemplate>
+        <DataTemplate x:Key="ParamHelperComboBox">
+            <ComboBox SelectedValue="{Binding Value}" ItemsSource="{Binding AllowedValues}"
+                      SelectedValuePath="Value"
+                      DisplayMemberPath="DisplayName" />
+        </DataTemplate>
+        <DataTemplate x:Key="ParamHelperDataTable">
+            <mtfEditors:MTFTableEditor Value="{Binding Value, UpdateSourceTrigger=PropertyChanged}" />
+        </DataTemplate>
+        <DataTemplate x:Key="ParamHelperTabControl">
+            <controls:ParameterTabControl DataContext="{Binding Value}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ParamHelperInstaceParameters">
+            <ListBox ItemsSource="{Binding DataContext.ParameterHelper, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}, IsAsync=True}"
+                                ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" 
+                                Grid.IsSharedSizeScope="True" 
+                                Background="Transparent" 
+                                BorderThickness="0" 
+                                HorizontalContentAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                ScrollViewer.CanContentScroll="False"
+                                 PreviewMouseWheel="UIElement_OnPreviewMouseWheel" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="paramName"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="paramType"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="15" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding DisplayName}" Style="{StaticResource Normal}" />
+                            <TextBlock Grid.Column="1" Text="{Binding TypeName, Converter={StaticResource typeNameConverter}}" Style="{StaticResource Normal}" />
+
+                            <ContentPresenter Content="{Binding}" IsEnabled="{Binding IsEnabled}"
+                                              Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                                <ContentPresenter.Style>
+                                    <Style TargetType="ContentPresenter">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ControlType}" Value="{x:Static mtfCommon:MTFParameterControlType.TextInput}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource ParamHelperTextBox}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ControlType}" Value="{x:Static mtfCommon:MTFParameterControlType.ListBox}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource ParamHelperComboBox}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ControlType}" Value="{x:Static mtfCommon:MTFParameterControlType.DataTable}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource ParamHelperDataTable}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ControlType}" Value="{x:Static mtfCommon:MTFParameterControlType.TabControl}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource ParamHelperTabControl}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentPresenter.Style>
+                            </ContentPresenter>
+
+                            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Description}" 
+                                                TextWrapping="Wrap"
+                                                Visibility="{Binding Description, Converter={StaticResource NotNullToVisibility}}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MTFClassInstanceConfigurationDataTemplate">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <Grid Margin="3,10,3,3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource Heading1}" />
+                <DockPanel Grid.Row="1" >
+                    <alControls:TextBlock LocTextKey="ComponentConfig_CfgName" Style="{StaticResource Normal}" />
+                    <TextBox Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" TextChanged="ComponentConfigurationName_TextChanged" />
+                </DockPanel>
+
+                <alControls:TextBlock Grid.Row="2" LocTextKey="ComponentConfig_Params" Style="{StaticResource Heading1}" />
+
+                <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ContentPresenter Content="{Binding}">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource ParamHelperInstaceParameters}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.ParameterHelper, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" Value="{x:Null}">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource BaseInstaceParameters}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <alControls:TextBlock LocTextKey="ComponentConfig_AvailableList" Visibility="{Binding ValueLists, Converter={StaticResource NotNullToVisibility}}" />
+                            <ListBox Grid.Row="1" Margin="20 0 0 10" 
+                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" 
+                                 ItemsSource="{Binding ValueLists, IsAsync=True}" 
+                                 Background="Transparent"
+                                 ScrollViewer.CanContentScroll="False">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                            <ListBox MaxHeight="150" 
+                                                 Margin="20 0 0 20" 
+                                                 Grid.IsSharedSizeScope="True"
+                                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" 
+                                                 ItemsSource="{Binding Items, IsAsync=True}" 
+                                                 Background="Transparent">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding DisplayName}" Grid.Column="0" />
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+                <!--<DockPanel Grid.Row="4" HorizontalAlignment="Stretch">
+                    <Button Content="Test" HorizontalAlignment="Left" 
+                        Command="{Binding DataContext.TestConstructorCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" />
+                    <Button Content="Load value lists" HorizontalAlignment="Left" 
+                        Command="{Binding DataContext.LoadValueListsCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" />
+                    <TextBlock Text="{Binding DataContext.CreateInstanceInfo, NotifyOnTargetUpdated=True, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" TargetUpdated="TextBlock_TargetUpdated"
+                            VerticalAlignment="Center"/>
+                    <Button Content="Remove" HorizontalAlignment="Right" DockPanel.Dock="Right" CommandParameter="{Binding}"
+                        Command="{Binding DataContext.RemoveInstanceCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" />
+                    <Button Content="Save" HorizontalAlignment="Right" DockPanel.Dock="Right"
+                        Command="{Binding DataContext.SaveConfigurationCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" />
+                    <Button Content="Copy as new Configuration" HorizontalAlignment="Right" DockPanel.Dock="Right" CommandParameter="{Binding}"
+                        Command="{Binding DataContext.CopyConfigurationCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" />
+
+                </DockPanel>-->
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MTFClassInfoDataTemplate">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}" />
+            </DataTemplate.Resources>
+            <Grid Margin="3,10,3,3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource Heading1}" />
+                <UserControl Grid.RowSpan="10" HorizontalAlignment="Right" VerticalAlignment="Top" MaxWidth="100" MaxHeight="100"
+                            Style="{Binding Icon, Converter={StaticResource IconConverter}}"
+                            Foreground="{StaticResource ALBlackBrush}"
+                            Margin="0,5,5,0"/>
+                <StackPanel Grid.Row="1" Orientation="Vertical" Visibility="{StaticResource ShowDebugInfo}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding AssemblyName}" Style="{StaticResource SmallBold}" />
+                        <TextBlock Text="(" Style="{StaticResource SmallBold}" />
+                        <TextBlock Text="{Binding AssemblyVersion}" Style="{StaticResource SmallBold}" />
+                        <TextBlock Text=")" Style="{StaticResource SmallBold}" />
+                        <TextBlock Text="{Binding FullName}" Style="{StaticResource SmallBold}" />
+                    </StackPanel>
+                    <alControls:TextBlock LocTextKey="ComponentConfig_LegacyParamUsed" Margin="0 0 0 5"
+                                          Foreground="{StaticResource ALRedBrush}"
+                                          Visibility="{Binding DataContext.UseLegacyParameterHelperHandling, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibility}}" />
+                </StackPanel>
+                <TextBlock Grid.Row="2" Text="{Binding Description}" />
+                <alControls:TextBlock Grid.Row="3" LocTextKey="ComponentConfig_Contructors" Style="{StaticResource Heading2}" />
+                <ListBox Grid.Row="4" ItemsSource="{Binding Constructors}" BorderThickness="0" 
+                        ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" Background="Transparent" 
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ScrollViewer.CanContentScroll="False">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <!--<TextBlock Text="{Binding Name}" />-->
+                                    <alControls:Button LocTextKey="Buttons_CreateNew" 
+                                        Width="100"
+                                        Command="{Binding Path=DataContext.CreateNewCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                        CommandParameter="{Binding}" />
+                                </StackPanel>
+                                <TextBlock Grid.Row="1" 
+                                        Text="{Binding Description}" 
+                                        Margin="10,0,0,0" 
+                                        Style="{StaticResource HideEmpty}" />
+                                <ListBox Grid.Row="2" 
+                                        Grid.IsSharedSizeScope="True"
+                                        ItemsSource="{Binding Parameters}" 
+                                        ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                                        BorderThickness="0" 
+                                        Background="Transparent" 
+                                        Margin="0,0,0,20" 
+                                        HorizontalContentAlignment="Stretch"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="10,0,0,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" SharedSizeGroup="pName"/>
+                                                    <ColumnDefinition Width="Auto" SharedSizeGroup="pOptional" />
+                                                    <ColumnDefinition Width="Auto" SharedSizeGroup="pTypeName"/>
+                                                    <ColumnDefinition Width="Auto" SharedSizeGroup="pRange"/>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="●" Margin="0,0,3,0" VerticalAlignment="Center" />
+                                                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding DisplayName}" Style="{StaticResource Normal}"/>
+                                                <alControls:TextBlock Grid.Column="2" LocTextKey="Parameter_Is_Optional" Margin="0 0 3 0" VerticalAlignment="Center" Visibility="{Binding IsOptional, Converter={StaticResource BoolToVisibility}}" />
+                                                <TextBlock Grid.Column="3" VerticalAlignment="Center" Style="{StaticResource Normal}" Text="{Binding TypeName, Converter={StaticResource typeNameConverter}}" />
+                                                <TextBlock Grid.Column="4" VerticalAlignment="Center" Style="{StaticResource Normal}" Visibility="{Binding MinValue, Converter={StaticResource NotNullToVisibility}}">
+                                                    <TextBlock Text="{Binding MinValue}" /> - <TextBlock Text="{Binding MaxValue}" />
+                                                </TextBlock>
+                                                <TextBlock Grid.Column="5" VerticalAlignment="Center" Text="{Binding Description}" Style="{StaticResource Normal}" TextWrapping="Wrap" Margin="10,0"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <!--<StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                    <Button Content="Save"
+                            Command="{Binding DataContext.SaveConfigurationCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"/>
+                    <Button Content="Remove All"
+                            Command="{Binding DataContext.RemoveAllInstanceCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"/>
+                </StackPanel>-->
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MTFClassCategoryDataTemplate">
+            <Grid Margin="3,10,3,3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource Heading1}"  />
+                <alControls:TextBlock Grid.Row="1" LocTextKey="ComponentConfig_Classes" Style="{StaticResource Heading2}" />
+                <ItemsControl Name="classesListBox" Grid.Row="2" ItemsSource="{Binding Classes}" Margin="10 0 0 0"  Background="Transparent" Grid.IsSharedSizeScope="True" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="iconColumnInDetail" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <UserControl Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                    Style="{Binding Icon, Converter={StaticResource IconConverter}}"
+                                    Foreground="{StaticResource ALBlackBrush}"
+                                    MaxWidth="30" MaxHeight="30" Margin="5"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Description}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MTFClassInstanceConfigurationHeaderDataTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+                <Button Style="{StaticResource RemoveTabButton}" Foreground="{StaticResource ALBlackBrush}"
+                        Command="{Binding DataContext.RemoveInstanceCommand, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="MTFClassInfoHeaderDataTemplate">
+            <Grid>
+                <UserControl HorizontalAlignment="Right" VerticalAlignment="Top" MaxWidth="100" MaxHeight="100"
+                            Style="{Binding Icon, Converter={StaticResource IconConverter}}"
+                            Foreground="{StaticResource ALBlackBrush}"
+                            Margin="3,3,3,3"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="MTFClassCategoryHeaderDataTemplate">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <Grid>
+                <alControls:TextBlock LocTextKey="ComponentConfig_Category" />
+            </Grid>
+        </DataTemplate>
+
+        <uiHelpers:DataTemplateByTypeSelector x:Key="tabItemTemplateSelector" DataTemplateNameSufix="DataTemplate"/>
+        <uiHelpers:DataTemplateByTypeSelector x:Key="tabItemHeaderTemplateSelector"  DataTemplateNameSufix="HeaderDataTemplate"/>
+    </UserControl.Resources>
+
+
+
+    <Grid Name="ComponentConfigGrid" Loaded="GridOnLoaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+        <!--<ListBox Margin="3" 
+                 
+                  ItemsSource="{Binding AvailableMonsterClasses}"
+                   DisplayMemberPath="Name" 
+                 SelectedItem="{Binding SelectedMonsterClass}" >
+        </ListBox>-->
+        <!--Visibility="Hidden"-->
+        <!--SelectedItemChanged="ClassCategoriesSelectedItemChanged"-->
+
+        <TreeView ItemsSource="{Binding MTFClassCategories, IsAsync=True}" 
+                  SelectedItemChanged="ClassCategoriesSelectedItemChanged"
+                  SelectedValuePath="{Binding Path=SelectedTreeViewItem}"
+                  Name="categoryTreeView" BorderThickness="0"
+                  Padding="0"
+                  Grid.IsSharedSizeScope="True">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Classes}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                    </Grid>
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="iconColumn" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <UserControl HorizontalAlignment="Right" VerticalAlignment="Center"
+                                    Style="{Binding Icon, Converter={StaticResource IconConverter}}"
+                                    Foreground="{StaticResource ALBlackBrush}"
+                                    MaxWidth="30" MaxHeight="30"
+                                    Margin="5"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+        <GridSplitter DragCompleted="GridSplitterDragCompleted" />
+        <TabControl Margin="3" 
+                    Name="contentTab"
+                    Grid.Column="1" 
+                    ItemsSource="{Binding ConfiguredComponents}" 
+                    ContentTemplateSelector="{StaticResource tabItemTemplateSelector}"
+                    ItemTemplateSelector="{StaticResource tabItemHeaderTemplateSelector}"
+                    SelectedItem="{Binding SelectedComponentCfg}"
+                    >
+        </TabControl>
+    </Grid>
+</uiHelpers:MTFUserControl>

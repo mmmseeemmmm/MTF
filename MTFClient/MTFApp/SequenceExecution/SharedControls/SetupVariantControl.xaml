@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MTFApp.SequenceExecution.SharedControls.SetupVariantControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:nullableComboBox="clr-namespace:MTFApp.UIControls.NullableComboBox"
+             mc:Ignorable="d" Background="White" 
+             Width="600" Height="300"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding ActivityName}" FontSize="24" />
+            <TextBlock Text=" setup" FontSize="24" />
+        </StackPanel>
+        <Button Grid.Row="0" Height="30" Width="100" Padding="3" Margin="0" HorizontalAlignment="Right" Command="{Binding CleanCommand}">
+            <UserControl Style="{StaticResource IconClean}" />
+        </Button>
+        <ListBox Grid.Row="1" ItemsSource="{Binding DataVariants}" ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" ScrollViewer.CanContentScroll="False">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="500" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding DisplayDataName}" FontSize="16" />
+                        
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Use data" VerticalAlignment="Center" Margin="10 0 5 0" />
+                        <nullableComboBox:NullableComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding UsedDataVariants}" SelectedItem="{Binding SelectedUsedVariant}" />  
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Save data" VerticalAlignment="Center" Margin="10 0 5 0" />
+                        <editors:MTFVariantEditor Grid.Row="2" Grid.Column="1"
+                                                  Value="{Binding SaveVariant}" 
+                                                  UseHorizontalVariants="True"
+                                                  ParentSequence="{Binding Sequence, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+
+                        <Border Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Margin="10 5 0 5" BorderBrush="{StaticResource ALYellowBrush}" BorderThickness="0 2 0 0" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="2" Content="OK" Command="{Binding OkCommand}" Width="100" HorizontalAlignment="Right" Margin="0 5 120 5" />
+        <Button Grid.Row="2" Content="Cancel" Command="{Binding CancelCommand}" Width="100" HorizontalAlignment="Right" />
+    </Grid>
+</UserControl>

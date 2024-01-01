@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="MTFApp.Settings.AccessKeyProviderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mtfApp="clr-namespace:MTFApp"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             mc:Ignorable="d" Name="AccessKeyProviderMainControl"
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="DefaultStyle" />
+    </UserControl.Resources>
+    
+    <Grid Background="{StaticResource ALWhiteBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource ALYellowBrush}">
+            <UserControl Style="{StaticResource IconKeys}" Height="30" Margin="5 5 10 5"/>
+            <alControls:TextBlock LocTextKey="Setting_KeyProviders_Header" VerticalAlignment="Center" Style="{StaticResource DefaultStyle}" />
+        </StackPanel>
+
+        <ListBox Grid.Row="1" Grid.Column="0" Margin="0 10 0 0" ItemsSource="{Binding AccessKeyProviderSettingses}" ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" 
+                 HorizontalContentAlignment="Stretch" PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type mtfApp:AccessKeyProviderSettings}">
+                    <Grid Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" SharedSizeGroup="settingsParamName" />
+                            <ColumnDefinition Width="5" MaxWidth="5" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <!--<RowDefinition />-->
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0 0 0 2" BorderBrush="{StaticResource ALYellowBrush}" Margin="0 0 0 5">
+                            <TextBlock Text="{Binding Name}" />
+                        </Border>
+
+                        <alControls:TextBlock Grid.Row="1" Grid.Column="0" LocTextKey="Setting_KeyProviders_Active" VerticalAlignment="Center"
+                                               Style="{StaticResource DefaultStyle}"/>
+                        <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding IsActive}" />
+
+                        <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding Parameters}" Margin="-1"
+                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}" HorizontalContentAlignment="Stretch">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type mtfApp:AccessKeyProviderParameter}">
+                                    <Grid MaxWidth="498">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" SharedSizeGroup="settingsParamName" />
+                                            <ColumnDefinition Width="5" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Name}" VerticalAlignment="Center" />
+                                        <TextBox Grid.Column="2" Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <Button Grid.Row="3" Grid.Column="2" Height="25" Width="100" HorizontalAlignment="Left" Margin="0" 
+                                Command="{Binding DataContext.OpenAccesKeyConfigControlCommand, ElementName=AccessKeyProviderMainControl}" CommandParameter="{Binding}" 
+                                Visibility="{Binding HasConfigControl, Converter={StaticResource BoolToVisibility}}">
+                            <StackPanel Orientation="Horizontal">
+                                <UserControl Style="{StaticResource IconSettings}" Margin="0 0 10 0"/>
+                                <alControls:TextBlock LocTextKey="Setting_KeyProviders_Config" VerticalAlignment="Center"
+                                                       Style="{StaticResource DefaultStyle}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <!--<Button Grid.Row="4" Grid.Column="2" Height="25" Width="100" HorizontalAlignment="Left" Margin="0" 
+                                Command="{Binding DataContext.ReconnectCommand, ElementName=AccessKeyProviderMainControl}" CommandParameter="{Binding}" 
+                                Visibility="{Binding CanReconnect, Converter={StaticResource BoolToVisibility}}">
+                            <StackPanel Orientation="Horizontal">
+                                <UserControl Style="{StaticResource IconSettings}" Margin="0 0 10 0"/>
+                                <alControls:TextBlock LocTextKey="Setting_KeyProviders_Config" VerticalAlignment="Center"
+                                                       Style="{StaticResource DefaultStyle}"/>
+                            </StackPanel>
+                        </Button>-->
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,1527 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFValidationTableEditor"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+                       xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                       xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+                       xmlns:local="clr-namespace:MTFApp.UIHelpers.Editors.ValidationTableEditor"
+                       xmlns:tagListBox="clr-namespace:MTFApp.UIControls.TagListBoxControl"
+                       xmlns:sequenceEditor="clr-namespace:MTFApp.SequenceEditor"
+                       xmlns:sequenceExecution="clr-namespace:MTFApp.SequenceExecution"
+                       xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                       mc:Ignorable="d"
+                       d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:ValidationTableValueToStringConverter x:Key="ParamConverter" />
+        <converters:ValidationTableActualValueConverter x:Key="ActualValueConverter" />
+        <converters:ValidationTableCellStatusConverter x:Key="CellStatusConverter" />
+        <converters:RowVariantVisibilityConverter x:Key="RowVariantVisibilityConverter" />
+        <converters:IsICollectionConverter x:Key="CollectionConverter" />
+        <tagListBox:ItemsSourceConverter x:Key="inputConverter" />
+        <converters:ValidationTableAssignEvaluationConverter x:Key="RowConverter" />
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="IsTabStop" Value="False" />
+        </Style>
+
+        <DataTemplate x:Key="collapsedArrow">
+            <UserControl Style="{StaticResource IconCollapsedArrow}" />
+        </DataTemplate>
+        <DataTemplate x:Key="expandedArrow">
+            <UserControl Style="{StaticResource IconExpandedArrow}" />
+        </DataTemplate>
+
+        <Style TargetType="Button" x:Key="TableControlButton" BasedOn="{StaticResource {x:Type Button}}"  >
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3,0,3,0" />
+            <Setter Property="IsTabStop" Value="False" />
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="VariantPopupTemplate">
+            <Grid Grid.IsSharedSizeScope="True" Background="{StaticResource ALWhiteBrush}" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Variant" MaxWidth="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Parent.Items}" Grid.Column="1" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <ContentPresenter Content="{Binding}">
+                                    <ContentPresenter.Style>
+                                        <Style TargetType="ContentPresenter">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Type}" Value="Value">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <alControls:TextBlock LocTextKey="{Binding DisplayKey}" Margin="5" Width="100" TextWrapping="Wrap"
+                                                                                      Style="{StaticResource {x:Type TextBlock}}"/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentPresenter.Style>
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                </Grid>
+
+                <ListBox ItemsSource="{Binding Parent.RowVariants}" Grid.Row="1" Grid.Column="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="Variant" MaxWidth="200" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding SequenceVariant}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5" MaxWidth="200" />
+                                <ListBox Grid.Column="1" ItemsSource="{Binding Items}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentPresenter Content="{Binding}">
+                                                <ContentPresenter.Style>
+                                                    <Style TargetType="ContentPresenter">
+                                                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Type}" Value="Value">
+                                                                <Setter Property="ContentTemplate">
+                                                                    <Setter.Value>
+                                                                        <DataTemplate>
+                                                                            <TextBlock Text="{Binding Value, Converter={StaticResource ParamConverter}}" Margin="5" Width="100" TextWrapping="Wrap" />
+                                                                        </DataTemplate>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ContentPresenter.Style>
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="NameTemplate">
+            <Border BorderBrush="{StaticResource ElementBorderBrush}" BorderThickness="1" Background="Transparent"
+                    Width="{Binding Column.Width}" MinWidth="{Binding Column.MinWidth}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Background="Transparent" BorderThickness="0">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                                <Style.Triggers>
+                                    <Trigger Property="Validation.HasError" Value="True">
+                                        <Setter Property="ToolTip"
+                                                Value="{Binding Path=(Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                        <TextBox.Resources>
+                            <local:BindingProxy x:Key="proxy"
+                                                Data="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+                        </TextBox.Resources>
+                        <TextBox.Text>
+                            <Binding Path="Value" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:UniqueNameValidationRule>
+                                        <local:UniqueNameValidationRule.UniqueNameDPHelper>
+                                            <local:UniqueNameDPHelper
+                                                ValidationTable="{Binding Data.TableData, Source={StaticResource proxy}}" />
+                                        </local:UniqueNameValidationRule.UniqueNameDPHelper>
+                                    </local:UniqueNameValidationRule>
+                                </Binding.ValidationRules>
+                            </Binding>
+
+                        </TextBox.Text>
+                    </TextBox>
+                    <Border Background="Transparent" MaxWidth="20" MaxHeight="20" Padding="3" Grid.Column="1">
+                        <UserControl Style="{StaticResource IconGoldSample}"
+                                     Visibility="{Binding Parent.AllowNokGs, Converter={StaticResource BoolToVisibility}}" />
+                    </Border>
+                    <Border Background="Transparent" MaxWidth="20" MaxHeight="20" Padding="3" Grid.Column="2">
+                        <UserControl Style="{StaticResource IconVariant}"
+                                     Visibility="{Binding Parent.RowVariants, Converter={StaticResource NotNullToVisibility}}" />
+                    </Border>
+                </Grid>
+
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="DefaultTemplate">
+            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
+                     Width="{Binding Column.Width}" MinWidth="{Binding Column.MinWidth}"
+                     Tag="{Binding}"
+                     PreviewMouseLeftButtonDown="ParamTextBox_PreviewMouseLeftButtonDown"
+                     KeyDown="ParamTextBox_KeyDown"
+                     GotKeyboardFocus="ParamTextBox_GotKeyboardFocus">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                        <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+                        <Setter Property="Cursor" Value="Arrow" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSet}" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Cursor" Value="IBeam" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+        </DataTemplate>
+        <DataTemplate x:Key="BoolParamTemplate">
+            <Border Width="{Binding Column.Width}" MinWidth="{Binding Column.MinWidth}"
+                    Background="Transparent"
+                    BorderThickness="1" BorderBrush="{StaticResource ElementBorderBrush}">
+                <CheckBox IsChecked="{Binding Value}" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{StaticResource ALWhiteBrush}" />
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="TagListBoxTemplate">
+            <tagListBox:TagListBox ItemSource="{Binding Value, Converter={StaticResource inputConverter}}"
+                                   Width="{Binding Column.Width}" MinWidth="{Binding Column.MinWidth}"
+                                   BorderThickness="1"
+                                   BorderBrush="{StaticResource ElementBorderBrush}"
+                                   SetItems="TagListBox_SetItems"
+                                   Tag="{Binding}">
+                <tagListBox:TagListBox.Style>
+                    <Style TargetType="tagListBox:TagListBox" BasedOn="{StaticResource {x:Type tagListBox:TagListBox}}">
+                        <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSet}" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ALWhiteBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </tagListBox:TagListBox.Style>
+            </tagListBox:TagListBox>
+
+        </DataTemplate>
+        <DataTemplate x:Key="ReadOnlyParamTemplate">
+            <TextBlock Padding="7" Margin="0">
+                <TextBlock.Text>
+                    <MultiBinding Converter="{StaticResource ActualValueConverter}">
+                        <Binding Path="Value" />
+                        <Binding Path="ParentSequence.RoundingRules"
+                                     RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                    </MultiBinding>
+                </TextBlock.Text>
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource Heading2}">
+                        <Setter Property="Foreground" Value="{StaticResource ALBlackBrush}" />
+                        <Style.Triggers>
+                            <DataTrigger Value="False">
+                                <DataTrigger.Binding>
+                                    <MultiBinding Converter="{StaticResource CellStatusConverter}">
+                                        <Binding ElementName="rowsPanel" Path="DataContext.Status" />
+                                        <Binding Path="Status" />
+                                    </MultiBinding>
+                                </DataTrigger.Binding>
+                                <Setter Property="Foreground" Value="{StaticResource ALLightRedBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EditableParamTemplate">
+            <DataTemplate.Resources>
+                <DataTemplate x:Key="SimpleValueTemplate">
+                    <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" Padding="7" Margin="0"
+                             MinWidth="5" />
+                </DataTemplate>
+                <DataTemplate x:Key="ListTemplate">
+                    <tagListBox:TagListBox ItemSource="{Binding Value}" VerticalAlignment="Center" MinWidth="100"
+                                           IsOnlyHorizontal="True" />
+                </DataTemplate>
+            </DataTemplate.Resources>
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SimpleValueTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Value, Converter={StaticResource CollectionConverter}}"
+                                         Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ListTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ParamTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" SharedSizeGroup="header" />
+                    <RowDefinition Height="35" SharedSizeGroup="value" />
+                </Grid.RowDefinitions>
+                <alControls:TextBlock LocTextKey="{Binding DisplayKey}" Padding="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Style="{StaticResource {x:Type TextBlock}}"/>
+                <ContentPresenter Grid.Row="1" Content="{Binding}" HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ReadOnlyParamTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Value="True"
+                                             Binding="{Binding Value.IsEditable, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EditableParamTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+
+            </Grid>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="GoldSampleTemplate">
+            <Grid
+                  Visibility="{Binding DataContext.IsActualValueImage, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}, Converter={StaticResource NotBoolToVisibility}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" SharedSizeGroup="header" />
+                    <RowDefinition Height="35" SharedSizeGroup="value" />
+                </Grid.RowDefinitions>
+                <Border Padding="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <alControls:TextBlock LocTextKey="{Binding DisplayKey}" Margin="0,0,3,0" Style="{StaticResource {x:Type TextBlock}}" />
+                        <TextBlock
+                            Text="{Binding DataContext.GoldSamplePercentage, StringFormat=(+/-{0}%), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}}" />
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Padding="7" Margin="0"
+                           Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource ActualValueConverter}">
+                            <Binding Path="Value" />
+                            <Binding Path="ParentSequence.RoundingRules"
+                                     RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource Heading2}">
+                            <Setter Property="Foreground" Value="{StaticResource ALBlackBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Value="False">
+                                    <DataTrigger.Binding>
+                                        <MultiBinding Converter="{StaticResource CellStatusConverter}">
+                                            <Binding ElementName="rowsPanel" Path="DataContext.Status" />
+                                            <Binding Path="Status" />
+                                        </MultiBinding>
+                                    </DataTrigger.Binding>
+                                    <Setter Property="Foreground" Value="{StaticResource ALLightRedBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ImagePreview">
+            <UserControl Style="{StaticResource IconPhoto}" Margin="3"
+                         PreviewMouseLeftButtonDown="TableImagePreviewMouseDown"
+                         Tag="{Binding DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceExecution:SequenceExecutionControl}}}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ActualValueTemplate">
+            <Grid Margin="0,0,30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" SharedSizeGroup="header" />
+                    <RowDefinition Height="35" SharedSizeGroup="value" />
+                </Grid.RowDefinitions>
+                <alControls:TextBlock LocTextKey="{Binding DisplayKey}" Padding="3"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                                      Style="{StaticResource {x:Type TextBlock}}"/>
+                <ContentPresenter Content="{Binding}" Grid.Row="1"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Margin="0">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Padding="7" Margin="0">
+                                            <TextBlock.Text>
+                                                <MultiBinding Converter="{StaticResource ActualValueConverter}">
+                                                    <Binding Path="Value" />
+                                                    <Binding Path="ParentSequence.RoundingRules"
+                                                             RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock" BasedOn="{StaticResource Heading2}">
+                                                    <Setter Property="Foreground" Value="{StaticResource ALBlackBrush}" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsChanged}" Value="True">
+                                                            <Setter Property="Foreground" Value="Red" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasImage}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource ImagePreview}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RepetitionTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="(" Margin="5,0,0,0" />
+                <alControls:TextBlock LocTextKey="Execution_Result_Repetition" Margin="0,0,3,0" Style="{StaticResource {x:Type TextBlock}}" />
+                <TextBlock Text="{Binding NumberOfRepetition, StringFormat={}{0})}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RowCells">
+            <ItemsControl ItemsSource="{Binding Items}"
+                     Margin="10,0,10,0"
+                     Background="Transparent"
+                     VerticalContentAlignment="Top">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding}" Height="60">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsSet}" Value="True">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource ParamTemplate}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="ActualValue">
+                                            <Setter Property="ContentTemplate"
+                                                    Value="{StaticResource ActualValueTemplate}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="GoldSample">
+                                            <Setter Property="ContentTemplate"
+                                                    Value="{StaticResource GoldSampleTemplate}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TimeViewRowCells">
+            <ListBox ItemsSource="{Binding Items, IsAsync=True}"
+                     Template="{StaticResource ListBoxControlTemplate}"
+                     Margin="10,0,10,0"
+                     Background="Transparent"
+                     ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                     PreviewMouseWheel="ListBox_PreviewMouseWheel"
+                     VerticalContentAlignment="Top">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding IsAsync=True}" Height="60">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsSet}" Value="True">
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="25" SharedSizeGroup="header" />
+                                                                <RowDefinition Height="35" SharedSizeGroup="value" />
+                                                            </Grid.RowDefinitions>
+                                                            <alControls:TextBlock LocTextKey="{Binding DisplayKey}" Padding="3"
+                                                                       HorizontalAlignment="Center"
+                                                                       VerticalAlignment="Center"
+                                                                                  Style="{StaticResource {x:Type TextBlock}}"/>
+                                                            <ContentPresenter Grid.Row="1" Content="{Binding IsAsync=True}"
+                                                                              HorizontalAlignment="Center"
+                                                                              ContentTemplate="{StaticResource ReadOnlyParamTemplate}"
+                                                                              VerticalAlignment="Center" />
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="ActualValue">
+                                            <Setter Property="ContentTemplate"
+                                                    Value="{StaticResource ActualValueTemplate}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="GoldSample">
+                                            <Setter Property="ContentTemplate"
+                                                    Value="{StaticResource GoldSampleTemplate}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RowCellsWithoutActual">
+            <ListBox ItemsSource="{Binding Items}" Grid.IsSharedSizeScope="True"
+                     Template="{StaticResource ListBoxControlTemplate}"
+                     Margin="10,0,10,0"
+                     Background="Transparent"
+                     ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                     PreviewMouseWheel="ListBox_PreviewMouseWheel"
+                     VerticalContentAlignment="Top">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding}">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsSet}" Value="True">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource ParamTemplate}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="GoldSample">
+                                            <Setter Property="ContentTemplate"
+                                                    Value="{StaticResource GoldSampleTemplate}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RowValuesTemplate">
+            <Grid Grid.IsSharedSizeScope="True" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" MaxHeight="25" SharedSizeGroup="header" />
+                    <RowDefinition Height="*" MaxHeight="300" SharedSizeGroup="value" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="2" Background="{StaticResource ALSilverBrush}"
+                        HorizontalAlignment="Stretch" Height="25" />
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource ALLightSilverBrush}"
+                        HorizontalAlignment="Stretch" />
+                <Border Width="15" Grid.RowSpan="2" Grid.Column="0">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="Transparent" />
+                            <!--<Setter Property="Visibility" Value="Collapsed" />-->
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="Nok">
+                                    <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="Ok">
+                                    <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="GSFail">
+                                    <Setter Property="Background" Value="{StaticResource ALYellowBrush}" />
+                                </DataTrigger>
+                                <!--<DataTrigger Binding="{Binding EvaluatedVariant}" Value="-1">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>-->
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <ContentPresenter Content="{Binding}" Grid.RowSpan="2" Grid.Column="1" Grid.Row="0"
+                                  ContentTemplate="{StaticResource RowCells}" />
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" Margin="2,0,0,0">
+                    <Button CommandParameter="{Binding}" Click="SaveValidationTableRowButtonClick"
+                            Padding="0" Width="20" BorderThickness="0" VerticalAlignment="Center"
+                            Background="Transparent"
+                            Visibility="{Binding Value.IsEditable, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibility}}">
+                        <Button.Content>
+                            <UserControl Style="{StaticResource IconSaveFloppy}" />
+                        </Button.Content>
+                    </Button>
+                    <ProgressBar Orientation="Horizontal" Minimum="0" Maximum="5" Width="20" Height="5"
+                                 BorderThickness="0"
+                                 Margin="0,1,0,0"
+                                 Visibility="{Binding SavingProgreessBarVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                 Value="{Binding SavingProgreessBarValue, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TimeViewRowValuesTemplate">
+            <StackPanel Orientation="Vertical" Name="rowsPanel">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Header, IsAsync=True}" />
+                    <ContentPresenter Content="{Binding IsAsync=True}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate" Value="{StaticResource RepetitionTemplate}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding NumberOfRepetition}" Value="0">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+                </StackPanel>
+                <ContentPresenter Content="{Binding Converter={StaticResource RowConverter}}">
+                    <ContentPresenter.ContentTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,0,0,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" MaxHeight="25" SharedSizeGroup="header" />
+                                    <RowDefinition Height="*" MaxHeight="300" SharedSizeGroup="value" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Row="0" Grid.ColumnSpan="2" Background="{StaticResource ALSilverBrush}"
+                                        HorizontalAlignment="Stretch" Height="25" />
+                                <Border Grid.Row="1" Grid.ColumnSpan="2"
+                                        Background="{StaticResource ALLightSilverBrush}"
+                                        HorizontalAlignment="Stretch" />
+                                <Border Width="15" Grid.RowSpan="2" Grid.Column="0">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="Nok">
+                                                    <Setter Property="Background"
+                                                            Value="{StaticResource ALLightRedBrush}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="Ok">
+                                                    <Setter Property="Background"
+                                                            Value="{StaticResource ALLightGreenBrush}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="GSFail">
+                                                    <Setter Property="Background"
+                                                            Value="{StaticResource ALYellowBrush}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                                <ContentPresenter Content="{Binding}" Grid.RowSpan="2" Grid.Column="1" Grid.Row="0"
+                                                  ContentTemplate="{StaticResource TimeViewRowCells}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ContentPresenter.ContentTemplate>
+                </ContentPresenter>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VariantRowValuesTemplate">
+            <Grid Grid.IsSharedSizeScope="True" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" MaxHeight="25" SharedSizeGroup="header" />
+                    <RowDefinition Height="*" MaxHeight="300" SharedSizeGroup="value" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="2" Background="{StaticResource ALSilverBrush}"
+                        HorizontalAlignment="Stretch" Height="25" />
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource ALLightSilverBrush}"
+                        HorizontalAlignment="Stretch" />
+                <ContentPresenter Content="{Binding }" Grid.RowSpan="2" Grid.Column="1" Grid.Row="0"
+                                  ContentTemplate="{StaticResource RowCellsWithoutActual}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VariantsRowTemplate">
+            <StackPanel Orientation="Vertical"
+                        Visibility="{Binding RowVariants, Converter={StaticResource NotNullToVisibility}}"
+                        Margin="0,0,0,10">
+                <Grid>
+                    <ToggleButton HorizontalAlignment="Stretch" Name="VariantToogle" IsChecked="False"
+                                  Margin="0" BorderThickness="0" Background="{StaticResource ALSilverBrush}"
+                                  FocusVisualStyle="{x:Null}" Height="25"
+                                  HorizontalContentAlignment="Stretch">
+                        <Grid HorizontalAlignment="Stretch">
+                            <alControls:TextBlock LocTextKey="ValidationTable_OtherVariants" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                  Style="{StaticResource {x:Type TextBlock}}"
+                                       Margin="10,0,0,0" />
+                            <ContentPresenter Content="{Binding}" HorizontalAlignment="Right" Margin="2">
+                                <ContentPresenter.Style>
+                                    <Style TargetType="ContentPresenter">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource expandedArrow}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=VariantToogle, Path=IsChecked}"
+                                                         Value="False">
+                                                <Setter Property="ContentTemplate"
+                                                        Value="{StaticResource collapsedArrow}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentPresenter.Style>
+                            </ContentPresenter>
+                        </Grid>
+                    </ToggleButton>
+                </Grid>
+                <ListBox ItemsSource="{Binding RowVariants}"
+                         Visibility="{Binding ElementName=VariantToogle, Path=IsChecked, Converter={StaticResource BoolToVisibility}}"
+                         ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                         Template="{StaticResource ListBoxControlTemplate}"
+                         HorizontalContentAlignment="Stretch"
+                         Background="Transparent"
+                         Margin="0,5,0,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,3,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="16" Grid.Row="0">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                            <Setter Property="Text" Value="{Binding SequenceVariant}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SequenceVariant}" Value="{x:Null}">
+                                                    <Setter Property="Text" Value="[Default]" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <ContentPresenter Content="{Binding}"
+                                                  ContentTemplate="{StaticResource VariantRowValuesTemplate}"
+                                                  Grid.Row="1" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+            </StackPanel>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="DefaultVariantRowTemplate">
+            <StackPanel Orientation="Vertical" Name="rowsPanel">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Header}" />
+                    <ContentPresenter Content="{Binding}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate" Value="{StaticResource RepetitionTemplate}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding NumberOfRepetition}" Value="0">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+                </StackPanel>
+
+                <ContentPresenter Content="{Binding Converter={StaticResource RowConverter}}"
+                                  ContentTemplate="{StaticResource RowValuesTemplate}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AllVariantRowTemplate">
+            <StackPanel Orientation="Vertical" Name="rowsPanel">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Header}" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding SequenceVariantForService}" Margin="5,0,0,0" FontSize="16" />
+                    </StackPanel>
+                    <ContentPresenter Content="{Binding}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate" Value="{StaticResource RepetitionTemplate}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding NumberOfRepetition}" Value="0">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+                </StackPanel>
+
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource RowValuesTemplate}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource VariantsRowTemplate}"
+                                  Margin="0,0,32,0" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="rowsTemplate">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Value.IsEditable, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource AllVariantRowTemplate}" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding Value.IsEditable, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource DefaultVariantRowTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate x:Key="tableViewTemplate">
+            <Border>
+                <Border.Background>
+                    <SolidColorBrush Color="{StaticResource ALLightSilver}" Opacity="0.5" />
+                </Border.Background>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                              PreviewMouseWheel="ListBox_PreviewMouseWheel">
+                <ItemsControl ItemsSource="{Binding Rows, IsAsync=True}"
+                         VirtualizingPanel.IsVirtualizing="True"
+                         VirtualizingPanel.VirtualizationMode="Recycling"
+                         Background="Transparent"
+                         Margin="10,10,10,2"
+                         HorizontalContentAlignment="Stretch">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource rowsTemplate}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                </ScrollViewer>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TimeViewRowHeader">
+            <Border HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="170"
+                    Margin="0,12,0,0">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background"
+                                Value="{StaticResource ALLightSilverBrush}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding TableStatus}" Value="Ok">
+                                <Setter Property="Background"
+                                        Value="{StaticResource ALLightGreenBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding TableStatus}" Value="Nok">
+                                <Setter Property="Background"
+                                        Value="{StaticResource ALLightRedBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding TableStatus}" Value="GSFail">
+                                <Setter Property="Background"
+                                        Value="{StaticResource ALYellowBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="4">
+                    <TextBlock Text="{Binding TableName}" HorizontalAlignment="Center"
+                               FontWeight="Bold" Margin="0,0,0,5" />
+                    <TextBlock Text="{Binding TimeStamp}" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="timeViewTemplate">
+            <!--<ListBox ItemsSource="{Binding Rows, IsAsync=True}">
+                
+            </ListBox>-->
+            <Border>
+                <Border.Background>
+                    <SolidColorBrush Color="{StaticResource ALLightSilver}" Opacity="0.5" />
+                </Border.Background>
+                <Grid>
+                    <Grid Width="200" HorizontalAlignment="Left" Margin="10,0,0,0">
+                        <Border HorizontalAlignment="Center" BorderThickness="1,0,0,0"
+                                BorderBrush="{StaticResource ALLightSilverBrush}" />
+                    </Grid>
+                    <ListBox ItemsSource="{Binding Rows, IsAsync=True}"
+                             VirtualizingPanel.IsVirtualizing="True"
+                             VirtualizingPanel.VirtualizationMode="Recycling"
+                             VirtualizingPanel.IsContainerVirtualizable="True"
+                             VirtualizingPanel.CacheLengthUnit="Page"
+                             VirtualizingPanel.CacheLength="1,1"
+                             Background="Transparent"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                             Margin="10,15,10,2"
+                             ScrollViewer.ScrollChanged="TimeViewListBox_ScrollChanged"
+                             uiHelpers:ListBoxBehavior.ScrollOnNewItem="{Binding AllowAutoScroll, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                             HorizontalContentAlignment="Stretch"
+                             Template="{StaticResource ListBoxControlTemplate}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter Content="{Binding}">
+                                        <ContentPresenter.Style>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding HasTimeStamp, IsAsync=True}" Value="True">
+                                                        <Setter Property="ContentTemplate" Value="{StaticResource TimeViewRowHeader}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ContentPresenter.Style>
+                                    </ContentPresenter>
+                                    <ContentPresenter Content="{Binding Row, IsAsync=True}"
+                                                      ContentTemplate="{StaticResource TimeViewRowValuesTemplate}" Grid.Column="1" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="InitMode">
+            <StackPanel Orientation="Vertical">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                              HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" RequestBringIntoView="ScrollViewer_RequestBringIntoView">
+                        <StackPanel Orientation="Horizontal">
+                            <ListBox ItemsSource="{Binding TableData.Columns}"
+                                     KeyboardNavigation.TabNavigation="Continue"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                     Template="{StaticResource ListBoxControlTemplate}"
+                                     ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                                <ListBox.Resources>
+                                    <DataTemplate x:Key="labelTemplate">
+                                        <Label Content="{Binding DisplayKey}"
+                                               Style="{StaticResource LabelTextBox}"
+                                               VerticalAlignment="Stretch" />
+                                    </DataTemplate>
+                                    <DataTemplate x:Key="comboTemplate">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <alControls:ComboBox
+                                                ItemsSourceLocalized="{Binding Conditions, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                SelectedItem="{Binding SelectedCondition}"
+                                                SelectedValue="{Binding Header}"
+                                                SelectedValuePath="Alias"
+                                                LocTextKey="DisplayKey"
+                                                MinWidth="{Binding MinWidth}"
+                                                Style="{StaticResource {x:Type ComboBox}}"/>
+                                            <Button Style="{StaticResource MinusButton}"
+                                                    Grid.Column="1"
+                                                    Margin="3,0,0,0"
+                                                    IsTabStop="False"
+                                                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                                                    Command="{Binding RemoveColumnCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                    CommandParameter="{Binding}"
+                                                    Visibility="{Binding CanRemove, Converter={StaticResource BoolToVisibility}}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.Resources>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentPresenter Content="{Binding}" Width="{Binding Width}"
+                                                              MinWidth="{Binding MinWidth}">
+                                                <ContentPresenter.Style>
+                                                    <Style TargetType="ContentPresenter">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Setter Property="ContentTemplate"
+                                                                Value="{StaticResource labelTemplate}" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Type}" Value="ActualValue">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Type}" Value="GoldSample">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding IsControlElement}"
+                                                                         Value="False">
+                                                                <Setter Property="ContentTemplate"
+                                                                        Value="{StaticResource comboTemplate}" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ContentPresenter.Style>
+                                            </ContentPresenter>
+                                            <GridSplitter Panel.ZIndex="99" Foreground="Transparent"
+                                                          Tag="{Binding Mode=OneWay}"
+                                                          DragDelta="GridSplitter_DragDelta" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Button Style="{StaticResource PlusButton}" Command="{Binding AddColumnCommand}"
+                                    Margin="3,0,0,0" VerticalAlignment="Top" />
+                            
+                        </StackPanel>
+                        <ListBox ItemsSource="{Binding TableData.Rows}"
+                                 SelectedItem="{Binding DataContext.SelectedInitRow, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}"
+                                 KeyboardNavigation.TabNavigation="Continue"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ItemContainerStyle="{StaticResource ValidationTableInitRow}"
+                                 Template="{StaticResource ListBoxControlTemplate}"
+                                 VerticalContentAlignment="Stretch"
+                                 PreviewMouseLeftButtonDown="RowListBoxItem_OnPreviewMouseLeftButtonDown">
+                            <ListBox.Resources>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="IsTabStop" Value="False" />
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Style>
+                            </ListBox.Resources>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ListBox ItemsSource="{Binding Items}"
+                                                 KeyboardNavigation.TabNavigation="Continue"
+                                                 VerticalContentAlignment="Stretch"
+                                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                                                 Template="{StaticResource ListBoxControlTemplate}">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ContentPresenter Content="{Binding}">
+                                                        <ContentPresenter.Style>
+                                                            <Style TargetType="ContentPresenter">
+                                                                <Setter Property="ContentTemplate"
+                                                                        Value="{StaticResource DefaultTemplate}" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Column.Type}"
+                                                                                 Value="Identification">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource NameTemplate}" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Column.Type}"
+                                                                                 Value="ActualValue">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource EmptyTemplate}" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Column.Type}"
+                                                                                 Value="GoldSample">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource EmptyTemplate}" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Column.Type}"
+                                                                                 Value="Hidden">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource BoolParamTemplate}" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Column.HasListTerm}"
+                                                                                 Value="True">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource TagListBoxTemplate}" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </ContentPresenter.Style>
+                                                    </ContentPresenter>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.Style>
+                                                <Style TargetType="ListBox" BasedOn="{StaticResource {x:Type ListBox}}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger
+                                                            Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}"
+                                                            Value="True">
+                                                            <Setter Property="BorderThickness" Value="0,2,0,2" />
+                                                            <Setter Property="BorderBrush"
+                                                                    Value="{StaticResource ALYellowBrush}" />
+                                                            <Setter Property="Background"
+                                                                    Value="{StaticResource ALYellowBrush}" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ListBox.Style>
+                                        </ListBox>
+                                        <Button Style="{StaticResource MinusButton}"
+                                                Margin="3,0,3,0"
+                                                IsTabStop="False"
+                                                Command="{Binding RemoveRowCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding}" />
+                                        <Button Content="▲" Command="{Binding MoveUpRowCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding}"
+                                                Style="{StaticResource TableControlButton}" />
+                                        <Button Content="▼" Command="{Binding MoveDownRowCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding}"
+                                                Style="{StaticResource TableControlButton}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Style="{StaticResource PlusButton}" Command="{Binding AddRowCommand}" Margin="0,5,0,0"
+                                HorizontalAlignment="Left" />
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SetMode">
+            <ScrollViewer Visibility="{Binding TableData, Converter={StaticResource NotNullToVisibility}}"
+                          HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Vertical">
+                    <ListBox ItemsSource="{Binding TableData.Columns}"
+                             KeyboardNavigation.TabNavigation="Continue"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             Template="{StaticResource ListBoxControlTemplate}"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                             BorderBrush="{StaticResource ALBlackBrush}"
+                             BorderThickness="2">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Type}" Value="GoldSample">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <Label Content="{Binding DisplayKey}" Style="{StaticResource LabelTextBox}"
+                                           Width="{Binding Width}" MinWidth="{Binding MinWidth}" />
+                                    <GridSplitter Panel.ZIndex="99" Foreground="Transparent"
+                                                  Tag="{Binding Mode=OneWay}"
+                                                  DragDelta="GridSplitter_DragDelta" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox ItemsSource="{Binding DataContext.Rows}"
+                             SelectedItem="{Binding SelectedRow}"
+                             PreviewMouseDown="ListBox_PreviewMouseDown"
+                             KeyboardNavigation.TabNavigation="Continue"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                             Template="{StaticResource ListBoxControlTemplate}"
+                             BorderBrush="{StaticResource ALBlackBrush}"
+                             BorderThickness="2,0,2,2"
+                             SnapsToDevicePixels="True">
+                        <ListBox.Resources>
+                            <DataTemplate x:Key="termTemplate">
+                                <uiHelpers:MTFEditor
+                                    Value="{Binding Content.ActualValue,
+                                                             RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=2, AncestorType={x:Type ListBoxItem}}}"
+                                    TypeName="MTFClientServerCommon.Mathematics.Term"
+                                    EditorMode="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type uiHelpers:MTFEditor}}}" />
+                            </DataTemplate>
+                            <DataTemplate x:Key="textTemplate">
+                                <TextBlock
+                                    Text="{Binding Content.ActualValue,
+                                                  RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=2, AncestorType={x:Type ListBoxItem}}}"
+                                    TextWrapping="Wrap" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <ListBox ItemsSource="{Binding Row.Items}"
+                                             KeyboardNavigation.TabNavigation="Continue"
+                                             Template="{StaticResource ListBoxControlTemplate}"
+                                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                                             VerticalContentAlignment="Stretch">
+                                        <ListBox.Resources>
+                                            <DataTemplate x:Key="TextParamTemplate">
+                                                <TextBox
+                                                    Text="{Binding Value, Converter={StaticResource ParamConverter}}"
+                                                    TextWrapping="Wrap"
+                                                    VerticalAlignment="Stretch"
+                                                    TextAlignment="Left" IsEnabled="False"
+                                                    Foreground="{StaticResource ALBlackBrush}" />
+                                            </DataTemplate>
+                                            <DataTemplate x:Key="NameParamTemplate">
+                                                <Grid Background="Silver">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <TextBox Text="{Binding Value}" TextWrapping="Wrap" Grid.Column="0"
+                                                             VerticalAlignment="Stretch" BorderBrush="Transparent"
+                                                             TextAlignment="Left" IsEnabled="False"
+                                                             Foreground="{StaticResource ALBlackBrush}" />
+                                                    <UserControl Style="{StaticResource IconVariant}" Grid.Column="1"
+                                                                 Height="14" Name="VariantIcon"
+                                                                 Visibility="{Binding Parent.RowVariants, Converter={StaticResource NotNullToVisibility}}">
+                                                        <UserControl.ToolTip>
+                                                            <ToolTip Content="{Binding}" ContentTemplate="{StaticResource VariantPopupTemplate}" />
+                                                        </UserControl.ToolTip>
+                                                    </UserControl>
+                                                </Grid>
+                                            </DataTemplate>
+                                            <DataTemplate x:Key="ActualValueParamTemplate">
+                                                <Border BorderBrush="{StaticResource ElementBorderBrush}"
+                                                        BorderThickness="1">
+                                                    <ContentPresenter Content="{Binding}">
+                                                        <ContentPresenter.Style>
+                                                            <Style TargetType="ContentPresenter">
+                                                                <Setter Property="ContentTemplate"
+                                                                        Value="{StaticResource textTemplate}" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger
+                                                                        Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=2, AncestorType={x:Type ListBoxItem}}}"
+                                                                        Value="True">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource termTemplate}" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </ContentPresenter.Style>
+                                                    </ContentPresenter>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListBox.Resources>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <ContentPresenter Content="{Binding}">
+                                                    <ContentPresenter.Style>
+                                                        <Style TargetType="ContentPresenter">
+                                                            <Setter Property="ContentTemplate">
+                                                                <Setter.Value>
+                                                                    <DataTemplate>
+                                                                        <ContentPresenter Content="{Binding}"
+                                                                                          Width="{Binding Column.Width}"
+                                                                                          MinWidth="{Binding Column.MinWidth}">
+                                                                            <ContentPresenter.Style>
+                                                                                <Style TargetType="ContentPresenter">
+                                                                                    <Setter Property="ContentTemplate"
+                                                                                            Value="{StaticResource TextParamTemplate}" />
+                                                                                    <Style.Triggers>
+                                                                                        <DataTrigger
+                                                                                            Binding="{Binding Type}"
+                                                                                            Value="Identification">
+                                                                                            <Setter
+                                                                                                Property="ContentTemplate"
+                                                                                                Value="{StaticResource NameParamTemplate}" />
+                                                                                        </DataTrigger>
+                                                                                        <DataTrigger
+                                                                                            Binding="{Binding Type}"
+                                                                                            Value="ActualValue">
+                                                                                            <Setter
+                                                                                                Property="ContentTemplate"
+                                                                                                Value="{StaticResource ActualValueParamTemplate}" />
+                                                                                        </DataTrigger>
+                                                                                    </Style.Triggers>
+                                                                                </Style>
+                                                                            </ContentPresenter.Style>
+                                                                        </ContentPresenter>
+                                                                    </DataTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Type}"
+                                                                             Value="GoldSample">
+                                                                    <Setter Property="ContentTemplate"
+                                                                            Value="{StaticResource EmptyTemplate}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ContentPresenter.Style>
+                                                </ContentPresenter>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+                                    </ListBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+            </ScrollViewer>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ReadOnlyMode">
+            <Grid DataContext="{Binding Value}" Width="555">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0"
+                           PreviewMouseLeftButtonDown="TableHeaderPreviewMouseDown">
+                    <DockPanel.Style>
+                        <Style TargetType="DockPanel">
+                            <Setter Property="Background" Value="{StaticResource ALSilverBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="Ok">
+                                    <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="Nok">
+                                    <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="GSFail">
+                                    <Setter Property="Background" Value="{StaticResource ALYellowBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DockPanel.Style>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource Heading2}" DockPanel.Dock="Left"
+                               Margin="10,5,10,5" />
+                    <ContentPresenter Content="{Binding}" DockPanel.Dock="Right" HorizontalAlignment="Right"
+                                      VerticalAlignment="Center" Margin="10,2,10,2" Height="13">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate" Value="{StaticResource expandedArrow}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCollapsed}" Value="True">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource collapsedArrow}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+
+                </DockPanel>
+
+                <ContentPresenter Content="{Binding}" Grid.Row="1">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource tableViewTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCollapsed}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OnlyRowsMode">
+            <ContentPresenter Content="{Binding Value}" ContentTemplate="{StaticResource timeViewTemplate}"
+                              Height="{TemplateBinding Property=ActualHeight}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="VariantRows">
+            <StackPanel Orientation="Vertical">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                              HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" RequestBringIntoView="ScrollViewer_RequestBringIntoView"
+                                Grid.IsSharedSizeScope="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="name" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ListBox ItemsSource="{Binding Value.RowVariants[0].Items}" Grid.Column="1"
+                                     ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                                     Template="{StaticResource ListBoxControlTemplate}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding Column.Header}" Style="{StaticResource LabelTextBox}"
+                                               Visibility="{Binding Converter={StaticResource RowVariantVisibilityConverter}}"
+                                               Width="{Binding Column.Width}" MinWidth="{Binding Column.MinWidth}"
+                                               VerticalAlignment="Stretch" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                        <ListBox ItemsSource="{Binding Value.RowVariants}"
+                                 KeyboardNavigation.TabNavigation="Continue"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                                 Template="{StaticResource ListBoxControlTemplate}"
+                                 VerticalContentAlignment="Stretch">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="name" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border BorderBrush="{StaticResource ElementBorderBrush}" Padding="3"
+                                                BorderThickness="1">
+                                            <editors:MTFVariantEditor Value="{Binding SequenceVariant}"
+                                                                      ParentSequence="{Binding ParentSequence, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+                                        </Border>
+                                        <ListBox ItemsSource="{Binding Items}"
+                                                 Grid.Column="1"
+                                                 VerticalContentAlignment="Stretch"
+                                                 KeyboardNavigation.TabNavigation="Continue"
+                                                 Template="{StaticResource ListBoxControlTemplate}">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ContentPresenter Content="{Binding}"
+                                                                      Visibility="{Binding Converter={StaticResource RowVariantVisibilityConverter}}">
+                                                        <ContentPresenter.Style>
+                                                            <Style TargetType="ContentPresenter">
+                                                                <Setter Property="ContentTemplate"
+                                                                        Value="{StaticResource DefaultTemplate}" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Column.HasListTerm}"
+                                                                                 Value="True">
+                                                                        <Setter Property="ContentTemplate"
+                                                                                Value="{StaticResource TagListBoxTemplate}" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </ContentPresenter.Style>
+                                                    </ContentPresenter>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                        <Button Style="{StaticResource MinusButton}"
+                                                Grid.Column="2"
+                                                Margin="3,0,3,0"
+                                                IsTabStop="False"
+                                                Command="{Binding RemoveVariantRowCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Style="{StaticResource PlusButton}" Command="{Binding AddVariantRowCommand}"
+                                Margin="0,5,0,0" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </DataTemplate>
+
+
+    </UserControl.Resources>
+    <Grid Name="root">
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger
+                            Binding="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                            Value="InitValidationTable">
+                            <Setter Property="ContentTemplate" Value="{StaticResource InitMode}" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                            Value="SetValidationTable">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SetMode}" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                            Value="ReadOnlyTable">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ReadOnlyMode}" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                            Value="OnlyRowTable">
+                            <Setter Property="ContentTemplate" Value="{StaticResource OnlyRowsMode}" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                            Value="VariantRows">
+                            <Setter Property="ContentTemplate" Value="{StaticResource VariantRows}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </Grid>
+</editors:MTFEditorBase>

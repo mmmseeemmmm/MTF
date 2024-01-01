@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconList">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,125" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <DrawingGroup x:Name="svg_1">
+                                                    <GeometryDrawing x:Name="svg_2" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M71.586998,23.860359L59.634998,23.860359 59.634998,21.829359C59.634998,19.475359,57.724998,17.568359,55.372001,17.568359L45.665,17.568359C43.31,17.568359,41.402999,19.475359,41.402999,21.829359L41.402999,23.860359 29.450999,23.860359C24.028998,23.860359,19.616999,28.273359,19.616999,33.69236L19.616999,97.602356C19.616999,103.021362,24.028998,107.432358,29.450999,107.432358L71.585997,107.432358C77.004996,107.432358,81.417998,103.021363,81.417998,97.602356L81.417998,33.69236C81.420996,28.273359,77.012,23.860359,71.586997,23.860359z M50.52,19.49136C51.693,19.49136 52.645999,20.444359 52.645999,21.617359 52.645999,22.78936 51.693,23.742359 50.52,23.742359 49.346,23.742359 48.395,22.790359 48.395,21.617359 48.394001,20.443359 49.344001,19.49136 50.52,19.49136z M39.014999,29.90036L62.026001,29.90036 62.026001,38.87936 39.014999,38.87936 39.014999,29.90036z M71.591003,101.813362L29.452999,101.813362C27.128,101.813362,25.236,99.923363,25.236,97.602356L25.236,33.69236C25.236,31.36936,27.128,29.478359,29.452999,29.478359L33.472,29.478359 33.472,39.51836C33.472,42.22036,35.668999,44.418358,38.374,44.418358L62.666,44.418358C65.367996,44.418358,67.566002,42.22036,67.566002,39.51836L67.566002,29.478359 71.586998,29.478359C73.908997,29.478359,75.799004,31.370359,75.799004,33.69236L75.799004,97.602356 75.802002,97.602356C75.802002,99.923363,73.913002,101.813362,71.591003,101.813362z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing x:Name="svg_3" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M68.970001,61.273361L32.095001,61.273361C30.59,61.273361 29.368,62.494358 29.368,63.999359 29.368,65.506363 30.59,66.726364 32.095001,66.726364L68.970001,66.726364C70.473999,66.726364 71.696998,65.506363 71.696998,63.999359 71.695999,62.494358 70.473998,61.273361 68.970001,61.273361z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing x:Name="svg_4" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M32.095001,58.278358L47.805,58.278358C49.310001,58.278358 50.532001,57.057357 50.532001,55.551361 50.532001,54.04536 49.310001,52.82436 47.805,52.82436L32.095001,52.82436C30.59,52.82436 29.368,54.044361 29.368,55.551361 29.368,57.058361 30.59,58.278358 32.095001,58.278358z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing x:Name="svg_5" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M32.095001,76.671356L61.300998,76.671356C62.805999,76.671356 64.027999,75.450363 64.027999,73.943359 64.027999,72.439361 62.805999,71.217361 61.300998,71.217361L32.095001,71.217361C30.59,71.217361 29.368,72.439361 29.368,73.943359 29.368,75.450363 30.59,76.671356 32.095001,76.671356z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing x:Name="svg_6" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M68.970001,81.163361L32.095001,81.163361C30.59,81.163361 29.368,82.385361 29.368,83.890358 29.368,85.395355 30.59,86.617363 32.095001,86.617363L68.970001,86.617363C70.473999,86.617363 71.696998,85.395363 71.696998,83.890358 71.696998,82.385353 70.473998,81.163361 68.970001,81.163361z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing x:Name="svg_7" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M61.300999,91.107361L32.095002,91.107361C30.590001,91.107361 29.368001,92.329361 29.368001,93.835358 29.368001,95.342362 30.590001,96.560356 32.095002,96.560356L61.300999,96.560356C62.806,96.560356 64.028,95.342361 64.028,93.835358 64.027001,92.329361 62.806,91.107361 61.300999,91.107361z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

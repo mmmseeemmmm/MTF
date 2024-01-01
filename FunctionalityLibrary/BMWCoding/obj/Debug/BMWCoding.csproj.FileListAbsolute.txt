@@ -1,0 +1,8 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\BMWCoding\Readme.txt
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\BMWCoding\BMWCoding.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\BMWCoding\BMWCoding.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BMWCoding\obj\Debug\BMWCoding.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BMWCoding\obj\Debug\BMWCoding.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BMWCoding\obj\Debug\BMWCoding.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BMWCoding\obj\Debug\BMWCoding.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BMWCoding\obj\Debug\BMWCoding.pdb

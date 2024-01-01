@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="MTFApp.OpenSaveSequencesDialog.OpenSaveSequenceDialogContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             mc:Ignorable="d" 
+             Height="350" Width="480"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="0,10,10,10" />
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        
+
+        <DataTemplate x:Key="FileSystemDialog">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}" />
+            </DataTemplate.Resources>
+            
+            <Grid Background="{StaticResource ALLightSilverBrush}" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <alControls:TextBlock Grid.Row="1" Grid.Column="0" LocTextKey="OpenDialog_FileName" VerticalAlignment="Center" Margin="10,0,0,0" />
+                <TextBox Grid.Row="1"  Grid.Column="1" Name="pathTextBox" Text="{Binding SelectedItem.Name, Mode=OneWay}" KeyDown="openTextBox_KeyDown" Margin="10,0,10,0" />
+                
+                <Grid Grid.Row="2" Grid.Column="1" Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    <alControls:Button LocTextKey="Buttons_NewFolder" Command="{Binding Path=DataContext.CreateDirectory, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                            />
+                    <alControls:Button Grid.Column="1" LocTextKey="Buttons_Select" Click="ButtonSelect_Click"/>
+                    <alControls:Button Grid.Column="2" LocTextKey="Buttons_Open" CommandParameter="{Binding ElementName=pathTextBox, Path=Text}" Click="ButtonOpen_Click">
+                        <alControls:Button.Style>
+                            <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=pathTextBox, Path=Text}" Value="">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </alControls:Button.Style>
+                    </alControls:Button>
+                    <alControls:Button Grid.Column="3" LocTextKey="Buttons_Cancel" Click="ButtonStorno_Click" />
+                </Grid>
+                
+                
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OpenDialog">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}" />
+            </DataTemplate.Resources>
+            <Grid Background="{StaticResource ALLightSilverBrush}" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <alControls:TextBlock Grid.Column="0" Grid.Row="1" LocTextKey="OpenDialog_FileName" VerticalAlignment="Center" Margin="10,0,0,0" />
+                <TextBox Name="pathTextBox" Grid.Column="1" Grid.Row="1" Text="{Binding SelectedItem.Name, Mode=OneWay}" KeyDown="openTextBox_KeyDown" />
+                <alControls:Button Grid.Column="2" Grid.Row="1" LocTextKey="Buttons_Open" CommandParameter="{Binding ElementName=pathTextBox, Path=Text}" Click="ButtonOpen_Click">
+                    <alControls:Button.Style>
+                        <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=pathTextBox, Path=Text}" Value="">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </alControls:Button.Style>
+                </alControls:Button>
+                <alControls:Button Grid.Column="3" Grid.Row="1" LocTextKey="Buttons_Cancel" Click="ButtonStorno_Click" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="SaveDialog">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+                <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}" />
+            </DataTemplate.Resources>
+            <Grid Background="{StaticResource ALLightSilverBrush}" VerticalAlignment="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <alControls:TextBlock Grid.Column="0" Grid.Row="0" LocTextKey="OpenDialog_FileName" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Name="pathTextBox"  Text="{Binding SelectedItem.Name, Mode=OneWay}" KeyDown="saveTextBox_KeyDown" />
+
+                    <alControls:TextBlock Grid.Column="0" Grid.Row="1"  LocTextKey="OpenDialog_SaveType" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <ComboBox Grid.Column="1" Grid.Row="1" 
+                              Margin="10,0,10,0" SelectedIndex="0"
+                              ItemsSource="{Binding FileExtension, Mode=OneWay}"
+                              DisplayMemberPath="FullName"
+                              SelectedItem="{Binding SelectedFileExtension, Mode=OneWay}">
+                    </ComboBox>
+                </Grid>
+
+                <DockPanel Grid.Row="3" HorizontalAlignment="Right">
+                    <alControls:Button LocTextKey="Buttons_NewFolder" Command="{Binding Path=DataContext.CreateDirectory, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"  />
+                    <alControls:Button LocTextKey="Buttons_Save" CommandParameter="{Binding ElementName=pathTextBox, Path=Text}" Click="ButtonSave_Click">
+                        <alControls:Button.Style>
+                            <Style TargetType="alControls:Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=pathTextBox, Path=Text}" Value="">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </alControls:Button.Style>
+                    </alControls:Button>
+                    <alControls:Button LocTextKey="Buttons_Cancel" Click="ButtonStorno_Click"  />
+                </DockPanel>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Border BorderBrush="{StaticResource ALYellowBrush}" BorderThickness="2 0 2 2">
+        <Grid Name="root">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ContentPresenter Grid.Row="0" Content="{Binding Body, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+            <ContentPresenter Grid.Row="1" Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource OpenDialog}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding DialogType}" Value="SaveDialog">
+                                <Setter Property="ContentTemplate" Value="{StaticResource SaveDialog}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding DialogType}" Value="FileSystemDialog">
+                                <Setter Property="ContentTemplate" Value="{StaticResource FileSystemDialog}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </Grid>
+    </Border>
+</UserControl>

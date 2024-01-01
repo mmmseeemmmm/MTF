@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\PowerSupply\PowerSupply.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\PowerSupply\PowerSupply.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\x64\Release\PowerSupply.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\x64\Release\PowerSupply.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\x64\Release\PowerSupply.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\x64\Release\PowerSupply.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\x64\Release\PowerSupply.pdb

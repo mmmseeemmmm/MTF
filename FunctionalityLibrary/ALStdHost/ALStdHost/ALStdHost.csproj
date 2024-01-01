@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85CD2DE0-1F2C-4B9C-B3C3-88C48FECA52A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALStdHost</RootNamespace>
+    <AssemblyName>ALStdHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\Server\mtfLibs\ALStdComponent\ALStdHost\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\Server\mtfLibs\ALStdComponent\ALStdHost\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\bin64\Debug\Server\mtfLibs\ALStdComponent\ALStdHost\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\..\bin64\Release\Server\mtfLibs\ALStdComponent\ALStdHost\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALStdWrapper, Version=0.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\ALStd\ALStdWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ALUtils, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\ALUtils\ALUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StdHost.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Dependencies\ALUtils\ALUtils.Log.Config.cfg" />
+    <None Include="Dependencies\EDS\Flexible_LED_Driver-B0-01.eds" />
+    <None Include="Dependencies\EDS\Flexible_LED_Driver-B0-02.eds" />
+    <None Include="Dependencies\EDS\Flexible_LED_Driver-B0-03.eds" />
+    <None Include="Dependencies\EDS\Flexible_LED_Driver-C0-01.eds" />
+    <None Include="Dependencies\EDS\Flexible_LED_Matrix_Driver-B0-01.eds" />
+    <None Include="Dependencies\EDS\Flexible_LED_Matrix_Driver-B0-dev.eds" />
+    <None Include="Dependencies\EDS\Headlamp_Driver-B0-01.eds" />
+    <None Include="Dependencies\EDS\Headlamp_Driver-C0-01.eds" />
+    <None Include="Dependencies\EDS\LED_Module_Driver-B0-01.eds" />
+    <None Include="Dependencies\EDS\LED_Module_Driver-B0-02.eds" />
+    <None Include="Dependencies\EDS\LED_Module_Driver-C0-01.eds" />
+    <None Include="Dependencies\EDS\Video_Module_Driver-A0-01.eds" />
+    <None Include="Dependencies\EDS\Video_Module_Driver-B0-01.eds" />
+    <None Include="Dependencies\EDS\Video_Module_Driver-B0-02.eds" />
+    <None Include="Dependencies\EDS\Video_Module_Driver-B0-dev.eds" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dependencies\ALStd\ALCANopen.dll" />
+    <Content Include="Dependencies\ALStd\ALCANopen.NET.dll" />
+    <Content Include="Dependencies\ALStd\ALLog.dll" />
+    <Content Include="Dependencies\ALStd\ALLog.NET.dll" />
+    <Content Include="Dependencies\ALStd\ALStdWrapper.dll" />
+    <Content Include="Dependencies\ALStd\libusb-1.0.dll" />
+    <Content Include="Dependencies\ALStd\MTFCommon.dll" />
+    <Content Include="Dependencies\ALStd\VersionHistory.txt" />
+    <Content Include="Dependencies\ALStd\vxlapi.dll" />
+    <Content Include="Dependencies\ALUtils\ALUtils.dll" />
+    <Content Include="Dependencies\Assemblies\PrototypeAssembly.xml" />
+    <Content Include="Dependencies\Assemblies\VirtualAssembly.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ALStdHostCommon\ALStdHostCommon.csproj">
+      <Project>{04c3d158-b555-47fb-9665-9dde0925c5fe}</Project>
+      <Name>ALStdHostCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y "$(ProjectDir)Dependencies\ALStd\*.*" "$(TargetDir)"
+xcopy /Y "$(ProjectDir)Dependencies\ALUtils\*.*" "$(TargetDir)"
+xcopy /Y "$(ProjectDir)Dependencies\Assemblies\*.*" "$(TargetDir)\Assemblies\"
+xcopy /Y "$(ProjectDir)Dependencies\EDS\*.*" "$(TargetDir)\EDS\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,10 @@
+﻿<findUsages:FindUsagesBase  x:Class="MTFApp.FindUsages.FindMtfHandlingUsagesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:findUsages="clr-namespace:MTFApp.FindUsages" WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize"
+                           BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+
+    <Grid Name="Root">
+        <findUsages:FindActivityControl DataContext="{Binding}" />
+    </Grid>
+</findUsages:FindUsagesBase>

@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconLink">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="Nonzero" Figures="M89.9,10.1C86.6,6.8 82.3,5 77.6,5 72.9,5 68.6,6.8 65.3,10.1L55.2,20.2C51.9,23.5 50.1,27.9 50.1,32.5 50.1,35.9 51.1,39.2 52.9,42L42,52.9C39.2,51.1 35.9,50.1 32.5,50.1 27.8,50.1 23.5,51.9 20.2,55.2L10.1,65.3C6.8,68.5 5,72.9 5,77.6 5,82.3 6.8,86.6 10.1,89.9 13.4,93.2 17.8,95 22.4,95 27.1,95 31.4,93.2 34.7,89.9L44.8,79.8C48.1,76.5 49.9,72.1 49.9,67.5 49.9,64.1 48.9,60.8 47.1,58L58,47.1C60.8,48.9 64.1,49.9 67.5,49.9 72.2,49.9 76.5,48.1 79.8,44.8L89.9,34.7C93.2,31.4 95,27 95,22.4 95,17.8 93.2,13.4 89.9,10.1z M42.8,67.5C42.8,70.3,41.7,72.8,39.8,74.8L29.7,84.9C27.8,86.8 25.2,87.9 22.4,87.9 19.6,87.9 17.1,86.8 15.1,84.9 13.2,83 12.1,80.4 12.1,77.6 12.1,74.8 13.2,72.3 15.1,70.3L25.2,60.2C27.1,58.3 29.7,57.2 32.5,57.2 34,57.2 35.5,57.5 36.8,58.2L35.5,59.5C34.1,60.9 34.1,63.1 35.5,64.5 36.2,65.2 37.1,65.5 38,65.5 38.9,65.5 39.8,65.2 40.5,64.5L41.8,63.2C42.4,64.5,42.8,66,42.8,67.5z M84.9,29.7L74.8,39.8C72.9,41.7 70.3,42.8 67.5,42.8 66,42.8 64.5,42.5 63.2,41.8L65.4,39.6C66.8,38.2 66.8,36 65.4,34.6 64,33.2 61.8,33.2 60.4,34.6L58.2,36.8C57.6,35.5 57.2,34 57.2,32.5 57.2,29.7 58.3,27.2 60.2,25.2L70.3,15.1C72.2,13.2 74.8,12.1 77.6,12.1 80.4,12.1 82.9,13.2 84.9,15.1 86.8,17 87.9,19.6 87.9,22.4 87.9,25.2 86.8,27.8 84.9,29.7z" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

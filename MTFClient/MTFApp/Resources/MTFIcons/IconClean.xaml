@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconClean">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M52.896,96.325L60.241,71.908C62.348,65.375,61.851,59.055,58.07,54.783L82.044,7.479C83.33,4.942 82.315,1.843 79.779,0.557 77.242,-0.727 74.144,0.286 72.859,2.823L48.924,50.049C43.438,49.403,38.389,52.456,33.829,58.367L18.442,78.864C17.521,80.08 17.188,81.642 17.531,83.129 17.874,84.616 18.86,85.873 20.22,86.564L45.634,99.444C46.994,100.133 48.592,100.185 49.994,99.583 51.396,98.981 52.458,97.787 52.896,96.325z M44.435,93.063L49.694,82.686C49.994,82.094 49.757,81.372 49.165,81.072 48.573,80.772 47.85,81.009 47.55,81.6L42.291,91.976 40.506,91.072 45.764,80.695C46.064,80.104 45.827,79.381 45.235,79.081 44.644,78.781 43.92,79.018 43.621,79.609L38.362,89.986 36.576,89.081 41.835,78.705C42.135,78.113 41.898,77.39 41.306,77.09 40.715,76.79 39.992,77.027 39.692,77.618L34.433,87.995 32.648,87.09 37.907,76.714C38.207,76.122 37.97,75.4 37.378,75.099 36.787,74.8 36.064,75.036 35.763,75.627L30.504,86.004 28.719,85.099 33.978,74.723C34.277,74.131 34.041,73.409 33.45,73.109 32.858,72.808 32.135,73.046 31.835,73.637L26.576,84.014 22.546,81.971 34.611,66.028 53.684,75.695 47.96,94.851 44.435,93.063z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

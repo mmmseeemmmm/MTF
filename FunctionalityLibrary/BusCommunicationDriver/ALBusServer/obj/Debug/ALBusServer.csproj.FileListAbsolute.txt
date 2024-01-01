@@ -1,0 +1,8 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\BusCommunication\ALServer\releasenotes.txt
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\BusCommunication\ALServer\ALBusServer.exe
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\BusCommunication\ALServer\ALBusServer.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BusCommunicationDriver\ALBusServer\obj\Debug\ALBusServer.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BusCommunicationDriver\ALBusServer\obj\Debug\ALBusServer.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BusCommunicationDriver\ALBusServer\obj\Debug\ALBusServer.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BusCommunicationDriver\ALBusServer\obj\Debug\ALBusServer.exe
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BusCommunicationDriver\ALBusServer\obj\Debug\ALBusServer.pdb

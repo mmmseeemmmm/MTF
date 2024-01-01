@@ -1,0 +1,187 @@
+﻿<uiHelpers:MTFUserControl x:Class="MTFApp.ReportViewer.SummaryReports.SummaryReportEditor"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                          xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                          xmlns:controls="clr-namespace:MTFApp.ReportViewer.Controls"
+                          xmlns:panelEditors="clr-namespace:MTFApp.ReportViewer.SummaryReports.PanelEditors"
+                          xmlns:summaryReport="clr-namespace:MTFClientServerCommon.DbReporting.UiReportEntities.SummaryReport;assembly=MTFClientServerCommon"
+                          mc:Ignorable="d"
+                          d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <GridLength x:Key="TableSpace">3</GridLength>
+        <GridLength x:Key="TableRowGridLength">30</GridLength>
+        <Style TargetType="ContentPresenter" x:Key="PanelHeaders">
+            <Style.Resources>
+                <DataTemplate DataType="{x:Type summaryReport:TextPanel}">
+                    <StackPanel Orientation=" Horizontal">
+                        <UserControl Width="30" Height="30" Style="{StaticResource IconTypeString}" />
+                        <alControls:TextBlock LocTextKey="SummaryReportTextPanel" VerticalAlignment="Center"
+                                              FontSize="12" Margin="5 0 0 0" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type summaryReport:ReportsOverviewPanel}">
+                    <StackPanel Orientation=" Horizontal">
+                        <UserControl Width="30" Height="30" Style="{StaticResource IconTest}" />
+                        <alControls:TextBlock LocTextKey="SummaryReportReportsOverviewPanel" VerticalAlignment="Center"
+                                              FontSize="12" Margin="5 0 0 0" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type summaryReport:LineChartPanel}">
+                    <StackPanel Orientation=" Horizontal">
+                        <UserControl Width="30" Height="30" Style="{StaticResource Graph}" />
+                        <alControls:TextBlock LocTextKey="SummaryReportLineChartPanel" VerticalAlignment="Center"
+                                              FontSize="12" Margin="5 0 0 0" />
+                    </StackPanel>
+                </DataTemplate>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="ContentPresenter" x:Key="PanelBody">
+            <Style.Resources>
+                <DataTemplate DataType="{x:Type summaryReport:TextPanel}">
+                    <panelEditors:TextPanelEditor TextPanel="{Binding}" />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type summaryReport:ReportsOverviewPanel}">
+                    <panelEditors:ReportsOverviewEditor ReportsOverviewPanel="{Binding}" />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type summaryReport:LineChartPanel}">
+                    <panelEditors:LineChartEditor LineChartPanel="{Binding}"
+                                                  ValidationTableInfos="{Binding DataContext.ValidationTableInfos, ElementName=summaryReportEditorRoot}" />
+                </DataTemplate>
+            </Style.Resources>
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="PanelsTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" BorderThickness="2" Background="{StaticResource ALYellowBrush}"
+                        BorderBrush="{StaticResource ALYellowBrush}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+
+                        <ContentPresenter Grid.Column="0" Content="{Binding}" Style="{StaticResource PanelHeaders}" />
+
+                        <Button Grid.Column="1"
+                                Command="{Binding DataContext.MovePanelUpCommand, ElementName=summaryReportEditorRoot}"
+                                CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconTriangleUp}" />
+                        </Button>
+                        <Button Grid.Column="2"
+                                Command="{Binding DataContext.MovePanelDownCommand, ElementName=summaryReportEditorRoot}"
+                                CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconTriangleDown}" />
+                        </Button>
+                        <Button Grid.Column="3"
+                                Command="{Binding DataContext.CopyPanelCommand, ElementName=summaryReportEditorRoot}"
+                                CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconCopy}" />
+                        </Button>
+                        <Button Grid.Column="4"
+                                Command="{Binding DataContext.RemovePanelCommand, ElementName=summaryReportEditorRoot}"
+                                CommandParameter="{Binding}" Width="30" Height="30" Margin="0" Padding="2">
+                            <UserControl Style="{StaticResource IconTrash}" />
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <ContentPresenter Grid.Row="1" Content="{Binding}" Margin="0 5 0 15" Style="{StaticResource PanelBody}" />
+
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="summaryReportEditorRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="{StaticResource TableSpace}" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource TableRowGridLength}" />
+            <RowDefinition Height="{StaticResource TableRowGridLength}" />
+            <RowDefinition Height="{StaticResource TableRowGridLength}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <alControls:TextBlock Grid.Row="0" Grid.Column="0" LocTextKey="SummaryReportName" VerticalAlignment="Center" />
+        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding SummaryReportSettings.Name}" />
+
+        <alControls:TextBlock Grid.Row="1" Grid.Column="0" LocTextKey="SummaryReportTitle" VerticalAlignment="Center" />
+        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding SummaryReportSettings.Title}" />
+
+        <alControls:TextBlock Grid.Row="2" Grid.Column="0" LocTextKey="SummaryReportCanModifyFilterInView"
+                              VerticalAlignment="Center" />
+        <CheckBox Grid.Row="2" Grid.Column="2" IsChecked="{Binding SummaryReportSettings.CanModifyFilterInView}" />
+
+        <controls:ReportFilterControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                                      ReportFilter="{Binding SummaryReportSettings.Filter}"
+                                      SequenceNames="{Binding SequenceNames}"
+                                      RefreshCommand="{Binding RefreshDataCommand}" ShowItemsCount="True" />
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+            <Button Width="200" Command="{Binding AddTextPanelCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Width="30" Style="{StaticResource IconAddPlus}" Margin="0 0 5 0" />
+                    <alControls:TextBlock LocTextKey="SummaryReportAddTextPanel" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Width="200" Command="{Binding AddReportsOverviewPanelCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Width="30" Style="{StaticResource IconAddPlus}" Margin="0 0 5 0" />
+                    <alControls:TextBlock LocTextKey="SummaryReportAddReportsOverviewPanel" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Width="200" Command="{Binding AddLineChartPanelCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Width="30" Style="{StaticResource IconAddPlus}" Margin="0 0 5 0" />
+                    <alControls:TextBlock LocTextKey="SummaryReportAddLineChartPanel" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="PanelsControl"
+                          ItemsSource="{Binding SummaryReportSettings.Panels}" HorizontalContentAlignment="Stretch"
+                          Grid.IsSharedSizeScope="True">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding}">
+                            <ContentPresenter.Style>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource PanelsTemplate}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsDeleted}" Value="True">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentPresenter.Style>
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</uiHelpers:MTFUserControl>

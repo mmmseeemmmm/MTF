@@ -1,0 +1,34 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFCharEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:local="clr-namespace:MTFApp.UIHelpers.Editors"          
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <FrameworkElement x:Key="DataContextBridge" />
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" Name="root">
+        <StackPanel.DataContext>
+            <!-- Data context brighe is here because of getting typename to validation rule - in validation rule is not possible to create dependency property -->
+            <Binding Mode="OneWayToSource" Path="DataContext" Source="{StaticResource DataContextBridge}"/>
+        </StackPanel.DataContext>
+        <TextBox Visibility="{Binding ReadOnly, Converter={StaticResource NotBoolToVisibility}}">
+            <TextBox.Text>
+                <Binding Path="CharValue" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:StringToCharValidationRule>
+                            <local:StringToCharValidationRule.TypeNameContainer>
+                                <local:StringContainer Value="{Binding TypeName}" DataContext="{Binding Source={StaticResource DataContextBridge}, Path=DataContext}" />
+                            </local:StringToCharValidationRule.TypeNameContainer>
+                        </local:StringToCharValidationRule>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Text="{Binding CharValue}" Visibility="{Binding ReadOnly, Converter={StaticResource BoolToVisibility}}"
+                 Style="{StaticResource TextBoxAsTextBlox}"/>
+    </StackPanel>
+</editors:MTFEditorBase>

@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.Settings.DeviceUnderTestSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mtfClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" x:Name="root" IsSharedSizeScope="True" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource ALYellowBrush}">
+            <UserControl Style="{StaticResource IconDUT}" Height="30" Margin="5 5 10 5"/>
+            <TextBlock Text="Device under test settings" VerticalAlignment="Center" />
+        </StackPanel>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="DutName" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="StartUpGraphicalView" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="DUT name" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Start up graphical view" />
+        </Grid>
+        <Button Grid.Row="3" Grid.Column="2" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding AddDutCommand}">Add DUT</Button>
+        <ScrollViewer Grid.Row="3" Grid.Column="0" MaxHeight="150" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Sequence.DeviceUnderTestInfos}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="mtfClientServerCommon:DeviceUnderTestInfo">
+                        <Grid Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="DutName" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="StartUpGraphicalView" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding Name}" Height="25" />
+                            <ComboBox Grid.Column="2" Height="25" SelectedItem="{Binding StartupGraphicalView}"
+                                      ItemsSource="{Binding DataContext.Sequence.GraphicalViewSetting.Views, ElementName=root}" DisplayMemberPath="ViewName">
+                            </ComboBox>
+                            <Button Grid.Column="3" Grid.Row="0" Command="{Binding DataContext.RemoveDutCommand, ElementName=root}" CommandParameter="{Binding}">
+                                <UserControl Style="{StaticResource IconTrash}" />
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>            
+        </ScrollViewer>
+    </Grid>
+</UserControl>

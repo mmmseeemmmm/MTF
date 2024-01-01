@@ -1,0 +1,140 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconClima">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.9897" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="EvenOdd" Figures="M63.027,68.425L72.478,68.425C87.153,67.181 81.93,43.801 66.758,49.522 65.763,27.883 34.922,30.868 34.922,50.02 35.042,54.702 37.28,59.759 42.134,62.207" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.9897" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="EvenOdd" Figures="M66.297,38.194C69.384,34.242 75.089,33.542 79.04,36.629 82.991,39.715 83.69,45.421 80.605,49.372" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="85.846,42.235" EndPoint="90,42.235" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="74.391,31.292" EndPoint="74.391,27.137" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="83.865,50.863" EndPoint="86.804,53.801" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="82.125,34.401" EndPoint="85.063,31.463" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="62.974,30.716" EndPoint="65.911,33.654" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="41.848,62.704" EndPoint="38.902,65.65" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="55.822,62.704" EndPoint="52.877,65.65" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="34.739,69.917" EndPoint="31.794,72.863" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="48.715,69.917" EndPoint="45.769,72.863" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <GeometryDrawing>
+                                                <GeometryDrawing.Pen>
+                                                    <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.4923" StartLineCap="Round" EndLineCap="Round" LineJoin="Miter" MiterLimit="3.8637" />
+                                                </GeometryDrawing.Pen>
+                                                <GeometryDrawing.Geometry>
+                                                    <LineGeometry StartPoint="49.426,62.341" EndPoint="38.915,72.853" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                            <DrawingGroup>
+                                                <GeometryDrawing>
+                                                    <GeometryDrawing.Pen>
+                                                        <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.0416" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" MiterLimit="3.8637" />
+                                                    </GeometryDrawing.Pen>
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="EvenOdd" Figures="M35.641,61.353L15.238,61.4C6.929,61.4 8.949,48.104 18.158,51.423 18.389,43.294 26.858,41.721 31.569,45.248 29.974,50.776 31.485,57.324 35.641,61.353z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Pen>
+                                                        <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="1.0363" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" MiterLimit="3.8637" />
+                                                    </GeometryDrawing.Pen>
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="EvenOdd" Figures="M35.641,61.353L15.238,61.4C6.929,61.4 8.949,48.104 18.158,51.423 18.389,43.294 26.858,41.721 31.569,45.248 29.974,50.776 31.485,57.324 35.641,61.353z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

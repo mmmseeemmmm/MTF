@@ -1,0 +1,208 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.Settings.ClientUISetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="500">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="TreeViewSetting">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Show pixture box in header" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Show current activity in header" VerticalAlignment="Center"/>
+
+                <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding UiSetting.TreeViewShowPixtureBox}" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="3" IsChecked="{Binding UiSetting.TreeViewShowCurrentActivity}" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="TableViewSetting">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Show pixture box in header" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Show current activity in header" VerticalAlignment="Center"/>
+
+                <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding UiSetting.TableViewShowPixtureBox}" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="3" IsChecked="{Binding UiSetting.TableViewShowCurrentActivity}" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="GraphicalViewSetting">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Show pixture box in header" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Show current activity in header" VerticalAlignment="Center"/>
+
+                <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding UiSetting.GraphicalViewShowPixtureBox}" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="3" IsChecked="{Binding UiSetting.GraphicalViewShowCurrentActivity}" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="EmptyTemplate" />
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource ALWhiteBrush}" Name="Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="{StaticResource ALYellowBrush}">
+            <UserControl Style="{StaticResource IconGoldSample}" Height="30" Margin="5 5 10 5" />
+            <TextBlock Text="Sequence Execution UI" VerticalAlignment="Center" />
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="0 10 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <UserControl Grid.Column="0" Grid.Row="0"
+                                     Style="{StaticResource IconTreeView}"
+                                     Width="20" MaxHeight="25" VerticalAlignment="Center" Margin="0,3,0,3" />
+            <UserControl Grid.Column="0" Grid.Row="2"
+                                     Style="{StaticResource IconTableView}"
+                                     Width="20" MaxHeight="25" VerticalAlignment="Center" Margin="0,3,0,3" />
+            <UserControl Grid.Column="0" Grid.Row="4"
+                                     Style="{StaticResource IconGraphicalView}"
+                                     Width="20" MaxHeight="25" VerticalAlignment="Center" Margin="0,3,0,3" />
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Allow Tree view" VerticalAlignment="Center" Margin="3 0 3 0" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Allow Table view" VerticalAlignment="Center" Margin="3 0 3 0" />
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="Allow Graphical view" VerticalAlignment="Center" Margin="3 0 3 0" />
+
+            <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding UiSetting.AllowTreeView}"
+                      VerticalAlignment="Center" />
+            <CheckBox Grid.Row="2" Grid.Column="3" IsChecked="{Binding UiSetting.AllowTableView}"
+                      VerticalAlignment="Center" />
+            <CheckBox Grid.Row="4" Grid.Column="3" IsChecked="{Binding UiSetting.AllowGraphicalView}"
+                      VerticalAlignment="Center" />
+
+            <ContentPresenter Content="{Binding}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource TreeViewSetting}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UiSetting.AllowTreeView}" Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+            <ContentPresenter Content="{Binding}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource TableViewSetting}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UiSetting.AllowTableView}" Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+            <ContentPresenter Content="{Binding}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource GraphicalViewSetting}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UiSetting.AllowGraphicalView}" Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.IsSharedSizeScope="True" Margin="0,10,0,0" Visibility="{Binding ClientUis, Converter={StaticResource NotNullToVisibility}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="name" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Available client UIs" Style="{StaticResource Heading3}" />
+                <TextBlock Grid.Column="3" Text="Is allowed" Style="{StaticResource Heading3}" HorizontalAlignment="Center" />
+                <TextBlock Grid.Column="5" Text="Startup" Style="{StaticResource Heading3}" HorizontalAlignment="Center" />
+            </Grid>
+            <ListBox Grid.Row="1" ItemsSource="{Binding ClientUis}" Margin="0,5,0,0"
+                 ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                 Template="{StaticResource ListBoxControlTemplate}"
+                 PreviewMouseWheel="ListBox_OnPreviewMouseWheel">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="name" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="60" />
+                            </Grid.ColumnDefinitions>
+                            <UserControl Grid.Column="0"
+                                     Style="{Binding ClientControl.Icon, Converter={StaticResource IconConverter}}"
+                                     Width="20" MaxHeight="25" VerticalAlignment="Center" Margin="0,3,0,3" />
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding ClientControl.AssemblyName, StringFormat={}{0}:}"
+                                       Margin="3,0,3,0" />
+                                <TextBlock Text="{Binding ClientControl.Name}" />
+                            </StackPanel>
+                            <CheckBox Grid.Column="3" IsChecked="{Binding IsSelected}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <CheckBox Grid.Column="5" IsChecked="{Binding IsActive}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                      IsEnabled="{Binding IsSelected}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</UserControl>

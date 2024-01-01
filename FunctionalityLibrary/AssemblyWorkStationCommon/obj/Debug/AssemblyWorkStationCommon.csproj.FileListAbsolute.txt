@@ -1,0 +1,6 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\AssemblyWorkStation\AssemblyWorkStationCommon.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\AssemblyWorkStation\AssemblyWorkStationCommon.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\AssemblyWorkStationCommon\obj\Debug\AssemblyWorkStationCommon.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\AssemblyWorkStationCommon\obj\Debug\AssemblyWorkStationCommon.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\AssemblyWorkStationCommon\obj\Debug\AssemblyWorkStationCommon.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\AssemblyWorkStationCommon\obj\Debug\AssemblyWorkStationCommon.csprojAssemblyReference.cache

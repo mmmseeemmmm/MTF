@@ -1,0 +1,195 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.ServiceCommandSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:mtfClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+             xmlns:activityTargetControl="clr-namespace:MTFApp.UIControls.ActivityTargetControl"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:commandGrid="clr-namespace:MTFApp.UIControls.CommandGrid"
+             xmlns:seqEditor="clr-namespace:MTFApp.SequenceEditor" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:SelectedServiceModesToVisibilityConverter x:Key="IsServiceModeToVisibilityConverter" ModeVariant="ServiceMode" />
+        <converters:SelectedServiceModesToVisibilityConverter x:Key="IsTeachModeToVisibilityConverter" ModeVariant="Teach" />
+
+        <DataTemplate x:Key="DefaultPlacement">
+            <TextBlock Text="Default" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ServicePlacement">
+            <commandGrid:CommandGridControl AllCommands="{Binding AllServiceCommands}" ServiceCommand="{Binding ServiceCommand}"
+                                        ServiceModeVariant="ServiceMode"
+                                        Mode="Editor"
+                                        ColumnsCount="{Binding ServiceDesignSetting.ServiceSetting.ColumnsCount}"
+                                        RowsCount="{Binding ServiceDesignSetting.ServiceSetting.RowsCount}"
+                                        />
+        </DataTemplate>
+
+        <DataTemplate x:Key="TeachPlacement">
+            <commandGrid:CommandGridControl AllCommands="{Binding AllServiceCommands}" ServiceCommand="{Binding ServiceCommand}"
+                                        ServiceModeVariant="Teach"
+                                        Mode="Editor"
+                                        ColumnsCount="{Binding ServiceDesignSetting.TeachSetting.ColumnsCount}"
+                                        RowsCount="{Binding ServiceDesignSetting.TeachSetting.RowsCount}"
+                                        />
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid Grid.IsSharedSizeScope="True" Name="Root">
+        <Grid.Resources>
+            <Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Padding" Value="3" />
+            </Style>
+            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <ObjectDataProvider MethodName="GetValues"
+                                ObjectType="{x:Type s:Enum}"
+                                x:Key="CommandIconDataProvider">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="mtfClientServerCommon:MTFServiceCommandIcon" />
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Background="{StaticResource ALYellowBrush}"
+                            Grid.ColumnSpan="3" Margin="0,0,0,8"
+                            Height="{StaticResource ItemHeight}">
+            <TextBlock Text="Service Command Detail" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Margin="0"/>
+        </Border>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Name: " FontWeight="Bold" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding ServiceCommand.Name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"  />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Type: " FontWeight="Bold" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding CommandTypes, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                  Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,0,1,1"
+                  SelectedValue="{Binding ServiceCommand.Type}"
+                  SelectedValuePath="Value"
+                  DisplayMemberPath="Description" />
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Icon: " FontWeight="Bold" Margin="0,5,5,5" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="3" Grid.Column="2" ItemsSource="{Binding Source={StaticResource CommandIconDataProvider}}" SelectedItem="{Binding ServiceCommand.Icon}"
+                  VerticalAlignment="Center" HorizontalAlignment="Left" Width="50"
+                  BorderThickness="1,0,1,1">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <UserControl MaxWidth="30" Height="30"
+                                                Style="{Binding Converter={StaticResource ServiceCommandIconConverter}}"
+                                                Foreground="{StaticResource ALBlackBrush}"
+                                                Margin="2" HorizontalAlignment="Left"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Prepare:" FontWeight="Bold" VerticalAlignment="Top"/>
+        <activityTargetControl:ActivityTarget Activity="{Binding ServiceCommand.PrepairActivity}" Grid.Row="4" Grid.Column="2"
+                                              ActivitiesByCall="{Binding DataContext.Sequence.ActivitiesByCall, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                                              IsComboBoxVisible="True"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Top">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Text" Value="Execute:" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ServiceCommand.Type}" Value="ToggleButton">
+                            <Setter Property="Text" Value="Turn on:" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <activityTargetControl:ActivityTarget Activity="{Binding ServiceCommand.ExecuteActivity}" Grid.Row="5" Grid.Column="2"
+                                              ActivitiesByCall="{Binding DataContext.Sequence.ActivitiesByCall, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                                              IsComboBoxVisible="True"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Top">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Text" Value="Cleanup:" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ServiceCommand.Type}" Value="ToggleButton">
+                            <Setter Property="Text" Value="Turn off:" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <activityTargetControl:ActivityTarget Activity="{Binding ServiceCommand.CleaunupActivity}" Grid.Row="6" Grid.Column="2"
+                                              ActivitiesByCall="{Binding DataContext.Sequence.ActivitiesByCall, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                                              IsComboBoxVisible="True"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Use in:" FontWeight="Bold" VerticalAlignment="Top"/>
+        <ListBox Grid.Row="7" Grid.Column="2"
+                 ItemsSource="{Binding AllServiceVariants}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsUsed}" Margin="0,0,5,2" />
+                        <TextBlock Text="{Binding ModeVariantDesc}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Service Mode placement:" FontWeight="Bold" VerticalAlignment="Top" Margin="0,5,0,0"
+                   Visibility="{Binding ServiceCommand.UsedServiceVariants, Converter={StaticResource IsServiceModeToVisibilityConverter}}"/>
+        <ContentPresenter Content="{Binding}" Grid.Row="8" Grid.Column="2" VerticalAlignment="Top" Margin="0,5,0,10"
+                          Visibility="{Binding ServiceCommand.UsedServiceVariants, Converter={StaticResource IsServiceModeToVisibilityConverter}}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource DefaultPlacement}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ServiceDesignSetting.ServiceSetting.ManualPlacement}" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ServicePlacement}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Teach Mode placement:" FontWeight="Bold" VerticalAlignment="Top" Margin="0,5,0,0"
+                   Visibility="{Binding ServiceCommand.UsedServiceVariants, Converter={StaticResource IsTeachModeToVisibilityConverter}}"/>
+        <ContentPresenter Content="{Binding}" Grid.Row="9" Grid.Column="2" VerticalAlignment="Top" Margin="0,5,0,10"
+                          Visibility="{Binding ServiceCommand.UsedServiceVariants, Converter={StaticResource IsTeachModeToVisibilityConverter}}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource DefaultPlacement}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ServiceDesignSetting.TeachSetting.ManualPlacement}" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource TeachPlacement}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Change order of commands:" FontWeight="Bold" VerticalAlignment="Top" Margin="0,5,0,0" />
+        <Button Grid.Row="10" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding SelectedServiceCommandMoveUpCommand}">↑</Button>
+        <Button Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding SelectedServiceCommandMoveDownCommand}">↓</Button>
+
+    </Grid>
+</UserControl>

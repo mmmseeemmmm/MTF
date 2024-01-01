@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="TermAbsoluteValueIcon">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,350,340" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <DrawingGroup x:Name="svg_1">
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <GeometryGroup FillRule="Nonzero">
+                                                                <PathGeometry FillRule="Nonzero" Figures="M48.44921875,41.9431762695313L67.6142578125,41.9431762695313 67.6142578125,276.562316894531 48.44921875,276.562316894531 48.44921875,41.9431762695313z" />
+                                                                <PathGeometry FillRule="Nonzero" Figures="M95.8110961914063,94.3113403320313L123.276916503906,94.3113403320313 143.174377441406,124.706848144531C146.917861938477,130.484832763672 149.928939819336,135.326965332031 152.207580566406,139.233215332031 155.788299560547,133.862121582031 159.084197998047,129.101379394531 162.095275878906,124.950988769531L183.945861816406,94.3113403320313 210.190979003906,94.3113403320313 165.391174316406,155.346496582031 213.608947753906,223.950012207031 186.631408691406,223.950012207031 160.020080566406,183.666809082031 152.940002441406,172.802551269531 118.882385253906,223.950012207031 92.2710571289063,223.950012207031 139.634338378906,156.567199707031 95.8110961914063,94.3113403320313z" />
+                                                                <PathGeometry FillRule="Nonzero" Figures="M238.389221191406,41.9431762695313L257.554260253906,41.9431762695313 257.554260253906,276.562316894531 238.389221191406,276.562316894531 238.389221191406,41.9431762695313z" />
+                                                            </GeometryGroup>
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

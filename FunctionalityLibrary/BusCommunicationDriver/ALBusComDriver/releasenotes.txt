@@ -1,0 +1,77 @@
+1.2.0.4
+Added methods
+
+OnBoardStart
+OnBoardStop
+OffBoardStart
+OffBoardStop
+
+1.2.0.5
+new ALRestbusVCF - new key for reading dbc files
+improved logging (logging disabled)
+
+1.2.0.6
+fixed OnBoardStop
+
+1.2.0.7
+Removed 1000ms delay from Ediabas.ExecuteService when API is bussy.
+
+1.2.0.8
+Disabled logging
+Replaced ALRestbusVCF - cleanup temp on start(version 8.2.0.7)
+Replaced ALRestbusVCF - fixed convert of hex values by seting LONG signal(version 8.2.0.8)
+
+1.2.0.9
+Added method to get raw value - get whole byte array not just int
+
+1.2.0.10
+Updated ALRestbus3 to 53.0.0
+
+1.3.0.0
+new version of VCF - 8.3.0.0
+Added methods for ALRestbus3 - send CANFD, set global adapter projce variable, ...
+
+1.3.0.1
+ALRestubs3 version 56.1.0
+ALRestbus3 can add custom config file (dll file) and Cluster node (project ID)
+
+1.3.1.0
+Added method for parallel offboard execution
+
+1.3.1.1
+Bug fix - if destructor crashes, catch exception and write it to log
+
+1.3.1.2
+Added log of OffBoard execute duration
+
+Updated ALRestbus3 to 57.1.2.2
+
+1.3.1.3
+Downgrade of ALRestbus3 to last working version 56.1.0.0
+
+1.3.1.4
+Update of ALRestbus3 to version 57.1.2.2
+
+1.3.1.5
+Added lock for Ediabas
+
+1.3.1.6
+Fixed null exception in dispose
+
+1.3.1.7
+Update of ALRestbus3 to version 57.2.5.0
+
+1.3.1.8
+Update of ALRestbus3 to version 57.3.7.0
+
+1.3.1.9
+DTSStop log exceptions, call stopByteTrace only if byte trace is enabled
+Parallel start of diagnostic
+OnBoardStart - start method on communication object is called just if flag IsBusCommunication is false
+Enabled extended logging
+
+1.3.1.10
+Updated ALRb3AdapterDaimler library
+
+1.3.2.0
+For logging is used library ALUtils.dll

@@ -1,0 +1,80 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconValidationTable">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,29,30" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup Transform="1,0,0,1,-570,-500">
+                                                <DrawingGroup>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M572,505L572,526 584.869,526C586.127,528.378 588.622,530 591.5,530 595.643,530 599,526.643 599,522.5 599,520.534 598.237,518.75 597,517.413L597,505 572,505z M591,506L596,506 596,509 591,509 591,506z M591,510L596,510 596,513 591,513 591,510z M596,514L596,516.51C594.746,515.567 593.191,515 591.5,515 591.331,515 591.166,515.015 591,515.025L591,514 596,514z M585,506L590,506 590,509 585,509 585,506z M585,510L590,510 590,513 585,513 585,510z M585,514L590,514 590,515.15C588.63,515.428,587.4,516.086,586.413,517L585,517 585,514z M585.51,518C585.325,518.245,585.155,518.501,585,518.769L585,518 585.51,518z M579,506L584,506 584,509 579,509 579,506z M579,510L584,510 584,513 579,513 579,510z M579,514L584,514 584,517 579,517 579,514z M579,518L584,518 584,521 579,521 579,518z M578,525L573,525 573,522 578,522 578,525z M578,521L573,521 573,518 578,518 578,521z M578,517L573,517 573,514 578,514 578,517z M578,513L573,513 573,510 578,510 578,513z M578,509L573,509 573,506 578,506 578,509z M584,525L579,525 579,522 584,522 584,525z M598,522.5C598,526.09 595.09,529 591.5,529 587.91,529 585,526.09 585,522.5 585,518.91 587.91,516 591.5,516 595.09,516 598,518.91 598,522.5z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="574,519,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="574,523,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="574,515,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="574,511,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="574,507,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="580,507,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="586,507,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="592,507,3,1" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M595.742,520.025L595.742,520.025 595.035,519.318 590.086,524.268 587.965,522.146 587.258,522.854 590.086,525.682z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\LiteCheck\LITECHECK.dbc
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\LiteCheck\LiteCheck.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\LiteCheck\LiteCheck.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LiteCheck\obj\x64\Release\LiteCheck.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LiteCheck\obj\x64\Release\LiteCheck.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LiteCheck\obj\x64\Release\LiteCheck.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LiteCheck\obj\x64\Release\LiteCheck.pdb

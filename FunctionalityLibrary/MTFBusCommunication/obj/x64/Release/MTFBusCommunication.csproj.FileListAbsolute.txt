@@ -1,0 +1,6 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\BusCommunication\MTFBusCommunication.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\BusCommunication\MTFBusCommunication.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFBusCommunication\obj\x64\Release\MTFBusCommunication.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFBusCommunication\obj\x64\Release\MTFBusCommunication.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFBusCommunication\obj\x64\Release\MTFBusCommunication.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\MTFBusCommunication\obj\x64\Release\MTFBusCommunication.pdb

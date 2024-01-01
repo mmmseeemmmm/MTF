@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconInfo">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="Nonzero" Figures="M53.1,44.7L46.9,44.7C44.6,44.7,42.8,46.6,42.8,48.8L42.8,75.1C42.8,77.4,44.6,79.2,46.9,79.2L53.1,79.2C55.4,79.2,57.2,77.3,57.2,75.1L57.2,48.8C57.1,46.5,55.3,44.7,53.1,44.7L53.1,44.7z M49.9,20.9C45.2,20.9 41.5,24.7 41.5,29.4 41.5,34.1 45.3,37.9 49.9,37.9 54.6,37.9 58.4,34.1 58.4,29.4 58.5,24.7 54.7,20.9 49.9,20.9L49.9,20.9z M50,5C25.2,5 5,25.2 5,50 5,74.8 25.2,95 50,95 74.8,95 95,74.8 95,50 95,25.2 74.8,5 50,5L50,5z M50,88.3C28.9,88.3 11.7,71.1 11.7,50 11.7,29 28.9,11.8 50,11.8 71,11.8 88.2,29 88.2,50 88.2,71.1 71,88.3 50,88.3z" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,239 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.Settings.IntegrityCheckControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive"
+                                               Value="False" />
+                                    <Condition Property="IsSelected"
+                                               Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background"
+                                        TargetName="Bd"
+                                        Value="{StaticResource ALWhiteBrush}" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive"
+                                               Value="True" />
+                                    <Condition Property="IsSelected"
+                                               Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background"
+                                        TargetName="Bd"
+                                        Value="{StaticResource ALWhiteBrush}" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="{StaticResource ALYellowBrush}" />
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="{StaticResource ALDarkYellowBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <DataTemplate x:Key="NoProblems">
+            <TextBlock Text="No problems found" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="Header">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource Heading2}" />
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="SequenceName" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="CallActivityName" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Target Sequence name" Style="{StaticResource Heading2}" />
+                <TextBlock Grid.Column="2" Text="Original target SubSequence name" />
+                <TextBlock Grid.Column="4" Text="Call activity path" />
+                <TextBlock Grid.Column="6" Text="Selected SubSequence" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ActivityList">
+            <ListBox ItemsSource="{Binding IsAsync=True}"
+                         HorizontalContentAlignment="Stretch"
+                         AlternationCount="2" Background="Transparent"
+                     PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
+                <ListBox.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="BaseText">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+
+
+                </ListBox.Resources>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="30">
+                            <Grid.Style>
+                                <Style TargetType="Grid">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsAmbiguous}" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="SequenceName" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="CallActivityName" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="200" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding SequenceName}"
+                                           Style="{StaticResource BaseText}" Margin="5,0,0,0" />
+                            <TextBlock Grid.Column="2" Text="{Binding TargetName}"
+                                           Style="{StaticResource BaseText}" />
+                            <localizedString:LocalizedActivityPathTextBlock Grid.Column="4"
+                                                                                TextBlockStyle="{StaticResource BaseText}"
+                                                                                Activity="{Binding Activity}" />
+
+                            <ComboBox Grid.Column="6" ItemsSource="{Binding ExternalCall.AvailableSubSequences}"
+                                          DisplayMemberPath="TranslatedName"
+                                          SelectedItem="{Binding ExternalCall.SelectedValue, Mode=OneWayToSource}"
+                                          SelectedValue="{Binding ExternalCall.InnerSubSequenceByCallId}"
+                                          SelectedValuePath="Id" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="WholeSequenceBody">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ContentPresenter Grid.Row="0" Content="{Binding}" ContentTemplate="{StaticResource Header}" />
+                <ContentPresenter Grid.Row="1" Content="{Binding WholeSequenceCalls}" ContentTemplate="{StaticResource ActivityList}" />
+            </Grid>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="WholeSequenceCall">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Call to whole sequence" Style="{StaticResource Heading1}" />
+
+                <ContentPresenter Grid.Row="1" Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource NoProblems}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasWholeCalls}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource WholeSequenceBody}" />
+                                </DataTrigger></Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </Grid>
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="ProblematicActivitiesBody">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ContentPresenter Grid.Row="0" Content="{Binding}" ContentTemplate="{StaticResource Header}" />
+                <ContentPresenter Grid.Row="1" Content="{Binding Activities}" ContentTemplate="{StaticResource ActivityList}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ProblematicActivitiesTemplate">
+            <Grid Margin="0,30,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Missing external calls" Style="{StaticResource Heading1}" />
+                <ContentPresenter Grid.Row="1" Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource NoProblems}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasMissingActivities}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource ProblematicActivitiesBody}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid Name="IntegrityCheckControlRoot" Background="{StaticResource ALYellowBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Grid.IsSharedSizeScope="True" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <ContentPresenter Grid.Row="0" Content="{Binding}" ContentTemplate="{StaticResource WholeSequenceCall}" />
+
+                <ContentPresenter Grid.Row="1" Content="{Binding}"
+                                  ContentTemplate="{StaticResource ProblematicActivitiesTemplate}" />
+
+
+            </Grid>
+        </ScrollViewer>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Apply" Command="{Binding ApplyCommand}" Margin="10" Width="100" />
+            <Button Content="Cancel" Command="{Binding CancelCommand}" Margin="10" Width="100" />
+        </StackPanel>
+    </Grid>
+</UserControl>

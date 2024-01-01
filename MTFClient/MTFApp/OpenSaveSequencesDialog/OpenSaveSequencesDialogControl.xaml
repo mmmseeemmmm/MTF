@@ -1,0 +1,259 @@
+﻿<UserControl x:Class="MTFApp.OpenSaveSequencesDialog.OpenSaveSequencesDialogControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls">
+    <UserControl.Resources>
+        
+        <Style TargetType="TextBox" x:Key="ItemTextBox">
+
+        </Style>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive"
+                                            Value="False" />
+                                    <Condition Property="IsSelected"
+                                            Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="{StaticResource ALDarkYellowBrush}" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive"
+                                            Value="True" />
+                                    <Condition Property="IsSelected"
+                                            Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="{StaticResource ALDarkYellowBrush}" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource ALYellowBrush}" />
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="HeaderStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="14" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <DataTemplate x:Key="EditableItem">
+            <TextBox DockPanel.Dock="Bottom"
+                     TextWrapping="Wrap"
+                     Style="{StaticResource ItemTextBox}"
+                     Text="{Binding Name, Mode=TwoWay}"
+                     Tag="{Binding FullName}"
+                     HorizontalAlignment="Center"
+                     ToolTip="{Binding Name}"
+                     KeyDown="TextBox_KeyDown"
+                     LostFocus="TextBox_LostFocus"
+                     Width="Auto"
+                     FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}"
+                     FocusVisualStyle="{x:Null}"
+                     Loaded="TextBox_Loaded"/>
+        </DataTemplate>
+        <DataTemplate x:Key="NonEditableItem">
+            <TextBlock DockPanel.Dock="Bottom"
+                       Text="{Binding DisplayShortName}"
+                       HorizontalAlignment="Center"
+                       ToolTip="{Binding Name}"
+                       TextWrapping="Wrap"  />
+        </DataTemplate>
+        
+        <converters:StringToVisibilityConverter x:Key="stringToVisibilityConverter" StringToConvert="&lt;Up&gt;" />
+
+        <DataTemplate x:Key="UpIcon">
+            <UserControl Style="{StaticResource IconUp}" />
+        </DataTemplate>
+        <DataTemplate x:Key="FolderIcon">
+            <UserControl Style="{StaticResource IconFolder}" />
+        </DataTemplate>
+        <DataTemplate x:Key="FileIcon">
+            <UserControl Style="{StaticResource IconFile}" />
+        </DataTemplate>
+        <DataTemplate x:Key="RemovableDriveIcon">
+            <UserControl Style="{StaticResource IconRemovableDrive}" />
+        </DataTemplate>
+        <DataTemplate x:Key="LocalDriveIcon">
+            <UserControl Style="{StaticResource IconLocalDrive}" />
+        </DataTemplate>
+        <DataTemplate x:Key="NetworkDriveIcon">
+            <UserControl Style="{StaticResource IconNetworkDrive}" />
+        </DataTemplate>
+        <DataTemplate x:Key="CDIcon">
+            <UserControl Style="{StaticResource IconCd}" />
+        </DataTemplate>
+        
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+
+    </UserControl.Resources>
+    <Border >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconFolder}" Width="25" Height="25" Margin="2,0,2,0" />
+                    <alControls:TextBlock LocTextKey="OpenDialog_Root" Tag="root:" Style="{StaticResource HeaderStyle}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="\" VerticalAlignment="Center" FontSize="14" />
+                    <ListBox VerticalAlignment="Center"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                             VerticalContentAlignment="Center"
+                             Template="{StaticResource ListBoxControlTemplate}"
+                    ItemsSource="{Binding FilePath}"
+                    BorderBrush="Transparent">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <DockPanel />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource HeaderStyle}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown" Tag="{Binding FullName}"/>
+                                    <TextBlock Text="\"  FontSize="14" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+
+            <ListBox Grid.Row="1"
+                     ItemsSource="{Binding RemoteItems, IsAsync=True}"
+                     SelectedItem="{Binding SelectedItem}"
+                     KeyDown="ListBox_PreviewKeyDown"
+                     MouseDoubleClick="ListBox_MouseDoubleClick"
+                     TouchDown="ListBoxTouchDown"
+                     SelectionMode="Single"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     PreviewMouseDown="ListBox_PreviewMouseDown"
+                     FocusVisualStyle="{x:Null}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Width="{TemplateBinding ActualWidth}" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Rename"
+                                  Command="{Binding RenameFromContextMenu}"
+                                  CommandParameter="{Binding SelectedItem}">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <UserControl HorizontalAlignment="Right" VerticalAlignment="Top" MaxWidth="30" MaxHeight="30"
+                                                                    Style="{StaticResource IconRename}"
+                                                                    Margin="0,0,10,0"/>
+                                        <alControls:TextBlock LocTextKey="ContextMenu_Rename" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}" CommandParameter="{Binding SelectedItem}">
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <UserControl HorizontalAlignment="Right" VerticalAlignment="Top" MaxWidth="30" MaxHeight="30"
+                                                                    Style="{StaticResource IconTrash}"
+                                                                    Margin="0,0,10,0"/>
+                                        <alControls:TextBlock LocTextKey="ContextManun_Delete" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Width="60" Margin="5" ToolTip="{Binding Name}" >
+                            <ContentPresenter Content="{Binding}" HorizontalAlignment="Center" Width="40" Height="40" Margin="0,2,0,0" VerticalAlignment="Top">
+                                <ContentPresenter.Style>
+                                    <Style TargetType="ContentPresenter">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="Up">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource UpIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="Folder">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource FolderIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="File">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource FileIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="RemovableDrive">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource RemovableDriveIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="LocalDrive">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource LocalDriveIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="NetworkDrive">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource NetworkDriveIcon}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SequenceFileType}" Value="CD">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource CDIcon}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentPresenter.Style>
+                            </ContentPresenter>
+                            <ContentPresenter Content="{Binding}">
+                                <ContentPresenter.Style>
+                                    <Style TargetType="ContentPresenter">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource NonEditableItem}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsEditable}" Value="True">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource EditableItem}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentPresenter.Style>
+                            </ContentPresenter>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+
+        </Grid>
+    </Border>
+</UserControl>

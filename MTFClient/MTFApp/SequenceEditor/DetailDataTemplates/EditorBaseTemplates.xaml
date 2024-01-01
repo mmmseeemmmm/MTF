@@ -1,0 +1,153 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                    xmlns:seqEditor="clr-namespace:MTFApp.SequenceEditor"
+                    xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+                    xmlns:nullableComboBox="clr-namespace:MTFApp.UIControls.NullableComboBox">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Styles/Constants.xaml"/>
+        <ResourceDictionary Source="../../Styles/ComboBoxStyles.xaml"/>
+        <ResourceDictionary Source="../../Styles/GroupBoxStyles.xaml"/>
+        <ResourceDictionary Source="../../Styles/ButtonStyles.xaml"/>
+        <ResourceDictionary Source="../../Styles/CheckBoxStyles.xaml"/>
+        <ResourceDictionary Source="../../Styles/SharedConverters.xaml "/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <converters:SimpleTermVisibilityConverter x:Key="ShowSimpleTermVisibility" IsSimpleTerm="Visible"
+                                                  IsNotSimpleTerm="Collapsed" />
+    <converters:SimpleTermVisibilityConverter x:Key="ShowComplexTermVisibility" IsSimpleTerm="Collapsed"
+                                                  IsNotSimpleTerm="Visible" />
+
+    <DataTemplate x:Key="EmptyTemplate" />
+
+    <DataTemplate x:Key="OnOutputValueFailed">
+        <alControls:GroupBox LocTextKey="Activity_Base_OnOutputValueFailed" Style="{StaticResource ActivityDetailGroupBox}">
+            <alControls:ComboBox
+                        ItemsSourceLocalized="{Binding DataContext.ErrorBehaviours, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                        SelectedValuePath="Value" Style="{StaticResource {x:Type ComboBox}}"
+                        LocTextKey="Description"
+                        SelectedValue="{Binding OnCheckOutputFailed}" />
+        </alControls:GroupBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="OnOutputValueFailedCombo">
+        <alControls:ComboBox
+                        ItemsSourceLocalized="{Binding DataContext.ErrorBehaviours, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                        SelectedValuePath="Value" Style="{StaticResource {x:Type ComboBox}}"
+                        LocTextKey="Description"
+                        SelectedValue="{Binding OnCheckOutputFailed}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="OnErrorFailedCombo">
+        <alControls:ComboBox
+                        ItemsSourceLocalized="{Binding DataContext.ErrorBehaviours, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type seqEditor:SequenceEditorControl}}}"
+                        SelectedValuePath="Value" Style="{StaticResource {x:Type ComboBox}}"
+                        LocTextKey="Description"
+                        SelectedValue="{Binding OnError}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CheckOutputValue">
+        <GroupBox Header="{Binding}"
+                              Visibility="{Binding ReturnType, Converter={StaticResource TypeToVisibility}}">
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <alControls:TextBlock LocTextKey="Activity_Base_CheckOutputValue" Style="{StaticResource GroupBoxHeader}" />
+                        <Button HorizontalAlignment="Left"
+                                    Style="{StaticResource TermDesignerButton}"
+                                    ContentTemplate="{StaticResource TermDesignerButtonContent}"
+                                    Command="{Binding DataContext.ShowTermDesignerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}">
+                            <Button.Resources>
+                                <system:String x:Key="TermPropertyName">Term</system:String>
+                                <system:String x:Key="EditorMode">CheckOutputValue</system:String>
+                                <system:String x:Key="ReturnType">System.Boolean</system:String>
+                            </Button.Resources>
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource TermMultiValueConverter}">
+                                    <Binding Source="{StaticResource TermPropertyName}" />
+                                    <Binding Source="{StaticResource EditorMode}" />
+                                    <Binding Source="{StaticResource ReturnType}" />
+                                    <Binding Path="Term" />
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+            <StackPanel Orientation="Vertical">
+                <uiHelpers:MTFEditor Value="{Binding Term}"
+                                                 TypeName="System.Boolean" EditorMode="CheckOutputValue"
+                                                     Visibility="{Binding Term, Converter={StaticResource ShowSimpleTermVisibilityConverter}}"/>
+                <TextBlock Text="{Binding Term}" TextWrapping="Wrap" Visibility="{Binding Term, Converter={StaticResource ShowComplexTermVisibilityConverter}}" />
+            </StackPanel>
+        </GroupBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CheckOutputValueDataTemplate">
+        <DataTemplate.Resources>
+            <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource ActivityDetailGroupBox}" />
+        </DataTemplate.Resources>
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource CheckOutputValue}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ReturnType}" Value="System.Void">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+
+    </DataTemplate>
+
+    <DataTemplate x:Key="OutputTypeDataTemplate">
+        <DataTemplate.Resources>
+            <Style TargetType="alControls:GroupBox" BasedOn="{StaticResource ActivityDetailGroupBox}" />
+        </DataTemplate.Resources>
+        <alControls:GroupBox LocTextKey="Activity_Base_OutputType" BorderThickness="0" Padding="5" Margin="0,10,0,0"
+                          Visibility="{Binding ReturnType, Converter={StaticResource NotNullToVisibility}}">
+            <TextBlock Text="{Binding ReturnType, Converter={StaticResource TypeNameConverter}}" />
+        </alControls:GroupBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AssignOutputValueDataTemplate">
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <alControls:GroupBox LocTextKey="Activity_Base_AssignOutput" Style="{StaticResource ActivityDetailGroupBox}">
+                                    <nullableComboBox:NullableComboBox
+                                                DisplayMemberPath="Name"
+                                                SelectedValue="{Binding Variable, UpdateSourceTrigger=Explicit}">
+                                        <nullableComboBox:NullableComboBox.ItemsSource>
+                                            <MultiBinding Converter="{StaticResource VariableByTypeConverter}">
+                                                <Binding Path="ReturnType" />
+                                                <Binding Path="DataContext.Sequence.MTFVariables"
+                                                                 RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}" />
+                                            </MultiBinding>
+                                        </nullableComboBox:NullableComboBox.ItemsSource>
+                                    </nullableComboBox:NullableComboBox>
+                                </alControls:GroupBox>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ReturnType}" Value="System.Void">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </DataTemplate>
+
+
+</ResourceDictionary>

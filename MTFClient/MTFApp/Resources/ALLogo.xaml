@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DrawingImage x:Key="IconALLogo">
+        <DrawingImage.Drawing>
+            <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+                <DrawingGroup x:Name="DrawingLayer" >
+                    <DrawingGroup x:Name="Vrstva_x0020_1">
+                        <DrawingGroup x:Name="_261253096">
+                            <GeometryDrawing x:Name="polygon3163" Brush="#FFFDBE2D">
+                                <GeometryDrawing.Geometry>
+                                    <PathGeometry FillRule="EvenOdd" Figures="M2372,1329L2372,1329 2372,3170 3266,3170 3659,2776 2772,2776 2772,902z" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing x:Name="polygon3165" Brush="#FFFFFFFF">
+                                <GeometryDrawing.Geometry>
+                                    <PathGeometry FillRule="EvenOdd" Figures="M2200,1498L2200,1498 569,3170 1092,3170 1795,2442 1795,2748 1416,3170 2200,3170z" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+</ResourceDictionary>

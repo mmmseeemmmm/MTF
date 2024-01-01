@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  D-PDU-API cable description file based on version V2.2.0 of D-PDU-API specification  -->
+<MVCI_CABLE_DESCRIPTION xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pdu.xsd" FILE_VERSION="4.1.21" MVCI_PART2_STANDARD_VERSION="2.2.0">
+  <DESCRIPTION>This is the Cable Description File for VCIs supported by PDUAPI_AL</DESCRIPTION>
+  <SUPPLIER_NAME>Automotive Lighting</SUPPLIER_NAME>
+  <DLCTYPE EID="ID_SUB_D_9">
+    <ID>1</ID>
+    <SHORT_NAME>SUB_D_9</SHORT_NAME>
+    <DESCRIPTION>9-pin Sub-D connector for CAN and Vector interfaces</DESCRIPTION>
+  </DLCTYPE>
+  <CABLE>
+    <ID>105</ID>
+    <SHORT_NAME>SUB_D9pol_For_Vector</SHORT_NAME>
+    <DESCRIPTION>Cable for 9-pin Sub-D IF-Connectors (1:1 connection, Vector Interfaces, CAN Interfaces)</DESCRIPTION>
+    <CABLE_IDENTIFICATION>
+      <CABLE_ID>105</CABLE_ID>
+    </CABLE_IDENTIFICATION>
+    <MAPPING>
+      <!--Channel 1 - CAN-Low  = PIN 2 on connector - PIN on DLC = 12-->
+      <PIN_ON_DLC>12</PIN_ON_DLC>
+      <PIN_ON_MODULE>12</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 1 - CAN-High = PIN 7 on connector - PIN on DLC = 17-->
+      <PIN_ON_DLC>17</PIN_ON_DLC>
+      <PIN_ON_MODULE>17</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 1 - CAN-Low  = PIN 1 on connector - PIN on DLC = 11-->
+      <PIN_ON_DLC>11</PIN_ON_DLC>
+      <PIN_ON_MODULE>11</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 1 - CAN-High = PIN 8 on connector - PIN on DLC = 18-->
+      <PIN_ON_DLC>18</PIN_ON_DLC>
+      <PIN_ON_MODULE>18</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 1 - LIN = PIN 7 on connector - PIN on DLC = 17-->
+      <PIN_ON_DLC>17</PIN_ON_DLC>
+      <PIN_ON_MODULE>117</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 1 - LIN = PIN 8 on connector - PIN on DLC = 18-->
+      <PIN_ON_DLC>18</PIN_ON_DLC>
+      <PIN_ON_MODULE>118</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 2 - CAN-Low  = PIN 2 on connector - PIN on DLC = 22-->
+      <PIN_ON_DLC>22</PIN_ON_DLC>
+      <PIN_ON_MODULE>22</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 2 - CAN-High = PIN 7 on connector - PIN on DLC = 27-->
+      <PIN_ON_DLC>27</PIN_ON_DLC>
+      <PIN_ON_MODULE>27</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 2 - CAN-Low  = PIN 1 on connector - PIN on DLC = 21-->
+      <PIN_ON_DLC>21</PIN_ON_DLC>
+      <PIN_ON_MODULE>21</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 2 - CAN-High = PIN 8 on connector - PIN on DLC = 28-->
+      <PIN_ON_DLC>28</PIN_ON_DLC>
+      <PIN_ON_MODULE>28</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 2 - LIN = PIN 7 on connector - PIN on DLC = 27-->
+      <PIN_ON_DLC>27</PIN_ON_DLC>
+      <PIN_ON_MODULE>227</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 2 - LIN = PIN 8 on connector - PIN on DLC = 28-->
+      <PIN_ON_DLC>28</PIN_ON_DLC>
+      <PIN_ON_MODULE>228</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 3 - CAN-Low  = PIN 2 on connector - PIN on DLC = 32-->
+      <PIN_ON_DLC>32</PIN_ON_DLC>
+      <PIN_ON_MODULE>32</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 3 - CAN-High = PIN 7 on connector - PIN on DLC = 37-->
+      <PIN_ON_DLC>37</PIN_ON_DLC>
+      <PIN_ON_MODULE>37</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 3 - CAN-Low  = PIN 1 on connector - PIN on DLC = 31-->
+      <PIN_ON_DLC>31</PIN_ON_DLC>
+      <PIN_ON_MODULE>31</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 3 - CAN-High = PIN 8 on connector - PIN on DLC = 38-->
+      <PIN_ON_DLC>38</PIN_ON_DLC>
+      <PIN_ON_MODULE>38</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 3 - LIN = PIN 7 on connector - PIN on DLC = 37-->
+      <PIN_ON_DLC>37</PIN_ON_DLC>
+      <PIN_ON_MODULE>337</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 3 - LIN = PIN 8 on connector - PIN on DLC = 38-->
+      <PIN_ON_DLC>38</PIN_ON_DLC>
+      <PIN_ON_MODULE>338</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 4 - CAN-Low  = PIN 2 on connector - PIN on DLC = 42-->
+      <PIN_ON_DLC>42</PIN_ON_DLC>
+      <PIN_ON_MODULE>42</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 4 - CAN-High = PIN 7 on connector - PIN on DLC = 47-->
+      <PIN_ON_DLC>47</PIN_ON_DLC>
+      <PIN_ON_MODULE>47</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 4 - CAN-Low  = PIN 1 on connector - PIN on DLC = 41-->
+      <PIN_ON_DLC>41</PIN_ON_DLC>
+      <PIN_ON_MODULE>41</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 4 - CAN-High = PIN 8 on connector - PIN on DLC = 48-->
+      <PIN_ON_DLC>48</PIN_ON_DLC>
+      <PIN_ON_MODULE>48</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 4 - LIN = PIN 7 on connector - PIN on DLC = 47-->
+      <PIN_ON_DLC>47</PIN_ON_DLC>
+      <PIN_ON_MODULE>447</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 4 - LIN = PIN 8 on connector - PIN on DLC = 48-->
+      <PIN_ON_DLC>48</PIN_ON_DLC>
+      <PIN_ON_MODULE>448</PIN_ON_MODULE>
+    </MAPPING>
+	<MAPPING>
+      <!--Channel 5 - CAN-Low  = PIN 2 on connector - PIN on DLC = 52-->
+      <PIN_ON_DLC>52</PIN_ON_DLC>
+      <PIN_ON_MODULE>52</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 5 - CAN-High = PIN 7 on connector - PIN on DLC = 57-->
+      <PIN_ON_DLC>57</PIN_ON_DLC>
+      <PIN_ON_MODULE>57</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 5 - CAN-Low  = PIN 1 on connector - PIN on DLC = 51-->
+      <PIN_ON_DLC>51</PIN_ON_DLC>
+      <PIN_ON_MODULE>51</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 5 - CAN-High = PIN 8 on connector - PIN on DLC = 58-->
+      <PIN_ON_DLC>58</PIN_ON_DLC>
+      <PIN_ON_MODULE>58</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 5 - LIN = PIN 7 on connector - PIN on DLC = 57-->
+      <PIN_ON_DLC>57</PIN_ON_DLC>
+      <PIN_ON_MODULE>557</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 5 - LIN = PIN 8 on connector - PIN on DLC = 58-->
+      <PIN_ON_DLC>58</PIN_ON_DLC>
+      <PIN_ON_MODULE>558</PIN_ON_MODULE>
+    </MAPPING>
+	<MAPPING>
+      <!--Channel 6 - CAN-Low  = PIN 2 on connector - PIN on DLC = 62-->
+      <PIN_ON_DLC>62</PIN_ON_DLC>
+      <PIN_ON_MODULE>62</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 6 - CAN-High = PIN 7 on connector - PIN on DLC = 67-->
+      <PIN_ON_DLC>67</PIN_ON_DLC>
+      <PIN_ON_MODULE>67</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 6 - CAN-Low  = PIN 1 on connector - PIN on DLC = 61-->
+      <PIN_ON_DLC>61</PIN_ON_DLC>
+      <PIN_ON_MODULE>61</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 6 - CAN-High = PIN 8 on connector - PIN on DLC = 68-->
+      <PIN_ON_DLC>68</PIN_ON_DLC>
+      <PIN_ON_MODULE>68</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 6 - LIN = PIN 7 on connector - PIN on DLC = 67-->
+      <PIN_ON_DLC>67</PIN_ON_DLC>
+      <PIN_ON_MODULE>667</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 6 - LIN = PIN 8 on connector - PIN on DLC = 68-->
+      <PIN_ON_DLC>68</PIN_ON_DLC>
+      <PIN_ON_MODULE>668</PIN_ON_MODULE>
+    </MAPPING>
+	<MAPPING>
+      <!--Channel 7 - CAN-Low  = PIN 2 on connector - PIN on DLC = 72-->
+      <PIN_ON_DLC>72</PIN_ON_DLC>
+      <PIN_ON_MODULE>72</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 7 - CAN-High = PIN 7 on connector - PIN on DLC = 77-->
+      <PIN_ON_DLC>77</PIN_ON_DLC>
+      <PIN_ON_MODULE>77</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 7 - CAN-Low  = PIN 1 on connector - PIN on DLC = 71-->
+      <PIN_ON_DLC>71</PIN_ON_DLC>
+      <PIN_ON_MODULE>71</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 7 - CAN-High = PIN 8 on connector - PIN on DLC = 78-->
+      <PIN_ON_DLC>78</PIN_ON_DLC>
+      <PIN_ON_MODULE>78</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 7 - LIN = PIN 7 on connector - PIN on DLC = 77-->
+      <PIN_ON_DLC>77</PIN_ON_DLC>
+      <PIN_ON_MODULE>777</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 7 - LIN = PIN 8 on connector - PIN on DLC = 78-->
+      <PIN_ON_DLC>78</PIN_ON_DLC>
+      <PIN_ON_MODULE>778</PIN_ON_MODULE>
+    </MAPPING>
+	<MAPPING>
+      <!--Channel 8 - CAN-Low  = PIN 2 on connector - PIN on DLC = 82-->
+      <PIN_ON_DLC>82</PIN_ON_DLC>
+      <PIN_ON_MODULE>82</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 8 - CAN-High = PIN 7 on connector - PIN on DLC = 87-->
+      <PIN_ON_DLC>87</PIN_ON_DLC>
+      <PIN_ON_MODULE>87</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 8 - CAN-Low  = PIN 1 on connector - PIN on DLC = 81-->
+      <PIN_ON_DLC>81</PIN_ON_DLC>
+      <PIN_ON_MODULE>81</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 8 - CAN-High = PIN 8 on connector - PIN on DLC = 88-->
+      <PIN_ON_DLC>88</PIN_ON_DLC>
+      <PIN_ON_MODULE>88</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 8 - LIN = PIN 7 on connector - PIN on DLC = 87-->
+      <PIN_ON_DLC>87</PIN_ON_DLC>
+      <PIN_ON_MODULE>887</PIN_ON_MODULE>
+    </MAPPING>
+    <MAPPING>
+      <!--Channel 8 - LIN = PIN 8 on connector - PIN on DLC = 88-->
+      <PIN_ON_DLC>88</PIN_ON_DLC>
+      <PIN_ON_MODULE>888</PIN_ON_MODULE>
+    </MAPPING>
+    <DLCTYPE IDREF="ID_SUB_D_9" />
+  </CABLE>
+</MVCI_CABLE_DESCRIPTION>

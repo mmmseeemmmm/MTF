@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{738E45BD-4BE1-422F-9A61-8FBC8E3C0641}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTFCommon</RootNamespace>
+    <AssemblyName>MTFCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientControls\ClientControlName.cs" />
+    <Compile Include="ClientControls\ClientControlNameBase.cs" />
+    <Compile Include="ClientControls\ClientSetupControlName.cs" />
+    <Compile Include="ClientControls\MessageType.cs" />
+    <Compile Include="ClientControls\MTFClientControl.cs" />
+    <Compile Include="ClientControls\MTFClientControlBase.cs" />
+    <Compile Include="ClientControls\MTFClientSetupControl.cs" />
+    <Compile Include="ClientControls\SequenceExecutionState.cs" />
+    <Compile Include="ColumnDescription.cs" />
+    <Compile Include="General.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\TypeHelper.cs" />
+    <Compile Include="ICanStop.cs" />
+    <Compile Include="IMTFComponentConfigContext.cs" />
+    <Compile Include="IMTFExtendedCoreService.cs" />
+    <Compile Include="IMTFSequenceRuntimeContext.cs" />
+    <Compile Include="IParameterHelperClass.cs" />
+    <Compile Include="IReceiveClientControlData.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="MTFAccessKey.cs" />
+    <Compile Include="MTFActivity.cs" />
+    <Compile Include="MTFActivityError.cs" />
+    <Compile Include="MTFActivityResult.cs" />
+    <Compile Include="MTFAdditionalParameterInfoAttribute.cs" />
+    <Compile Include="MTFAllowedParameterValueAttribute.cs" />
+    <Compile Include="MTFAllowedPropertyValueAttribute.cs" />
+    <Compile Include="MTFClientControlAttribute.cs" />
+    <Compile Include="MTFClientControlSetupAttribute.cs" />
+    <Compile Include="MTFDriverHandler.cs" />
+    <Compile Include="MTFClassAttribute.cs" />
+    <Compile Include="MTFClassCategoryAttribute.cs" />
+    <Compile Include="MTFDataTable.cs" />
+    <Compile Include="MTFFileInfo.cs" />
+    <Compile Include="MTFIcons.cs" />
+    <Compile Include="MTFColors.cs" />
+    <Compile Include="MTFConstrutorAttribute.cs" />
+    <Compile Include="MTFImage.cs" />
+    <Compile Include="MTFKnownClassAttribute.cs" />
+    <Compile Include="MTFLogHeader.cs" />
+    <Compile Include="MTFLogOverview.cs" />
+    <Compile Include="MTFMethodAttribute.cs" />
+    <Compile Include="MTFSequenceVariant.cs" />
+    <Compile Include="MTFSequenceVariantGroup.cs" />
+    <Compile Include="MTFSequenceVariantValue.cs" />
+    <Compile Include="MTFTabControl.cs" />
+    <Compile Include="MTFUseClientControlAttribute.cs" />
+    <Compile Include="MTFValidationTablesLog.cs" />
+    <Compile Include="MTFValidationTableStatus.cs" />
+    <Compile Include="MTFValueListGetterMethodAttribute.cs" />
+    <Compile Include="ThreadSafeLevel.cs" />
+    <Compile Include="MTFParameterDescriptor.cs" />
+    <Compile Include="MTFParameterValuesHelperAttribute.cs" />
+    <Compile Include="MTFPropertyAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\MTFDateTime.cs" />
+    <Compile Include="Types\MeasuredData.cs" />
+    <Compile Include="Types\MeasuredTypedData.cs" />
+    <Compile Include="Types\PackageMeasuredData.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "$(SolutionDir)MTFAccessControl\USB\UsbAccessRequest\Resources\$(TargetName)$(TargetExt)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if "$(ConfigurationName)" == "Release" (powershell  -executionpolicy remotesigned -File "$(SolutionDir)AdjustVersions.ps1")</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

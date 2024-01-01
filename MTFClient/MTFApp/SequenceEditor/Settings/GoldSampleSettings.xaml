@@ -1,0 +1,180 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.Settings.GoldSampleSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:sequenceEditor="clr-namespace:MTFApp.SequenceEditor"
+             xmlns:mtfClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+             mc:Ignorable="d" 
+ d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:EnumToVisibilityConverter x:Key="enumCountToVisibilityConverter" VisibleEnumValue="Count" />
+        <converters:EnumToVisibilityConverter x:Key="enumTimeToVisibilityConverter" VisibleEnumValue="Time" />
+        <converters:EnumToVisibilityConverter x:Key="enumShiftToVisibilityConverter" VisibleEnumValue="Shift" />
+
+        <DataTemplate x:Key="GoldSampleFile">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="File name:" />
+                <Button Content="Reset"   VerticalAlignment="Center" Padding="3" Margin="0"
+                    Command="{Binding DataContext.ResetGoldSampleCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}"/>
+            </StackPanel>
+
+        </DataTemplate>
+
+
+    </UserControl.Resources>
+    <Grid Background="{StaticResource ALWhiteBrush}" Name="Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" Background="{StaticResource ALYellowBrush}">
+            <UserControl Style="{StaticResource IconGoldSample}" Height="30" Margin="5 5 10 5"/>
+            <TextBlock Text="Gold sample settings" VerticalAlignment="Center" />
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="0 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" MinWidth="165" SharedSizeGroup="settingsParamName"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Allow gold sample warning" VerticalAlignment="Center" />
+            <CheckBox Grid.Row="0" Grid.Column="2" IsChecked="{Binding Setting.UseGoldSample}"  VerticalAlignment="Center" />
+            
+            <TextBlock Grid.Row="1" Text="Gold sample validation mode" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" ItemsSource="{Binding SampleValidationModes}" DisplayMemberPath="Description" SelectedValuePath="Value" SelectedValue="{Binding Setting.GoldSampleValidationMode}" />
+
+            <Border Grid.Row="2" Height="25" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumCountToVisibilityConverter}}">
+                <TextBlock Text="Gold sample valid cycle count" VerticalAlignment="Center" />
+            </Border>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Setting.GoldSampleCount}" VerticalAlignment="Center" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumCountToVisibilityConverter}}" />
+
+            <Border Grid.Row="2" Height="25" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumTimeToVisibilityConverter}}">
+                <TextBlock Text="Gold sample valid for minutes" VerticalAlignment="Center" />
+            </Border>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Setting.GoldSampleMinutes}"  VerticalAlignment="Center" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumTimeToVisibilityConverter}}"/>
+            
+            <TextBlock Grid.Row="3" Text="Gold sample after start[minutes]" VerticalAlignment="Center" />
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" IsChecked="{Binding Setting.AllowGoldSampleAfterStart}" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <TextBox Grid.Column="1" Text="{Binding Setting.GoldSampleAfterStartInMinutes}"  VerticalAlignment="Center"
+                         IsEnabled="{Binding Setting.AllowGoldSampleAfterStart}"/>
+            </Grid>
+
+            <TextBlock Grid.Row="4" Text="Gold sample after inactivity[minutes]" VerticalAlignment="Center" />
+            <Grid Grid.Row="4" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" IsChecked="{Binding Setting.AllowGoldSampleAfterInactivity}" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <TextBox Grid.Column="1" Text="{Binding Setting.GoldSampleAfterInactivityInMinutes}"  VerticalAlignment="Center"
+                         IsEnabled="{Binding Setting.AllowGoldSampleAfterInactivity}"/>
+            </Grid>
+
+
+            <TextBlock Grid.Row="5" Text="Gold sample after variant changed" VerticalAlignment="Center" />
+            <Grid Grid.Row="5" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <CheckBox IsChecked="{Binding Setting.GoldSampleAfterVariantChanged}"  VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Margin="5 0" Text="Variant changed after" VerticalAlignment="Center" />
+                <TextBox Grid.Column="2" MinWidth="45" Width="45" IsEnabled="{Binding Setting.GoldSampleAfterVariantChanged}" Text="{Binding Setting.VariantChangedAfterSamplesCount}" />
+                <TextBlock Grid.Column="3" Margin="5 0" Text="samples" VerticalAlignment="Center" />
+            </Grid>
+
+            <TextBlock Grid.Row="6" Text="Gold sample required after" VerticalAlignment="Center" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumShiftToVisibilityConverter}}" />
+            <Grid Grid.Row="6" Grid.Column="2" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumShiftToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" MinWidth="45" Width="45" Height="25" Text="{Binding Setting.GoldSampleRequiredAfterShiftStartInMinutes}" />
+                <TextBlock Grid.Column="1" Margin="5 0" Text="minutes since shift has been changed" VerticalAlignment="Center" />
+            </Grid>            
+            
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Allow more Gold samples" VerticalAlignment="Center" />
+            <CheckBox Grid.Row="7" Grid.Column="2" IsChecked="{Binding Setting.MoreGoldSamples}"  VerticalAlignment="Center" />
+            
+            <TextBlock Text="File name" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                        <Setter Property="Text" Value="File doesn't exist." />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FileInfo.Exists}" Value="True">
+                                <Setter Property="Text" Value="{Binding FileInfo.Name}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <TextBlock Text="File size" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding FileSize}" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" />
+
+            <TextBlock Text="Clear" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center" />
+            <Button Content="Clear"  Grid.Row="10" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"
+                    Command="{Binding ResetGoldSampleCommand}"/>
+
+        </Grid>
+        
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5 15 0 0" Width="150" Visibility="{Binding Setting.GoldSampleValidationMode, Converter={StaticResource enumShiftToVisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Start of shift"/>
+            <ListBox Grid.Row="1" ItemsSource="{Binding Setting.GoldSampleShifts}" ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type mtfClientServerCommon:GoldSampleShift}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox MinWidth="42" Width="42" Text="{Binding ShiftBeginningHour, StringFormat=D2}" />
+                            <TextBlock Text=" : " VerticalAlignment="Center" />
+                            <TextBox MinWidth="42" Width="42" Text="{Binding ShiftBeginningMinute, StringFormat=D2}" />
+                            <Button Command="{Binding DataContext.RemoveStartOfShift, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}"
+                                    CommandParameter="{Binding}" IsTabStop="False" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Padding="0" Margin="3">
+                                <Border CornerRadius="20" Background="{StaticResource ALBlackBrush}" Width="15" Height="15" VerticalAlignment="Center">
+                                    <UserControl Style="{StaticResource IconClose}" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource ALWhiteBrush}" />
+                                </Border>
+                            </Button>                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <!--<StackPanel Grid.Row="2" Orientation="Horizontal">-->
+            <Button Content="Add new start of shift" Command="{Binding AddNewStartOfShift}" Grid.Row="2" HorizontalAlignment="Left" Margin="0 5 5 5" />
+            <!--</StackPanel>-->
+        </Grid>
+    </Grid>
+</UserControl>

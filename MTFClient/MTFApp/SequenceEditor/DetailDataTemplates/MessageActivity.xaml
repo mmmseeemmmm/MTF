@@ -1,0 +1,340 @@
+﻿<detailDataTemplates:ActivityDetailBase x:Class="MTFApp.SequenceEditor.DetailDataTemplates.MessageActivity"
+                                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                        xmlns:detailDataTemplates="clr-namespace:MTFApp.SequenceEditor.DetailDataTemplates"
+                                        xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+                                        xmlns:sequenceEditor="clr-namespace:MTFApp.SequenceEditor"
+                                        xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                                        xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                                        xmlns:mtfClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+                                        xmlns:system="clr-namespace:System;assembly=mscorlib"
+                                        xmlns:activityTargetControl="clr-namespace:MTFApp.UIControls.ActivityTargetControl"
+                                        mc:Ignorable="d"
+                                        d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource ActivityDetailGroupBox}" />
+        <Style TargetType="{x:Type alControls:GroupBox}" BasedOn="{StaticResource ActivityDetailGroupBox}" />
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="SimpleMessageBox">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Buttons" Margin="0,10,0,0" />
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox
+                        IsChecked="{Binding Buttons, Converter={StaticResource EnumToBolean}, ConverterParameter={x:Static mtfClientServerCommon:MessageActivityButtons.OkCancel}}" />
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Buttons_OkCancel"
+                                          VerticalAlignment="Center" Margin="5,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox
+                        IsChecked="{Binding Buttons, Converter={StaticResource EnumToBolean}, ConverterParameter={x:Static mtfClientServerCommon:MessageActivityButtons.YesNo}}" />
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Buttons_YesNo" VerticalAlignment="Center"
+                                          Margin="5,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox
+                        IsChecked="{Binding Buttons, Converter={StaticResource EnumToBolean}, ConverterParameter={x:Static mtfClientServerCommon:MessageActivityButtons.Ok}}" />
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Buttons_Ok" VerticalAlignment="Center"
+                                          Margin="5,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox
+                        IsChecked="{Binding Buttons, Converter={StaticResource EnumToBolean}, ConverterParameter={x:Static mtfClientServerCommon:MessageActivityButtons.None}}" />
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Buttons_Hide" VerticalAlignment="Center"
+                                          Margin="5,0,0,0" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ExtendedMessageBox">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_DisplayAs" Margin="0,10,0,0" />
+                <alControls:ComboBox
+                    ItemsSourceLocalized="{Binding DataContext.SequenceMessageDisplayTypes, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}"
+                    SelectedValuePath="Value"
+                    LocTextKey="Description"
+                    SelectedValue="{Binding DisplayType}"
+                    Style="{StaticResource {x:Type ComboBox}}" />
+                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Values" Margin="0,10,0,0" />
+                <uiHelpers:MTFEditor Value="{Binding Values}"
+                                     TypeName="System.Collections.Generic.List`1[System.String]" EditorMode="UseTerm" />
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <CheckBox IsChecked="{Binding ShowCancel}" />
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_ShowCancel" VerticalAlignment="Center"
+                                          Margin="5,0,0,0" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="InputMessageBox">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <CheckBox IsChecked="{Binding ShowCancel}" />
+                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_ShowCancel" VerticalAlignment="Center"
+                                      Margin="5,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MTFImage">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_MTFImage" VerticalAlignment="Center" />
+                    <Button HorizontalAlignment="Left"
+                            Style="{StaticResource TermDesignerButton}"
+                            ContentTemplate="{StaticResource TermDesignerButtonContent}"
+                            Command="{Binding DataContext.ShowTermDesignerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}">
+                        <Button.Resources>
+                            <system:String x:Key="TermPropertyName">Image</system:String>
+                            <system:String x:Key="EditorMode">UseTerm</system:String>
+                            <system:String x:Key="ReturnType">AutomotiveLighting.MTFCommon.MTFImage</system:String>
+                        </Button.Resources>
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource TermMultiValueConverter}">
+                                <Binding Source="{StaticResource TermPropertyName}" />
+                                <Binding Source="{StaticResource EditorMode}" />
+                                <Binding Source="{StaticResource ReturnType}" />
+                                <Binding Path="Image" />
+                            </MultiBinding>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <uiHelpers:MTFEditor Value="{Binding Image}"
+                                         TypeName="System.Boolean" EditorMode="UseTerm"
+                                         Visibility="{Binding Image, Converter={StaticResource ShowSimpleTermVisibilityConverter}}" />
+                    <TextBlock Text="{Binding Image}" TextWrapping="Wrap"
+                               Visibility="{Binding Image, Converter={StaticResource ShowComplexTermVisibilityConverter}}" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AbsolutePath">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Text="{Binding PathToImage, UpdateSourceTrigger=PropertyChanged}"
+                             Height="25" />
+                    <alControls:Button Grid.Column="1" LocTextKey="Buttons_Browse" VerticalAlignment="Stretch"
+                                       Padding="5,0,5,0"
+                                       VerticalContentAlignment="Center"
+                                       Margin="0" BorderThickness="0,1,1,1" HorizontalAlignment="Left"
+                                       Command="{Binding DataContext.SelectDestinationPathCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}" />
+                </Grid>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PictureMessageBox">
+            <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <CheckBox IsChecked="{Binding IsUseAbsolutePath}" BorderBrush="{StaticResource ALBlackBrush}" />
+                    <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_AbsPath" VerticalAlignment="Center"
+                                          Margin="5,0,0,0" />
+                </StackPanel>
+                <ContentPresenter Content="{Binding}">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource MTFImage}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsUseAbsolutePath}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource AbsolutePath}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource SimpleMessageBox}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="NoBlockingMessageBox">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_NonBlockType" Margin="0,10,0,0" />
+                <ComboBox ItemsSource="{Binding NoBlockingMessageBoxTypes}"
+                          SelectedItem="{Binding NoBlockingMessageBoxType}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PictureMessageBox}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CloseMessageBox">
+            <StackPanel Orientation="Vertical">
+                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_CloseSource" />
+                <activityTargetControl:ActivityTarget Activity="{Binding ActivitySource}" AllowActivity="True" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DetailMode">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Padding" Value="3" />
+                    </Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="{StaticResource ALYellowBrush}"
+                        Height="{StaticResource ItemHeight}">
+                    <TextBlock Text="Sequence Message Detail" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Margin="0" />
+                </Border>
+
+                <alControls:GroupBox Grid.Row="1" LocTextKey="Activity_Msg_Parameters">
+                    <ContentPresenter Content="{Binding}">
+                        <ContentPresenter.Style>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Header"
+                                                                      Margin="0,10,0,0" />
+                                                <uiHelpers:MTFEditor Value="{Binding Header}"
+                                                                     TypeName="MTFClientServerCommon.MTFStringFormat" />
+                                                <alControls:TextBlock LocTextKey="Activity_Msg_Parameters_Message"
+                                                                      Margin="0,10,0,0" />
+                                                <uiHelpers:MTFEditor Value="{Binding Message}"
+                                                                     TypeName="MTFClientServerCommon.MTFStringFormat" />
+                                                <ContentPresenter Content="{Binding}">
+                                                    <ContentPresenter.Style>
+                                                        <Style TargetType="ContentPresenter">
+                                                            <Setter Property="ContentTemplate"
+                                                                    Value="{StaticResource SimpleMessageBox}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding MessageType}"
+                                                                             Value="Choice">
+                                                                    <Setter Property="ContentTemplate"
+                                                                            Value="{StaticResource ExtendedMessageBox}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding MessageType}"
+                                                                             Value="NoBlockingMessage">
+                                                                    <Setter Property="ContentTemplate"
+                                                                            Value="{StaticResource NoBlockingMessageBox}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding MessageType}"
+                                                                             Value="Input">
+                                                                    <Setter Property="ContentTemplate"
+                                                                            Value="{StaticResource InputMessageBox}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding MessageType}"
+                                                                             Value="Picture">
+                                                                    <Setter Property="ContentTemplate"
+                                                                            Value="{StaticResource PictureMessageBox}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ContentPresenter.Style>
+                                                </ContentPresenter>
+                                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                                    <CheckBox IsChecked="{Binding IsFullScreen}" />
+                                                    <alControls:TextBlock
+                                                        LocTextKey="Activity_Msg_Parameters_FullScreen"
+                                                        VerticalAlignment="Center" Margin="5,0,0,0" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding MessageType}" Value="Close">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource CloseMessageBox}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Style>
+                    </ContentPresenter>
+
+                </alControls:GroupBox>
+
+                <alControls:GroupBox Grid.Row="2" LocTextKey="Activity_Base_OutputType" BorderThickness="0" Padding="5"
+                                     Margin="0,10,0,0"
+                                     Visibility="{Binding ReturnType, Converter={StaticResource TypeToVisibility}}">
+                    <TextBlock Text="{Binding ReturnType, Converter={StaticResource TypeNameConverter}}" />
+                </alControls:GroupBox>
+
+                <ContentPresenter Grid.Row="3" Content="{Binding}" ContentTemplate="{StaticResource CheckOutputValue}" />
+                <ContentPresenter Grid.Row="4" Content="{Binding}"
+                                  ContentTemplate="{StaticResource OnOutputValueFailed}" />
+                <alControls:GroupBox Grid.Row="6" LocTextKey="Activity_Base_Comment" BorderThickness="0">
+                    <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"
+                             MinHeight="100"
+                             VerticalContentAlignment="Top" AcceptsReturn="True" />
+                </alControls:GroupBox>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SelectedMode">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <localizedString:LocalizedStringEditor Grid.Column="0" Style="{StaticResource ActivityNameEditor}" />
+                <alControls:ComboBox Grid.Column="1"
+                                     ItemsSourceLocalized="{Binding DataContext.SequenceMessageTypes, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type sequenceEditor:SequenceEditorControl}}}"
+                                     SelectedValuePath="Value"
+                                     LocTextKey="Description"
+                                     SelectedValue="{Binding MessageType}"
+                                     Style="{StaticResource ActivityComboBox}" />
+                <TextBlock Grid.Column="2" Style="{StaticResource ActivityCommentTextBlock}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UnSelectedMode">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfActivityName" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="mtfClassAlias" MinWidth="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding}" Style="{StaticResource UnSelectedActivityLabel}" />
+                <Label Grid.Column="1" Content="{Binding MessageType, Converter={StaticResource EnumToDescription}}"
+                       Style="{StaticResource LabelInsteadComboBox}" />
+                <TextBlock Grid.Column="2" Style="{StaticResource ActivityCommentTextBlock}" />
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+
+    <ContentPresenter Content="{Binding}">
+        <ContentPresenter.Style>
+            <Style TargetType="ContentPresenter">
+                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding DisplayMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        Value="Detail">
+                        <Setter Property="ContentTemplate" Value="{StaticResource DetailMode}" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding DisplayMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        Value="Selected">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SelectedMode}" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding DisplayMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        Value="Unselected">
+                        <Setter Property="ContentTemplate" Value="{StaticResource UnSelectedMode}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentPresenter.Style>
+    </ContentPresenter>
+</detailDataTemplates:ActivityDetailBase>

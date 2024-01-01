@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ALStdAssembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AssemblyType>Prototype</AssemblyType>
+  <NodeDescriptions>
+    <NodeDescription>
+      <EdsFilePath>EDS\Video_Module_Driver-B0-dev.eds</EdsFilePath>
+      <NickName>VMD_B0_01</NickName>
+      <NodeId>1</NodeId>
+    </NodeDescription>
+    <NodeDescription>
+      <EdsFilePath>EDS\Flexible_LED_Matrix_Driver-B0-dev.eds</EdsFilePath>
+      <NickName>FLMD_B0_01</NickName>
+      <NodeId>2</NodeId>
+    </NodeDescription>
+  </NodeDescriptions>
+  <DriverType>DRIVER_SAMTEC</DriverType>
+  <DeviceName>ALSTD</DeviceName>
+  <ChannelNumber>CAN_1</ChannelNumber>
+  <Baudrate>BAUD_500k</Baudrate>
+  <SyncInterval>0</SyncInterval>
+</ALStdAssembly>

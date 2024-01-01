@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconLED">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,100,100" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M50,11C45.589,11 42,14.589 42,19 42,20.104 42.896,21 44,21 45.104,21 46,20.104 46,19 46,16.794 47.794,15 50,15 51.104,15 52,14.104 52,13 52,11.896 51.104,11 50,11z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                                <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M66,35L64,35 64,19C64,11.28 57.72,5 50,5 42.28,5 36,11.28 36,19L36,35 34,35C32.896,35,32,35.896,32,37L32,43C32,44.104,32.896,45,34,45L41,45 41,93C41,94.104 41.896,95 43,95 44.104,95 45,94.104 45,93L45,45 55,45 55,75C55,76.104 55.896,77 57,77 58.104,77 59,76.104 59,75L59,45 66,45C67.104,45,68,44.104,68,43L68,37C68,35.896,67.104,35,66,35z M40,19C40,13.486 44.486,9 50,9 55.514,9 60,13.486 60,19L60,35 40,35 40,19z M64,41L36,41 36,39 38,39 62,39 64,39 64,41z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

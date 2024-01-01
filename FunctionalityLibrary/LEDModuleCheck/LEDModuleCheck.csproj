@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13C6D27D-A3A0-4745-8221-129A55710216}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LEDModuleCheck</RootNamespace>
+    <AssemblyName>LEDModuleCheck</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\Server\mtfLibs\LEDModuleCheck\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\Server\mtfLibs\LEDModuleCheck\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin64\Debug\Server\mtfLibs\LEDModuleCheck\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\bin64\Release\Server\mtfLibs\LEDModuleCheck\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommunicationModule, Version=1.0.0.81, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\CommunicationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="LED_Module_Check_Common, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\LED_Module_Check_Common.dll</HintPath>
+    </Reference>
+    <Reference Include="LED_Module_Check_Core">
+      <HintPath>dll\LED_Module_Check_Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LEDModuleCheck.cs" />
+    <Compile Include="LEDModuleCheckControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MTFCommon\MTFCommon.csproj">
+      <Project>{738e45bd-4be1-422f-9a61-8fbc8e3c0641}</Project>
+      <Name>MTFCommon</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\x86\cDaqLogger_Lib.dll" />
+    <Content Include="dll\x86\CommunicationModule.dll" />
+    <Content Include="dll\x86\ImageViewerControlLibrary.dll" />
+    <Content Include="dll\x86\LED_Module_Check_Common.dll" />
+    <Content Include="dll\x86\LED_Module_Check_Core.dll" />
+    <Content Include="dll\x86\Localization.dll" />
+    <Content Include="dll\x86\ModuleCheckBox.dll" />
+    <Content Include="dll\x86\NationalInstruments.Common.dll" />
+    <Content Include="dll\x86\NationalInstruments.DAQmx.dll" />
+    <Content Include="dll\x86\SerialNumberParser.dll" />
+    <Content Include="dll\x86\StepperMotorDriver.dll" />
+    <Content Include="dll\x86\Utils.dll" />
+    <Content Include="dll\x64\cDaqLogger_Lib.dll" />
+    <Content Include="dll\x64\CommunicationModule.dll" />
+    <Content Include="dll\x64\ImageViewerControlLibrary.dll" />
+    <Content Include="dll\x64\LED_Module_Check_Common.dll" />
+    <Content Include="dll\x64\LED_Module_Check_Core.dll" />
+    <Content Include="dll\x64\Localization.dll" />
+    <Content Include="dll\x64\ModuleCheckBox.dll" />
+    <Content Include="dll\x64\NationalInstruments.Common.dll" />
+    <Content Include="dll\x64\NationalInstruments.DAQmx.dll" />
+    <Content Include="dll\x64\SerialNumberParser.dll" />
+    <Content Include="dll\x64\StepperMotorDriver.dll" />
+    <Content Include="dll\x64\Utils.dll" />
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if "$(PlatformName)"=="x64" (xcopy /sy  "$(ProjectDir)\dll\x64\*.*"  "$(TargetDir)") else (
+xcopy /sy  "$(ProjectDir)\dll\x86\*.*"  "$(TargetDir)")</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

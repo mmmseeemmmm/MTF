@@ -1,0 +1,919 @@
+﻿<alControls:WindowBase x:Class="MTFApp.MainWindow"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:controls="clr-namespace:MTFApp.UIControls"
+                       xmlns:helpers="clr-namespace:MTFApp.UIHelpers"
+                       Title="AL Main Testing Framework" Height="1200" Width="1600" MinHeight="150" MinWidth="360"
+                       Icon="Resources/MTFIcon-128.png"
+                       WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+                       xmlns:mtfApp="clr-namespace:MTFApp"
+                       xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                       MouseMove="Window_MouseMove" ResizeMode="NoResize"
+                       Deactivated="App_Deactivated"
+                       LocMainAssembly="MTFApp"
+                       LocTextAssembly="MTFApp.Localizations"
+                       LocTextDictionary="UIStrings">
+    <Window.Resources>
+        <Style x:Key="MenuBarButtonNoSelection" TargetType="ToggleButton">
+            <Setter Property="Height" Value="100" />
+            <Setter Property="Width" Value="140" />
+            <Setter Property="Background" Value="{StaticResource ResourceKey=ALBlackBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              Margin="{TemplateBinding Padding}"
+                                              IsEnabled="{TemplateBinding IsEnabled}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuBarButton" TargetType="ToggleButton" BasedOn="{StaticResource MenuBarButtonNoSelection}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              Margin="{TemplateBinding Padding}"
+                                              IsEnabled="{TemplateBinding IsEnabled}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="{StaticResource ResourceKey=ALYellowBrush}" />
+                                <Setter Property="Foreground" Value="{StaticResource ResourceKey=ALBlackBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}" />
+                                <Setter Property="Foreground" Value="{StaticResource ResourceKey=ALBlackBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Grid" x:Key="AnimationGrid">
+            <Setter Property="RenderTransformOrigin" Value="0.5 0.5" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <RotateTransform />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Grid.MouseLeftButtonDown">
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="RenderTransform.Angle">
+                            <DoubleAnimation From="-5" To="5" Duration="0:0:0.15" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="0:0:0.45" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="UserControl" BasedOn="{StaticResource IconLeftArrow}" x:Key="ShowMenuIcon">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ShowMenuClick" />
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+        
+
+        <DataTemplate x:Key="PortraitWindowButtons">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button VerticalAlignment="Top" Margin="0 10 10 0" Click="minimizeButtonClick" Style="{StaticResource ResourceKey=MinimizeButton}" Foreground="{StaticResource ResourceKey=ALWhiteBrush}" />
+                <Button VerticalAlignment="Top" Margin="0 10 10 0" Click="maximizeButtonClick" Style="{StaticResource ResourceKey=MaximizeButton}" Foreground="{StaticResource ResourceKey=ALWhiteBrush}" />
+                <Button VerticalAlignment="Top" Margin="0 10 10 0" Click="powerOffButtonClick" Style="{StaticResource ResourceKey=ShutdownButton}" Foreground="{StaticResource ResourceKey=ALWhiteBrush}" />
+                <Button VerticalAlignment="Top" Margin="0 10 10 0" Click="closeButtonClick" Style="{StaticResource ResourceKey=CloseButton}" Foreground="{StaticResource ResourceKey=ALWhiteBrush}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VerticalShowMenuIcon">
+            <UserControl Style="{StaticResource ShowMenuIcon}"
+                         Foreground="{StaticResource ALBlackBrush}"
+                         HorizontalAlignment="Left"
+                         Width="20"
+                         RenderTransformOrigin="0.5,0.5">
+                <UserControl.RenderTransform>
+                    <ScaleTransform ScaleX="-1" />
+                </UserControl.RenderTransform>
+            </UserControl>
+        </DataTemplate>
+        <DataTemplate x:Key="VerticalHideMenuIcon">
+            <UserControl Style="{StaticResource ShowMenuIcon}"
+                         Width="20"
+                         Foreground="{StaticResource ALWhiteBrush}"
+                         HorizontalAlignment="Right" />
+        </DataTemplate>
+        
+        <DataTemplate x:Key="HorizontalMainMenuHidden">
+            <Grid Background="{StaticResource ALBlackNoTransparentBrush}" VerticalAlignment="Top" Height="35"
+                  MouseDown="Header_MouseDown">
+                <UserControl Style="{StaticResource ShowMenuIcon}"
+                         Foreground="{StaticResource ALWhiteBrush}"
+                         Height="33"
+                             Margin="10,0,0,0"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         RenderTransformOrigin="0.5,0.5">
+                    <UserControl.RenderTransform>
+                        <RotateTransform Angle="-90" />
+                    </UserControl.RenderTransform>
+                </UserControl>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PortraitWindowButtons}" HorizontalAlignment="Right" />
+            </Grid>
+            
+        </DataTemplate>
+        <DataTemplate x:Key="HorizontalHideMenuIcon">
+            <UserControl Style="{StaticResource ShowMenuIcon}"
+                         Foreground="{StaticResource ALWhiteBrush}"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         RenderTransformOrigin="0.5,0.5"
+                         Margin="10,0,0,0"
+                         Height="33">
+                <UserControl.RenderTransform>
+                    <RotateTransform Angle="90" />
+                </UserControl.RenderTransform>
+            </UserControl>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VerticalMainMenu">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Margin" Value="0,6,0,0" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="MaxWidth" Value="135" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+            </DataTemplate.Resources>
+            <Border 
+                        CornerRadius="0 0 0 0"
+                        BorderThickness="0"
+                        Background="{StaticResource ResourceKey=ALBlackNoTransparentBrush}"
+                        MouseDown="Header_MouseDown">
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top">
+                        <ListBox Background="{x:Null}" Width="140" Template="{StaticResource ListBoxControlTemplate}"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                     ScrollViewer.CanContentScroll="False"        
+                                     ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButtonNoSelection}" IsChecked="{Binding IsInfoActive}" Margin="0 5 0 0">
+                                    <StackPanel Orientation="Vertical">
+                                        <Image Width="60" Source="{StaticResource ResourceKey=IconALLogo}" Margin="0 10 0 0" PreviewMouseLeftButtonDown="AlLogo_MouseLeftButtonDown" />
+                                        <TextBlock Text="Industrial Development" HorizontalAlignment="Center" Margin="0 10 0 10" />
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsComponentConfigActive}" Margin="0 5 0 0" 
+                                                  Command="{Binding OpenComponentConfiguration}" Visibility="{Binding MenuVisibility}">
+                                    <StackPanel Width="140">
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconComponentsConfig}" Width="40"/>
+                                        </Grid>
+                                        <alControls:TextBlock LocTextKey="MainMenu_ComponentConfiguration" />
+                                        
+                                        <Popup IsOpen="{Binding OpenComponentConfiguration.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenComponentConfiguration.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsSequenceEditorActive}" Margin="0 5 0 0" 
+                                                  Command="{Binding OpenSequenceEditor}" Visibility="{Binding MenuVisibility}">
+                                    <StackPanel Width="140">
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconSequenceEditor}" Width="60"/>
+                                        </Grid>
+                                        <alControls:TextBlock LocTextKey="MainMenu_Editor" />
+                                        
+                                        <Popup IsOpen="{Binding OpenSequenceEditor.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenSequenceEditor.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsSequenceExecutionActive}" Margin="0 5 0 0" 
+                                                  Command="{Binding OpenSequenceExecution}" Visibility="{Binding MenuVisibility}">
+                                    <StackPanel Width="140">
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconSequenceExecution}" Width="60"/>
+                                        </Grid>
+                                        <alControls:TextBlock LocTextKey="MainMenu_Execution" />
+                                        
+                                        <Popup IsOpen="{Binding OpenSequenceExecution.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenSequenceExecution.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsSettingsActive}" Margin="0 5 0 0" Command="{Binding OpenSettings}" Visibility="{Binding MenuVisibility}">
+                                    <StackPanel Width="140">
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconSettings}" Width="60" />
+                                        </Grid>
+                                        <alControls:TextBlock LocTextKey="MainMenu_Setting" />
+                                        
+                                        <Popup IsOpen="{Binding OpenSettings.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenSettings.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsTestingActive}" Margin="0 5 0 0" Command="{Binding OpenEditorTest}" Visibility="{Binding TestVisibility}">
+                                    <StackPanel Width="140">
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconSkullAndCrossbones}" Width="60" />
+                                        </Grid>
+                                        <alControls:TextBlock Text="Testing" />
+                                        
+                                        <Popup IsOpen="{Binding OpenEditorTest.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenEditorTest.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsResultViewerActive}" Margin="0 5 0 0" Command="{Binding OpenResultViewer}" Visibility="{Binding MenuVisibility}">
+                                    <StackPanel Width="140">
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconResultViewer}" Width="80" />
+                                        </Grid>
+                                        <alControls:TextBlock LocTextKey="MainMenu_Result" />
+                                        
+                                        <Popup IsOpen="{Binding OpenResultViewer.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenResultViewer.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </ListBoxItem>
+                            <ListBoxItem Visibility="{Binding WarningsVisibility}">
+                                <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}" IsChecked="{Binding IsWarningsViewerActive}" Margin="0 5 0 0" Command="{Binding OpenWarnings}">
+                                    <Grid Width="140">
+                                        <TextBlock Text="{Binding Warning.Count}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 10" />
+                                        <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                            <UserControl Style="{StaticResource IconWarning}" Width="60" Margin="0 10 0 30" />
+                                        </Grid>
+                                        <Popup IsOpen="{Binding OpenWarnings.IsShortcutPopupOpen, Mode=OneWay}" Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None" AllowsTransparency="True">
+                                            <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1" BorderBrush="{StaticResource ALBlackBrush}">
+                                                <TextBlock Text="{Binding OpenWarnings.ShortcutNames}" Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                            </Border>
+                                        </Popup>
+                                    </Grid>
+                                </ToggleButton>
+                            </ListBoxItem>
+                        </ListBox>
+                        <Border Width="10" Background="Transparent" HorizontalAlignment="Left" />
+                        <Border Height="10"  Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                    </Grid>
+                    <TextBlock VerticalAlignment="Bottom" Foreground="{StaticResource ResourceKey=ALWhiteBrush}" Text="{Binding AssemblyVersion}" HorizontalAlignment="Center" Margin="0 0 0 10" />
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="HorizontalMainMenu">
+            <DataTemplate.Resources>
+                <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <Border
+                CornerRadius="0 0 0 0"
+                BorderThickness="0"
+                Background="{StaticResource ResourceKey=ALBlackNoTransparentBrush}"
+                MouseDown="Header_MouseDown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="100" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Background="{x:Null}" DockPanel.Dock="Top"
+                             Template="{StaticResource ListBoxControlTemplate}"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                             ScrollViewer.CanContentScroll="False"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButtonNoSelection}"
+                                          IsChecked="{Binding IsInfoActive}" Margin="5 0 0 0">
+                                <StackPanel Orientation="Vertical">
+                                    <Image Width="60" Source="{StaticResource ResourceKey=IconALLogo}"
+                                           Margin="0 15 0 0" PreviewMouseLeftButtonDown="AlLogo_MouseLeftButtonDown" />
+                                    <TextBlock Text="Industrial Development" HorizontalAlignment="Center"
+                                               Margin="5 10 5 0" />
+                                </StackPanel>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsComponentConfigActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenComponentConfiguration}"
+                                          Visibility="{Binding MenuVisibility}">
+                                <Grid Width="140">
+                                    <alControls:TextBlock LocTextKey="MainMenu_ComponentConfiguration" HorizontalAlignment="Center"
+                                               VerticalAlignment="Bottom" Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconComponentsConfig}" Width="40"
+                                                     Margin="0 10 0 30" />
+                                    </Grid>
+                                    <Popup
+                                        IsOpen="{Binding OpenComponentConfiguration.IsShortcutPopupOpen, Mode=OneWay}"
+                                        Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                        AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenComponentConfiguration.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsSequenceEditorActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenSequenceEditor}" Visibility="{Binding MenuVisibility}">
+                                <Grid Width="140">
+                                    <alControls:TextBlock LocTextKey="MainMenu_Editor" HorizontalAlignment="Center"
+                                               VerticalAlignment="Bottom" Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconSequenceEditor}" Width="60"
+                                                     Margin="0 10 0 30" />
+                                    </Grid>
+                                    <Popup IsOpen="{Binding OpenSequenceEditor.IsShortcutPopupOpen, Mode=OneWay}"
+                                           Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                           AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenSequenceEditor.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsSequenceExecutionActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenSequenceExecution}"
+                                          Visibility="{Binding MenuVisibility}">
+                                <Grid Width="140">
+                                    <alControls:TextBlock LocTextKey="MainMenu_Execution" HorizontalAlignment="Center"
+                                               VerticalAlignment="Bottom" Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconSequenceExecution}" Width="60"
+                                                     Margin="0 10 0 30"
+                                                     Background="{Binding Background, RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                                    </Grid>
+                                    <Popup IsOpen="{Binding OpenSequenceExecution.IsShortcutPopupOpen, Mode=OneWay}"
+                                           Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                           AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenSequenceExecution.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsSettingsActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenSettings}" Visibility="{Binding MenuVisibility}">
+                                <Grid Width="140">
+                                    <alControls:TextBlock LocTextKey="MainMenu_Setting"
+                                                              HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconSettings}" Width="60"
+                                                     Margin="0 10 0 30"
+                                                     Background="{Binding Background, RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                                    </Grid>
+                                    <Popup IsOpen="{Binding OpenSettings.IsShortcutPopupOpen, Mode=OneWay}"
+                                           Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                           AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenSettings.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsTestingActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenEditorTest}" Visibility="{Binding TestVisibility}">
+                                <Grid Width="140">
+                                    <TextBlock Text="Testing" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                               Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconSkullAndCrossbones}" Width="60"
+                                                     Margin="0 10 0 30"
+                                                     Background="{Binding Background, RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                                    </Grid>
+                                    <Popup IsOpen="{Binding OpenEditorTest.IsShortcutPopupOpen, Mode=OneWay}"
+                                           Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                           AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenEditorTest.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsResultViewerActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenResultViewer}" Visibility="{Binding MenuVisibility}">
+                                <Grid Width="140">
+                                    <alControls:TextBlock LocTextKey="MainMenu_Result"  VerticalAlignment="Bottom"
+                                               HorizontalAlignment="Center" Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconResultViewer}" Width="80"
+                                                     Margin="0 10 0 40" />
+                                    </Grid>
+                                    <Popup IsOpen="{Binding OpenResultViewer.IsShortcutPopupOpen, Mode=OneWay}"
+                                           Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                           AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenResultViewer.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                        <ListBoxItem Visibility="{Binding WarningsVisibility}">
+                            <ToggleButton Style="{StaticResource ResourceKey=MenuBarButton}"
+                                          IsChecked="{Binding IsWarningsViewerActive}" Margin="0 5 0 0"
+                                          Command="{Binding OpenWarnings}">
+                                <Grid Width="140">
+                                    <TextBlock Text="{Binding Warning.Count}" VerticalAlignment="Bottom"
+                                               HorizontalAlignment="Center" Margin="0 0 0 10" />
+                                    <Grid Style="{StaticResource AnimationGrid}" Background="Transparent">
+                                        <UserControl Style="{StaticResource IconWarning}" Width="60" Margin="0 10 0 30" />
+                                    </Grid>
+                                    <Popup IsOpen="{Binding OpenWarnings.IsShortcutPopupOpen, Mode=OneWay}"
+                                           Placement="Center" Focusable="False" StaysOpen="True" PopupAnimation="None"
+                                           AllowsTransparency="True">
+                                        <Border Background="{StaticResource ALDarkYellowBrush}" BorderThickness="1"
+                                                BorderBrush="{StaticResource ALBlackBrush}">
+                                            <TextBlock Text="{Binding OpenWarnings.ShortcutNames}"
+                                                       Foreground="{StaticResource ALBlackBrush}" Margin="5 7" />
+                                        </Border>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </ListBoxItem>
+                    </ListBox>
+                    <Border Background="Transparent" HorizontalAlignment="Stretch" Height="10" VerticalAlignment="Top"
+                            Grid.Column="0" />
+                    <Border Background="Transparent" HorizontalAlignment="Left" Width="10" VerticalAlignment="Stretch"
+                            Grid.Column="0" />
+                    <alControls:TextBlock Grid.Column="1" MaxWidth="150" MaxHeight="200" LocTextKey="{Binding HeaderText}"
+                                          Style="{StaticResource {x:Type TextBlock}}"
+                               Foreground="{StaticResource ResourceKey=ALWhiteBrush}" VerticalAlignment="Top"
+                               Margin="5 10 15 0" />
+
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1">
+                            <ContentPresenter Content="{Binding}"
+                                              ContentTemplate="{StaticResource PortraitWindowButtons}" />
+                            <Button Margin="0 0 -4 0" Background="Transparent" VerticalAlignment="Center"
+                                    BorderThickness="0" Command="{Binding OpenAccessKeyInfoCommand}"
+                                    Visibility="{Binding AccessKey, Converter={StaticResource NotNullToVisibility}}">
+                                <StackPanel VerticalAlignment="Center" Margin="0 0 0 0">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Text="{Binding UserFirstName}"
+                                                   Foreground="{StaticResource ALWhiteBrush}" />
+                                        <TextBlock Text="{Binding UserLastName}" Margin="5 0 0 0"
+                                                   Foreground="{StaticResource ALWhiteBrush}" />
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Validity}" HorizontalAlignment="Right"
+                                               Foreground="{StaticResource ALWhiteBrush}" />
+                                </StackPanel>
+                            </Button>
+                            <TextBlock Foreground="{StaticResource ResourceKey=ALWhiteBrush}"
+                                       Text="{Binding AssemblyVersion}" HorizontalAlignment="Right"
+                                       VerticalAlignment="Bottom" Margin="0 0 5 10" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VerticalMainMenuShown">
+            <Grid MouseLeave="MainMenuLeave">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource VerticalMainMenu}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource VerticalHideMenuIcon}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="HorizontalMainMenuShown">
+            <Grid MouseLeave="MainMenuLeave" VerticalAlignment="Top">
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource HorizontalMainMenu}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource HorizontalHideMenuIcon}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VerticalHidingMainMenu">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource VerticalShowMenuIcon}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ShowMainMenu}" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource VerticalMainMenuShown}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HorizontalHidingMainMenu">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource HorizontalMainMenuHidden}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ShowMainMenu}" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource HorizontalMainMenuShown}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="LoginLandscapeTemplate">
+            <Button Background="Transparent" BorderThickness="0">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Setter Property="Command" Value="{Binding OpenAccessKeyInfoCommand}" />
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <StackPanel VerticalAlignment="Center" Margin="0 0 10 0">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Text="{Binding UserFirstName}" />
+                                        <TextBlock Text="{Binding UserLastName}" Margin="5 0 0 0" />
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Validity}" HorizontalAlignment="Right" />
+                                </StackPanel>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding AccessKey}" Value="{x:Null}">
+                                <Setter Property="Command" Value="{Binding CreateLicenseRequestCommand}" />
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <alControls:TextBlock LocTextKey="Access_Request_Header" />
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </DataTemplate>
+
+        <ControlTemplate x:Key="Landscape">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--Static main menu-->
+                <ContentPresenter Content="{Binding}" Grid.Column="0">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Setting.HideMainMenu}" Value="False">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource VerticalMainMenu}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--General buttons-->
+                    <Grid Grid.Column="0">
+                        <Border MinWidth="5" Background="{Binding MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}}" Margin="-1 0 -1 0">
+                            <ListBox ItemsSource="{Binding MainCommands}" Background="{x:Null}" BorderThickness="0"
+                             Visibility="{Binding MainCommands, Converter={StaticResource NotNullToVisibility}}"
+                             HorizontalContentAlignment="Center"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+
+                                <ListBox.Resources>
+                                    <DataTemplate DataType="{x:Type helpers:Command}">
+                                        <ContentPresenter Content="{Binding}">
+                                            <ContentPresenter.Style>
+                                                <Style TargetType="ContentPresenter">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <Button Command="{Binding}" Style="{StaticResource ResourceKey=CommandButton}" 
+                                                                        Margin="5,20,5,6"
+                                                                    Background="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}" />
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ContentPresenter.Style>
+                                        </ContentPresenter>
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type helpers:ToggleCommand}">
+                                        <ContentPresenter Content="{Binding}">
+                                            <ContentPresenter.Style>
+                                                <Style TargetType="ContentPresenter">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <controls:ToggleButton IsCheckedPropertyBinding="{Binding IsCheckedPropertyName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                                                   Command="{Binding}" Style="{StaticResource ResourceKey=CommandToggleButton}"
+                                                                                   Margin="5,20,5,6"
+                                                                                   Background="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}"/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ContentPresenter.Style>
+                                        </ContentPresenter>
+                                    </DataTemplate>
+                                </ListBox.Resources>
+
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentPresenter Content="{Binding}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Border>
+                        <Border HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="10" Background="Transparent" />
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <!--Header-->
+                        <Border Grid.Row="0"
+                        CornerRadius="0 0 0 0" 
+                        BorderThickness="0"
+                        Background="{Binding MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}}"
+                        MouseDown="Header_MouseDown">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <alControls:TextBlock LocTextKey="{Binding HeaderText}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                      Style="{StaticResource {x:Type TextBlock}}"/>
+                                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource LoginLandscapeTemplate}" />
+                                    <!--<Button Style="{StaticResource TopBarButton}" VerticalAlignment="Center" Margin="0 0 5 0" Visibility="{Binding NotMenuVisibility}" Command="{Binding Login}">Login</Button>-->
+                                    <!--<Button Style="{StaticResource TopBarButton}" VerticalAlignment="Center" Margin="0 0 5 0" Visibility="{Binding MenuVisibility}" Command="{Binding Logout}">Logout</Button>-->
+
+                                    <Button VerticalAlignment="Center" Margin="0 0 10 0" Click="minimizeButtonClick" Style="{StaticResource ResourceKey=MinimizeButton}" />
+                                    <Button VerticalAlignment="Center" Margin="0 0 10 0" Click="maximizeButtonClick" Style="{StaticResource ResourceKey=MaximizeButton}" />
+                                    <Button VerticalAlignment="Center" Margin="0 0 10 0" Click="powerOffButtonClick" Style="{StaticResource ResourceKey=ShutdownButton}" />
+                                    <Button VerticalAlignment="Center" Margin="0 0 10 0" Click="closeButtonClick" Style="{StaticResource ResourceKey=CloseButton}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <!--Content-->
+                        <Border Grid.Row="1"
+                        CornerRadius="0 0 0 0" 
+                        BorderThickness="0"
+                        Background="{StaticResource ALWhiteBrush}">
+                            <ContentControl Content="{Binding MainContent}" />
+                        </Border>
+                    </Grid>
+                </Grid>
+                <ContentPresenter Content="{Binding}" Grid.Column="1" HorizontalAlignment="Left">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Setting.HideMainMenu}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource VerticalHidingMainMenu}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </Grid>
+        </ControlTemplate>
+        
+        <ControlTemplate x:Key="Portrait">
+            <Grid Name="MainDockPanel">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ContentPresenter Content="{Binding}" Grid.Row="0" MinHeight="35">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Setting.HideMainMenu}" Value="False">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource HorizontalMainMenu}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+                <Grid Grid.Row="1">
+                    <Border MinHeight="5" Background="{Binding MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}}" Margin="0 -1 0 0">
+                        <ListBox ItemsSource="{Binding MainCommands}" Background="{x:Null}" BorderThickness="0"
+                             Visibility="{Binding MainCommands, Converter={StaticResource NotNullToVisibility}}"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                            <ListBox.Resources>
+                                <DataTemplate DataType="{x:Type helpers:Command}">
+                                    <ContentPresenter Content="{Binding}">
+                                        <ContentPresenter.Style>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="ContentTemplate">
+                                                    <Setter.Value>
+                                                        <DataTemplate>
+                                                            <Button Command="{Binding}" Style="{StaticResource ResourceKey=CommandButton}" 
+                                                                    Background="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}" />
+                                                        </DataTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ContentPresenter.Style>
+                                    </ContentPresenter>
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type helpers:ToggleCommand}">
+                                    <ContentPresenter Content="{Binding}">
+                                        <ContentPresenter.Style>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="ContentTemplate">
+                                                    <Setter.Value>
+                                                        <DataTemplate>
+                                                            <controls:ToggleButton IsCheckedPropertyBinding="{Binding IsCheckedPropertyName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                                                   Command="{Binding}" Style="{StaticResource ResourceKey=CommandToggleButton}"
+                                                                                   Background="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}"/>
+                                                        </DataTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ContentPresenter.Style>
+                                    </ContentPresenter>
+                                </DataTemplate>
+                            </ListBox.Resources>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentPresenter Content="{Binding}" />
+                                    <!--<ContentPresenter.Style>
+                                        <Style TargetType="ContentPresenter">
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <Button Command="{Binding}" Style="{StaticResource ResourceKey=CommandButton}" 
+                                                                    Background="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}" />
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsToggle, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <controls:ToggleButton IsCheckedPropertyBinding="{Binding IsCheckedPropertyName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                                                           Command="{Binding}" 
+                                                                                           Style="{StaticResource ResourceKey=CommandToggleButton}"
+                                                                                           Background="{Binding DataContext.MainControlStatus, Converter={StaticResource controlStatusToColor}, FallbackValue={StaticResource ALYellowBrush}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type mtfApp:MainWindow}}}"/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentPresenter.Style>-->
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
+                    <Border Background="Transparent" Width="10" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
+                </Grid>
+                <Border Grid.Row="2"
+                        CornerRadius="0 0 0 0" 
+                        BorderThickness="0"
+                        Background="{StaticResource ALWhiteBrush}">
+                    <ContentControl Content="{Binding MainContent}" />
+                </Border>
+
+                <ContentPresenter Content="{Binding}" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top">
+                    <ContentPresenter.Style>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Setting.HideMainMenu}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource HorizontalHidingMainMenu}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentPresenter.Style>
+                </ContentPresenter>
+            </Grid>
+        </ControlTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <DockPanel.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding Scale}" ScaleY="{Binding Scale}"/>
+            </DockPanel.LayoutTransform>
+            <Border BorderBrush="Black" BorderThickness="0">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=ThisWindow, Path=WindowState}" Value="Maximized">
+                                <Setter Property="BorderThickness" Value="10"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+
+                <ContentControl>
+                    <ContentControl.Style>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Template" Value="{StaticResource ResourceKey=Landscape}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsLandscape}" Value="False">
+                                    <Setter Property="Template" Value="{StaticResource ResourceKey=Portrait}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+            </Border>
+        </DockPanel>
+        <Rectangle Fill="Black" Opacity="0.7" Visibility="{Binding IsDarken, Converter={StaticResource BoolToVisibility}}" />
+    </Grid>
+</alControls:WindowBase>
+

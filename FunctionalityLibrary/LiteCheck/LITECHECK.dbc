@@ -1,0 +1,1047 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: LITECHECK_15 LITECHECK_14 LITECHECK_13 LITECHECK_12 LITECHECK_11 LITECHECK_10 LITECHECK_09 LITECHECK_08 LITECHECK_07 LITECHECK_06 LITECHECK_05 LITECHECK_04 LITECHECK_03 LITECHECK_02 LITECHECK_01 HSX
+VAL_TABLE_ VtLCSCommandQualifier 35 "DEF_LIGHT_ID" 34 "DEF_HOST_ID" 33 "SERNR" 32 "DEVICEID" 17 "VERSIONHW" 16 "VERSIONSW" 2 "TRIGOUT" 1 "PWMFREQ" ;
+VAL_TABLE_ VtLCSCommandType 255 "Query" 254 "Response" 128 "Request" ;
+
+
+BO_ 1839 LCS15_StateInfo: 8 LITECHECK_15
+ SG_ LCS15_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS15_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS15_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS15_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS15_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS15_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS15_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1838 LCS14_StateInfo: 8 LITECHECK_14
+ SG_ LCS14_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS14_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS14_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS14_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS14_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS14_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS14_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1837 LCS13_StateInfo: 8 LITECHECK_13
+ SG_ LCS13_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS13_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS13_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS13_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS13_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS13_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS13_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1836 LCS12_StateInfo: 8 LITECHECK_12
+ SG_ LCS12_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS12_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS12_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS12_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS12_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS12_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS12_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1835 LCS11_StateInfo: 8 LITECHECK_11
+ SG_ LCS11_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS11_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS11_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS11_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS11_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS11_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS11_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1834 LCS10_StateInfo: 8 LITECHECK_10
+ SG_ LCS10_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS10_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS10_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS10_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS10_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS10_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS10_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1833 LCS09_StateInfo: 8 LITECHECK_09
+ SG_ LCS09_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS09_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS09_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS09_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS09_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS09_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS09_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1832 LCS08_StateInfo: 8 LITECHECK_08
+ SG_ LCS08_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS08_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS08_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS08_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS08_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS08_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS08_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1831 LCS07_StateInfo: 8 LITECHECK_07
+ SG_ LCS07_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS07_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS07_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS07_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS07_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS07_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS07_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1830 LCS06_StateInfo: 8 LITECHECK_06
+ SG_ LCS06_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS06_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS06_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS06_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS06_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS06_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS06_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1829 LCS05_StateInfo: 8 LITECHECK_05
+ SG_ LCS05_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS05_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS05_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS05_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS05_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS05_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS05_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1828 LCS04_StateInfo: 8 LITECHECK_04
+ SG_ LCS04_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS04_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS04_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS04_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS04_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS04_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS04_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1827 LCS03_StateInfo: 8 LITECHECK_03
+ SG_ LCS03_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS03_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS03_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS03_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS03_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS03_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS03_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1826 LCS02_StateInfo: 8 LITECHECK_02
+ SG_ LCS02_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS02_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS02_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS02_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS02_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS02_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS02_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1887 LCS15_State_Relais_K8_K11: 1 LITECHECK_15
+ SG_ LCS15_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS15_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS15_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS15_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1886 LCS14_State_Relais_K8_K11: 1 LITECHECK_14
+ SG_ LCS14_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS14_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS14_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS14_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1885 LCS13_State_Relais_K8_K11: 1 LITECHECK_13
+ SG_ LCS13_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS13_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS13_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS13_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1884 LCS12_State_Relais_K8_K11: 1 LITECHECK_12
+ SG_ LCS12_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS12_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS12_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS12_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1883 LCS11_State_Relais_K8_K11: 1 LITECHECK_11
+ SG_ LCS11_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS11_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS11_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS11_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1882 LCS10_State_Relais_K8_K11: 1 LITECHECK_10
+ SG_ LCS10_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS10_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS10_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS10_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1881 LCS09_State_Relais_K8_K11: 1 LITECHECK_09
+ SG_ LCS09_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS09_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS09_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS09_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1880 LCS08_State_Relais_K8_K11: 1 LITECHECK_08
+ SG_ LCS08_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS08_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS08_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS08_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1879 LCS07_State_Relais_K8_K11: 1 LITECHECK_07
+ SG_ LCS07_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS07_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS07_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS07_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1878 LCS06_State_Relais_K8_K11: 1 LITECHECK_06
+ SG_ LCS06_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS06_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS06_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS06_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1877 LCS05_State_Relais_K8_K11: 1 LITECHECK_05
+ SG_ LCS05_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS05_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS05_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS05_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1876 LCS04_State_Relais_K8_K11: 1 LITECHECK_04
+ SG_ LCS04_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS04_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS04_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS04_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1875 LCS03_State_Relais_K8_K11: 1 LITECHECK_03
+ SG_ LCS03_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS03_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS03_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS03_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1874 LCS02_State_Relais_K8_K11: 1 LITECHECK_02
+ SG_ LCS02_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS02_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS02_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS02_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1855 LCS15_State_PWM_K0_K7: 8 LITECHECK_15
+ SG_ LCS15_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS15_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1854 LCS14_State_PWM_K0_K7: 8 LITECHECK_14
+ SG_ LCS14_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS14_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1853 LCS13_State_PWM_K0_K7: 8 LITECHECK_13
+ SG_ LCS13_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS13_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1852 LCS12_State_PWM_K0_K7: 8 LITECHECK_12
+ SG_ LCS12_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS12_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1851 LCS11_State_PWM_K0_K7: 8 LITECHECK_11
+ SG_ LCS11_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS11_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1850 LCS10_State_PWM_K0_K7: 8 LITECHECK_10
+ SG_ LCS10_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS10_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1849 LCS09_State_PWM_K0_K7: 8 LITECHECK_09
+ SG_ LCS09_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS09_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1848 LCS08_State_PWM_K0_K7: 8 LITECHECK_08
+ SG_ LCS08_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS08_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1847 LCS07_State_PWM_K0_K7: 8 LITECHECK_07
+ SG_ LCS07_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS07_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1846 LCS06_State_PWM_K0_K7: 8 LITECHECK_06
+ SG_ LCS06_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS06_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1845 LCS05_State_PWM_K0_K7: 8 LITECHECK_05
+ SG_ LCS05_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS05_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1844 LCS04_State_PWM_K0_K7: 8 LITECHECK_04
+ SG_ LCS04_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS04_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1843 LCS03_State_PWM_K0_K7: 8 LITECHECK_03
+ SG_ LCS03_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS03_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1842 LCS02_State_PWM_K0_K7: 8 LITECHECK_02
+ SG_ LCS02_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS02_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1871 LCS15_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS15_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_15
+ SG_ LCS15_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_15
+ SG_ LCS15_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_15
+ SG_ LCS15_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_15
+
+BO_ 1870 LCS14_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS14_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_14
+ SG_ LCS14_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_14
+ SG_ LCS14_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_14
+ SG_ LCS14_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_14
+
+BO_ 1869 LCS13_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS13_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_13
+ SG_ LCS13_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_13
+ SG_ LCS13_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_13
+ SG_ LCS13_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_13
+
+BO_ 1868 LCS12_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS12_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_12
+ SG_ LCS12_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_12
+ SG_ LCS12_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_12
+ SG_ LCS12_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_12
+
+BO_ 1867 LCS11_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS11_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_11
+ SG_ LCS11_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_11
+ SG_ LCS11_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_11
+ SG_ LCS11_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_11
+
+BO_ 1866 LCS10_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS10_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_10
+ SG_ LCS10_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_10
+ SG_ LCS10_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_10
+ SG_ LCS10_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_10
+
+BO_ 1865 LCS09_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS09_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_09
+ SG_ LCS09_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_09
+ SG_ LCS09_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_09
+ SG_ LCS09_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_09
+
+BO_ 1864 LCS08_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS08_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_08
+ SG_ LCS08_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_08
+ SG_ LCS08_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_08
+ SG_ LCS08_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_08
+
+BO_ 1863 LCS07_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS07_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_07
+ SG_ LCS07_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_07
+ SG_ LCS07_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_07
+ SG_ LCS07_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_07
+
+BO_ 1862 LCS06_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS06_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_06
+ SG_ LCS06_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_06
+ SG_ LCS06_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_06
+ SG_ LCS06_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_06
+
+BO_ 1861 LCS05_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS05_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_05
+ SG_ LCS05_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_05
+ SG_ LCS05_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_05
+ SG_ LCS05_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_05
+
+BO_ 1860 LCS04_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS04_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_04
+ SG_ LCS04_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_04
+ SG_ LCS04_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_04
+ SG_ LCS04_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_04
+
+BO_ 1859 LCS03_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS03_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_03
+ SG_ LCS03_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_03
+ SG_ LCS03_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_03
+ SG_ LCS03_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_03
+
+BO_ 1858 LCS02_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS02_Set_Relais_K9 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_02
+ SG_ LCS02_Set_Relais_K8 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_02
+ SG_ LCS02_Set_Relais_K11 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_02
+ SG_ LCS02_Set_Relais_K10 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_02
+
+BO_ 1823 LCS15_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS15_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_15
+ SG_ LCS15_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_15
+
+BO_ 1822 LCS14_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS14_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_14
+ SG_ LCS14_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_14
+
+BO_ 1821 LCS13_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS13_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_13
+ SG_ LCS13_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_13
+
+BO_ 1820 LCS12_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS12_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_12
+ SG_ LCS12_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_12
+
+BO_ 1819 LCS11_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS11_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_11
+ SG_ LCS11_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_11
+
+BO_ 1818 LCS10_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS10_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_10
+ SG_ LCS10_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_10
+
+BO_ 1817 LCS09_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS09_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_09
+ SG_ LCS09_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_09
+
+BO_ 1816 LCS08_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS08_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_08
+ SG_ LCS08_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_08
+
+BO_ 1815 LCS07_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS07_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_07
+ SG_ LCS07_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_07
+
+BO_ 1814 LCS06_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS06_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_06
+ SG_ LCS06_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_06
+
+BO_ 1813 LCS05_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS05_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_05
+ SG_ LCS05_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_05
+
+BO_ 1812 LCS04_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS04_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_04
+ SG_ LCS04_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_04
+
+BO_ 1811 LCS03_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS03_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_03
+ SG_ LCS03_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_03
+
+BO_ 1810 LCS02_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS02_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_02
+ SG_ LCS02_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_02
+
+BO_ 1808 LCS_PWM_Broadcast: 8 HSX
+ SG_ LCS_PWM_Broadcast_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS_PWM_Broadcast_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_01
+
+BO_ 1873 LCS01_State_Relais_K8_K11: 1 LITECHECK_01
+ SG_ LCS01_State_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS01_State_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS01_State_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  HSX
+ SG_ LCS01_State_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  HSX
+
+BO_ 1857 LCS01_Set_Relais_K8_K11: 1 HSX
+ SG_ LCS01_Set_Relais_K11 : 3|1@1+ (1,0) [0|1] ""  LITECHECK_01
+ SG_ LCS01_Set_Relais_K10 : 2|1@1+ (1,0) [0|1] ""  LITECHECK_01
+ SG_ LCS01_Set_Relais_K9 : 1|1@1+ (1,0) [0|1] ""  LITECHECK_01
+ SG_ LCS01_Set_Relais_K8 : 0|1@1+ (1,0) [0|1] ""  LITECHECK_01
+
+BO_ 1792 LCS_Setup_Broadcast: 8 HSX
+ SG_ LCS_SetupReqData_LIGHTID m35 : 32|16@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_LIGHTID_Select m35 : 24|8@1+ (1,0) [0|7] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_HOSTID m34 : 32|16@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_HOSTID_Select m34 : 24|8@1+ (1,0) [0|7] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_SERNR_C2 m33 : 32|8@1+ (1,0) [0|255] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_SERNR_C1 m33 : 24|8@1+ (1,0) [0|255] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_SERNR m33 : 40|16@1+ (1,0) [0|65535] ""  LITECHECK_01
+ SG_ LCS_SetupReqData_DEVICEID m32 : 24|8@1+ (1,0) [1|15] ""  LITECHECK_01
+ SG_ LCS_SetupReq_DLC : 16|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS_SetupReq_Qualifier M : 8|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS_SetupReq_Type : 0|8@1+ (1,0) [0|0] ""  LITECHECK_01
+
+BO_ 1841 LCS01_State_PWM_K0_K7: 8 LITECHECK_01
+ SG_ LCS01_State_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  HSX
+ SG_ LCS01_State_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  HSX
+
+BO_ 1825 LCS01_StateInfo: 8 LITECHECK_01
+ SG_ LCS01_StateTEMP : 40|8@1- (1,0) [0|0] ""  HSX
+ SG_ LCS01_StateSERNR : 24|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_StatePWMFREQ : 8|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_StateExtIn_E4 : 3|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_StateExtIn_E3 : 2|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_StateExtIn_E2 : 1|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_StateExtIn_E1 : 0|1@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1809 LCS01_Set_PWM_K0_K7: 8 HSX
+ SG_ LCS01_Set_PWM_K7 : 56|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K6 : 48|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K5 : 40|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K4 : 32|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K3 : 24|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K2 : 16|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K1 : 8|8@1+ (1,0) [0|100] ""  LITECHECK_01
+ SG_ LCS01_Set_PWM_K0 : 0|8@1+ (1,0) [0|100] ""  LITECHECK_01
+
+BO_ 1889 LCS01_Command_Response: 8 LITECHECK_01
+ SG_ LCS01_CfgRespData_DEVID m32 : 24|8@1+ (1,0) [1|15] ""  HSX
+ SG_ LCS01_CfgRespData_LIGHTID m35 : 32|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_LIGHTID_Select m35 : 24|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_HOSTID m34 : 32|16@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_HOSTID_Select m34 : 24|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_SERNR m33 : 40|16@1+ (1,0) [0|65535] ""  HSX
+ SG_ LCS01_CfgRespData_SERNR_C2 m33 : 32|8@1+ (1,0) [0|255] ""  HSX
+ SG_ LCS01_CfgRespData_SERNR_C1 m33 : 24|8@1+ (1,0) [0|255] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONSW_B4 m16 : 48|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONSW_B3 m16 : 40|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONSW_B2 m16 : 32|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONSW_B1 m16 : 24|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONHW_B4 m17 : 48|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONHW_B3 m17 : 40|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONHW_B2 m17 : 32|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_VERSIONHW_B1 m17 : 24|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_TRIGOUT_A2 m2 : 25|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_TRIGOUT_A1 m2 : 24|1@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgRespData_PWMFREQ m1 : 24|10@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgResp_DLC : 16|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgResp_Qualifier M : 8|8@1+ (1,0) [0|0] ""  HSX
+ SG_ LCS01_CfgResp_Type : 0|8@1+ (1,0) [0|0] ""  HSX
+
+BO_ 1793 LCS01_Command_Request: 8 HSX
+ SG_ LCS01_CfgReqData_DEVID m32 : 24|8@1+ (1,0) [1|15] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_LIGHTID_Select m35 : 24|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_LIGHTID m35 : 32|16@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_HOSTID_Select m34 : 24|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_HOSTID m34 : 32|16@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_SERNR m33 : 40|16@1+ (1,0) [0|65535] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_SERNR_C2 m33 : 32|8@1+ (1,0) [0|255] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_SERNR_C1 m33 : 24|8@1+ (1,0) [0|255] ""  LITECHECK_01
+ SG_ LCS01_CfgReq_Type : 0|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_TRIGOUT_A2 m2 : 25|1@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_TRIGOUT_A1 m2 : 24|1@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_PWMFREQ m1 : 24|10@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONSW_B4 m16 : 48|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONSW_B3 m16 : 40|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONSW_B2 m16 : 32|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONSW_B1 m16 : 24|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONHW_B4 m17 : 48|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONHW_B3 m17 : 40|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONHW_B2 m17 : 32|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReqData_VERSIONHW_B1 m17 : 24|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReq_DLC : 16|8@1+ (1,0) [0|0] ""  LITECHECK_01
+ SG_ LCS01_CfgReq_Qualifier M : 8|8@1+ (1,0) [0|0] ""  LITECHECK_01
+
+
+
+CM_ BO_ 1823 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1822 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1821 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1820 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1819 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1818 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1817 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1816 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1815 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1814 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1813 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1812 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1811 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1810 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1808 "Set PWM for K0-K7 for ALL Litecheck boxes attached to the CAN bus.
+Only send if 0x711-0x71F is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+CM_ BO_ 1809 "Set PWM for K0-K7 for one specific Litecheck box attached to the CAN bus.
+Only send if 0x710 is NOT used!!
+Do NOT send 0x710 and 0x711-0x71F on the same bus!";
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ SG_  "NWM-WakeupAllowed" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "no","yes";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmNode" ENUM  "no","yes";
+BA_DEF_ BU_  "NmStationAddress" INT 0 63;
+BA_DEF_  "NmBaseAddress" HEX 1024 1087;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 50000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 999999;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","Cyclic","NotUsed","IfActive","NoMsgSendType","NotUsed","vector_leerstring";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_DEF_  "NodeLayerModules" "CANoeILNLVector.dll";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NWM-WakeupAllowed" "";
+BA_DEF_DEF_  "NmMessage" "no";
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "NmNode" "no";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BusType" "CAN";
+BA_ "GenMsgCycleTime" BO_ 1839 100;
+BA_ "GenMsgSendType" BO_ 1839 0;
+BA_ "GenMsgCycleTime" BO_ 1838 100;
+BA_ "GenMsgSendType" BO_ 1838 0;
+BA_ "GenMsgCycleTime" BO_ 1837 100;
+BA_ "GenMsgSendType" BO_ 1837 0;
+BA_ "GenMsgCycleTime" BO_ 1836 100;
+BA_ "GenMsgSendType" BO_ 1836 0;
+BA_ "GenMsgCycleTime" BO_ 1835 100;
+BA_ "GenMsgSendType" BO_ 1835 0;
+BA_ "GenMsgCycleTime" BO_ 1834 100;
+BA_ "GenMsgSendType" BO_ 1834 0;
+BA_ "GenMsgCycleTime" BO_ 1833 100;
+BA_ "GenMsgSendType" BO_ 1833 0;
+BA_ "GenMsgCycleTime" BO_ 1832 100;
+BA_ "GenMsgSendType" BO_ 1832 0;
+BA_ "GenMsgCycleTime" BO_ 1831 100;
+BA_ "GenMsgSendType" BO_ 1831 0;
+BA_ "GenMsgCycleTime" BO_ 1830 100;
+BA_ "GenMsgSendType" BO_ 1830 0;
+BA_ "GenMsgCycleTime" BO_ 1829 100;
+BA_ "GenMsgSendType" BO_ 1829 0;
+BA_ "GenMsgCycleTime" BO_ 1828 100;
+BA_ "GenMsgSendType" BO_ 1828 0;
+BA_ "GenMsgCycleTime" BO_ 1827 100;
+BA_ "GenMsgSendType" BO_ 1827 0;
+BA_ "GenMsgCycleTime" BO_ 1826 100;
+BA_ "GenMsgSendType" BO_ 1826 0;
+BA_ "GenMsgSendType" BO_ 1887 0;
+BA_ "GenMsgCycleTime" BO_ 1887 200;
+BA_ "GenMsgSendType" BO_ 1886 0;
+BA_ "GenMsgCycleTime" BO_ 1886 200;
+BA_ "GenMsgSendType" BO_ 1885 0;
+BA_ "GenMsgCycleTime" BO_ 1885 200;
+BA_ "GenMsgSendType" BO_ 1884 0;
+BA_ "GenMsgCycleTime" BO_ 1884 200;
+BA_ "GenMsgSendType" BO_ 1883 0;
+BA_ "GenMsgCycleTime" BO_ 1883 200;
+BA_ "GenMsgSendType" BO_ 1882 0;
+BA_ "GenMsgCycleTime" BO_ 1882 200;
+BA_ "GenMsgSendType" BO_ 1881 0;
+BA_ "GenMsgCycleTime" BO_ 1881 200;
+BA_ "GenMsgSendType" BO_ 1880 0;
+BA_ "GenMsgCycleTime" BO_ 1880 200;
+BA_ "GenMsgSendType" BO_ 1879 0;
+BA_ "GenMsgCycleTime" BO_ 1879 200;
+BA_ "GenMsgSendType" BO_ 1878 0;
+BA_ "GenMsgCycleTime" BO_ 1878 200;
+BA_ "GenMsgSendType" BO_ 1877 0;
+BA_ "GenMsgCycleTime" BO_ 1877 200;
+BA_ "GenMsgSendType" BO_ 1876 0;
+BA_ "GenMsgCycleTime" BO_ 1876 200;
+BA_ "GenMsgSendType" BO_ 1875 0;
+BA_ "GenMsgCycleTime" BO_ 1875 200;
+BA_ "GenMsgSendType" BO_ 1874 0;
+BA_ "GenMsgCycleTime" BO_ 1874 200;
+BA_ "GenMsgSendType" BO_ 1855 0;
+BA_ "GenMsgCycleTime" BO_ 1855 200;
+BA_ "GenMsgSendType" BO_ 1854 0;
+BA_ "GenMsgCycleTime" BO_ 1854 200;
+BA_ "GenMsgSendType" BO_ 1853 0;
+BA_ "GenMsgCycleTime" BO_ 1853 200;
+BA_ "GenMsgSendType" BO_ 1852 0;
+BA_ "GenMsgCycleTime" BO_ 1852 200;
+BA_ "GenMsgSendType" BO_ 1851 0;
+BA_ "GenMsgCycleTime" BO_ 1851 200;
+BA_ "GenMsgSendType" BO_ 1850 0;
+BA_ "GenMsgCycleTime" BO_ 1850 200;
+BA_ "GenMsgSendType" BO_ 1849 0;
+BA_ "GenMsgCycleTime" BO_ 1849 200;
+BA_ "GenMsgSendType" BO_ 1848 0;
+BA_ "GenMsgCycleTime" BO_ 1848 200;
+BA_ "GenMsgSendType" BO_ 1847 0;
+BA_ "GenMsgCycleTime" BO_ 1847 200;
+BA_ "GenMsgSendType" BO_ 1846 0;
+BA_ "GenMsgCycleTime" BO_ 1846 200;
+BA_ "GenMsgSendType" BO_ 1845 0;
+BA_ "GenMsgCycleTime" BO_ 1845 200;
+BA_ "GenMsgSendType" BO_ 1844 0;
+BA_ "GenMsgCycleTime" BO_ 1844 200;
+BA_ "GenMsgSendType" BO_ 1843 0;
+BA_ "GenMsgCycleTime" BO_ 1843 200;
+BA_ "GenMsgSendType" BO_ 1842 0;
+BA_ "GenMsgCycleTime" BO_ 1842 200;
+BA_ "GenMsgSendType" BO_ 1871 0;
+BA_ "GenMsgCycleTime" BO_ 1871 50;
+BA_ "GenMsgSendType" BO_ 1870 0;
+BA_ "GenMsgCycleTime" BO_ 1870 50;
+BA_ "GenMsgSendType" BO_ 1869 0;
+BA_ "GenMsgCycleTime" BO_ 1869 50;
+BA_ "GenMsgSendType" BO_ 1868 0;
+BA_ "GenMsgCycleTime" BO_ 1868 50;
+BA_ "GenMsgSendType" BO_ 1867 0;
+BA_ "GenMsgCycleTime" BO_ 1867 50;
+BA_ "GenMsgSendType" BO_ 1866 0;
+BA_ "GenMsgCycleTime" BO_ 1866 50;
+BA_ "GenMsgSendType" BO_ 1865 0;
+BA_ "GenMsgCycleTime" BO_ 1865 50;
+BA_ "GenMsgSendType" BO_ 1864 0;
+BA_ "GenMsgCycleTime" BO_ 1864 50;
+BA_ "GenMsgSendType" BO_ 1863 0;
+BA_ "GenMsgCycleTime" BO_ 1863 50;
+BA_ "GenMsgSendType" BO_ 1862 0;
+BA_ "GenMsgCycleTime" BO_ 1862 50;
+BA_ "GenMsgSendType" BO_ 1861 0;
+BA_ "GenMsgCycleTime" BO_ 1861 50;
+BA_ "GenMsgSendType" BO_ 1860 0;
+BA_ "GenMsgCycleTime" BO_ 1860 50;
+BA_ "GenMsgSendType" BO_ 1859 0;
+BA_ "GenMsgCycleTime" BO_ 1859 50;
+BA_ "GenMsgSendType" BO_ 1858 0;
+BA_ "GenMsgCycleTime" BO_ 1858 50;
+BA_ "GenMsgCycleTime" BO_ 1823 50;
+BA_ "GenMsgSendType" BO_ 1823 0;
+BA_ "GenMsgCycleTime" BO_ 1822 50;
+BA_ "GenMsgSendType" BO_ 1822 0;
+BA_ "GenMsgCycleTime" BO_ 1821 50;
+BA_ "GenMsgSendType" BO_ 1821 0;
+BA_ "GenMsgCycleTime" BO_ 1820 50;
+BA_ "GenMsgSendType" BO_ 1820 0;
+BA_ "GenMsgCycleTime" BO_ 1819 50;
+BA_ "GenMsgSendType" BO_ 1819 0;
+BA_ "GenMsgCycleTime" BO_ 1818 50;
+BA_ "GenMsgSendType" BO_ 1818 0;
+BA_ "GenMsgCycleTime" BO_ 1817 50;
+BA_ "GenMsgSendType" BO_ 1817 0;
+BA_ "GenMsgCycleTime" BO_ 1816 50;
+BA_ "GenMsgSendType" BO_ 1816 0;
+BA_ "GenMsgCycleTime" BO_ 1815 50;
+BA_ "GenMsgSendType" BO_ 1815 0;
+BA_ "GenMsgCycleTime" BO_ 1814 50;
+BA_ "GenMsgSendType" BO_ 1814 0;
+BA_ "GenMsgCycleTime" BO_ 1813 50;
+BA_ "GenMsgSendType" BO_ 1813 0;
+BA_ "GenMsgCycleTime" BO_ 1812 50;
+BA_ "GenMsgSendType" BO_ 1812 0;
+BA_ "GenMsgCycleTime" BO_ 1811 50;
+BA_ "GenMsgSendType" BO_ 1811 0;
+BA_ "GenMsgSendType" BO_ 1810 0;
+BA_ "GenMsgCycleTime" BO_ 1810 50;
+BA_ "GenMsgSendType" BO_ 1808 1;
+BA_ "GenMsgCycleTime" BO_ 1873 200;
+BA_ "GenMsgSendType" BO_ 1873 0;
+BA_ "GenMsgCycleTime" BO_ 1857 50;
+BA_ "GenMsgSendType" BO_ 1857 0;
+BA_ "GenMsgSendType" BO_ 1792 1;
+BA_ "GenMsgSendType" BO_ 1841 0;
+BA_ "GenMsgCycleTime" BO_ 1841 200;
+BA_ "GenMsgSendType" BO_ 1825 0;
+BA_ "GenMsgCycleTime" BO_ 1825 100;
+BA_ "GenMsgSendType" BO_ 1809 0;
+BA_ "GenMsgCycleTime" BO_ 1809 50;
+BA_ "GenMsgSendType" BO_ 1889 1;
+BA_ "GenMsgSendType" BO_ 1793 1;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K7 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K6 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K5 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K4 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K3 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K2 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K1 7;
+BA_ "GenSigSendType" SG_ 1808 LCS_PWM_Broadcast_K0 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_LIGHTID 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_LIGHTID_Select 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_HOSTID 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_HOSTID_Select 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_SERNR_C2 7;
+BA_ "GenSigStartValue" SG_ 1792 LCS_SetupReqData_SERNR_C2 0;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_SERNR_C1 7;
+BA_ "GenSigStartValue" SG_ 1792 LCS_SetupReqData_SERNR_C1 0;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_SERNR 7;
+BA_ "GenSigStartValue" SG_ 1792 LCS_SetupReqData_SERNR 0;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReqData_DEVICEID 7;
+BA_ "GenSigStartValue" SG_ 1792 LCS_SetupReqData_DEVICEID 1;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReq_DLC 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReq_Qualifier 7;
+BA_ "GenSigSendType" SG_ 1792 LCS_SetupReq_Type 7;
+BA_ "GenSigStartValue" SG_ 1889 LCS01_CfgRespData_DEVID 1;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_DEVID 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_LIGHTID 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_LIGHTID_Select 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_HOSTID 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_HOSTID_Select 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_SERNR 7;
+BA_ "GenSigStartValue" SG_ 1889 LCS01_CfgRespData_SERNR 0;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_SERNR_C2 7;
+BA_ "GenSigStartValue" SG_ 1889 LCS01_CfgRespData_SERNR_C2 0;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_SERNR_C1 7;
+BA_ "GenSigStartValue" SG_ 1889 LCS01_CfgRespData_SERNR_C1 0;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONSW_B4 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONSW_B3 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONSW_B2 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONSW_B1 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONHW_B4 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONHW_B3 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONHW_B2 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_VERSIONHW_B1 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_TRIGOUT_A2 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_TRIGOUT_A1 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgRespData_PWMFREQ 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgResp_DLC 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgResp_Qualifier 7;
+BA_ "GenSigSendType" SG_ 1889 LCS01_CfgResp_Type 7;
+BA_ "GenSigStartValue" SG_ 1793 LCS01_CfgReqData_DEVID 1;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_DEVID 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_LIGHTID_Select 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_LIGHTID 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_HOSTID_Select 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_HOSTID 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_SERNR 7;
+BA_ "GenSigStartValue" SG_ 1793 LCS01_CfgReqData_SERNR 0;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_SERNR_C2 7;
+BA_ "GenSigStartValue" SG_ 1793 LCS01_CfgReqData_SERNR_C2 0;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_SERNR_C1 7;
+BA_ "GenSigStartValue" SG_ 1793 LCS01_CfgReqData_SERNR_C1 0;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReq_Type 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_TRIGOUT_A2 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_TRIGOUT_A1 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_PWMFREQ 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONSW_B4 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONSW_B3 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONSW_B2 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONSW_B1 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONHW_B4 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONHW_B3 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONHW_B2 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReqData_VERSIONHW_B1 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReq_DLC 7;
+BA_ "GenSigSendType" SG_ 1793 LCS01_CfgReq_Qualifier 7;
+VAL_ 1792 LCS_SetupReq_Qualifier 35 "DEF_LIGHT_ID" 34 "DEF_HOST_ID" 33 "SERNR" 32 "DEVICEID" 17 "VERSIONHW" 16 "VERSIONSW" 2 "TRIGOUT" 1 "PWMFREQ" ;
+VAL_ 1792 LCS_SetupReq_Type 255 "Query" 254 "Response" 128 "Request" ;
+VAL_ 1889 LCS01_CfgResp_Qualifier 35 "DEF_LIGHT_ID" 34 "DEF_HOST_ID" 33 "SERNR" 32 "DEVICEID" 17 "VERSIONHW" 16 "VERSIONSW" 2 "TRIGOUT" 1 "PWMFREQ" ;
+VAL_ 1889 LCS01_CfgResp_Type 255 "Query" 254 "Response" 128 "Request" ;
+VAL_ 1793 LCS01_CfgReq_Type 255 "Query" 254 "Response" 128 "Request" ;
+VAL_ 1793 LCS01_CfgReq_Qualifier 35 "DEF_LIGHT_ID" 34 "DEF_HOST_ID" 33 "SERNR" 32 "DEVICEID" 17 "VERSIONHW" 16 "VERSIONSW" 2 "TRIGOUT" 1 "PWMFREQ" ;
+

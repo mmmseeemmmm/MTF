@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\BarcodeScanner\BarcodeScanner.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\BarcodeScanner\BarcodeScanner.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BarcodeScanner\obj\x64\Release\BarcodeScanner.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BarcodeScanner\obj\x64\Release\BarcodeScanner.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BarcodeScanner\obj\x64\Release\BarcodeScanner.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BarcodeScanner\obj\x64\Release\BarcodeScanner.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\BarcodeScanner\obj\x64\Release\BarcodeScanner.pdb

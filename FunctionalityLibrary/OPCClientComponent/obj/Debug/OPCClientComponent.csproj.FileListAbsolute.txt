@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\OPCClientComponent\OPCClientComponent.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\OPCClientComponent\OPCClientComponent.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\OPCClientComponent\obj\Debug\OPCClientComponent.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\OPCClientComponent\obj\Debug\OPCClientComponent.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\OPCClientComponent\obj\Debug\OPCClientComponent.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\OPCClientComponent\obj\Debug\OPCClientComponent.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\OPCClientComponent\obj\Debug\OPCClientComponent.pdb

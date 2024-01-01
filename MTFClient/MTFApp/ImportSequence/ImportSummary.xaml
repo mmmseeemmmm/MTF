@@ -1,0 +1,131 @@
+﻿<base:ImportSequenceBase x:Class="MTFApp.ImportSequence.ImportSummary"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:base="clr-namespace:MTFApp.ImportSequence"
+                         xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                         mc:Ignorable="d"
+                         d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="FileNameTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="• " />
+                <TextBlock Text="{Binding FileName}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SubNameTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="• " />
+                <TextBlock Text="{Binding SubName}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" Style="{StaticResource ParagraphStackPanel}">
+            <StackPanel Orientation="Horizontal">
+                <UserControl Style="{StaticResource IconFolder}" Height="20" Width="20" />
+                <alControls:TextBlock LocTextKey="Mtf_Import_SeqConflictDestinationFolder"
+                                      Style="{StaticResource ParagraphHeader}" />
+            </StackPanel>
+            <TextBlock Text="{Binding DestinationFolder}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Vertical" Style="{StaticResource ParagraphStackPanel}"
+                    Visibility="{Binding ExistImport, Converter={StaticResource BoolToVisibility}}">
+
+            <StackPanel Orientation="Horizontal">
+                <UserControl Style="{StaticResource IconOk}" Height="20" Width="20" />
+                <alControls:TextBlock LocTextKey="Mtf_Import_SummaryImport" Style="{StaticResource ParagraphHeader}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="25,3,0,0"
+                        Visibility="{Binding ExistImportSequence, Converter={StaticResource BoolToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconSequence}" Height="12" Width="12" />
+                    <alControls:TextBlock LocTextKey="Mtf_Export_Sequences" Style="{StaticResource ParagraphHeader}"
+                                          FontSize="12" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding ImportedSequence}" Margin="15,3,0,5"
+                              ItemTemplate="{StaticResource FileNameTemplate}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="25,3,0,0"
+                        Visibility="{Binding ExistImportConfigs, Converter={StaticResource BoolToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconComponentsConfig}" Height="12" Width="12" />
+                    <alControls:TextBlock LocTextKey="Mtf_Export_Components" Style="{StaticResource ParagraphHeader}"
+                                          FontSize="12" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding ImportedConfigs}" Margin="15,3,0,5"
+                              ItemTemplate="{StaticResource SubNameTemplate}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="25,3,0,0"
+                        Visibility="{Binding ExistImportImages, Converter={StaticResource BoolToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconGraphicalView}" Height="12" Width="12" />
+                    <alControls:TextBlock LocTextKey="Mtf_Export_Images" Style="{StaticResource ParagraphHeader}"
+                                          FontSize="12" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding ImportedImages}" Margin="15,3,0,5"
+                              ItemTemplate="{StaticResource SubNameTemplate}" />
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="4" Orientation="Vertical"
+                    Visibility="{Binding ExistNoImport, Converter={StaticResource BoolToVisibility}}">
+            <StackPanel Orientation="Horizontal">
+                <UserControl Style="{StaticResource IconNok}" Height="20" Width="20" />
+                <alControls:TextBlock LocTextKey="Mtf_Import_SummaryNotImport" Style="{StaticResource ParagraphHeader}" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="25,3,0,0"
+                        Visibility="{Binding ExistNoImportSequence, Converter={StaticResource BoolToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconSequence}" Height="12" Width="12" />
+                    <alControls:TextBlock LocTextKey="Mtf_Export_Sequences" Style="{StaticResource ParagraphHeader}"
+                                          FontSize="12" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding DontImportedSequence}" Margin="15,3,0,5"
+                              ItemTemplate="{StaticResource FileNameTemplate}" />
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="25,3,0,0"
+                        Visibility="{Binding ExistNoImportConfigs, Converter={StaticResource BoolToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconComponentsConfig}" Height="12" Width="12" />
+                    <alControls:TextBlock LocTextKey="Mtf_Export_Components" Style="{StaticResource ParagraphHeader}"
+                                          FontSize="12" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding DontImportedConfigs}" Margin="15,3,0,5"
+                              ItemTemplate="{StaticResource SubNameTemplate}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="25,3,0,0"
+                        Visibility="{Binding ExistNoImportImages, Converter={StaticResource BoolToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <UserControl Style="{StaticResource IconGraphicalView}" Height="12" Width="12" />
+                    <alControls:TextBlock LocTextKey="Mtf_Export_Images" Style="{StaticResource ParagraphHeader}"
+                                          FontSize="12" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding DontImportedImages}" Margin="15,3,0,5"
+                              ItemTemplate="{StaticResource SubNameTemplate}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</base:ImportSequenceBase>

@@ -1,0 +1,57 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="TermRootIcon">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,390,250" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup>
+                                                <DrawingGroup x:Name="svg_2">
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M115.2421875,-8.17108154296875L123.046875,-8.17108154296875 90.140625,197.176574707031 37.828125,89.4929809570313 16.9453125,99.0906372070313 13.3593759536743,92.3406372070313 45.10546875,76.4148559570313 87.8203125,163.215637207031 115.2421875,-8.17108154296875z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                                <DrawingGroup x:Name="svg_3">
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M120.87109375,62.8113403320313L148.3369140625,62.8113403320313 168.234375,93.2068481445313C171.97785949707,98.9848403930664 174.98893737793,103.826965332031 177.267578125,107.733215332031 180.848297119141,102.362121582031 184.144195556641,97.6013793945313 187.1552734375,93.4509887695313L209.005859375,62.8113403320313 235.2509765625,62.8113403320313 190.451171875,123.846496582031 238.6689453125,192.450012207031 211.69140625,192.450012207031 185.080078125,152.166809082031 178,141.302551269531 143.9423828125,192.450012207031 117.3310546875,192.450012207031 164.6943359375,125.067199707031 120.87109375,62.8113403320313z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                                <DrawingGroup x:Name="svg_4" Transform="1.12729,0,0,1,-19.1568,0">
+                                                    <GeometryDrawing Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M27.7905025482178,12.7429809570313L36.5053482055664,12.7429809570313 46.4330825805664,40.3699340820313C47.7208404541016,43.8738403320313 48.873836517334,47.5574340820313 49.8920669555664,51.4207153320313 50.8204498291016,47.7071723937988 51.928524017334,44.0834732055664 53.2162857055664,40.5496215820313L63.4135513305664,12.7429809570313 71.4994888305664,12.7429809570313 53.3510513305664,61.2586059570313C51.4044342041016,66.4994888305664 49.8920669555664,70.1082153320313 48.8139419555664,72.0847778320313 47.3764419555664,74.7501449584961 45.729305267334,76.7042465209961 43.8725357055664,77.9470825195313 42.0157623291016,79.1899185180664 39.799617767334,79.8113403320313 37.2240982055664,79.8113403320313 35.666805267334,79.8113403320313 33.9298248291016,79.4819107055664 32.0131607055664,78.8230590820313L31.1147212982178,71.2312622070313C32.881649017334,71.7104263305664 34.4239654541016,71.9500122070313 35.7416763305664,71.9500122070313 37.5385513305664,71.9500122070313 38.9760513305664,71.6505355834961 40.0541763305664,71.0515747070313 41.1323013305664,70.4526138305664 42.0157623291016,69.6140747070313 42.7045669555664,68.5359497070313 43.213680267334,67.7273559570313 44.0372467041016,65.7208480834961 45.1752700805664,62.5164184570313 45.325008392334,62.0671997070313 45.5645904541016,61.4083442687988 45.8940200805664,60.5398559570313L27.7905025482178,12.7429809570313z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                                <GeometryDrawing x:Name="svg_5">
+                                                    <GeometryDrawing.Pen>
+                                                        <Pen Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" Thickness="8.5" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                                                    </GeometryDrawing.Pen>
+                                                    <GeometryDrawing.Geometry>
+                                                        <LineGeometry StartPoint="114.5,2.45" EndPoint="233,2.45" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

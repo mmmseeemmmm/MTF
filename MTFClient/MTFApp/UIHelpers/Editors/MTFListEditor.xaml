@@ -1,0 +1,411 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFListEditor"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+                       xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+                       xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+                       xmlns:seqEditor="clr-namespace:MTFApp.SequenceEditor"
+                       xmlns:s="clr-namespace:System;assembly=mscorlib"
+                       xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                       mc:Ignorable="d"
+                       d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:EditorModeToVisibilityConverter x:Key="editorModeConverter" ModeToHide="HideTarget" />
+        <converters:ComponentHeightToVisibilityConverter x:Key="heightConverter" MaxSize="500" />
+        <converters:CompareTwoObjectsConverter x:Key="termInPopupConverter" />
+        <converters:IsTermToVisibilityMultiConverter x:Key="isTermToVisibility" />
+        <converters:BasicMultiBindingConverter x:Key="termMultiValueConverter" />
+        <converters:IsSimpleTermConverter x:Key="simpleTermConverter" />
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="OnlyCollectionName">
+            <ContentPresenter Content="{Binding}" HorizontalAlignment="Left">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource CollapsedButton}" Foreground="{StaticResource ALBlackBrush}"
+                                            Command="{Binding ChangeCollapsedStateCommand}" Margin="0,5,0,5"/>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Value}" Value="{x:Null}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+                
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HeaderEditable">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource PlusButton}" Command="{Binding AddItemCommand}"
+                            FontWeight="Bold"
+                            CommandParameter="{Binding ElementName=MainListBox, Path=SelectedItem}"
+                            Margin="0,0,7,0" />
+                    <Button Style="{StaticResource MinusButton}" Command="{Binding RemoveItemCommand}"
+                            FontWeight="Bold"
+                            CommandParameter="{Binding ElementName=MainListBox, Path=SelectedItem}"
+                            Margin="0,0,7,0" />
+                    <Button Content="▲" Command="{Binding MoveUpItemCommand}"
+                            CommandParameter="{Binding ElementName=MainListBox, Path=SelectedItem}"
+                            Margin="0,0,7,0" />
+                    <Button Content="▼" Command="{Binding MoveDownItemCommand}"
+                            CommandParameter="{Binding ElementName=MainListBox, Path=SelectedItem}"
+                            Margin="0,0,7,0" />
+                </StackPanel>
+
+                <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="7 0 0 0"
+                        Padding="0" Background="Transparent" BorderThickness="0" Command="{Binding RemoveListCommand}">
+                    <StackPanel>
+                        <UserControl Height="14" Style="{StaticResource IconTrash}" Foreground="{StaticResource ALBlackBrush}"  />
+                    </StackPanel>
+                </Button>
+
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="2">
+                    <TextBlock Text="Items count: " VerticalAlignment="Center" />
+                    <TextBlock
+                        Text="{Binding Items.Count, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                        VerticalAlignment="Center" />
+                </StackPanel>
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HeaderReadOnly">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                <TextBlock Text="Items count: " VerticalAlignment="Center" />
+                <TextBlock
+                    Text="{Binding Items.Count, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ControlsButtonSelector">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource HeaderReadOnly}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ReadOnly}" Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource HeaderEditable}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+
+
+        <DataTemplate x:Key="CollectionContent">
+            <StackPanel Orientation="Vertical">
+                <ContentControl ContentTemplate="{StaticResource OnlyCollectionName}" Content="{Binding}" />
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource ControlsButtonSelector}" />
+                <ListBox ItemsSource="{Binding Items, IsAsync=True}"
+                             SelectedItem="{Binding SelectedItem}"
+                             PreviewMouseWheel="listBox_PreviewMouseWheel"
+                             BorderThickness="1"
+                             KeyboardNavigation.TabNavigation="Continue"
+                             Name="MainListBox"
+                             Grid.IsSharedSizeScope="True"
+                             ScrollViewer.CanContentScroll="True" VirtualizingPanel.IsVirtualizing="True"
+                             VirtualizingPanel.ScrollUnit="Pixel"
+                             ItemContainerStyle="{StaticResource NoSelectionListBoxItem}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="{StaticResource ALYellowBrush}">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderThickness" Value="0" />
+                                        <Style.Triggers>
+                                            <DataTrigger Value="True">
+                                                <DataTrigger.Binding>
+                                                    <MultiBinding Converter="{StaticResource termInPopupConverter}"
+                                                                      Mode="OneWay">
+                                                        <Binding Path="Value" />
+                                                        <Binding Path="DataContext.SelectedTerm"
+                                                                     RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}" />
+                                                    </MultiBinding>
+                                                </DataTrigger.Binding>
+                                                <Setter Property="BorderThickness" Value="4,0,0,0" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="index" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Top" Margin="1,2,5,0"
+                                                   TextBlock.FontWeight="Bold" HorizontalAlignment="Right"
+                                                   Text="{Binding Index, StringFormat=#{0}}" FontSize="12">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger
+                                                            Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}"
+                                                            Value="True">
+                                                        <Setter Property="Foreground"
+                                                                    Value="{StaticResource ALDarkYellowBrush}" />
+                                                        <Setter Property="TextDecorations" Value="Underline" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                                        <ContentPresenter Margin="0,3,0,0" Content="{Binding}">
+                                            <ContentPresenter.Resources>
+                                                <DataTemplate x:Key="emptyTemplate" />
+                                                <DataTemplate x:Key="termEditorTemplate">
+                                                    <uiHelpers:MTFEditor
+                                                                EditorMode="{Binding EditorMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                ParentSequence="{Binding ParentSequence, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                ParentActivity="{Binding ParentActivity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                Value="{Binding Value, Mode=TwoWay}"
+                                                                TypeName="{Binding TypeName}"
+                                                                IsTabStop="False" VerticalAlignment="Center"
+                                                                ReadOnly="{Binding ReadOnly, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+                                                </DataTemplate>
+
+                                                <DataTemplate x:Key="textTemplate">
+                                                    <TextBlock Text="{Binding Value}" TextWrapping="Wrap" />
+                                                </DataTemplate>
+                                            </ContentPresenter.Resources>
+                                            <ContentPresenter.Style>
+                                                <Style TargetType="ContentPresenter">
+                                                    <Setter Property="ContentTemplate"
+                                                                Value="{StaticResource termEditorTemplate}" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition
+                                                                        Binding="{Binding DataContext.IsInTermDesigner, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                                        Value="False" />
+                                                                <Condition
+                                                                        Binding="{Binding Value, Converter={StaticResource simpleTermConverter}}"
+                                                                        Value="False" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <MultiDataTrigger.Setters>
+                                                                <Setter Property="ContentTemplate"
+                                                                            Value="{StaticResource textTemplate}" />
+                                                            </MultiDataTrigger.Setters>
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ContentPresenter.Style>
+
+                                        </ContentPresenter>
+                                        <Button HorizontalAlignment="Left"
+                                                    Style="{StaticResource TermDesignerButton}"
+                                                    ContentTemplate="{StaticResource TermDesignerButtonContent}"
+                                                    Command="{Binding DataContext.ShowTermDesignerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type seqEditor:SequenceEditorControl}}}">
+                                            <Button.Resources>
+                                                <s:String x:Key="TermPropertyName">Value</s:String>
+                                            </Button.Resources>
+                                            <Button.CommandParameter>
+                                                <MultiBinding
+                                                        Converter="{StaticResource termMultiValueConverter}">
+                                                    <Binding
+                                                            Source="{StaticResource TermPropertyName}" />
+                                                    <Binding Path="EditorMode"
+                                                                 RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                                                    <Binding Path="TypeName" />
+                                                    <Binding Path="Value" />
+                                                    <Binding Path="Items"
+                                                                 RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                            <Button.Visibility>
+                                                <MultiBinding
+                                                        Converter="{StaticResource isTermToVisibility}">
+                                                    <Binding Path="DataContext.IsInTermDesigner"
+                                                                 RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}" />
+                                                    <Binding Path="Value" />
+                                                </MultiBinding>
+                                            </Button.Visibility>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource ControlsButtonSelector}"
+                                      Visibility="{Binding ElementName=MainListBox, Path=ActualHeight, Converter={StaticResource heightConverter}}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CollectionEmpty">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ReadOnly}" Value="True">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock Text="&lt;null&gt;" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CollectionContentSelector">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource CollectionContent}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Items}" Value="{x:Null}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource CollectionEmpty}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="ListBoxTemplate">
+            <ContentControl Content="{Binding}">
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCollapsed}" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource OnlyCollectionName}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsCollapsed}" Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource CollectionContentSelector}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+        </DataTemplate>
+
+        <UserControl x:Key="ActivityTarget" IsTabStop="False">
+            <UserControl Style="{StaticResource IconActivityTarget}"
+                         Visibility="{Binding EditorMode, Converter={StaticResource editorModeConverter}}"
+                         Tag="{Binding}"
+                         PreviewMouseMove="target_PreviewMouseMove"
+                         PreviewMouseDown="target_PreviewMouseDown"
+                         PreviewMouseUp="target_PreviewMouseUp" />
+        </UserControl>
+
+        <UserControl x:Key="Header">
+            <StackPanel Orientation="Horizontal"
+                        Visibility="{Binding ReadOnly, Converter={StaticResource NotBoolToVisibility}}">
+                <Button Content="Remove"
+                        Command="{Binding RemoveCommand}"
+                        Width="Auto" Height="20" Margin="2" Padding="5,0,5,0" />
+                <ContentControl Content="{StaticResource ActivityTarget}" />
+            </StackPanel>
+        </UserControl>
+
+        <DataTemplate x:Key="ReadOnlyActivityResultTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Activity Result: " />
+                <TextBlock Text="{Binding Value}" FontWeight="Bold" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EditableActivityResultTemplate">
+            <StackPanel>
+                <Button Content="Remove"
+                        HorizontalAlignment="Left"
+                        Command="{Binding RemoveCommand}"
+                        Height="20" Margin="2" Padding="5,0,5,0" />
+                <uiHelpers:MTFEditor Value="{Binding Value}" TypeName="MTFClientServerCommon.Mathematics.Term"
+                                     ReadOnly="{Binding ReadOnly}"
+                                     ParentActivity="{Binding ParentActivity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                     ParentSequence="{Binding ParentSequence, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                     EditorMode="OnlyActivityResult" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ActivityResultTemplate">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource ReadOnlyActivityResultTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ReadOnly}" Value="False">
+                                <Setter Property="ContentTemplate" Value="{StaticResource EditableActivityResultTemplate}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+            
+        </DataTemplate>
+
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="MinWidth" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Padding" Value="5 0 5 0" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" Name="root">
+
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ReadOnly}" Value="False" />
+                                <Condition Binding="{Binding IsActivityResult}" Value="False" />
+                                <Condition Binding="{Binding Items}" Value="{x:Null}" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Create" Command="{Binding CreateListCommand}" />
+                                            <ContentControl Content="{StaticResource ActivityTarget}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ActivityResultTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActivityResult}" Value="False">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ListBoxTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </StackPanel>
+</editors:MTFEditorBase>

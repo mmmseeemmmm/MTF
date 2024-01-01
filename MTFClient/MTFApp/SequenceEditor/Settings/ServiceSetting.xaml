@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="MTFApp.SequenceEditor.Settings.ServiceSetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="500">
+    <UserControl.Resources>
+        <DataTemplate x:Key="Detail">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,5,0,5">
+                <TextBlock Text="Columns count:" VerticalAlignment="Center" />
+                <TextBox Text="{Binding ColumnsCount}" />
+                <TextBlock Text="Rows count:" VerticalAlignment="Center" Margin="0,10,0,0" />
+                <TextBox Text="{Binding RowsCount}" />
+            </StackPanel>
+        </DataTemplate>
+        
+    </UserControl.Resources>
+    
+
+    
+    <Grid Background="{StaticResource ALWhiteBrush}" Name="Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource ALYellowBrush}">
+            <UserControl Style="{StaticResource IconGoldSample}" Height="30" Margin="5 5 10 5"/>
+            <TextBlock Text="Service setting" VerticalAlignment="Center" />
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="0 10 0 0" DataContext="{Binding ServiceDesignSetting}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" SharedSizeGroup="settingsParamName"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Service buttons placement" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                <RadioButton Content="Default" VerticalAlignment="Center" Margin="0,0,15,0" IsChecked="{Binding ServiceSetting.ManualPlacement, Converter={StaticResource NotBool}}" />
+                <RadioButton Content="Manual" VerticalAlignment="Center" IsChecked="{Binding ServiceSetting.ManualPlacement}" Name="ServiceManualRadioButton" />
+            </StackPanel>
+
+            <ContentPresenter Content="{Binding ServiceSetting}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"
+                              Visibility="{Binding ElementName=ServiceManualRadioButton, Path=IsChecked, Converter={StaticResource BoolToVisibility}}"
+                              Margin="0,5,0,5" ContentTemplate="{StaticResource Detail}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Teach buttons placement" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                <RadioButton Content="Default" VerticalAlignment="Center" Margin="0,0,15,0" IsChecked="{Binding TeachSetting.ManualPlacement, Converter={StaticResource NotBool}}" />
+                <RadioButton Content="Manual" VerticalAlignment="Center" IsChecked="{Binding TeachSetting.ManualPlacement}" Name="TeachManualRadioButton" />
+            </StackPanel>
+
+            <ContentPresenter Content="{Binding TeachSetting}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"
+                              Visibility="{Binding ElementName=TeachManualRadioButton, Path=IsChecked, Converter={StaticResource BoolToVisibility}}"
+                              Margin="0,5,0,5" ContentTemplate="{StaticResource Detail}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Show labels in commands" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="4" Grid.Column="2" IsChecked="{Binding ShowLabels}" />
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Allow edit tables" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="5" Grid.Column="2" IsChecked="{Binding AllowEditTables}" />
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Allow Gold Sample panel" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="6" Grid.Column="2" IsChecked="{Binding AllowGSPanel}" />
+
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Hide header in service" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="7" Grid.Column="2" IsChecked="{Binding HideHeaderInService}" />
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="Hide header in teach" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="8" Grid.Column="2" IsChecked="{Binding HideHeaderInTeach}" />
+        </Grid>
+    </Grid>
+</UserControl>

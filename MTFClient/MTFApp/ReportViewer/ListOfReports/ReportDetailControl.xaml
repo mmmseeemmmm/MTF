@@ -1,0 +1,379 @@
+﻿<UserControl x:Class="MTFApp.ReportViewer.ReportDetailControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MTFApp.ReportViewer"
+             xmlns:uiReportEntities="clr-namespace:MTFClientServerCommon.DbReporting.UiReportEntities;assembly=MTFClientServerCommon"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+        <system:Double x:Key="TableWidth">800</system:Double>
+        <system:Double x:Key="TableRowHeight">30</system:Double>
+        <GridLength x:Key="TableRowGridLength">30</GridLength>
+        <GridLength x:Key="TableSpace">3</GridLength>
+        <Thickness x:Key="TableSpaceMargin" Bottom="3" />
+
+
+        <Style TargetType="Border" x:Key="BorderSpaceStyle">
+            <Setter Property="Background" Value="{StaticResource ALWhiteBrush}" />
+        </Style>
+
+        <Style TargetType="{x:Type alControls:TextBlock}" x:Key="HeaderTitle"
+               BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="HeaderValue" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="TableTextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8,0,8,0" />
+        </Style>
+
+        <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource TableTextBlock}" x:Key="TableHeaderTextBlock">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="TableNameTextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="StackPanel" x:Key="HeaderStackPanel">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <DataTemplate x:Key="SequenceInfoTemplate" DataType="{x:Type uiReportEntities:SequenceReportDetail}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center">
+                    <alControls:TextBlock LocTextKey="ReportViewer_Detail_Title" FontSize="16"
+                                          HorizontalAlignment="Center" />
+                    <TextBlock Text="{Binding SequenceName}" FontSize="40" FontWeight="Bold"
+                               HorizontalAlignment="Center" />
+                </StackPanel>
+
+                <Grid Grid.Row="2">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <UserControl Style="{StaticResource IconMachine}" Grid.Row="0" Grid.Column="0" />
+                    <UserControl Style="{StaticResource IconUser}" Grid.Row="2" Grid.Column="0" />
+                    <UserControl Style="{StaticResource IconErrors}" Grid.Row="4" Grid.Column="0" />
+                    <UserControl Style="{StaticResource IconGoldSample}" Grid.Row="6" Grid.Column="0" />
+
+                    <UserControl Style="{StaticResource IconStartTime}" Grid.Row="0" Grid.Column="4" />
+                    <UserControl Style="{StaticResource IconStopTime}" Grid.Row="2" Grid.Column="4" />
+                    <UserControl Style="{StaticResource IconDuration}" Grid.Row="4" Grid.Column="4" />
+                    <UserControl Style="{StaticResource IconHourGlass}" Grid.Row="6" Grid.Column="4" />
+
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="0" Grid.Column="2">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Machine"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding Machine}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="2" Grid.Column="2">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_User"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding WinUser}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="4" Grid.Column="2">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_ErrorsCount"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding Errors.Count}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="6" Grid.Column="2">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Variant"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding SequenceVariant}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="0" Grid.Column="6">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_StartTime"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding StartTime}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="2" Grid.Column="6">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_StopTime"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding StopTime}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="4" Grid.Column="6">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Duration"
+                                              Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding Duration, Converter={StaticResource MillisecondsToHumanReadableConverter}}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource HeaderStackPanel}" Grid.Row="6" Grid.Column="6">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Gs" Style="{StaticResource HeaderTitle}" />
+                        <TextBlock Text="{Binding GsRemains}" Style="{StaticResource HeaderValue}" />
+                    </StackPanel>
+                </Grid>
+
+
+                <Grid Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Width="220">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="90" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" SnapsToDevicePixels="True">
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SequenceStatus}" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource ALGreenBrush}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SequenceStatus}" Value="False">
+                                        <Setter Property="Background" Value="{StaticResource ALRedBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_FinalResult" FontSize="16"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                    </Grid>
+
+
+                    <Grid Grid.Row="1" SnapsToDevicePixels="True">
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SequenceStatus}" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource ALLightGreenBrush}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SequenceStatus}" Value="False">
+                                        <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <alControls:TextBlock LocTextKey="{Binding DisplayStatus}"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Foreground="{StaticResource ALWhiteBrush}"
+                                              FontSize="40"
+                                              FontWeight="Bold" />
+                    </Grid>
+
+
+                </Grid>
+            </Grid>
+
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="MessagesTemplate" DataType="{x:Type uiReportEntities:SequenceReportDetail}">
+            <Grid Width="{StaticResource TableWidth}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="{StaticResource TableRowGridLength}" />
+                    <RowDefinition Height="{StaticResource TableSpace}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <UserControl Grid.Row="0" Style="{StaticResource IconMessage}" HorizontalAlignment="Left" />
+
+                <Grid Grid.Row="2" Background="{StaticResource ALSilverBrush}" Height="{StaticResource TableRowHeight}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="190" />
+                        <ColumnDefinition Width="{StaticResource TableSpace}" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <alControls:TextBlock LocTextKey="ReportViewer_Detail_Table_Timestamp" Grid.Column="0" Style="{StaticResource TableHeaderTextBlock}" />
+                    <Border Grid.Column="1" Style="{StaticResource BorderSpaceStyle}" />
+                    <alControls:TextBlock LocTextKey="ReportViewer_Detail_Table_Message" Grid.Column="2" Style="{StaticResource TableHeaderTextBlock}" />
+                </Grid>
+
+                <ItemsControl Grid.Row="4" ItemsSource="{Binding Messages, IsAsync=True}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="Auto"
+                                MinHeight="{StaticResource TableRowHeight}"
+                                  Background="{StaticResource ReportSilverEvenBrush}"
+                                  Margin="{StaticResource TableSpaceMargin}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="190" />
+                                    <ColumnDefinition Width="{StaticResource TableSpace}" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding TimeStamp}" Grid.Column="0" Style="{StaticResource TableTextBlock}" />
+                                <Border Grid.Column="1" Style="{StaticResource BorderSpaceStyle}" />
+                                <TextBlock Text="{Binding Message}" Grid.Column="2" Style="{StaticResource TableTextBlock}" TextWrapping="Wrap"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ErrorsTemplate" DataType="{x:Type uiReportEntities:SequenceReportDetail}">
+            <Grid Width="{StaticResource TableWidth}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <UserControl Grid.Row="0" Style="{StaticResource IconErrors}" HorizontalAlignment="Left" />
+
+                <Grid Grid.Row="2" Grid.IsSharedSizeScope="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource TableRowGridLength}" />
+                        <RowDefinition Height="{StaticResource TableSpace}" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="{StaticResource ALSilverBrush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="190" />
+                            <ColumnDefinition Width="{StaticResource TableSpace}" />
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="ErrorTypeGroup" />
+                            <ColumnDefinition Width="{StaticResource TableSpace}" />
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="ActivityNameGroup" />
+                            <ColumnDefinition Width="{StaticResource TableSpace}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Table_Timestamp" Grid.Column="0" Style="{StaticResource TableHeaderTextBlock}" />
+                        <Border Grid.Column="1" Style="{StaticResource BorderSpaceStyle}" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Table_ErrorType" Grid.Column="2" Style="{StaticResource TableHeaderTextBlock}" />
+                        <Border Grid.Column="3" Style="{StaticResource BorderSpaceStyle}" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Table_ActivityName" Grid.Column="4" Style="{StaticResource TableHeaderTextBlock}" />
+                        <Border Grid.Column="5" Style="{StaticResource BorderSpaceStyle}" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_Detail_Table_Message" Grid.Column="6" Style="{StaticResource TableHeaderTextBlock}" />
+                    </Grid>
+
+                    <ItemsControl Grid.Row="2" ItemsSource="{Binding Errors, IsAsync=True}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid MinHeight="{StaticResource TableRowHeight}" Height="Auto" Background="{StaticResource ReportSilverEvenBrush}"
+                                  Margin="{StaticResource TableSpaceMargin}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="190" />
+                                        <ColumnDefinition Width="{StaticResource TableSpace}" />
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="ErrorTypeGroup" />
+                                        <ColumnDefinition Width="{StaticResource TableSpace}" />
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="ActivityNameGroup" />
+                                        <ColumnDefinition Width="{StaticResource TableSpace}" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{Binding TimeStamp}" Grid.Column="0" Style="{StaticResource TableTextBlock}" />
+                                    <Border Grid.Column="1" Style="{StaticResource BorderSpaceStyle}" />
+                                    <TextBlock Text="{Binding ErrorType}" Grid.Column="2" Style="{StaticResource TableTextBlock}" />
+                                    <Border Grid.Column="3" Style="{StaticResource BorderSpaceStyle}" />
+                                    <TextBlock Text="{Binding ActivityName}" Grid.Column="4" Style="{StaticResource TableTextBlock}" />
+                                    <Border Grid.Column="5" Style="{StaticResource BorderSpaceStyle}"/>
+                                    <TextBlock Text="{Binding Message}" Grid.Column="6" Style="{StaticResource TableTextBlock}" TextWrapping="Wrap"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="ValidationTablesTemplate" DataType="{x:Type uiReportEntities:SequenceReportDetail}">
+            <ItemsControl ItemsSource="{Binding ValidationTables}"
+                          Width="{StaticResource TableWidth}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ValidationTableReportControl ValidationTable="{Binding}"
+                                                            RoundingRules="{Binding DataContext.RoundingRules, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <ScrollViewer Name="ReportDetailRootGrid" Padding="20" Background="{StaticResource ALWhiteBrush}" HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding ReportDetail}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--<ContentPresenter Grid.Row="0" Content="{Binding ReportDetail}" ContentTemplate="{StaticResource SequenceNameTemplate}" />-->
+            <ContentPresenter Grid.Row="0" Content="{Binding}" Margin="0 0 0 30"
+                              ContentTemplate="{StaticResource SequenceInfoTemplate}"
+                              HorizontalAlignment="Center" />
+
+            <local:ReportImageGrid Width="{StaticResource TableWidth}" Grid.Row="1" Margin="0 0 0 30" x:Name="GraphicalUIImages" HorizontalAlignment="Center" />
+
+            <local:ReportImageGrid Width="{StaticResource TableWidth}" Grid.Row="2" Margin="0 0 0 30" x:Name="ErrorImages" HorizontalAlignment="Center" />
+            
+            <ContentPresenter Grid.Row="3" Content="{Binding}" Margin="0 0 0 30"
+                              ContentTemplate="{StaticResource ValidationTablesTemplate}"
+                              HorizontalAlignment="Center" />
+
+            <ContentPresenter Grid.Row="4" Content="{Binding}" Margin="0 0 0 30" Visibility="{Binding Messages, Converter={StaticResource EmptyCollectionToCollapsed}}"
+                              ContentTemplate="{StaticResource MessagesTemplate}"
+                              HorizontalAlignment="Center" />
+
+            <ContentPresenter Grid.Row="5" Content="{Binding}" Margin="0 0 0 30" Visibility="{Binding Errors, Converter={StaticResource EmptyCollectionToCollapsed}}"
+                              ContentTemplate="{StaticResource ErrorsTemplate}"
+                              HorizontalAlignment="Center" Grid.IsSharedSizeScope="True" />
+            
+        </Grid>
+    </ScrollViewer>
+</UserControl>

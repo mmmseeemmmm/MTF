@@ -1,0 +1,15 @@
+﻿v1.0.4.0
+	- Added new version of OPCClient library with activated license
+
+v1.0.3.0
+	- Tested connect/disconnect with trial version, did not help, leaved for future use
+
+v1.0.2.0
+	- Implementation of Semrad´s list to make users life easier :-)
+
+v1.0.1.0
+	- Fixed stuffs
+	- Added more methods
+
+v1.0.0.0
+	- First release

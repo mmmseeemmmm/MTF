@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\LEDModuleCheck\LEDModuleCheck.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\LEDModuleCheck\LEDModuleCheck.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LEDModuleCheck\obj\Debug\LEDModuleCheck.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LEDModuleCheck\obj\Debug\LEDModuleCheck.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LEDModuleCheck\obj\Debug\LEDModuleCheck.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LEDModuleCheck\obj\Debug\LEDModuleCheck.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\LEDModuleCheck\obj\Debug\LEDModuleCheck.pdb

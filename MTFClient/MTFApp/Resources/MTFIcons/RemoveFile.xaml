@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="UserControl" x:Key="IconRemoveFile">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Image>
+                        <Image.Source>
+                            <DrawingImage>
+                                <DrawingImage.Drawing>
+                                    <DrawingGroup xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingGroup x:Name="DrawingLayer">
+                                            <DrawingGroup.ClipGeometry>
+                                                <RectangleGeometry Rect="0,0,32,32" />
+                                            </DrawingGroup.ClipGeometry>
+                                            <DrawingGroup x:Name="g4233">
+                                                <DrawingGroup x:Name="g4235" Transform="1,0,0,1,4,0">
+                                                    <GeometryDrawing x:Name="path4237" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="EvenOdd" Figures="M6,15L18,15 18,17 6,17z M6,7L18,7 18,9 6,9z M6,19L14,19 14,21 6,21z M6,11L14,11 14,13 6,13z M24,0.01724142C16.000311,-0.01199939,7.9993393,-0.03261055,0,0.00525656L0,31.994743C5.894027,32.007943,16.382689,32,16.382689,32L16.345662,30 2,30 2,2 22,2 22,21.796547 24,21.802647z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing x:Name="path4239" Brush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="EvenOdd" Figures="M17,26L17,28 25,28 25,26z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingGroup>
+                                        </DrawingGroup>
+                                    </DrawingGroup>
+                                </DrawingImage.Drawing>
+                            </DrawingImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

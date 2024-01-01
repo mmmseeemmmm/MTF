@@ -1,0 +1,194 @@
+﻿<uiHelpers:MTFUserControl x:Class="MTFApp.ReportViewer.ListOfReports.ListOfReportsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+             xmlns:dateTimePicker="clr-namespace:MTFApp.UIControls.DateTimePicker"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:nullableComboBox="clr-namespace:MTFApp.UIControls.NullableComboBox"
+             xmlns:uiReportEntities="clr-namespace:MTFClientServerCommon.DbReporting.UiReportEntities;assembly=MTFClientServerCommon"
+             xmlns:reportViewer="clr-namespace:MTFApp.ReportViewer"
+             xmlns:controls="clr-namespace:MTFApp.ReportViewer.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+
+        <DataTemplate x:Key="ReportPreviewTemplate" DataType="{x:Type uiReportEntities:SequenceReportPreview}">
+
+            <Grid Height="30" MouseLeftButtonDown="ReportMouseLeftButtonDown">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Background" Value="{StaticResource ALGrayBrush}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SequenceStatus}" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ALGreenBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding SequenceStatus}" Value="False">
+                                <Setter Property="Background" Value="{StaticResource ALLightRedBrush}" />
+                            </DataTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ALYellowBrush}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <UserControl Grid.Column="0" Height="20" Style="{Binding SequenceStatus, IsAsync=True, Converter={StaticResource NullableBoolToIconConverter}}" />
+                <TextBlock Grid.Column="2" Text="{Binding CycleName}" />
+                <TextBlock Grid.Column="4" Text="{Binding StartTime}"/>
+                <TextBlock Grid.Column="6" Text="{Binding StopTime}"/>
+                <TextBlock Grid.Column="8" Text="{Binding Duration, IsAsync=True, Converter={StaticResource MillisecondsToHumanReadableConverter}}" />
+                <TextBlock Grid.Column="10" Text="{Binding SequenceVariant, IsAsync=True}" />
+                <!--<Button x:Name="DetailButton_click" Padding="10" Grid.Column="5" Height="25" Width="70" HorizontalAlignment="Left"
+                        Command="{Binding DataContext.DetailCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                        CommandParameter="{Binding}"/>-->
+
+            </Grid>
+
+        </DataTemplate>
+
+        <Style x:Key="ItemsControlVirtualizedStyle" TargetType="ItemsControl">
+            <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <Border
+                            BorderThickness="{TemplateBinding Border.BorderThickness}"
+                            Padding="{TemplateBinding Control.Padding}"
+                            BorderBrush="{TemplateBinding Border.BorderBrush}"
+                            Background="{TemplateBinding Panel.Background}"
+                            SnapsToDevicePixels="True"
+                        >
+                            <ScrollViewer Padding="{TemplateBinding Control.Padding}" Focusable="False">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="ReportListTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <UserControl Style="{StaticResource IconSequence}" Margin="0 0 5 0" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_CycleName" FontSize="14" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="4" Orientation="Horizontal">
+                        <UserControl Style="{StaticResource IconStartTimer}" Margin="0 0 5 0" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_StartTime" FontSize="14" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="6" Orientation="Horizontal">
+                        <UserControl Style="{StaticResource IconStopTimer}" Margin="0 0 5 0" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_StopTime" FontSize="14" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="8" Orientation="Horizontal">
+                        <UserControl Style="{StaticResource IconDurationTimer}" Margin="0 0 5 0" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_Duration" FontSize="14" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="10" Orientation="Horizontal">
+                        <UserControl Style="{StaticResource IconVariant}" Margin="0 0 5 0" />
+                        <alControls:TextBlock LocTextKey="ReportViewer_Variant" FontSize="14" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="11" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 10 0">
+                        <alControls:TextBlock LocTextKey="ReportViewer_Items" FontSize="14" VerticalAlignment="Center" />
+                        <TextBlock Text=": " />
+                        <TextBlock Text="{Binding Reports.Count}" FontSize="14" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+
+                <Border Grid.Row="1" Height="2" BorderThickness="1" BorderBrush="{StaticResource ALYellowBrush}" />
+
+                <ItemsControl Grid.Row="2" Style="{StaticResource ItemsControlVirtualizedStyle}" ItemsSource="{Binding Reports, IsAsync=True}" ItemTemplate="{StaticResource ReportPreviewTemplate}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DetailTemplate">
+            <reportViewer:ReportDetailControl ReportDetail="{Binding SelectedReport}" />
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <controls:ReportFilterControl Grid.Row="0" SequenceNames="{Binding SequenceNames}" ReportFilter="{Binding Filter}" RefreshCommand="{Binding RefreshCommand}" />
+            <ContentPresenter Grid.Row="1" Content="{Binding}" ContentTemplate="{StaticResource ReportListTemplate}" />
+        </Grid>
+
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ShowDetail}" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource DetailTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </Grid>
+    </uiHelpers:MTFUserControl>
+

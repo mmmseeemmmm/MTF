@@ -1,0 +1,156 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFActivityResultEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"          
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:seqEditor="clr-namespace:MTFApp.SequenceEditor"          
+             xmlns:MTFClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"          
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:GenericTypeNameConverter x:Key="typeNameConverter" />
+        <converters:CompareTwoObjectsConverter x:Key="termInPopupConverter" />
+        <converters:SimpleTermVisibilityConverter x:Key="showComplexTermVisibilityConverter" IsSimpleTerm="Collapsed" IsNotSimpleTerm="Visible" />
+        <converters:SimpleTermVisibilityConverter x:Key="showSimpleTermVisibilityConverter" IsSimpleTerm="Visible" IsNotSimpleTerm="Collapsed" />
+
+        <Style x:Key="termDesignerButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="15" />
+            <Setter Property="Height" Value="15" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2,0,0,0" />
+            <Setter Property="Content">
+                <Setter.Value>
+                    <UserControl Style="{DynamicResource IconPencil}" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--<DataTemplate DataType="{x:Type MTFClientServerCommon:GenericPropertyIndexer}" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Item At: " VerticalAlignment="Center" />
+                <TextBlock Text=" [ " VerticalAlignment="Center"  />
+                <uiHelpers:MTFEditor
+                    ValueChanged="MTFEditor_ValueChanged"
+                    Value="{Binding Index}" 
+                    TypeName="System.Int32"
+                    VerticalAlignment="Center"
+                    EditorMode="UseTerm"
+                    />
+                <TextBlock Text=" ]" VerticalAlignment="Center"  />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:GenericPropertyInfo}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Name}" />
+                <TextBlock Text=" (" />
+                <TextBlock Text="{Binding Path=Type, Converter={StaticResource typeNameConverter}}" />
+                <TextBlock Text=")" />
+            </StackPanel>
+        </DataTemplate>-->
+
+        <DataTemplate x:Key="DropDownTemplate">
+            <DataTemplate.Resources>
+                <DataTemplate DataType="{x:Type MTFClientServerCommon:GenericPropertyInfo}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name}" />
+                        <TextBlock Text=" (" />
+                        <TextBlock Text="{Binding Path=Type, Converter={StaticResource typeNameConverter}}" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type MTFClientServerCommon:GenericPropertyIndexer}" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Item At:" />
+                    </StackPanel>
+                </DataTemplate>
+            </DataTemplate.Resources>
+            <ContentPresenter Content="{Binding}" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="SelectedItemTemplate">
+            <DataTemplate.Resources>
+                <DataTemplate DataType="{x:Type MTFClientServerCommon:GenericPropertyInfo}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name}" />
+                        <TextBlock Text=" (" />
+                        <TextBlock Text="{Binding Path=Type, Converter={StaticResource typeNameConverter}}" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type MTFClientServerCommon:GenericPropertyIndexer}" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Item At: " VerticalAlignment="Center" />
+                        <TextBlock Text=" [ " VerticalAlignment="Center"  />
+                        <uiHelpers:MTFEditor
+                                    ValueChanged="MTFEditor_ValueChanged"
+                                    Value="{Binding Index}" 
+                                    TypeName="System.Int32"
+                                    VerticalAlignment="Center"
+                                    EditorMode="UseTerm"
+                                    />
+                        <TextBlock Text=" ]" VerticalAlignment="Center"  />
+                    </StackPanel>
+                </DataTemplate>
+            </DataTemplate.Resources>
+            <ContentPresenter Content="{Binding}" />
+        </DataTemplate>
+
+
+    </UserControl.Resources>
+
+
+
+    <StackPanel Name="root" Orientation="Vertical">
+        <ListBox ItemsSource="{Binding Items, IsAsync=True}"
+                 BorderThickness="0"
+                 Template="{StaticResource ListBoxControlTemplate}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBox ItemsSource="{Binding GenericPropertyItems}" SelectedItem="{Binding SelectedItem}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding}">
+                                    <ContentControl.Style>
+                                        <Style TargetType="{x:Type ContentControl}">
+                                            <!-- Complex default template -->
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource DropDownTemplate}" />
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <!-- Simple selection box template -->
+                                                <DataTrigger
+                                Binding="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}}"
+                                Value="{x:Null}">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource SelectedItemTemplate}" />
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</editors:MTFEditorBase>

@@ -1,0 +1,31 @@
+﻿v0.3.0.0:
+	- Updated components
+	- Added PerformCameraTrigger
+	- Added PerformLowCurrentTest
+
+v0.2.1.0:
+	- Updated components
+
+v0.2.0.1:
+	- Dispose bugfix
+
+v0.2.0.0:
+	- First implementation of Communication Module for BMWLaserSat
+
+v0.1.1.0:
+	- Added methods for controlling motors/current sources by index
+
+v0.1.0.2:
+	- Repaired method for sending CAN frames
+
+v0.1.0.1:
+	- Added vMin to SetMotorParameters
+
+v0.1.0.0:
+	- Added all MCB functions
+
+v0.0.1.0:
+	- Added about 1/3 of MCB functions
+
+v0.0.0.1:
+	- First release, prepared for work

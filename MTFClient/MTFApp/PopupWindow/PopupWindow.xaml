@@ -1,0 +1,34 @@
+﻿<Window x:Class="MTFApp.PopupWindow.PopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="300" Width="300"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        WindowStyle="None" ShowInTaskbar="False">
+    
+    <DockPanel LastChildFill="True">
+        <DockPanel.LayoutTransform>
+            <ScaleTransform ScaleX="{Binding Scale}"
+                            ScaleY="{Binding Scale}"/>
+        </DockPanel.LayoutTransform>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" Visibility="{Binding ShowHeader, Converter={StaticResource BoolToVisibility}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <UserControl Grid.ColumnSpan="2" Background="{StaticResource ResourceKey=ALBlackBrush}" Height="30" />
+                <TextBlock  Foreground="{StaticResource ResourceKey=ALWhiteBrush}" Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Margin="5" 
+                    Grid.Column="1" 
+                    Visibility="{Binding CanClose, Converter={StaticResource BoolToVisibility}}"
+                    Foreground="{StaticResource ResourceKey=ALWhiteBrush}" 
+                    Style="{StaticResource ResourceKey=CloseButton}"
+                    Click="CloseButton_Click"/>
+            </Grid>
+                
+            <ContentControl DockPanel.Dock="Bottom" x:Name="content">
+            </ContentControl>            
+        </DockPanel>
+    </DockPanel>
+</Window>

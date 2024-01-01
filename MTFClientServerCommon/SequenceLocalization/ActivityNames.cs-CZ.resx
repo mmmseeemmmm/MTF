@@ -1,0 +1,2862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Activity_Acquire_Image_key" xml:space="preserve">
+    <value>Focení snímku</value>
+  </data>
+  <data name="Activity_Add_Serial_Number_To_List_key" xml:space="preserve">
+    <value>Přidání sériového čísla do seznamu</value>
+  </data>
+  <data name="Activity_Adjust_CL_production_key" xml:space="preserve">
+    <value>Nastavení pozice CL</value>
+  </data>
+  <data name="Activity_Adjust_CL_Target_key" xml:space="preserve">
+    <value>Nastavení CL do pozice</value>
+  </data>
+  <data name="Activity_Adjust_HB_key" xml:space="preserve">
+    <value>Nastavení pozice HB </value>
+  </data>
+  <data name="Activity_Adjust_HB_Production_key" xml:space="preserve">
+    <value>Nastavení Produkčních světlometů</value>
+  </data>
+  <data name="Activity_AHL_Reference_key" xml:space="preserve">
+    <value>Reference AHL</value>
+  </data>
+  <data name="Activity_All_LEDs_Off_key" xml:space="preserve">
+    <value>Všechny LED Off</value>
+  </data>
+  <data name="Activity_All_Lights_Off_key" xml:space="preserve">
+    <value>Vypnout všechny světla </value>
+  </data>
+  <data name="Activity_All_Light_Functions_Off_key" xml:space="preserve">
+    <value>Zhasnutí všech světelných funkcí</value>
+  </data>
+  <data name="Activity_All_Relays_off_key" xml:space="preserve">
+    <value>Vypnutí všech relátek</value>
+  </data>
+  <data name="Activity_Automatic_Test_key" xml:space="preserve">
+    <value>Automatický Test</value>
+  </data>
+  <data name="Activity_Bar_Code_Readers_key" xml:space="preserve">
+    <value>Čtečky čárového kódu</value>
+  </data>
+  <data name="Activity_BusCom_Configuration_key" xml:space="preserve">
+    <value>Konfigurace BusCom</value>
+  </data>
+  <data name="Activity_CallDynamic_Key" xml:space="preserve">
+    <value>Dynamické volání</value>
+  </data>
+  <data name="Activity_CallWholeSequence_Key" xml:space="preserve">
+    <value>Celá sekvence</value>
+  </data>
+  <data name="Activity_Call_Key" xml:space="preserve">
+    <value>Volat</value>
+  </data>
+  <data name="Activity_Change_service_commands_status_key" xml:space="preserve">
+    <value>Změna stavu servisních tlačítek</value>
+  </data>
+  <data name="Activity_Check_AHL_Position_key" xml:space="preserve">
+    <value>Kontrola pozice AHL</value>
+  </data>
+  <data name="Activity_Check_Binnig_Class_key" xml:space="preserve">
+    <value>Kontrola tříd bináže</value>
+  </data>
+  <data name="Activity_Check_CL_key" xml:space="preserve">
+    <value>Kontrola CL</value>
+  </data>
+  <data name="Activity_Check_CL_Off_key" xml:space="preserve">
+    <value>Kontrola CL Off</value>
+  </data>
+  <data name="Activity_Check_CL_On_key" xml:space="preserve">
+    <value>Kontrola CL On</value>
+  </data>
+  <data name="Activity_Check_CL_Position_key" xml:space="preserve">
+    <value>Kontrola pozice CL</value>
+  </data>
+  <data name="Activity_Check_Coding_HLI_key" xml:space="preserve">
+    <value>Kontrola kódování HLI</value>
+  </data>
+  <data name="Activity_Check_Coding_key" xml:space="preserve">
+    <value>Kontrola kódování</value>
+  </data>
+  <data name="Activity_Check_Coding_LCU_key" xml:space="preserve">
+    <value>Kontrola kódování LCU</value>
+  </data>
+  <data name="Activity_Check_Contacting_Head_Coding_key" xml:space="preserve">
+    <value>Kontrola kódování kontaktovací hlavy</value>
+  </data>
+  <data name="Activity_Check_Current_CL_key" xml:space="preserve">
+    <value>Kontrola proudu CL</value>
+  </data>
+  <data name="Activity_Check_Current_DRL_key" xml:space="preserve">
+    <value>Kontrola proudu DRL</value>
+  </data>
+  <data name="Activity_Check_Current_HB_key" xml:space="preserve">
+    <value>Kontrola proudu HB</value>
+  </data>
+  <data name="Activity_Check_Current_LB_key" xml:space="preserve">
+    <value>Kontrola proudu LB</value>
+  </data>
+  <data name="Activity_Check_DABL1_key" xml:space="preserve">
+    <value>Kontrola DABL1</value>
+  </data>
+  <data name="Activity_Check_DABL2_key" xml:space="preserve">
+    <value>Kontrola DABL2</value>
+  </data>
+  <data name="Activity_Check_DMD_Position_key" xml:space="preserve">
+    <value>Kontrola pozice DMD</value>
+  </data>
+  <data name="Activity_Check_DRL_Off_key" xml:space="preserve">
+    <value>Kontrola DRL Off</value>
+  </data>
+  <data name="Activity_Check_DRL_On_key" xml:space="preserve">
+    <value>Kontrola DRL On</value>
+  </data>
+  <data name="Activity_Check_errors_key" xml:space="preserve">
+    <value>Kontrola chyb</value>
+  </data>
+  <data name="Activity_Check_GFHB_Position_key" xml:space="preserve">
+    <value>Kontrola pozice GFHB</value>
+  </data>
+  <data name="Activity_Check_HB_Base_Off_key" xml:space="preserve">
+    <value>Kontrola HB Base Off</value>
+  </data>
+  <data name="Activity_Check_HB_Base_On_key" xml:space="preserve">
+    <value>Kontrola HB Base On</value>
+  </data>
+  <data name="Activity_Check_HB_Base_Position_key" xml:space="preserve">
+    <value>Kontrola pozice HB Base</value>
+  </data>
+  <data name="Activity_Check_HB_Laser_Position_key" xml:space="preserve">
+    <value>Kontrola pozice HB Laser</value>
+  </data>
+  <data name="Activity_Check_HB_Off_key" xml:space="preserve">
+    <value>Kontrola HB Off</value>
+  </data>
+  <data name="Activity_Check_HB_On_key" xml:space="preserve">
+    <value>Kontrola HB On</value>
+  </data>
+  <data name="Activity_Check_HB_Position_key" xml:space="preserve">
+    <value>Kontrola pozice HB</value>
+  </data>
+  <data name="Activity_Check_HB_Spot_Off_key" xml:space="preserve">
+    <value>Kontrola HB Spot Off</value>
+  </data>
+  <data name="Activity_Check_HB_Spot_On_key" xml:space="preserve">
+    <value>Kontrola HB Spot On</value>
+  </data>
+  <data name="Activity_Check_HB_Spot_Position_key" xml:space="preserve">
+    <value>Kontrola pozice HB Spot</value>
+  </data>
+  <data name="Activity_Check_is_left_DUT_key" xml:space="preserve">
+    <value>Kontrola zda je levé DUT</value>
+  </data>
+  <data name="Activity_Check_is_not_left_DUT_key" xml:space="preserve">
+    <value>Kontrola zda není levé DUT</value>
+  </data>
+  <data name="Activity_Check_is_not_right_DUT_key" xml:space="preserve">
+    <value>Kontrola zda není pravé DUT</value>
+  </data>
+  <data name="Activity_Check_is_right_DUT_key" xml:space="preserve">
+    <value>Kontrola zda je pravé DUT</value>
+  </data>
+  <data name="Activity_Check_Laser_LED_key" xml:space="preserve">
+    <value>Kontrola Laser LED</value>
+  </data>
+  <data name="Activity_Check_LB_Base_Center_Position_key" xml:space="preserve">
+    <value>Kontrola pozice LB Base Center</value>
+  </data>
+  <data name="Activity_Check_LB_Base_key" xml:space="preserve">
+    <value>Kontrola LB Base</value>
+  </data>
+  <data name="Activity_Check_LB_Base_Off_key" xml:space="preserve">
+    <value>Kontrola LB Base Off</value>
+  </data>
+  <data name="Activity_Check_LB_Base_On_key" xml:space="preserve">
+    <value>Kontrola LB Base On</value>
+  </data>
+  <data name="Activity_Check_LB_Base_Position_key" xml:space="preserve">
+    <value>Kontrola pozice LB Base</value>
+  </data>
+  <data name="Activity_Check_LB_C190M_key" xml:space="preserve">
+    <value>Kontrola LB C190M</value>
+  </data>
+  <data name="Activity_Check_LB_Off_key" xml:space="preserve">
+    <value>Kontrola LB Off</value>
+  </data>
+  <data name="Activity_Check_LB_On_key" xml:space="preserve">
+    <value>Kontrola LB On</value>
+  </data>
+  <data name="Activity_Check_LB_Position_key" xml:space="preserve">
+    <value>Kontrola pozice LB</value>
+  </data>
+  <data name="Activity_Check_LB_Spot_Off_key" xml:space="preserve">
+    <value>Kontrola LB Spot Off</value>
+  </data>
+  <data name="Activity_Check_LB_Spot_On_key" xml:space="preserve">
+    <value>Kontrola LB Spot On</value>
+  </data>
+  <data name="Activity_Check_LB_Spot_Position_key" xml:space="preserve">
+    <value>Kontrola pozice LB Spot</value>
+  </data>
+  <data name="Activity_Check_LEDs_key" xml:space="preserve">
+    <value>Kontrola LEDek</value>
+  </data>
+  <data name="Activity_Check_LWR_Position_key" xml:space="preserve">
+    <value>Kontrola pozice LWR</value>
+  </data>
+  <data name="Activity_Check_MXB_Off_key" xml:space="preserve">
+    <value>Kontrola MXB Off</value>
+  </data>
+  <data name="Activity_Check_MXB_On_key" xml:space="preserve">
+    <value>Kontrola MXB On</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_key" xml:space="preserve">
+    <value>Kontrola pozice MXB</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_04_key" xml:space="preserve">
+    <value>Kontrola pozice MXB LED 04</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_05_key" xml:space="preserve">
+    <value>Kontrola pozice MXB LED 05</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_06_key" xml:space="preserve">
+    <value>Kontrola pozice MXB LED 06</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_07_key" xml:space="preserve">
+    <value>Kontrola pozice MXB LED 07</value>
+  </data>
+  <data name="Activity_Check_MXB_Position_LED_08_key" xml:space="preserve">
+    <value>Kontrola pozice MXB LED 08</value>
+  </data>
+  <data name="Activity_Check_palette_is_ready_key" xml:space="preserve">
+    <value>Kontrola připravenosti palety</value>
+  </data>
+  <data name="Activity_Check_Reference_Run_key" xml:space="preserve">
+    <value>Kontrola dokončení reference</value>
+  </data>
+  <data name="Activity_Check_SABL1_key" xml:space="preserve">
+    <value>Kontrola SABL1</value>
+  </data>
+  <data name="Activity_Check_SABL2_key" xml:space="preserve">
+    <value>Kontrola SABL2</value>
+  </data>
+  <data name="Activity_Check_SM_Off_key" xml:space="preserve">
+    <value>Kontrola SM Off</value>
+  </data>
+  <data name="Activity_Check_SM_On_key" xml:space="preserve">
+    <value>Kontrola SM On</value>
+  </data>
+  <data name="Activity_Check_Temperatures_sensors_key" xml:space="preserve">
+    <value>Kontrola Teplotních Senzoru</value>
+  </data>
+  <data name="Activity_Check_TI_Off_key" xml:space="preserve">
+    <value>Kontrola TI Off</value>
+  </data>
+  <data name="Activity_Check_TI_On_key" xml:space="preserve">
+    <value>Kontrola TI On</value>
+  </data>
+  <data name="Activity_Check_VAC_motor_stopped_key" xml:space="preserve">
+    <value>Kontrola zastavení VAC motoru</value>
+  </data>
+  <data name="Activity_Check_Voltage_CL_key" xml:space="preserve">
+    <value>Kontrola napětí CL</value>
+  </data>
+  <data name="Activity_Check_Voltage_DRL_key" xml:space="preserve">
+    <value>Kontrola napětí DRL</value>
+  </data>
+  <data name="Activity_Check_Voltage_HB_key" xml:space="preserve">
+    <value>Kontrola napětí HB</value>
+  </data>
+  <data name="Activity_Check_Voltage_LB_key" xml:space="preserve">
+    <value>Kontrola napětí LB</value>
+  </data>
+  <data name="Activity_Clean_after_service_key" xml:space="preserve">
+    <value>Mazání po servisním módu</value>
+  </data>
+  <data name="Activity_Clean_errors_key" xml:space="preserve">
+    <value>Mazání chyb</value>
+  </data>
+  <data name="Activity_Clean_LCB_key" xml:space="preserve">
+    <value>Přesun tubusu do základní pozice</value>
+  </data>
+  <data name="Activity_Clean_Machine_after_service_key" xml:space="preserve">
+    <value>Uvedení stroje do výchozího stavu po opuštění servisu</value>
+  </data>
+  <data name="Activity_Clean_Machine_backward_key" xml:space="preserve">
+    <value>Uvedení stroje do výchozího stavu - zpětný chod</value>
+  </data>
+  <data name="Activity_Clean_machine_key" xml:space="preserve">
+    <value>Uvedení stroje do výchozího stavu</value>
+  </data>
+  <data name="Activity_Clean_up_Test_key" xml:space="preserve">
+    <value>Ukončení a úklid po testu</value>
+  </data>
+  <data name="Activity_Clear_Validation_Tables_Communication_key" xml:space="preserve">
+    <value>Mazání validačních tabulek - Communication</value>
+  </data>
+  <data name="Activity_Clear_validation_tables_HeadlampControl_key" xml:space="preserve">
+    <value>Mazání validačních tabulek - HeadlampControl</value>
+  </data>
+  <data name="Activity_Clear_validation_tables_key" xml:space="preserve">
+    <value>Mazání validačních tabulek</value>
+  </data>
+  <data name="Activity_Clear_Validation_Tables_Machine_key" xml:space="preserve">
+    <value>Mazání validačních tabulek - Machine</value>
+  </data>
+  <data name="Activity_Clear_validation_tables_Main_key" xml:space="preserve">
+    <value>Mazání validačních tabulek - Main</value>
+  </data>
+  <data name="Activity_Clear_Validation_Tables_Vision_key" xml:space="preserve">
+    <value>Mazání validačních tabulek - Vision</value>
+  </data>
+  <data name="Activity_Close_key" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="Activity_CL_key" xml:space="preserve">
+    <value>CL</value>
+  </data>
+  <data name="Activity_CL_Off_key" xml:space="preserve">
+    <value>CL Off</value>
+  </data>
+  <data name="Activity_CL_On_key" xml:space="preserve">
+    <value>CL On</value>
+  </data>
+  <data name="Activity_CL_test_key" xml:space="preserve">
+    <value>CL test</value>
+  </data>
+  <data name="Activity_Coding_HLI_key" xml:space="preserve">
+    <value>kódování HLI</value>
+  </data>
+  <data name="Activity_Coding_key" xml:space="preserve">
+    <value>Kódování</value>
+  </data>
+  <data name="Activity_Coding_LCU_key" xml:space="preserve">
+    <value>kódování LCU</value>
+  </data>
+  <data name="Activity_Cofigure_Communication_key" xml:space="preserve">
+    <value>Konfigurace komunikace</value>
+  </data>
+  <data name="Activity_Cofigure_Diagnosis_key" xml:space="preserve">
+    <value>Konfigurace diagnostické komunikace</value>
+  </data>
+  <data name="Activity_Collect_By_Template_key" xml:space="preserve">
+    <value>Sběr dat podle šablony</value>
+  </data>
+  <data name="Activity_Collect_Error_Count_key" xml:space="preserve">
+    <value>Sběr dat - počet chyb</value>
+  </data>
+  <data name="Activity_Collect_Error_Images_key" xml:space="preserve">
+    <value>Sběr dat - chybové obrázky</value>
+  </data>
+  <data name="Activity_Collect_Error_Text_key" xml:space="preserve">
+    <value>Sběr dat - chybové texty</value>
+  </data>
+  <data name="Activity_Compare_Labels_With_Database_key" xml:space="preserve">
+    <value>Porovnání etikety s databází</value>
+  </data>
+  <data name="Activity_Compile_Code_key" xml:space="preserve">
+    <value>Kompilace kódu</value>
+  </data>
+  <data name="Activity_Configure_All_Cameras_key" xml:space="preserve">
+    <value>Konfigurace všech Kamer</value>
+  </data>
+  <data name="Activity_Configure_Cameras_key" xml:space="preserve">
+    <value>Konfigurace Kamer</value>
+  </data>
+  <data name="Activity_Configure_CL_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat CL</value>
+  </data>
+  <data name="Activity_Configure_DABL1_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat DABL1</value>
+  </data>
+  <data name="Activity_Configure_DABL2_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat DABL2</value>
+  </data>
+  <data name="Activity_Configure_GFHB_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat GFHB</value>
+  </data>
+  <data name="Activity_Configure_HB_Base_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat HB Base</value>
+  </data>
+  <data name="Activity_Configure_HB_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat HB</value>
+  </data>
+  <data name="Activity_Configure_HB_Laser_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat HB Laser</value>
+  </data>
+  <data name="Activity_Configure_HB_Spot_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat HB Spot</value>
+  </data>
+  <data name="Activity_Configure_LB_Base_Center_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat LB Base Center</value>
+  </data>
+  <data name="Activity_Configure_LB_Base_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat LB Base</value>
+  </data>
+  <data name="Activity_Configure_LB_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat LB</value>
+  </data>
+  <data name="Activity_Configure_LB_Spot_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat LB Spot</value>
+  </data>
+  <data name="Activity_Configure_SABL1_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat SABL1</value>
+  </data>
+  <data name="Activity_Configure_SABL2_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat SABL2</value>
+  </data>
+  <data name="Activity_Configute_MXB_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních dat MXB</value>
+  </data>
+  <data name="Activity_Contacting_Head_Coding_Update_key" xml:space="preserve">
+    <value>Aktualizace kódování kontaktovaci hlavy</value>
+  </data>
+  <data name="Activity_Continue_on_Error_key" xml:space="preserve">
+    <value>Pokračovat při chybě</value>
+  </data>
+  <data name="Activity_Cycle_key" xml:space="preserve">
+    <value>Cyklus</value>
+  </data>
+  <data name="Activity_DABL_Off_key" xml:space="preserve">
+    <value>DABL Off</value>
+  </data>
+  <data name="Activity_DABL_On_key" xml:space="preserve">
+    <value>DABL On</value>
+  </data>
+  <data name="Activity_Data_Collection_key" xml:space="preserve">
+    <value>Sběr dat</value>
+  </data>
+  <data name="Activity_DC_Motor_off_key" xml:space="preserve">
+    <value>DC Motor off</value>
+  </data>
+  <data name="Activity_Decide_HL_Type_key" xml:space="preserve">
+    <value>Rozhodnutí o typu HL</value>
+  </data>
+  <data name="Activity_Decide_If_Already_Coded_key" xml:space="preserve">
+    <value>Pokud je již nakódováno</value>
+  </data>
+  <data name="Activity_Delay_key" xml:space="preserve">
+    <value>Zpoždění</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_DMD_key" xml:space="preserve">
+    <value>Mazání paměti chyb DMD</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Mazání paměti chyb HLI</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_key" xml:space="preserve">
+    <value>Mazání paměti chyb</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_Laser_key" xml:space="preserve">
+    <value>Mazání paměti chyb Laseru</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_LCU_key" xml:space="preserve">
+    <value>Mazání paměti chyb LCU</value>
+  </data>
+  <data name="Activity_Delete_Error_Memory_only_if_errors_exists_key" xml:space="preserve">
+    <value>Mazání paměti chyb v případě, že se chyby nacházejí</value>
+  </data>
+  <data name="Activity_Delete_Info_Memory_key" xml:space="preserve">
+    <value>Mazání Info paměti</value>
+  </data>
+  <data name="Activity_Diagnosis_Start_key" xml:space="preserve">
+    <value>Zapnutí diagnostické komunikace</value>
+  </data>
+  <data name="Activity_Diagnosis_Stop_key" xml:space="preserve">
+    <value>Vypnutí diagnostické komunikace</value>
+  </data>
+  <data name="Activity_Disable_camera_config_key" xml:space="preserve">
+    <value>Zakázat konfigurace kamer</value>
+  </data>
+  <data name="Activity_DMD_Off_key" xml:space="preserve">
+    <value>DMD Off</value>
+  </data>
+  <data name="Activity_DMD_On_key" xml:space="preserve">
+    <value>DMD On</value>
+  </data>
+  <data name="Activity_DMD_Set_Test_Pattern_key" xml:space="preserve">
+    <value>DMD nastavení testovacího vzoru</value>
+  </data>
+  <data name="Activity_DMD_Test_key" xml:space="preserve">
+    <value>DMD Test</value>
+  </data>
+  <data name="Activity_DMD_Test_OFF_key" xml:space="preserve">
+    <value>DMD Test OFF</value>
+  </data>
+  <data name="Activity_DMD_Test_ON_key" xml:space="preserve">
+    <value>DMD Test ON</value>
+  </data>
+  <data name="Activity_DMD_Video_Signal_OFF_key" xml:space="preserve">
+    <value>DMD Video signál OFF</value>
+  </data>
+  <data name="Activity_DMD_Video_Signal_ON_key" xml:space="preserve">
+    <value>DMD Video signál ON</value>
+  </data>
+  <data name="Activity_DML_key" xml:space="preserve">
+    <value>DML</value>
+  </data>
+  <data name="Activity_Drive_To_Adjust_Position_key" xml:space="preserve">
+    <value>Nastavení střední pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_BottomInside_Position_key" xml:space="preserve">
+    <value>Nastavení dolní vnitřní pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_BottomOutside_Position_key" xml:space="preserve">
+    <value>Nastavení dolní vnější pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_Bottom_Position_key" xml:space="preserve">
+    <value>Nastavení dolní pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_Intside_Position_key" xml:space="preserve">
+    <value>Nastavení vnitřní pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_Outside_Position_key" xml:space="preserve">
+    <value>Nastavení vnější pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_Test_moving_Position_key" xml:space="preserve">
+    <value>Nastavení testovací pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_TopInside_Position_key" xml:space="preserve">
+    <value>Nastavení horní vnitřní pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_TopOutside_Position_key" xml:space="preserve">
+    <value>Nastavení horní vnější pozice motoru</value>
+  </data>
+  <data name="Activity_Drive_To_Top_Position_key" xml:space="preserve">
+    <value>Nastavení horní pozice motoru</value>
+  </data>
+  <data name="Activity_DRL1_Off_key" xml:space="preserve">
+    <value>DRL1 Off</value>
+  </data>
+  <data name="Activity_DRL1_On_key" xml:space="preserve">
+    <value>DRL1 On</value>
+  </data>
+  <data name="Activity_DRL2_Off_key" xml:space="preserve">
+    <value>DRL2 Off</value>
+  </data>
+  <data name="Activity_DRL2_On_key" xml:space="preserve">
+    <value>DRL2 On</value>
+  </data>
+  <data name="Activity_DRL_key" xml:space="preserve">
+    <value>DRL</value>
+  </data>
+  <data name="Activity_DRL_Off_key" xml:space="preserve">
+    <value>DRL Off</value>
+  </data>
+  <data name="Activity_DRL_On_key" xml:space="preserve">
+    <value>DRL On</value>
+  </data>
+  <data name="Activity_DRL_test_key" xml:space="preserve">
+    <value>DRL test</value>
+  </data>
+  <data name="Activity_ECE_SAE_key" xml:space="preserve">
+    <value>ECE/SAE</value>
+  </data>
+  <data name="Activity_ECU_Off_key" xml:space="preserve">
+    <value>ECU Off</value>
+  </data>
+  <data name="Activity_ECU_On_key" xml:space="preserve">
+    <value>ECU On</value>
+  </data>
+  <data name="Activity_ECU_Serial_Number_Read_key" xml:space="preserve">
+    <value>Čtení sériového čísla ECU</value>
+  </data>
+  <data name="Activity_Enable_camera_config_key" xml:space="preserve">
+    <value>Povolit konfiguraci kamer</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CheckErr" xml:space="preserve">
+    <value>Zkontrolovat chyby</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CleanErr" xml:space="preserve">
+    <value>Vymazat chyby</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_ErrImg" xml:space="preserve">
+    <value>Získat obrázky s chybou</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetErr" xml:space="preserve">
+    <value>Získat chyby</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetLastActivityErr" xml:space="preserve">
+    <value>Získat jméno poslední aktivity s chybou</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetTables" xml:space="preserve">
+    <value>Získat nevalidní Validační tabulky</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_RaiseErr" xml:space="preserve">
+    <value>Vyvolat chybu</value>
+  </data>
+  <data name="Activity_ExecuteCode_key" xml:space="preserve">
+    <value>Vykonání kódu</value>
+  </data>
+  <data name="Activity_Execute_compiled_code_key" xml:space="preserve">
+    <value>Vykonání kompilovaného kódu</value>
+  </data>
+  <data name="Activity_Execute_home_key" xml:space="preserve">
+    <value>Vykonání balíčku HOME</value>
+  </data>
+  <data name="Activity_Execute_package_async_LCB_Inside_key" xml:space="preserve">
+    <value>Asynchroní vykonání balíčku LCB Inside</value>
+  </data>
+  <data name="Activity_Execute_package_async_LCB_Middle_key" xml:space="preserve">
+    <value>Asynchroní vykonání balíčku LCB MID</value>
+  </data>
+  <data name="Activity_Execute_package_async_LCB_Outside_key" xml:space="preserve">
+    <value>Asynchroní vykonání balíčku LCB Outside</value>
+  </data>
+  <data name="Activity_Execute_package_async_Prepare_next_cycle_key" xml:space="preserve">
+    <value>Asynchroní vykonání balíčku Prepare next cycle</value>
+  </data>
+  <data name="Activity_Execute_package_async_Work_HB_key" xml:space="preserve">
+    <value>Asynchroní vykonání balíčku Work HB</value>
+  </data>
+  <data name="Activity_Execute_package_Clean_key" xml:space="preserve">
+    <value>Vykonání balíčku CLEAN</value>
+  </data>
+  <data name="Activity_Execute_package_key" xml:space="preserve">
+    <value>Vykonání balíčku</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_clean_key" xml:space="preserve">
+    <value>Vykonání balíčku LCB clean</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_CL_async_key" xml:space="preserve">
+    <value>Asynchroní vykonání balíčku LCB CL</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_CL_key" xml:space="preserve">
+    <value>Vykonání balíčku LCB CL</value>
+  </data>
+  <data name="Activity_Execute_package_LCB_MID_key" xml:space="preserve">
+    <value>Vykonání balíčku LCB MID</value>
+  </data>
+  <data name="Activity_Execute_package_Move_To_Base_key" xml:space="preserve">
+    <value>Vykonání balíčku Move To Base</value>
+  </data>
+  <data name="Activity_Execute_package_readers_home_key" xml:space="preserve">
+    <value>Vykonání balíčku READERS HOME</value>
+  </data>
+  <data name="Activity_Execute_package_readers_read_key" xml:space="preserve">
+    <value>Vykonání balíčku READERS READ</value>
+  </data>
+  <data name="Activity_Execute_package_Ready_key" xml:space="preserve">
+    <value>Vykonání balíčku READY</value>
+  </data>
+  <data name="Activity_Execute_package_without_possition_lag_key" xml:space="preserve">
+    <value>Vykonání balíčku bez pozičního lagu</value>
+  </data>
+  <data name="Activity_Execute_package_WORK_CL_key" xml:space="preserve">
+    <value>Vykonání balíčku WORK CL</value>
+  </data>
+  <data name="Activity_Execute_package_Work_HB_key" xml:space="preserve">
+    <value>Vykonání balíčku Work HB</value>
+  </data>
+  <data name="Activity_Execute_package_Work_key" xml:space="preserve">
+    <value>Vykonání balíčku WORK</value>
+  </data>
+  <data name="Activity_Execute_Reference_Run_key" xml:space="preserve">
+    <value>Vykonání reference</value>
+  </data>
+  <data name="Activity_Execute_reverse_to_first_step_key" xml:space="preserve">
+    <value>Zpětné vykonání k prvnímu kroku</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Clean_Asynchronously_key" xml:space="preserve">
+    <value>Asynchronní Vykonání kroku LCB Clean</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Work_Asynchronously_key" xml:space="preserve">
+    <value>Asynchronní Vykonání kroku LCB Work</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Work_HB_Asynchronously_key" xml:space="preserve">
+    <value>Asynchronní Vykonání kroku LCB Work HB</value>
+  </data>
+  <data name="Activity_Execute_Step_LCB_Work_LB_Asynchronously_key" xml:space="preserve">
+    <value>Asynchronní Vykonání kroku LCB Work LB</value>
+  </data>
+  <data name="Activity_Execute_Test_key" xml:space="preserve">
+    <value>Vykonání testu</value>
+  </data>
+  <data name="Activity_Fan_1_Off_key" xml:space="preserve">
+    <value>Fan 1 Off</value>
+  </data>
+  <data name="Activity_Fan_1_On_key" xml:space="preserve">
+    <value>Fan 1 On</value>
+  </data>
+  <data name="Activity_Find_Patterns_key" xml:space="preserve">
+    <value>Hledání shody</value>
+  </data>
+  <data name="Activity_Find_Patterns_Side_Camera_key" xml:space="preserve">
+    <value>Hledaní Shody Boční Kamera</value>
+  </data>
+  <data name="Activity_Find_Patterns_Top_Camera_key" xml:space="preserve">
+    <value>Hledaní Shody Horní Kamera</value>
+  </data>
+  <data name="Activity_Force_Coding_key" xml:space="preserve">
+    <value>Nucené kódování</value>
+  </data>
+  <data name="Activity_Force_Reinitialize_key" xml:space="preserve">
+    <value>Nucená Reinicializace HSX</value>
+  </data>
+  <data name="Activity_General_Parameter_Write_key" xml:space="preserve">
+    <value>Zapsání obecných parametrů</value>
+  </data>
+  <data name="Activity_Get_Absolute_Seconds_key" xml:space="preserve">
+    <value>Čítač uplynulého času</value>
+  </data>
+  <data name="Activity_Get_ALCZ_code_key" xml:space="preserve">
+    <value>Získání ALCZ kódu</value>
+  </data>
+  <data name="Activity_Get_ALCZ_Part_Number_key" xml:space="preserve">
+    <value>Získání ALCZ Part Number</value>
+  </data>
+  <data name="Activity_Get_analog_input_voltage_key" xml:space="preserve">
+    <value>Měření napětí na analogovém vstupu</value>
+  </data>
+  <data name="Activity_Get_change_index_if_production_key" xml:space="preserve">
+    <value>Získáni změnového indexu v případě PDUT</value>
+  </data>
+  <data name="Activity_Get_change_index_key" xml:space="preserve">
+    <value>Získání Change Indexu</value>
+  </data>
+  <data name="Activity_Get_customer_AI_key" xml:space="preserve">
+    <value>Získání zákaznického AI</value>
+  </data>
+  <data name="Activity_Get_Customer_Code_key" xml:space="preserve">
+    <value>Získání zákaznického kódu</value>
+  </data>
+  <data name="Activity_Get_customer_PN_key" xml:space="preserve">
+    <value>Získání zákaznického PN</value>
+  </data>
+  <data name="Activity_Get_cycle_number_key" xml:space="preserve">
+    <value>Zjištění čísla cyklu</value>
+  </data>
+  <data name="Activity_Get_cycle_time_key" xml:space="preserve">
+    <value>Zjištění času cyklu</value>
+  </data>
+  <data name="Activity_Get_date_time_key" xml:space="preserve">
+    <value>Získání data a času</value>
+  </data>
+  <data name="Activity_Get_date_time_now_key" xml:space="preserve">
+    <value>Získání aktuálního data a času</value>
+  </data>
+  <data name="Activity_Get_errors_key" xml:space="preserve">
+    <value>Získání chyb</value>
+  </data>
+  <data name="Activity_Get_error_images_key" xml:space="preserve">
+    <value>Získání chybových obrázků</value>
+  </data>
+  <data name="Activity_Get_HL_variant_key" xml:space="preserve">
+    <value>Získání verze světlometu</value>
+  </data>
+  <data name="Activity_Get_Image_and_Meas_Intensity_key" xml:space="preserve">
+    <value>Hledání shody PPCS Pomocí Intenzity</value>
+  </data>
+  <data name="Activity_Get_logged_users_key" xml:space="preserve">
+    <value>Zjištění příhlášeného uživatele</value>
+  </data>
+  <data name="Activity_Get_Mounting_side_from_optical_sensors_key" xml:space="preserve">
+    <value>Získáni montážní strany z optického senzoru</value>
+  </data>
+  <data name="Activity_Get_operator_result_key" xml:space="preserve">
+    <value>Získání výsledku testu od operátora</value>
+  </data>
+  <data name="Activity_Get_power_supply_voltage_key" xml:space="preserve">
+    <value>Přečtení vstupního napětí</value>
+  </data>
+  <data name="Activity_Get_proccess_or_not_key" xml:space="preserve">
+    <value>Spracovat nebo ne</value>
+  </data>
+  <data name="Activity_Get_Process_Or_Not_key" xml:space="preserve">
+    <value>Zpracovat nebo ne</value>
+  </data>
+  <data name="Activity_Get_sequence_variant_key" xml:space="preserve">
+    <value>Získání varianty sekvence</value>
+  </data>
+  <data name="Activity_GFHB_Off_key" xml:space="preserve">
+    <value>GFHB Off</value>
+  </data>
+  <data name="Activity_GFHB_On_key" xml:space="preserve">
+    <value>GFHB On</value>
+  </data>
+  <data name="Activity_GFHB_Test_key" xml:space="preserve">
+    <value>GFHB Test</value>
+  </data>
+  <data name="Activity_HB_Base_Off_key" xml:space="preserve">
+    <value>HB Base Off</value>
+  </data>
+  <data name="Activity_HB_Base_On_key" xml:space="preserve">
+    <value>HB Base On</value>
+  </data>
+  <data name="Activity_HB_Base_Test_key" xml:space="preserve">
+    <value>HB Base Test</value>
+  </data>
+  <data name="Activity_HB_key" xml:space="preserve">
+    <value>HB</value>
+  </data>
+  <data name="Activity_HB_Off_key" xml:space="preserve">
+    <value>HB Off</value>
+  </data>
+  <data name="Activity_HB_On_key" xml:space="preserve">
+    <value>HB On</value>
+  </data>
+  <data name="Activity_HB_Spot_Laser_Test_key" xml:space="preserve">
+    <value>HB Spot Laser Test</value>
+  </data>
+  <data name="Activity_HB_Spot_Off_key" xml:space="preserve">
+    <value>HB Spot Off</value>
+  </data>
+  <data name="Activity_HB_Spot_On_key" xml:space="preserve">
+    <value>HB Spot On</value>
+  </data>
+  <data name="Activity_HB_Spot_Test_key" xml:space="preserve">
+    <value>HB Spot Test</value>
+  </data>
+  <data name="Activity_HB_Test_key" xml:space="preserve">
+    <value>HB Test</value>
+  </data>
+  <data name="Activity_High_Beam_key" xml:space="preserve">
+    <value>High Beam</value>
+  </data>
+  <data name="Activity_HLI_LCU_L_Off_key" xml:space="preserve">
+    <value>Vypnutí HLI LCU L</value>
+  </data>
+  <data name="Activity_HLI_LCU_L_on_key" xml:space="preserve">
+    <value>Zapnutí HLI LCU L</value>
+  </data>
+  <data name="Activity_HLI_Off_key" xml:space="preserve">
+    <value>HLI Off</value>
+  </data>
+  <data name="Activity_HLI_On_key" xml:space="preserve">
+    <value>HLI On</value>
+  </data>
+  <data name="Activity_HLI_Reset_key" xml:space="preserve">
+    <value>HLI Reset</value>
+  </data>
+  <data name="Activity_HL_Initialization_and_identification_key" xml:space="preserve">
+    <value>HL Inicializace a Identifikace</value>
+  </data>
+  <data name="Activity_HL_Rezistor_key" xml:space="preserve">
+    <value>HL Rezistor</value>
+  </data>
+  <data name="Activity_HL_Test_key" xml:space="preserve">
+    <value>HL Test</value>
+  </data>
+  <data name="Activity_Home_Machine_key" xml:space="preserve">
+    <value>Uvedení stroje do základní pozice</value>
+  </data>
+  <data name="Activity_Identification_and_tracebility_HLI_key" xml:space="preserve">
+    <value>Identifikace a sledovatelnost HLI</value>
+  </data>
+  <data name="Activity_Identification_and_tracebility_LCU_key" xml:space="preserve">
+    <value>Identifikace a sledovatelnost LCU</value>
+  </data>
+  <data name="Activity_Identification_and_Variant_Selection_HLI_key" xml:space="preserve">
+    <value>Identifikace a výběr varianty HLI</value>
+  </data>
+  <data name="Activity_Identification_and_Variant_Selection_key" xml:space="preserve">
+    <value>Identifikace a výběr varianty</value>
+  </data>
+  <data name="Activity_Identification_and_Variant_Selection_LCU_key" xml:space="preserve">
+    <value>Identifikace a výběr varianty LCU</value>
+  </data>
+  <data name="Activity_Identification_key" xml:space="preserve">
+    <value>Identifikace</value>
+  </data>
+  <data name="Activity_If_Both_key" xml:space="preserve">
+    <value>Pokud jsou obě</value>
+  </data>
+  <data name="Activity_If_coding_data_mismatch_key" xml:space="preserve">
+    <value>Pokud kódovací data neodpovídají</value>
+  </data>
+  <data name="Activity_If_different_mounting_side_key" xml:space="preserve">
+    <value>V případě jiné montážní strany</value>
+  </data>
+  <data name="Activity_If_errors_exists_key" xml:space="preserve">
+    <value>Pokud se vyskytují chyby</value>
+  </data>
+  <data name="Activity_If_first_run_key" xml:space="preserve">
+    <value>V případě prvního cyklu</value>
+  </data>
+  <data name="Activity_IF_GS_key" xml:space="preserve">
+    <value>Pokud je GS</value>
+  </data>
+  <data name="Activity_if_Left_key" xml:space="preserve">
+    <value>Pokud je levá</value>
+  </data>
+  <data name="Activity_If_NOK_key" xml:space="preserve">
+    <value>Pokud je NOK</value>
+  </data>
+  <data name="Activity_If_not_coded_key" xml:space="preserve">
+    <value>Pokud není nakódováno</value>
+  </data>
+  <data name="Activity_If_not_repeating_key" xml:space="preserve">
+    <value>Když není opakovaní</value>
+  </data>
+  <data name="Activity_If_ok_key" xml:space="preserve">
+    <value>Pokud je OK</value>
+  </data>
+  <data name="Activity_if_Right_key" xml:space="preserve">
+    <value>Pokud je pravá</value>
+  </data>
+  <data name="Activity_If_Top_key" xml:space="preserve">
+    <value>Pokud je TOP verze</value>
+  </data>
+  <data name="Activity_Important_Question_key" xml:space="preserve">
+    <value>Důležitá otázka</value>
+  </data>
+  <data name="Activity_Initialization_and_Identification_key" xml:space="preserve">
+    <value>Inicializace a identifikace</value>
+  </data>
+  <data name="Activity_Initialization_Bus_Communication_key" xml:space="preserve">
+    <value>Inicializace Bus komunikace</value>
+  </data>
+  <data name="Activity_Initialize_key" xml:space="preserve">
+    <value>Inicializace</value>
+  </data>
+  <data name="Activity_Init_bus_com_machine_key" xml:space="preserve">
+    <value>Inicializace Bus komunikace a stroje</value>
+  </data>
+  <data name="Activity_Init_Can_Signals_key" xml:space="preserve">
+    <value>Inicializace CAN signálu</value>
+  </data>
+  <data name="Activity_Init_Machine_after_sequence_start_key" xml:space="preserve">
+    <value>Inicializace stroje po startu sekvence</value>
+  </data>
+  <data name="Activity_Init_test_key" xml:space="preserve">
+    <value>Inicializace testu</value>
+  </data>
+  <data name="Activity_Init_Vision_key" xml:space="preserve">
+    <value>Inicializace Vision</value>
+  </data>
+  <data name="Activity_Laser_Identification_key" xml:space="preserve">
+    <value>Laser - Čtení Identifikace</value>
+  </data>
+  <data name="Activity_Laser_off_key" xml:space="preserve">
+    <value>Laser off</value>
+  </data>
+  <data name="Activity_Laser_On_key" xml:space="preserve">
+    <value>Laser On</value>
+  </data>
+  <data name="Activity_LBB_Off_key" xml:space="preserve">
+    <value>LBB Off</value>
+  </data>
+  <data name="Activity_LBB_On_key" xml:space="preserve">
+    <value>LBB On</value>
+  </data>
+  <data name="Activity_LBS_Off_key" xml:space="preserve">
+    <value>LBS Off</value>
+  </data>
+  <data name="Activity_LBS_On_key" xml:space="preserve">
+    <value>LBS On</value>
+  </data>
+  <data name="Activity_LB_Base_Center_Off_key" xml:space="preserve">
+    <value>LB Base Center Off</value>
+  </data>
+  <data name="Activity_LB_Base_Center_On_key" xml:space="preserve">
+    <value>LB Base Center On</value>
+  </data>
+  <data name="Activity_LB_Base_Center_Test_key" xml:space="preserve">
+    <value>LB Base Center Test</value>
+  </data>
+  <data name="Activity_LB_Base_Off_key" xml:space="preserve">
+    <value>LB Base Off</value>
+  </data>
+  <data name="Activity_LB_Base_On_key" xml:space="preserve">
+    <value>LB Base On</value>
+  </data>
+  <data name="Activity_LB_Base_Side_Off_key" xml:space="preserve">
+    <value>LB Base Side Off</value>
+  </data>
+  <data name="Activity_LB_Base_Side_On_key" xml:space="preserve">
+    <value>LB Base Side On</value>
+  </data>
+  <data name="Activity_LB_Base_Side_Test_key" xml:space="preserve">
+    <value>LB Base Side Test</value>
+  </data>
+  <data name="Activity_LB_Base_Test_key" xml:space="preserve">
+    <value>LB Base Test</value>
+  </data>
+  <data name="Activity_LB_key" xml:space="preserve">
+    <value>LB</value>
+  </data>
+  <data name="Activity_LB_Off_key" xml:space="preserve">
+    <value>LB Off</value>
+  </data>
+  <data name="Activity_LB_On_key" xml:space="preserve">
+    <value>LB On</value>
+  </data>
+  <data name="Activity_LB_Spot_Off_key" xml:space="preserve">
+    <value>LB Spot Off</value>
+  </data>
+  <data name="Activity_LB_Spot_On_key" xml:space="preserve">
+    <value>LB Spot On</value>
+  </data>
+  <data name="Activity_LB_Spot_Test_key" xml:space="preserve">
+    <value>LB Spot Test</value>
+  </data>
+  <data name="Activity_LB_Test_key" xml:space="preserve">
+    <value>LB Test</value>
+  </data>
+  <data name="Activity_LCU_Off_key" xml:space="preserve">
+    <value>LCU Off</value>
+  </data>
+  <data name="Activity_LCU_On_key" xml:space="preserve">
+    <value>LCU On</value>
+  </data>
+  <data name="Activity_LCU_Temperatures_key" xml:space="preserve">
+    <value>LCU Temperatures</value>
+  </data>
+  <data name="Activity_Left_or_Right_key" xml:space="preserve">
+    <value>Levá nebo pravá</value>
+  </data>
+  <data name="Activity_Leimo_off_key" xml:space="preserve">
+    <value>Leimo off</value>
+  </data>
+  <data name="Activity_Leimo_on_key" xml:space="preserve">
+    <value>Leimo on</value>
+  </data>
+  <data name="Activity_Lens_Check_key" xml:space="preserve">
+    <value>Kontrola čočky</value>
+  </data>
+  <data name="Activity_Lock_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Zamknutí paměti chyb HLI</value>
+  </data>
+  <data name="Activity_Loop_key" xml:space="preserve">
+    <value>Smyčka</value>
+  </data>
+  <data name="Activity_LWR_Off_key" xml:space="preserve">
+    <value>LWR Off</value>
+  </data>
+  <data name="Activity_LWR_On_key" xml:space="preserve">
+    <value>LWR On</value>
+  </data>
+  <data name="Activity_LWR_Reference_key" xml:space="preserve">
+    <value>LWR Reference</value>
+  </data>
+  <data name="Activity_Main_Loop_key" xml:space="preserve">
+    <value>Hlavní smyčka</value>
+  </data>
+  <data name="Activity_Manual_Lens_Check_key" xml:space="preserve">
+    <value>Manuální kontrola čočky</value>
+  </data>
+  <data name="Activity_Matrix_Beam_key" xml:space="preserve">
+    <value>Matrix Beam</value>
+  </data>
+  <data name="Activity_Measure_Color_DRL1_key" xml:space="preserve">
+    <value>Měření barvy DRL1</value>
+  </data>
+  <data name="Activity_Measure_Color_DRL2_key" xml:space="preserve">
+    <value>Měření barvy DRL2</value>
+  </data>
+  <data name="Activity_Measure_Color_DRL_key" xml:space="preserve">
+    <value>Měření barvy DRL</value>
+  </data>
+  <data name="Activity_Measure_Color_key" xml:space="preserve">
+    <value>Měření barvy</value>
+  </data>
+  <data name="Activity_Measure_Color_SCL_key" xml:space="preserve">
+    <value>Měření barvy SCL</value>
+  </data>
+  <data name="Activity_Measure_Color_SM_key" xml:space="preserve">
+    <value>Měření barvy SM</value>
+  </data>
+  <data name="Activity_Measure_Color_TI_key" xml:space="preserve">
+    <value>Měření barvy TI</value>
+  </data>
+  <data name="Activity_Measure_current_CL_key" xml:space="preserve">
+    <value>Měření proudu CL</value>
+  </data>
+  <data name="Activity_Measure_current_DMD_key" xml:space="preserve">
+    <value>Měření proudu DMD</value>
+  </data>
+  <data name="Activity_Measure_current_DRL1_key" xml:space="preserve">
+    <value>Měření proudu DRL1</value>
+  </data>
+  <data name="Activity_Measure_current_DRL2_key" xml:space="preserve">
+    <value>Měření proudu DRL2</value>
+  </data>
+  <data name="Activity_Measure_current_DRL_key" xml:space="preserve">
+    <value>Měření proudu DRL</value>
+  </data>
+  <data name="Activity_Measure_current_ECUs_key" xml:space="preserve">
+    <value>Měření proudu ECUs</value>
+  </data>
+  <data name="Activity_Measure_current_ECU_key" xml:space="preserve">
+    <value>Měření proudu ECU</value>
+  </data>
+  <data name="Activity_Measure_current_Fan_key" xml:space="preserve">
+    <value>Měření proudu Ventilátoru</value>
+  </data>
+  <data name="Activity_Measure_current_GFHB_key" xml:space="preserve">
+    <value>Měření proudu GFHB</value>
+  </data>
+  <data name="Activity_Measure_current_HB_Base_key" xml:space="preserve">
+    <value>Měření proudu HB Base</value>
+  </data>
+  <data name="Activity_Measure_current_HB_key" xml:space="preserve">
+    <value>Měření proudu HB</value>
+  </data>
+  <data name="Activity_Measure_current_HB_Laser_key" xml:space="preserve">
+    <value>Měření proudu HB Laser</value>
+  </data>
+  <data name="Activity_Measure_current_HB_Spot_key" xml:space="preserve">
+    <value>Měření proudu HB Spot</value>
+  </data>
+  <data name="Activity_Measure_current_HLI_key" xml:space="preserve">
+    <value>Měření proudu HLI</value>
+  </data>
+  <data name="Activity_Measure_current_key" xml:space="preserve">
+    <value>Měření proudu</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Base_Center_key" xml:space="preserve">
+    <value>Měření proudu LB Base Center</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Base_key" xml:space="preserve">
+    <value>Měření proudu LB Base</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Base_Side_key" xml:space="preserve">
+    <value>Měření proudu LB Base Side</value>
+  </data>
+  <data name="Activity_Measure_current_LB_key" xml:space="preserve">
+    <value>Měření proudu LB</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Spot_key" xml:space="preserve">
+    <value>Měření proudu LB Spot</value>
+  </data>
+  <data name="Activity_Measure_current_LCU_key" xml:space="preserve">
+    <value>Měření proudu LCU</value>
+  </data>
+  <data name="Activity_Measure_current_LMS_key" xml:space="preserve">
+    <value>Měření proudu LMS</value>
+  </data>
+  <data name="Activity_Measure_current_MxB_key" xml:space="preserve">
+    <value>Měření proudu MxB</value>
+  </data>
+  <data name="Activity_Measure_current_POS1_key" xml:space="preserve">
+    <value>Měření proudu POS1</value>
+  </data>
+  <data name="Activity_Measure_current_POS2_key" xml:space="preserve">
+    <value>Měření proudu POS2</value>
+  </data>
+  <data name="Activity_Measure_current_POS_key" xml:space="preserve">
+    <value>Měření proudu POS</value>
+  </data>
+  <data name="Activity_Measure_current_SCL_key" xml:space="preserve">
+    <value>Měření proudu SCL</value>
+  </data>
+  <data name="Activity_Measure_current_SM_key" xml:space="preserve">
+    <value>Měření proudu SM</value>
+  </data>
+  <data name="Activity_Measure_current_TI1_key" xml:space="preserve">
+    <value>Měření proudu TI1</value>
+  </data>
+  <data name="Activity_Measure_current_TI2_key" xml:space="preserve">
+    <value>Měření proudu TI2</value>
+  </data>
+  <data name="Activity_Measure_current_TI_key" xml:space="preserve">
+    <value>Měření proudu TI</value>
+  </data>
+  <data name="Activity_Measure_Intensity_CL_key" xml:space="preserve">
+    <value>Měření intenzity CL</value>
+  </data>
+  <data name="Activity_Measure_Intensity_DRL1_key" xml:space="preserve">
+    <value>Měření intenzity DRL1</value>
+  </data>
+  <data name="Activity_Measure_Intensity_DRL2_key" xml:space="preserve">
+    <value>Měření intenzity DRL2</value>
+  </data>
+  <data name="Activity_Measure_Intensity_DRL_key" xml:space="preserve">
+    <value>Měření intenzity DRL</value>
+  </data>
+  <data name="Activity_Measure_Intensity_key" xml:space="preserve">
+    <value>Měření intenzity</value>
+  </data>
+  <data name="Activity_Measure_Intensity_LB_Base_Side_key" xml:space="preserve">
+    <value>Měření intenzity LB Base Side</value>
+  </data>
+  <data name="Activity_Measure_Intensity_POS_key" xml:space="preserve">
+    <value>Měření intenzity POS</value>
+  </data>
+  <data name="Activity_Measure_Intensity_SCL_key" xml:space="preserve">
+    <value>Měření intenzity SCL</value>
+  </data>
+  <data name="Activity_Measure_Intensity_SM_key" xml:space="preserve">
+    <value>Měření intenzity SM</value>
+  </data>
+  <data name="Activity_Measure_Intensity_TI_key" xml:space="preserve">
+    <value>Měření intenzity TI</value>
+  </data>
+  <data name="Activity_Movement_Inside_key" xml:space="preserve">
+    <value>Pohyb dovniř</value>
+  </data>
+  <data name="Activity_Movement_Middle_key" xml:space="preserve">
+    <value>Pohyb na střed</value>
+  </data>
+  <data name="Activity_Movement_Outside_key" xml:space="preserve">
+    <value>Pohyb ven</value>
+  </data>
+  <data name="Activity_Movement_test_key" xml:space="preserve">
+    <value>Test Pohybu</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_0_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 0</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_1_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 1</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_2_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 2</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_3_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 3</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_4_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 4</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_5_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 5</value>
+  </data>
+  <data name="Activity_Movement_Test_Pos_6_key" xml:space="preserve">
+    <value>Kontrola pohybu motoru Pozice 6</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Clean_async_key" xml:space="preserve">
+    <value>Asynchronní přesun tubusu do pozice LCB Clean</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_async_key" xml:space="preserve">
+    <value>Asynchronní přesun tubusu do pozice LCB Work</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_HB_async_key" xml:space="preserve">
+    <value>Asynchronní přesun tubusu do pozice LCB Work HB</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_LB_async_key" xml:space="preserve">
+    <value>Asynchronní přesun tubusu do pozice LCB Work LB</value>
+  </data>
+  <data name="Activity_Move_to_LCB_CL_async_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB CL async</value>
+  </data>
+  <data name="Activity_Move_to_LCB_CL_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB CL</value>
+  </data>
+  <data name="Activity_Move_to_LCB_MID_async_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB MID async</value>
+  </data>
+  <data name="Activity_Move_to_LCB_MID_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB MID</value>
+  </data>
+  <data name="Activity_Move_to_LCB_Work_HB_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB Work HB</value>
+  </data>
+  <data name="Activity_Move_to_LCB_Work_LB_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB Work LB</value>
+  </data>
+  <data name="Activity_Move_to_PREPARE_NEXT_CYCLE_async_key" xml:space="preserve">
+    <value>Přesun z důvodu Přípravy dalšího cyklu async</value>
+  </data>
+  <data name="Activity_Move_to_WORK_CL_key" xml:space="preserve">
+    <value>Přesun šroubováku do pozice WORK CL</value>
+  </data>
+  <data name="Activity_Move_to_WORK_HB_async_key" xml:space="preserve">
+    <value>Přesun šroubováku do pozice WORK HB async</value>
+  </data>
+  <data name="Activity_Move_to_WORK_HB_key" xml:space="preserve">
+    <value>Přesun šroubováku do pozice WORK HB</value>
+  </data>
+  <data name="Activity_Move_to_WORK_key" xml:space="preserve">
+    <value>Přesun šroubováku do pozice WORK</value>
+  </data>
+  <data name="Activity_MxB_key" xml:space="preserve">
+    <value>MxB</value>
+  </data>
+  <data name="Activity_MXB_LED10_Off_key" xml:space="preserve">
+    <value>MXB LED10 Off</value>
+  </data>
+  <data name="Activity_MXB_LED10_On_key" xml:space="preserve">
+    <value>MXB LED10 On</value>
+  </data>
+  <data name="Activity_MXB_LED11_Off_key" xml:space="preserve">
+    <value>MXB LED11 Off</value>
+  </data>
+  <data name="Activity_MXB_LED11_On_key" xml:space="preserve">
+    <value>MXB LED11 On</value>
+  </data>
+  <data name="Activity_MXB_LED12_Off_key" xml:space="preserve">
+    <value>MXB LED12 Off</value>
+  </data>
+  <data name="Activity_MXB_LED12_On_key" xml:space="preserve">
+    <value>MXB LED12 On</value>
+  </data>
+  <data name="Activity_MXB_LED1_Off_key" xml:space="preserve">
+    <value>MXB LED1 Off</value>
+  </data>
+  <data name="Activity_MXB_LED1_On_key" xml:space="preserve">
+    <value>MXB LED1 On</value>
+  </data>
+  <data name="Activity_MXB_LED2_Off_key" xml:space="preserve">
+    <value>MXB LED2 Off</value>
+  </data>
+  <data name="Activity_MXB_LED2_On_key" xml:space="preserve">
+    <value>MXB LED2 On</value>
+  </data>
+  <data name="Activity_MXB_LED3_Off_key" xml:space="preserve">
+    <value>MXB LED3 Off</value>
+  </data>
+  <data name="Activity_MXB_LED3_On_key" xml:space="preserve">
+    <value>MXB LED3 On</value>
+  </data>
+  <data name="Activity_MXB_LED4_Off_key" xml:space="preserve">
+    <value>MXB LED4 Off</value>
+  </data>
+  <data name="Activity_MXB_LED4_On_key" xml:space="preserve">
+    <value>MXB LED4 On</value>
+  </data>
+  <data name="Activity_MXB_LED5_Off_key" xml:space="preserve">
+    <value>MXB LED5 Off</value>
+  </data>
+  <data name="Activity_MXB_LED5_On_key" xml:space="preserve">
+    <value>MXB LED5 On</value>
+  </data>
+  <data name="Activity_MXB_LED6_Off_key" xml:space="preserve">
+    <value>MXB LED6 Off</value>
+  </data>
+  <data name="Activity_MXB_LED6_On_key" xml:space="preserve">
+    <value>MXB LED6 On</value>
+  </data>
+  <data name="Activity_MXB_LED7_Off_key" xml:space="preserve">
+    <value>MXB LED7 Off</value>
+  </data>
+  <data name="Activity_MXB_LED7_On_key" xml:space="preserve">
+    <value>MXB LED7 On</value>
+  </data>
+  <data name="Activity_MXB_LED8_Off_key" xml:space="preserve">
+    <value>MXB LED8 Off</value>
+  </data>
+  <data name="Activity_MXB_LED8_On_key" xml:space="preserve">
+    <value>MXB LED8 On</value>
+  </data>
+  <data name="Activity_MXB_LED9_Off_key" xml:space="preserve">
+    <value>MXB LED9 Off</value>
+  </data>
+  <data name="Activity_MXB_LED9_On_key" xml:space="preserve">
+    <value>MXB LED9 On</value>
+  </data>
+  <data name="Activity_MXB_LED_FULL_Off_key" xml:space="preserve">
+    <value>MXB LED Komplet Off</value>
+  </data>
+  <data name="Activity_MXB_LED_FULL_On_key" xml:space="preserve">
+    <value>MXB LED Komplet On</value>
+  </data>
+  <data name="Activity_MXB_Pattern1_Off_key" xml:space="preserve">
+    <value>MXB Vzor1 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern1_On_key" xml:space="preserve">
+    <value>MXB Vzor1 On</value>
+  </data>
+  <data name="Activity_MXB_Pattern2_Off_key" xml:space="preserve">
+    <value>MXB Vzor2 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern2_On_key" xml:space="preserve">
+    <value>MXB Vzor2 On</value>
+  </data>
+  <data name="Activity_MXB_Pattern3_Off_key" xml:space="preserve">
+    <value>MXB Vzor3 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern3_On_key" xml:space="preserve">
+    <value>MXB Vzor3 On</value>
+  </data>
+  <data name="Activity_MXB_Pattern4_Off_key" xml:space="preserve">
+    <value>MXB Vzor4 Off</value>
+  </data>
+  <data name="Activity_MXB_Pattern4_On_key" xml:space="preserve">
+    <value>MXB Vzor4 On</value>
+  </data>
+  <data name="Activity_MxB_Test_key" xml:space="preserve">
+    <value>MxB Test</value>
+  </data>
+  <data name="Activity_PalleteID_key" xml:space="preserve">
+    <value>ID Palety</value>
+  </data>
+  <data name="Activity_Parse_ALCZ_Part_Number_key" xml:space="preserve">
+    <value>Parsování ALCZ Part Number</value>
+  </data>
+  <data name="Activity_Parse_Barcode_key" xml:space="preserve">
+    <value>Rozklad čárového kódu</value>
+  </data>
+  <data name="Activity_Parsing_key" xml:space="preserve">
+    <value>Parsování</value>
+  </data>
+  <data name="Activity_Part_presence_key" xml:space="preserve">
+    <value>Kontrola přítomnosti dílu</value>
+  </data>
+  <data name="Activity_POS1_Off_key" xml:space="preserve">
+    <value>POS1 Off</value>
+  </data>
+  <data name="Activity_POS1_On_key" xml:space="preserve">
+    <value>POS1 On</value>
+  </data>
+  <data name="Activity_POS2_Off_key" xml:space="preserve">
+    <value>POS2 Off</value>
+  </data>
+  <data name="Activity_POS2_On_key" xml:space="preserve">
+    <value>POS2 On</value>
+  </data>
+  <data name="Activity_POS_Off_key" xml:space="preserve">
+    <value>POS Off</value>
+  </data>
+  <data name="Activity_POS_On_key" xml:space="preserve">
+    <value>POS On</value>
+  </data>
+  <data name="Activity_POS_test_key" xml:space="preserve">
+    <value>POS test</value>
+  </data>
+  <data name="Activity_Prepare_and_Execute_Test_key" xml:space="preserve">
+    <value>Příprava a Vykonání Testu</value>
+  </data>
+  <data name="Activity_Prepare_for_service_key" xml:space="preserve">
+    <value>Příprava na servis</value>
+  </data>
+  <data name="Activity_Prepare_Machine_each_new_cycle_key" xml:space="preserve">
+    <value>Příprava stroje na začátku každého cyklu</value>
+  </data>
+  <data name="Activity_Prepare_Machine_key" xml:space="preserve">
+    <value>Příprava stroje</value>
+  </data>
+  <data name="Activity_Prepare_Test_key" xml:space="preserve">
+    <value>Příprava testu</value>
+  </data>
+  <data name="Activity_Range_Test_Bottom_Left_key" xml:space="preserve">
+    <value>Kontrola Rozsahu LB Dolu Vlevo</value>
+  </data>
+  <data name="Activity_Range_test_key" xml:space="preserve">
+    <value>Test rozsahu LB</value>
+  </data>
+  <data name="Activity_Range_Test_Target_key" xml:space="preserve">
+    <value>Kontrola Rozsahu LB na Stred</value>
+  </data>
+  <data name="Activity_Range_Test_Top_Right_key" xml:space="preserve">
+    <value>Kontrola Rozsahu LB Nahoru Vpravo</value>
+  </data>
+  <data name="Activity_Readers_key" xml:space="preserve">
+    <value>Čtečky</value>
+  </data>
+  <data name="Activity_Readers_to_home_possition_key" xml:space="preserve">
+    <value>Přesun Čteček do základní pozice</value>
+  </data>
+  <data name="Activity_Readers_to_read_possition_key" xml:space="preserve">
+    <value>Přesun Čteček do pozice na čtení kódu</value>
+  </data>
+  <data name="Activity_Read_and_delete_Error_Memory_key" xml:space="preserve">
+    <value>Čtení a Mazání paměti chyb</value>
+  </data>
+  <data name="Activity_Read_Axel_Sensor_Value_key" xml:space="preserve">
+    <value>Čtení hodnoty Axle sensoru</value>
+  </data>
+  <data name="Activity_Read_barcodes_SF1_key" xml:space="preserve">
+    <value>Čtení čárového kódu SF1</value>
+  </data>
+  <data name="Activity_Read_barcodes_SF2_key" xml:space="preserve">
+    <value>Čtení čárového kódu SF2</value>
+  </data>
+  <data name="Activity_Read_barcode_FL_key" xml:space="preserve">
+    <value>Čtení čárového kódu FL</value>
+  </data>
+  <data name="Activity_Read_barcode_FR_key" xml:space="preserve">
+    <value>Čtení čárového kódu FR</value>
+  </data>
+  <data name="Activity_Read_barcode_key" xml:space="preserve">
+    <value>Čtení čárového kódu</value>
+  </data>
+  <data name="Activity_Read_Binnig_Class_key" xml:space="preserve">
+    <value>Vyčítání - Třídy bináže</value>
+  </data>
+  <data name="Activity_Read_ECU_Identification_HWEL_BTLD_SWFL_key" xml:space="preserve">
+    <value>Čtení ECU Identifikace (HWEL, BTLD, SWFL)</value>
+  </data>
+  <data name="Activity_Read_ECU_Identification_SWFK_CAFD_After_Coding_key" xml:space="preserve">
+    <value>Čtení ECU Identifikace (SWFK, CAFD) po kódování</value>
+  </data>
+  <data name="Activity_Read_ECU_Identification_SWFK_CAFD_Before_Coding_key" xml:space="preserve">
+    <value>Čtení ECU Identifikace (SWFK, CAFD) před kódováním</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_DMD_key" xml:space="preserve">
+    <value>Čtení paměti chyb DMD</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Čtení paměti chyb HLI</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_key" xml:space="preserve">
+    <value>Čtení paměti chyb</value>
+  </data>
+  <data name="Activity_Read_Error_Memory_LCU_key" xml:space="preserve">
+    <value>Čtení paměti chyb LCU</value>
+  </data>
+  <data name="Activity_Read_HW_Ident_DMD_key" xml:space="preserve">
+    <value>Vyčítání - DMD Identifikace HW</value>
+  </data>
+  <data name="Activity_Read_HW_Ident_key" xml:space="preserve">
+    <value>Čtení hardwarove identifikace</value>
+  </data>
+  <data name="Activity_Read_Info_Memory_key" xml:space="preserve">
+    <value>Čtení Info paměti</value>
+  </data>
+  <data name="Activity_Read_LMS_DataSet_key" xml:space="preserve">
+    <value>Vyčítání - Identifikace LMS Data Set</value>
+  </data>
+  <data name="Activity_Read_Software_Before_coding_key" xml:space="preserve">
+    <value>Čtení softwaru před kódováním</value>
+  </data>
+  <data name="Activity_Read_Software_Coding_Identification_After_coding_key" xml:space="preserve">
+    <value>Čtení softwaru a identifikace po kódování</value>
+  </data>
+  <data name="Activity_Read_Software_Coding_Identification_Before_Coding_key" xml:space="preserve">
+    <value>Čtení softwaru a identifikace před kódování</value>
+  </data>
+  <data name="Activity_Read_SW_Ident_DMD_key" xml:space="preserve">
+    <value>Vyčítání - DMD Identifikace SW</value>
+  </data>
+  <data name="Activity_Read_Temperature_Sensors_key" xml:space="preserve">
+    <value>Vyčítání - Teplotní senzory</value>
+  </data>
+  <data name="Activity_Reference_key" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="Activity_Refresh_Camera_key" xml:space="preserve">
+    <value>Obnovení Kamery</value>
+  </data>
+  <data name="Activity_Reset_Error_Memory_HLI_key" xml:space="preserve">
+    <value>Reset paměti chyb HLI</value>
+  </data>
+  <data name="Activity_Reset_Sequnece_Variant_key" xml:space="preserve">
+    <value>Reset varianty sekvence</value>
+  </data>
+  <data name="Activity_Reset_Timer_key" xml:space="preserve">
+    <value>Reset Časovače</value>
+  </data>
+  <data name="Activity_Reset_Variables_and_Tables_key" xml:space="preserve">
+    <value>Reset tabulek a proměnných</value>
+  </data>
+  <data name="Activity_Restart_ECU_key" xml:space="preserve">
+    <value>Restart ECU</value>
+  </data>
+  <data name="Activity_SABL1_key" xml:space="preserve">
+    <value>SABL1</value>
+  </data>
+  <data name="Activity_SABL2_key" xml:space="preserve">
+    <value>SABL2</value>
+  </data>
+  <data name="Activity_SABL_1_On_key" xml:space="preserve">
+    <value>SABL 1 On</value>
+  </data>
+  <data name="Activity_SABL_2_On_key" xml:space="preserve">
+    <value>SABL 2 On</value>
+  </data>
+  <data name="Activity_SABL_Off_key" xml:space="preserve">
+    <value>SABL Off</value>
+  </data>
+  <data name="Activity_SABL_On_key" xml:space="preserve">
+    <value>SABL On</value>
+  </data>
+  <data name="Activity_SAE_only_key" xml:space="preserve">
+    <value>Pouze SAE</value>
+  </data>
+  <data name="Activity_SCL_Off_key" xml:space="preserve">
+    <value>SCL Off</value>
+  </data>
+  <data name="Activity_SCL_On_key" xml:space="preserve">
+    <value>SCL On</value>
+  </data>
+  <data name="Activity_SCL_test_key" xml:space="preserve">
+    <value>SCL test</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeServiceCmd" xml:space="preserve">
+    <value>Změnit stav servisního příkazu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ClearValidTables" xml:space="preserve">
+    <value>Vymazat validační tabulky</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetExecState" xml:space="preserve">
+    <value>Získat status vykonávání</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetSeqVariant" xml:space="preserve">
+    <value>Získat variantu sekvence</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetUsers" xml:space="preserve">
+    <value>Získat přihlášené uživatele</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_LogMsg" xml:space="preserve">
+    <value>Zalogovat zprávu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_PauseSeq" xml:space="preserve">
+    <value>Pozastavit sekvenci</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SaveReport" xml:space="preserve">
+    <value>Uložit report a vymazat chyby</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetSeqVariant" xml:space="preserve">
+    <value>Nastavit variantu sekvence</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetStatusMsg" xml:space="preserve">
+    <value>Nastavit stavovou zprávu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StartCounter" xml:space="preserve">
+    <value>Restart časovače</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StopSeq" xml:space="preserve">
+    <value>Zastavit sekvenci</value>
+  </data>
+  <data name="Activity_Service_Clean_LCB_key" xml:space="preserve">
+    <value>Servis - přesun LCB Do Výchozí Pozice</value>
+  </data>
+  <data name="Activity_Service_CL_key" xml:space="preserve">
+    <value>Servis - přesun LCB do pozice Pro Kontrolu CL</value>
+  </data>
+  <data name="Activity_Service_HB_key" xml:space="preserve">
+    <value>Servis - kontrola HB</value>
+  </data>
+  <data name="Activity_Service_key" xml:space="preserve">
+    <value>Servis</value>
+  </data>
+  <data name="Activity_Service_LCB_MID_key" xml:space="preserve">
+    <value>Servis - přesun LCB Do Střední Pozice</value>
+  </data>
+  <data name="Activity_Set_AHL_Position_key" xml:space="preserve">
+    <value>Nastavení Pozice AHL</value>
+  </data>
+  <data name="Activity_Set_Analog_output_voltage_key" xml:space="preserve">
+    <value>Nastavení napětí na analogovém vystupu</value>
+  </data>
+  <data name="Activity_Set_Logging_key" xml:space="preserve">
+    <value>Nastavení logování</value>
+  </data>
+  <data name="Activity_Set_LWR_Position_key" xml:space="preserve">
+    <value>Nastavení Pozice LWR</value>
+  </data>
+  <data name="Activity_Set_power_supply_voltage_key" xml:space="preserve">
+    <value>Nastavení napětí</value>
+  </data>
+  <data name="Activity_Set_PWM_0_key" xml:space="preserve">
+    <value>Nastavení PWM 0</value>
+  </data>
+  <data name="Activity_Set_PWM_100_key" xml:space="preserve">
+    <value>Nastavení PWM 100</value>
+  </data>
+  <data name="Activity_Set_PWM_key" xml:space="preserve">
+    <value>Nastavení PWM</value>
+  </data>
+  <data name="Activity_Set_relay_CL_off_key" xml:space="preserve">
+    <value>Vypnutí relátka CL</value>
+  </data>
+  <data name="Activity_Set_relay_CL_on_key" xml:space="preserve">
+    <value>Zapnutí relátka CL</value>
+  </data>
+  <data name="Activity_Set_relay_DRL_off_key" xml:space="preserve">
+    <value>Vypnutí relátka DRL</value>
+  </data>
+  <data name="Activity_Set_relay_DRL_On_key" xml:space="preserve">
+    <value>Zapnutí relátka DRL</value>
+  </data>
+  <data name="Activity_Set_relay_HB_off_key" xml:space="preserve">
+    <value>Vypnutí relátka HB</value>
+  </data>
+  <data name="Activity_Set_relay_HB_on_key" xml:space="preserve">
+    <value>Zapnutí relátka HB</value>
+  </data>
+  <data name="Activity_Set_relay_key" xml:space="preserve">
+    <value>Nastavení relátka</value>
+  </data>
+  <data name="Activity_Set_relay_LB_off_key" xml:space="preserve">
+    <value>Vypnutí relátka LB</value>
+  </data>
+  <data name="Activity_Set_relay_LB_on_key" xml:space="preserve">
+    <value>Zapnutí relátka LB</value>
+  </data>
+  <data name="Activity_Set_relay_Leimo_off_key" xml:space="preserve">
+    <value>Vypnutí relátka Leimo</value>
+  </data>
+  <data name="Activity_Set_relay_Leimo_on_key" xml:space="preserve">
+    <value>Zapnutí relátka Leimo</value>
+  </data>
+  <data name="Activity_Set_relay_POS_off_key" xml:space="preserve">
+    <value>Vypnutí relátka POS</value>
+  </data>
+  <data name="Activity_Set_relay_POS_On_key" xml:space="preserve">
+    <value>Zapnutí relátka POS</value>
+  </data>
+  <data name="Activity_Set_relay_TI_off_key" xml:space="preserve">
+    <value>Vypnutí relátka TI</value>
+  </data>
+  <data name="Activity_Set_relay_TI_on_key" xml:space="preserve">
+    <value>Zapnutí relátka TI</value>
+  </data>
+  <data name="Activity_Set_Sequence_Variant_in_code_key" xml:space="preserve">
+    <value>Nastavení Varianty Sekvence v kódu</value>
+  </data>
+  <data name="Activity_Set_Sequence_Variant_key" xml:space="preserve">
+    <value>Nastavení Varianty Sekvence</value>
+  </data>
+  <data name="Activity_Set_test_Done_key" xml:space="preserve">
+    <value>Nastavení Test Dokončen</value>
+  </data>
+  <data name="Activity_Set_test_NOK_key" xml:space="preserve">
+    <value>Nastavení Test NOK</value>
+  </data>
+  <data name="Activity_Set_test_OK_key" xml:space="preserve">
+    <value>Nastavení Test OK</value>
+  </data>
+  <data name="Activity_SIGN_OFF_key" xml:space="preserve">
+    <value>SIGN OFF</value>
+  </data>
+  <data name="Activity_SIGN_On_key" xml:space="preserve">
+    <value>SIGN On</value>
+  </data>
+  <data name="Activity_SM_Off_key" xml:space="preserve">
+    <value>SM Off</value>
+  </data>
+  <data name="Activity_SM_On_key" xml:space="preserve">
+    <value>SM On</value>
+  </data>
+  <data name="Activity_SM_PARK_OFF_key" xml:space="preserve">
+    <value>SM/PARK OFF</value>
+  </data>
+  <data name="Activity_SM_PARK_On_key" xml:space="preserve">
+    <value>SM/PARK On</value>
+  </data>
+  <data name="Activity_SM_test_key" xml:space="preserve">
+    <value>SM test</value>
+  </data>
+  <data name="Activity_Start_flash_mode_key" xml:space="preserve">
+    <value>Zapnutí flash módu</value>
+  </data>
+  <data name="Activity_Start_key" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Activity_Start_operation_mode_key" xml:space="preserve">
+    <value>Zapnutí operačniho módu</value>
+  </data>
+  <data name="Activity_Stop_key" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Activity_SubSequence_Key" xml:space="preserve">
+    <value>Pod sekvence</value>
+  </data>
+  <data name="Activity_Temperature_sensors_HLI_key" xml:space="preserve">
+    <value>Teplotní senzory HLI</value>
+  </data>
+  <data name="Activity_Temperature_sensors_LCU_key" xml:space="preserve">
+    <value>Teplotní senzory LCU</value>
+  </data>
+  <data name="Activity_Test_Finnished_NOK_key" xml:space="preserve">
+    <value>Test skončil NOK</value>
+  </data>
+  <data name="Activity_Test_Finnished_OK_key" xml:space="preserve">
+    <value>Test skončil OK</value>
+  </data>
+  <data name="Activity_Test_result_key" xml:space="preserve">
+    <value>Výsledek Testu</value>
+  </data>
+  <data name="Activity_TI_key" xml:space="preserve">
+    <value>TI</value>
+  </data>
+  <data name="Activity_TI_Off_key" xml:space="preserve">
+    <value>TI Off</value>
+  </data>
+  <data name="Activity_TI_On_key" xml:space="preserve">
+    <value>TI On</value>
+  </data>
+  <data name="Activity_TI_test_key" xml:space="preserve">
+    <value>TI test</value>
+  </data>
+  <data name="Activity_Ti_Wiping_key" xml:space="preserve">
+    <value>Ti Wiping</value>
+  </data>
+  <data name="Activity_TI_Wipping_cyclus_Off_key" xml:space="preserve">
+    <value>TI Wipping cyklus Off</value>
+  </data>
+  <data name="Activity_TI_Wipping_cyclus_On_key" xml:space="preserve">
+    <value>TI Wipping cyklus On</value>
+  </data>
+  <data name="Activity_TI_Wipping_Test_key" xml:space="preserve">
+    <value>TI Wipping Test</value>
+  </data>
+  <data name="Activity_TI_Wipping_Test_Off_key" xml:space="preserve">
+    <value>TI Wipping Test Off</value>
+  </data>
+  <data name="Activity_TI_Wipping_Test_On_key" xml:space="preserve">
+    <value>TI Wipping Test On</value>
+  </data>
+  <data name="Activity_Try_to_read_barcode_key" xml:space="preserve">
+    <value>Pokus o přečtení čárového kódu</value>
+  </data>
+  <data name="Activity_Turn_Light_Center_down_Off_key" xml:space="preserve">
+    <value>Vypnutí Přídavného Osvětlení Uprostřed Dole</value>
+  </data>
+  <data name="Activity_Turn_Light_Center_down_On_key" xml:space="preserve">
+    <value>Zapnutí Přídavného Osvětlení Uprostřed Dole</value>
+  </data>
+  <data name="Activity_Turn_Light_Left_Off_key" xml:space="preserve">
+    <value>Vypnutí Přídavného Osvětlení Vlevo</value>
+  </data>
+  <data name="Activity_Turn_Light_Left_On_key" xml:space="preserve">
+    <value>Zapnutí Přídavného Osvětlení Vlevo</value>
+  </data>
+  <data name="Activity_Turn_Light_Right_Off_key" xml:space="preserve">
+    <value>Vypnutí Přídavného Osvětlení Vpravo</value>
+  </data>
+  <data name="Activity_Turn_Light_Right_On_key" xml:space="preserve">
+    <value>Zapnutí Přídavného Osvětlení Vpravo</value>
+  </data>
+  <data name="Activity_Turn_Light_Side_Off_key" xml:space="preserve">
+    <value>Vypnutí Přídavného Osvětlení na straně</value>
+  </data>
+  <data name="Activity_Turn_Light_Side_On_key" xml:space="preserve">
+    <value>Zapnutí Přídavného Osvětlení na Straně</value>
+  </data>
+  <data name="Activity_Turn_Light_Top_Off_key" xml:space="preserve">
+    <value>Vypnutí Přídavného Osvětlení Nahoře</value>
+  </data>
+  <data name="Activity_Turn_Light_Top_On_key" xml:space="preserve">
+    <value>Zapnutí Přídavného Osvětlení Nahoře</value>
+  </data>
+  <data name="Activity_Turn_On_VAC_Motor_key" xml:space="preserve">
+    <value>Zapnutí VAC motoru</value>
+  </data>
+  <data name="Activity_Vision_CL_key" xml:space="preserve">
+    <value>Optická kontrola CL</value>
+  </data>
+  <data name="Activity_Vision_Configure_All_Cameras_01_key" xml:space="preserve">
+    <value>Vision Konfigurace všech Kamer</value>
+  </data>
+  <data name="Activity_Vision_Configure_Cameras_key" xml:space="preserve">
+    <value>Vision Konfigurace Kamer</value>
+  </data>
+  <data name="Activity_Vision_DABL1_key" xml:space="preserve">
+    <value>Optická kontrola DABL1</value>
+  </data>
+  <data name="Activity_Vision_DABL2_key" xml:space="preserve">
+    <value>Optická kontrola DABL2</value>
+  </data>
+  <data name="Activity_Vision_DMD_key" xml:space="preserve">
+    <value>Optická kontrola DMD</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos0_key" xml:space="preserve">
+    <value>Reference motoru Pozice 0</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos1_key" xml:space="preserve">
+    <value>Reference motoru Pozice 1</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos2_key" xml:space="preserve">
+    <value>Reference motoru Pozice 2</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos3_key" xml:space="preserve">
+    <value>Reference motoru Pozice 3</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos4_key" xml:space="preserve">
+    <value>Reference motoru Pozice 4</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos5_key" xml:space="preserve">
+    <value>Reference motoru Pozice 5</value>
+  </data>
+  <data name="Activity_Vision_Do_Movement_Pos6_key" xml:space="preserve">
+    <value>Reference motoru Pozice 6</value>
+  </data>
+  <data name="Activity_Vision_DRL1_key" xml:space="preserve">
+    <value>Kontrola Intezity a Barvy DRL1</value>
+  </data>
+  <data name="Activity_Vision_DRL2_key" xml:space="preserve">
+    <value>Kontrola Intezity a Barvy DRL2</value>
+  </data>
+  <data name="Activity_Vision_DRL_key" xml:space="preserve">
+    <value>Kontrola Intenzity a Barvy DRL</value>
+  </data>
+  <data name="Activity_Vision_GFHB_key" xml:space="preserve">
+    <value>Optická Kontrola GFHB</value>
+  </data>
+  <data name="Activity_Vision_HB_Base_key" xml:space="preserve">
+    <value>Optická Kontrola HB Base</value>
+  </data>
+  <data name="Activity_Vision_HB_key" xml:space="preserve">
+    <value>Optická Kontrola HB</value>
+  </data>
+  <data name="Activity_Vision_HB_Laser_key" xml:space="preserve">
+    <value>Optická Kontrola HB Laser</value>
+  </data>
+  <data name="Activity_Vision_HB_Spot_key" xml:space="preserve">
+    <value>Optická Kontrola HB Spot</value>
+  </data>
+  <data name="Activity_Vision_LB_Base_Center_key" xml:space="preserve">
+    <value>Optická Kontrola LB Base Center</value>
+  </data>
+  <data name="Activity_Vision_LB_Base_key" xml:space="preserve">
+    <value>Optická kontrola LB Base</value>
+  </data>
+  <data name="Activity_Vision_LB_key" xml:space="preserve">
+    <value>Optická Kontrola LB</value>
+  </data>
+  <data name="Activity_Vision_LB_Spot_key" xml:space="preserve">
+    <value>Optická Kontrola LB Spot</value>
+  </data>
+  <data name="Activity_Vision_MXB_key" xml:space="preserve">
+    <value>Optická Kontrola MXB</value>
+  </data>
+  <data name="Activity_Vision_MXB_pattern_01_key" xml:space="preserve">
+    <value>Kontrola Intenzity MXB Skupina LED A</value>
+  </data>
+  <data name="Activity_Vision_MXB_pattern_02_key" xml:space="preserve">
+    <value>Kontrola Intenzity MXB Skupina LED B</value>
+  </data>
+  <data name="Activity_Vision_MXB_pattern_03_key" xml:space="preserve">
+    <value>Kontrola Intenzity MXB Skupina LED C</value>
+  </data>
+  <data name="Activity_Vision_POS_key" xml:space="preserve">
+    <value>Kontrola Intezity POS</value>
+  </data>
+  <data name="Activity_Vision_SABL1_key" xml:space="preserve">
+    <value>Optická Kontrola SABL1</value>
+  </data>
+  <data name="Activity_Vision_SABL2_key" xml:space="preserve">
+    <value>Optická Kontrola SABL2</value>
+  </data>
+  <data name="Activity_Vision_SCL_key" xml:space="preserve">
+    <value>Kontrola Intezity a Barvy SCL</value>
+  </data>
+  <data name="Activity_Vision_SM_key" xml:space="preserve">
+    <value>Kontrola Intenzity a Barvy SM</value>
+  </data>
+  <data name="Activity_Vision_TI_key" xml:space="preserve">
+    <value>Kontrola Intenzity a Barvy TI</value>
+  </data>
+  <data name="Activity_Waiting_for_DC_motor_stopped_key" xml:space="preserve">
+    <value>Čekání na zastavení DC motoru</value>
+  </data>
+  <data name="Activity_Waiting_for_Machine_key" xml:space="preserve">
+    <value>Čekání na inicializaci stroje</value>
+  </data>
+  <data name="Activity_Waiting_for_movement_key" xml:space="preserve">
+    <value>Čekání na dokončení pohybu</value>
+  </data>
+  <data name="Activity_Waiting_for_next_cycle_key" xml:space="preserve">
+    <value>Čekání na další cyklus</value>
+  </data>
+  <data name="Activity_Waiting_for_Operator_Cotrol_key" xml:space="preserve">
+    <value>Čekání na kontrolu operátora</value>
+  </data>
+  <data name="Activity_Waiting_for_package_complete_key" xml:space="preserve">
+    <value>Čekání na dokončení balíčku</value>
+  </data>
+  <data name="Activity_Waiting_for_pallete_key" xml:space="preserve">
+    <value>Čekání na paletu</value>
+  </data>
+  <data name="Activity_Waiting_for_Pallete_START_key" xml:space="preserve">
+    <value>Čekání na Paletu START</value>
+  </data>
+  <data name="Activity_Waiting_for_Pallete_STOP_key" xml:space="preserve">
+    <value>Čekání na paletu STOP</value>
+  </data>
+  <data name="Activity_Waiting_for_step_complete_key" xml:space="preserve">
+    <value>Čekání na dokončení kroku</value>
+  </data>
+  <data name="Activity_Waiting_for_VAC_stopped_key" xml:space="preserve">
+    <value>Čekání na zastavení VAC</value>
+  </data>
+  <data name="Activity_Write_coding_key" xml:space="preserve">
+    <value>Zapsání kódovacích dat</value>
+  </data>
+  <data name="Activity_Write_production_date_HLI_key" xml:space="preserve">
+    <value>Zapsání data produkce HLI</value>
+  </data>
+  <data name="Activity_Write_production_date_key" xml:space="preserve">
+    <value>Zapsání data produkce</value>
+  </data>
+  <data name="Activity_Write_production_date_LCU_key" xml:space="preserve">
+    <value>Zapsání data produkce LCU</value>
+  </data>
+  <data name="Activity_Msg_Type_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Activity_Msg_Type_Warning" xml:space="preserve">
+    <value>Varování</value>
+  </data>
+  <data name="Activity_Msg_Type_Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Activity_Msg_Type_Question" xml:space="preserve">
+    <value>Otázka</value>
+  </data>
+  <data name="Activity_Msg_Type_ImportantQuestion" xml:space="preserve">
+    <value>Důležitá otázka</value>
+  </data>
+  <data name="Activity_Msg_Type_Choice" xml:space="preserve">
+    <value>Výběr</value>
+  </data>
+  <data name="Activity_Msg_Type_NoBlocking" xml:space="preserve">
+    <value>Neblokující</value>
+  </data>
+  <data name="Activity_Msg_Type_Input" xml:space="preserve">
+    <value>Vstup</value>
+  </data>
+  <data name="Activity_Msg_Type_Picture" xml:space="preserve">
+    <value>Obrázek</value>
+  </data>
+  <data name="Activity_Msg_Type_Close" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ComboBox" xml:space="preserve">
+    <value>Seznam</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_Buttons" xml:space="preserve">
+    <value>Tlačítka</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ToggleButtons" xml:space="preserve">
+    <value>Přepínací tlačítka</value>
+  </data>
+  <data name="Activity_Check_Fan_Off_key" xml:space="preserve">
+    <value>Kontrola Ventilátor Off</value>
+  </data>
+  <data name="Activity_Check_Fan_On_key" xml:space="preserve">
+    <value>Kontrola Ventilátor On</value>
+  </data>
+  <data name="Activity_HSX_Off_key" xml:space="preserve">
+    <value>Vypnutí HSX</value>
+  </data>
+  <data name="Activity_Leaving_Home_Off_key" xml:space="preserve">
+    <value>Leaving Home Off</value>
+  </data>
+  <data name="Activity_Leaving_Home_On_key" xml:space="preserve">
+    <value>Leaving Home On</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Clean_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB Clean</value>
+  </data>
+  <data name="Activity_Move_LCB_to_Work_key" xml:space="preserve">
+    <value>Přesun tubusu do pozice LCB Work</value>
+  </data>
+  <data name="Activity_Read_SW_after_coding_key" xml:space="preserve">
+    <value>Vyčítání/Identifikace SW po kódování</value>
+  </data>
+  <data name="Activity_Status_Line_HB_ON_key" xml:space="preserve">
+    <value>Získání Status Line HB</value>
+  </data>
+  <data name="Activity_Status_Line_LB_HB_Off_key" xml:space="preserve">
+    <value>Získání Status Line LB+HB Off</value>
+  </data>
+  <data name="Activity_Status_Line_LB_ON_key" xml:space="preserve">
+    <value>Získání Status Line LB</value>
+  </data>
+  <data name="Activity_Turn_Off_additional_lights_key" xml:space="preserve">
+    <value>Vypnutí přídavného osvětlení</value>
+  </data>
+  <data name="Activity_Turn_Off_VAC_Motor_key" xml:space="preserve">
+    <value>Vypnutí VAC Motoru</value>
+  </data>
+  <data name="Activity_Turn_On_additional_lights_key" xml:space="preserve">
+    <value>Zapnutí přídavného osvětlení</value>
+  </data>
+  <data name="Activity_Adjust_HB_Horizontal_key" xml:space="preserve">
+    <value>Seříteni HB (horizontálně)</value>
+  </data>
+  <data name="Activity_Adjust_HB_Range_Test_key" xml:space="preserve">
+    <value>Seříteni HB s testem mech. Rozsahu</value>
+  </data>
+  <data name="Activity_Adjust_LB_key" xml:space="preserve">
+    <value>Seřízení LB</value>
+  </data>
+  <data name="Activity_Adjust_LB_Spot_Range_Test_key" xml:space="preserve">
+    <value>Seřízení LB Spot s testem mech. rozsahu</value>
+  </data>
+  <data name="Activity_Adjust_LB_Wide_key" xml:space="preserve">
+    <value>Seřízení LB Wide</value>
+  </data>
+  <data name="Activity_Adjust_LB_Wide_Range_Test_key" xml:space="preserve">
+    <value>Seřízení LB Wide s testem mech. rozsahu</value>
+  </data>
+  <data name="Activity_Adjust_LB_Wide_Vertical_key" xml:space="preserve">
+    <value>Seřízení LB Wide (vertikálně)</value>
+  </data>
+  <data name="Activity_Adjust_S_Light_Horizontal_key" xml:space="preserve">
+    <value>Seřízení S-light horizontálně</value>
+  </data>
+  <data name="Activity_Adjust_S_Light_Vertical_key" xml:space="preserve">
+    <value>Seřízení S-light vertikálně</value>
+  </data>
+  <data name="Activity_All_Light_Function_Off_key" xml:space="preserve">
+    <value>Vypnutí všech světelných funkcí</value>
+  </data>
+  <data name="Activity_Check_Error_Memory_key" xml:space="preserve">
+    <value>Kontrola chybové paměti</value>
+  </data>
+  <data name="Activity_Check_Fan_key" xml:space="preserve">
+    <value>Zkontroluj větrák</value>
+  </data>
+  <data name="Activity_Check_HB_key" xml:space="preserve">
+    <value>Kontrola HB</value>
+  </data>
+  <data name="Activity_Check_if_GS_DUT_was_selected_key" xml:space="preserve">
+    <value>Zkontroluj volbu mustru / produkce</value>
+  </data>
+  <data name="Activity_Check_LB_Wide_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý LB Wide</value>
+  </data>
+  <data name="Activity_Check_LB_Wide_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý LB Wide</value>
+  </data>
+  <data name="Activity_Check_LB_Wide_Vertical_key" xml:space="preserve">
+    <value>Kontrola LB Wide (vertikálně)</value>
+  </data>
+  <data name="Activity_Check_motor_position_key" xml:space="preserve">
+    <value>Zkontroluj pozici motoru</value>
+  </data>
+  <data name="Activity_Check_motor_supply_voltage_off_key" xml:space="preserve">
+    <value>Zkontroluj vypnuté napětí motoru</value>
+  </data>
+  <data name="Activity_Check_motor_supply_voltage_on_key" xml:space="preserve">
+    <value>Zkontroluj napětí motoru</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_1_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB vzor 1</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_1_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý MXB vzor 1</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_2_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB vzor 2</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_2_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý MXB vzor 2</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_3_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB vzor 3</value>
+  </data>
+  <data name="Activity_Check_MXB_pattern_3_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý MXB vzor 3</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_10_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 10</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_10_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 10</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_11_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 11</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_11_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 11</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_12_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 12</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_12_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 12</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_1_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 1</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_1_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 1</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_2_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 2</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_2_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 2</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_3_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 3</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_3_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 3</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_4_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 4</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_4_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 4</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_5_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 5</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_5_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 5</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_6_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 6</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_6_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 6</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_7_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 7</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_7_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 7</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_8_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 8</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_8_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 8</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_9_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý MXB segment 9</value>
+  </data>
+  <data name="Activity_Check_MXB_Segment_9_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý segment 9</value>
+  </data>
+  <data name="Activity_Check_POS_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnuté poziční světlo</value>
+  </data>
+  <data name="Activity_Check_POS_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnuté poziční světlo</value>
+  </data>
+  <data name="Activity_Check_RGB1_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý RGB 1</value>
+  </data>
+  <data name="Activity_Check_RGB1_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý RGB 1</value>
+  </data>
+  <data name="Activity_Check_RGB2_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý RGB 2</value>
+  </data>
+  <data name="Activity_Check_RGB2_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý RGB 2</value>
+  </data>
+  <data name="Activity_Check_RGB_Color_key" xml:space="preserve">
+    <value>Kontrola barvy RGB</value>
+  </data>
+  <data name="Activity_Check_RGB_Intensity_key" xml:space="preserve">
+    <value>Kontrola intenzity RGB</value>
+  </data>
+  <data name="Activity_Check_RGB_Off_key" xml:space="preserve">
+    <value>Zkontroluj vypnutý RGB</value>
+  </data>
+  <data name="Activity_Check_RGB_On_key" xml:space="preserve">
+    <value>Zkontroluj zapnutý RGB</value>
+  </data>
+  <data name="Activity_Choose_HL_Type_key" xml:space="preserve">
+    <value>Vyber variantu světla</value>
+  </data>
+  <data name="Activity_Clean_Validation_Tables_key" xml:space="preserve">
+    <value>Mazání validačních tabulek</value>
+  </data>
+  <data name="Activity_CompileCodes_key" xml:space="preserve">
+    <value>Zkompiluj kódy</value>
+  </data>
+  <data name="Activity_Configure_LB_Base_Vertical_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních LB Base (vertikálně)</value>
+  </data>
+  <data name="Activity_Configure_LB_Wide_Detection_Data_key" xml:space="preserve">
+    <value>Konfigurace detekčních LB Wide</value>
+  </data>
+  <data name="Activity_Delay_to_see_result_key" xml:space="preserve">
+    <value>Čekání pro zobrazení výsledků</value>
+  </data>
+  <data name="Activity_Disable_Logging_key" xml:space="preserve">
+    <value>Disabluj logování</value>
+  </data>
+  <data name="Activity_Enable_Logging_key" xml:space="preserve">
+    <value>Enabluj logování</value>
+  </data>
+  <data name="Activity_Execute_step_async_key" xml:space="preserve">
+    <value>Spusť krok</value>
+  </data>
+  <data name="Activity_Execute_step_async_LCB_MID_key" xml:space="preserve">
+    <value>Tubus do pozice mid (asynchronně)</value>
+  </data>
+  <data name="Activity_Execute_step_Clean_key" xml:space="preserve">
+    <value>Spusť krok clean</value>
+  </data>
+  <data name="Activity_Execute_step_key" xml:space="preserve">
+    <value>Spusť krok</value>
+  </data>
+  <data name="Activity_Execute_step_LCB_Work_key" xml:space="preserve">
+    <value>Tubus do pozice work</value>
+  </data>
+  <data name="Activity_Execute_step_work_key" xml:space="preserve">
+    <value>Spusť krok work</value>
+  </data>
+  <data name="Activity_Fan_Off_key" xml:space="preserve">
+    <value>Vypni větráček</value>
+  </data>
+  <data name="Activity_Fan_On_key" xml:space="preserve">
+    <value>Zapni větráček</value>
+  </data>
+  <data name="Activity_FAN_Test_key" xml:space="preserve">
+    <value>Test vetráčku</value>
+  </data>
+  <data name="Activity_Fill_Vision_Logging_key" xml:space="preserve">
+    <value>Vyplň tabulku logování</value>
+  </data>
+  <data name="Activity_Get_AL_Code_key" xml:space="preserve">
+    <value>Získání AL kódu</value>
+  </data>
+  <data name="Activity_Get_Image_and_Find_Patterns_key" xml:space="preserve">
+    <value>Kontrola přítomnosti</value>
+  </data>
+  <data name="Activity_GS_Production_key" xml:space="preserve">
+    <value>Mustr / produkce</value>
+  </data>
+  <data name="Activity_HL_Variant_key" xml:space="preserve">
+    <value>Varianta světla</value>
+  </data>
+  <data name="Activity_Ignition_Off_key" xml:space="preserve">
+    <value>Vypni signál zapalování</value>
+  </data>
+  <data name="Activity_Ignition_On_key" xml:space="preserve">
+    <value>Zapni signál zapalování</value>
+  </data>
+  <data name="Activity_Info_key" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Activity_Init_Bus_Com_key" xml:space="preserve">
+    <value>Inicializace buscomu</value>
+  </data>
+  <data name="Activity_Init_cyklic_comunication_key" xml:space="preserve">
+    <value>Inicializace cyklické komunikace</value>
+  </data>
+  <data name="Activity_Init_diagnostic_communication_key" xml:space="preserve">
+    <value>Inicializace diagnostické komunikace</value>
+  </data>
+  <data name="Activity_LB_Wide_Off_key" xml:space="preserve">
+    <value>Vypni LB Wide</value>
+  </data>
+  <data name="Activity_LB_Wide_On_key" xml:space="preserve">
+    <value>Zapni LB Wide</value>
+  </data>
+  <data name="Activity_LCB_CL_Async_key" xml:space="preserve">
+    <value>Tubus do pozice CL (asynchronně)</value>
+  </data>
+  <data name="Activity_LCB_Work_Async_key" xml:space="preserve">
+    <value>Tubus do pozice work (asynchronně)</value>
+  </data>
+  <data name="Activity_LCB_Work_key" xml:space="preserve">
+    <value>Tubus do pozice work</value>
+  </data>
+  <data name="Activity_LED_Off_key" xml:space="preserve">
+    <value>Vypni LED</value>
+  </data>
+  <data name="Activity_LED_On_key" xml:space="preserve">
+    <value>Zapni LED</value>
+  </data>
+  <data name="Activity_Light_Distribution_key" xml:space="preserve">
+    <value>Světelná distribuce</value>
+  </data>
+  <data name="Activity_LMM_Test_key" xml:space="preserve">
+    <value>LMM test</value>
+  </data>
+  <data name="Activity_Manual_variant_selection_key" xml:space="preserve">
+    <value>Manuální volba varianty</value>
+  </data>
+  <data name="Activity_Measure_current_LB_Wide_key" xml:space="preserve">
+    <value>Změř proud LB wide</value>
+  </data>
+  <data name="Activity_Measure_current_RGB1_key" xml:space="preserve">
+    <value>Změř proud RGB 1</value>
+  </data>
+  <data name="Activity_Measure_current_RGB2_key" xml:space="preserve">
+    <value>Změř proud RGB 2</value>
+  </data>
+  <data name="Activity_Measure_LMM_5V_key" xml:space="preserve">
+    <value>Změř napětí LMM +5V</value>
+  </data>
+  <data name="Activity_Movement_Test_Entry_Bottom_key" xml:space="preserve">
+    <value>Test pohybů dolní pozice</value>
+  </data>
+  <data name="Activity_Movement_test_Entry_key" xml:space="preserve">
+    <value>Test pohybů Entry</value>
+  </data>
+  <data name="Activity_Movement_Test_Entry_Mid_Adjustment_key" xml:space="preserve">
+    <value>Test pohybů střed</value>
+  </data>
+  <data name="Activity_Movement_Test_Entry_Top_key" xml:space="preserve">
+    <value>Test pohybů horní pozice</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Bottom_Inside_key" xml:space="preserve">
+    <value>Test pohybů dolní vnitřní pozice</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Bottom_Outside_key" xml:space="preserve">
+    <value>Test pohybů dolní vnější pozice</value>
+  </data>
+  <data name="Activity_Movement_test_Upper_key" xml:space="preserve">
+    <value>Test pohybů Upper</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Mid_Straight_Adjustment_key" xml:space="preserve">
+    <value>Test pohybů střed</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Top_Inside_key" xml:space="preserve">
+    <value>Test pohybů horní vnitřní pozice</value>
+  </data>
+  <data name="Activity_Movement_Test_Upper_Top_Outside_key" xml:space="preserve">
+    <value>Test pohybů horní vnější pozice</value>
+  </data>
+  <data name="Activity_MXB_pattern_1_Off_key" xml:space="preserve">
+    <value>Vypni MXB vzor 1</value>
+  </data>
+  <data name="Activity_MXB_pattern_1_On_key" xml:space="preserve">
+    <value>Zapni MXB vzor 1</value>
+  </data>
+  <data name="Activity_MXB_pattern_2_Off_key" xml:space="preserve">
+    <value>Vypni MXB vzor 2</value>
+  </data>
+  <data name="Activity_MXB_pattern_2_On_key" xml:space="preserve">
+    <value>Zapni MXB vzor 2</value>
+  </data>
+  <data name="Activity_MXB_pattern_3_Off_key" xml:space="preserve">
+    <value>Vypni MXB vzor 3</value>
+  </data>
+  <data name="Activity_MXB_pattern_3_On_key" xml:space="preserve">
+    <value>Zapni MXB vzor 3</value>
+  </data>
+  <data name="Activity_MXB_Segment_10_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 10</value>
+  </data>
+  <data name="Activity_MXB_Segment_10_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 10</value>
+  </data>
+  <data name="Activity_MXB_Segment_11_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 11</value>
+  </data>
+  <data name="Activity_MXB_Segment_11_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 11</value>
+  </data>
+  <data name="Activity_MXB_Segment_12_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 12</value>
+  </data>
+  <data name="Activity_MXB_Segment_12_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 12</value>
+  </data>
+  <data name="Activity_MXB_Segment_1_key" xml:space="preserve">
+    <value>MXB Segment 1</value>
+  </data>
+  <data name="Activity_MXB_Segment_1_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 1</value>
+  </data>
+  <data name="Activity_MXB_Segment_1_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 1</value>
+  </data>
+  <data name="Activity_MXB_Segment_2_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 2</value>
+  </data>
+  <data name="Activity_MXB_Segment_2_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 2</value>
+  </data>
+  <data name="Activity_MXB_Segment_3_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 3</value>
+  </data>
+  <data name="Activity_MXB_Segment_3_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 3</value>
+  </data>
+  <data name="Activity_MXB_Segment_4_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 4</value>
+  </data>
+  <data name="Activity_MXB_Segment_4_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 4</value>
+  </data>
+  <data name="Activity_MXB_Segment_5_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 5</value>
+  </data>
+  <data name="Activity_MXB_Segment_5_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 5</value>
+  </data>
+  <data name="Activity_MXB_Segment_6_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 6</value>
+  </data>
+  <data name="Activity_MXB_Segment_6_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 6</value>
+  </data>
+  <data name="Activity_MXB_Segment_7_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 7</value>
+  </data>
+  <data name="Activity_MXB_Segment_7_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 7</value>
+  </data>
+  <data name="Activity_MXB_Segment_8_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 8</value>
+  </data>
+  <data name="Activity_MXB_Segment_8_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 8</value>
+  </data>
+  <data name="Activity_MXB_Segment_9_Off_key" xml:space="preserve">
+    <value>Vypni MXB segment 9</value>
+  </data>
+  <data name="Activity_MXB_Segment_9_On_key" xml:space="preserve">
+    <value>Zapni MXB Segment 9</value>
+  </data>
+  <data name="Activity_OffBoardStart_key" xml:space="preserve">
+    <value>Start diagnostické komunikace</value>
+  </data>
+  <data name="Activity_OffboardStop_key" xml:space="preserve">
+    <value>Stop diagnostické komunikace</value>
+  </data>
+  <data name="Activity_OffBoard_Flash_Job_Session_1_key" xml:space="preserve">
+    <value>Flašování řídící jednotky 1</value>
+  </data>
+  <data name="Activity_OffBoard_Flash_Job_Session_2_key" xml:space="preserve">
+    <value>Flašování řídící jednotky </value>
+  </data>
+  <data name="Activity_OnBoardStart_key" xml:space="preserve">
+    <value>Start cyklické komunikace</value>
+  </data>
+  <data name="Activity_Prepare_machine_init_bus_com_key" xml:space="preserve">
+    <value>Příprava stroje a start komunikace</value>
+  </data>
+  <data name="Activity_Read_authentification_zone_key" xml:space="preserve">
+    <value>Vyčítání autentizačních dat</value>
+  </data>
+  <data name="Activity_Read_barcodes_key" xml:space="preserve">
+    <value>Vyčtení čárového kódu</value>
+  </data>
+  <data name="Activity_Read_boost_buck_temperature_key" xml:space="preserve">
+    <value>Vyčti teploty na Buck-Boost měniči</value>
+  </data>
+  <data name="Activity_Read_calibration_data_key" xml:space="preserve">
+    <value>Vyčti kalibrační data</value>
+  </data>
+  <data name="Activity_Read_ECU_Manufacturing_Date_Identifier_key" xml:space="preserve">
+    <value>Vyčítání výrobního identifikátoru řídicí jednotky</value>
+  </data>
+  <data name="Activity_Read_ECU_serial_number_key" xml:space="preserve">
+    <value>Vyčítání seriového čísla řídicí jednotky</value>
+  </data>
+  <data name="Activity_Read_ECU_SW_version_key" xml:space="preserve">
+    <value>Vyčítání SW verze řidicí jednotky</value>
+  </data>
+  <data name="Activity_Read_factory_data_key" xml:space="preserve">
+    <value>Vyčítání tovarních dat</value>
+  </data>
+  <data name="Activity_Read_LDM_Coding_After_Coding_key" xml:space="preserve">
+    <value>Vyčti info po kódování</value>
+  </data>
+  <data name="Activity_Read_LDM_Coding_Before_Coding_key" xml:space="preserve">
+    <value>Vyčti info před kódováním</value>
+  </data>
+  <data name="Activity_Read_voltages_NTC_Coding_resistors_key" xml:space="preserve">
+    <value>Vyčti napětí na NTC a Kódovacích rezistorech</value>
+  </data>
+  <data name="Activity_Refresh_Cameras_key" xml:space="preserve">
+    <value>Obnov kamery</value>
+  </data>
+  <data name="Activity_Reset_ECU_key" xml:space="preserve">
+    <value>Reset řídicí jednotky</value>
+  </data>
+  <data name="Activity_Reset_Flash_Counter_key" xml:space="preserve">
+    <value>Resetuj čítač flashování</value>
+  </data>
+  <data name="Activity_Reset_test_Done_key" xml:space="preserve">
+    <value>Resetuj ukončení cyklu</value>
+  </data>
+  <data name="Activity_Reset_test_NOK_key" xml:space="preserve">
+    <value>Resetuj NOK test</value>
+  </data>
+  <data name="Activity_Reset_test_OK_key" xml:space="preserve">
+    <value>Resetuj OK test</value>
+  </data>
+  <data name="Activity_RestartTimer_key" xml:space="preserve">
+    <value>Restart stopek</value>
+  </data>
+  <data name="Activity_RGB1_Off_key" xml:space="preserve">
+    <value>Vypni RGB 1</value>
+  </data>
+  <data name="Activity_RGB1_On_key" xml:space="preserve">
+    <value>Zapni RGB 1</value>
+  </data>
+  <data name="Activity_RGB2_Off_key" xml:space="preserve">
+    <value>Vypni RGB 2</value>
+  </data>
+  <data name="Activity_RGB2_On_key" xml:space="preserve">
+    <value>Zapni RGB 2</value>
+  </data>
+  <data name="Activity_RGBTest_Aim_key" xml:space="preserve">
+    <value>RGB Test EOL</value>
+  </data>
+  <data name="Activity_RGB_Off_key" xml:space="preserve">
+    <value>Vypni RGB</value>
+  </data>
+  <data name="Activity_RGB_On_key" xml:space="preserve">
+    <value>Zapni RGB</value>
+  </data>
+  <data name="Activity_RGB_Test_PreAim_key" xml:space="preserve">
+    <value>RGB Test LWRko</value>
+  </data>
+  <data name="Activity_Send_Result_and_Clean_key" xml:space="preserve">
+    <value>Pošli výsledek a vykonej krok Clean</value>
+  </data>
+  <data name="Activity_Set_Camera_Configure_key" xml:space="preserve">
+    <value>Nastav konfiguraci kamer</value>
+  </data>
+  <data name="Activity_Set_Code_key" xml:space="preserve">
+    <value>Nastav čárový kód</value>
+  </data>
+  <data name="Activity_Set_empty_variant_key" xml:space="preserve">
+    <value>Nastav prázdnou variantu</value>
+  </data>
+  <data name="Activity_Set_GS_DUT_key" xml:space="preserve">
+    <value>Zvolit muster / produkce</value>
+  </data>
+  <data name="Activity_Set_HL_Variant_key" xml:space="preserve">
+    <value>Nastav variantu světla</value>
+  </data>
+  <data name="Activity_Set_Img_Log_Path_key" xml:space="preserve">
+    <value>Nastavení cesty pro logování</value>
+  </data>
+  <data name="Activity_Set_motor_position_key" xml:space="preserve">
+    <value>Nastav pozici motoru</value>
+  </data>
+  <data name="Activity_Set_OffBoardDTS_key" xml:space="preserve">
+    <value>Nastavení diagnostické komunikace</value>
+  </data>
+  <data name="Activity_Set_OnBoards_key" xml:space="preserve">
+    <value>Nastav cyklickou komunikaci</value>
+  </data>
+  <data name="Activity_Set_relays_key" xml:space="preserve">
+    <value>Nastav relé</value>
+  </data>
+  <data name="Activity_Set_segments_from_a_table_key" xml:space="preserve">
+    <value>Nastav segmenty MXB z tabulky</value>
+  </data>
+  <data name="Activity_Set_Vision_Logging_key" xml:space="preserve">
+    <value>Nastav loggování vision</value>
+  </data>
+  <data name="Activity_Start_duration_counter_key" xml:space="preserve">
+    <value>Zapnutí stopek</value>
+  </data>
+  <data name="Activity_Start_extended_diagnostic_mode_key" xml:space="preserve">
+    <value>Zapni rozšířený diagnostický mód</value>
+  </data>
+  <data name="Activity_Start_Image_Log_key" xml:space="preserve">
+    <value>Nastartuj logování</value>
+  </data>
+  <data name="Activity_Start_production_diagnostic_mode_key" xml:space="preserve">
+    <value>Zapni provozní diagnostický mód</value>
+  </data>
+  <data name="Activity_StopTimer_key" xml:space="preserve">
+    <value>Zastavení stopek</value>
+  </data>
+  <data name="Activity_Stop_Image_Log_key" xml:space="preserve">
+    <value>Stopni logování</value>
+  </data>
+  <data name="Activity_StringContain_Left_key" xml:space="preserve">
+    <value>Ověření přítomnosti levé strany</value>
+  </data>
+  <data name="Activity_StringContain_Right_key" xml:space="preserve">
+    <value>Ověření přítomnosti pravé strany</value>
+  </data>
+  <data name="Activity_Switch_ECUs_OFF_key" xml:space="preserve">
+    <value>Vypni ECU</value>
+  </data>
+  <data name="Activity_Switch_ECUs_ON_key" xml:space="preserve">
+    <value>Zapni ECU</value>
+  </data>
+  <data name="Activity_Turn_off_motor_supply_voltage_key" xml:space="preserve">
+    <value>Vypni napětí motoru</value>
+  </data>
+  <data name="Activity_Turn_on_motor_supply_voltage_key" xml:space="preserve">
+    <value>Zapni napětí motoru</value>
+  </data>
+  <data name="Activity_Verify_Mounting_side_key" xml:space="preserve">
+    <value>Ověření montážní strany</value>
+  </data>
+  <data name="Activity_Vision_Adjust_LB_with_Range_Test_key" xml:space="preserve">
+    <value>Seřízení LB s testem mech. rozsahu</value>
+  </data>
+  <data name="Activity_Vision_check_LB_spot_key" xml:space="preserve">
+    <value>Kontrola LB spot</value>
+  </data>
+  <data name="Activity_Vision_Configure_All_Cameras_key" xml:space="preserve">
+    <value>Konfiguruj všechny kamery</value>
+  </data>
+  <data name="Activity_Vision_Init_key" xml:space="preserve">
+    <value>Init Vision</value>
+  </data>
+  <data name="Activity_Vision_LB_Base_Vertical_Check_key" xml:space="preserve">
+    <value>Kontrola LB Base (vertikálně)</value>
+  </data>
+  <data name="Activity_Vision_Movement_Bottom_Inside_key" xml:space="preserve">
+    <value>Kontrola pohybů spodní vnitřní pozice</value>
+  </data>
+  <data name="Activity_Vision_Movement_Bottom_Outside_key" xml:space="preserve">
+    <value>Kontrola pohybů spodní vnější pozice</value>
+  </data>
+  <data name="Activity_Vision_Movement_Mid_Straight_Adjustment_key" xml:space="preserve">
+    <value>Kontrola pohybů střed</value>
+  </data>
+  <data name="Activity_Vision_Movement_Top_Inside_key" xml:space="preserve">
+    <value>Kontrola pohybů horní vnitřní pozice</value>
+  </data>
+  <data name="Activity_Vision_Movement_Top_Outside_key" xml:space="preserve">
+    <value>Kontrola pohybů horní vnější pozice</value>
+  </data>
+  <data name="Activity_Vision_PP_cover_frame_key" xml:space="preserve">
+    <value>Kontrola přítomnosti rámeček skla</value>
+  </data>
+  <data name="Activity_Vision_PP_module_frame_key" xml:space="preserve">
+    <value>Kontrola přítomnosti rámeček modulu</value>
+  </data>
+  <data name="Activity_Vision_PP_Ramecek_Reflektoru_key" xml:space="preserve">
+    <value>Kontrola přítomnosti rámečku reflektoru</value>
+  </data>
+  <data name="Activity_Vision_RGB_Aim_key" xml:space="preserve">
+    <value>Optická kontrola RGB EOL</value>
+  </data>
+  <data name="Activity_Vision_RGB_PreAim_key" xml:space="preserve">
+    <value>Optická kontrola RGB LWRko</value>
+  </data>
+  <data name="Activity_Vision_Swivel_Test_Center_key" xml:space="preserve">
+    <value>Kontrola pohybů pozice střed (horizontálně)</value>
+  </data>
+  <data name="Activity_Vision_Swivel_Test_Left_key" xml:space="preserve">
+    <value>Kontrola pohybů pozice vlevo (horizontálně)</value>
+  </data>
+  <data name="Activity_Vision_Swivel_Test_Right_key" xml:space="preserve">
+    <value>Kontrola pohybů pozice vpravo (horizontálně)</value>
+  </data>
+  <data name="Activity_Vision_Vertical_Movement_Bottom_key" xml:space="preserve">
+    <value>Kontrola pohybů spodní pozice (vertikálně)</value>
+  </data>
+  <data name="Activity_Vision_Vertical_Movement_Center_key" xml:space="preserve">
+    <value>Kontrola pohybů střed (vertikálně)</value>
+  </data>
+  <data name="Activity_Vision_Vertical_Movement_Top_key" xml:space="preserve">
+    <value>Kontrola pohybů horní pozice (vertikálně)</value>
+  </data>
+  <data name="Activity_Wait_for_ECU_ON_key" xml:space="preserve">
+    <value>Čekání po zapnutí řídicí jednotky</value>
+  </data>
+  <data name="Activity_Wait_key" xml:space="preserve">
+    <value>Čekej</value>
+  </data>
+  <data name="Activity_Wait_to_step_complete_key" xml:space="preserve">
+    <value>Čekej na dokončení pohybu</value>
+  </data>
+  <data name="Activity_Wake_Up_In_Specified_Up_Time_key" xml:space="preserve">
+    <value>Vzbudit se ve zvolený čas</value>
+  </data>
+  <data name="Activity_Write_name_of_the_light_function_key" xml:space="preserve">
+    <value>Zapiš název světelné funkce</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SwitchView" xml:space="preserve">
+    <value>Přepnutí pohledu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeUserCmd" xml:space="preserve">
+    <value>Změnit stav uživatelského příkazu</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetUserIndicatorValue" xml:space="preserve">
+    <value>Změnit hodnotu uživatelského indikátoru</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SynchronizationExecuteInParallel" xml:space="preserve">
+    <value>Synchronizace v paralelním vykonávání </value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetMTFVersion" xml:space="preserve">
+    <value>Získat verzi MTF</value>
+  </data>
+</root>

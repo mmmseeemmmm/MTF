@@ -1,0 +1,377 @@
+﻿<UserControl x:Class="MTFApp.ResultDetail.ActivityHeaderDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:MTFClientServerCommon="clr-namespace:MTFClientServerCommon;assembly=MTFClientServerCommon"
+             xmlns:converter="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:execution="clr-namespace:MTFApp.SequenceExecution"
+             xmlns:app="clr-namespace:MTFApp"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:localizedString="clr-namespace:MTFApp.UIHelpers.Editors.LocalizedString"
+             xmlns:sharedControls="clr-namespace:MTFApp.SequenceExecution.SharedControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converter:StringToVisibilityConverter x:Key="stringToVisibilityConverter" />
+        <converter:TermToVisibilityConverter x:Key="termToVisibilityConverter" />
+        <converter:TypeToVisibilityConverter x:Key="typeToVisibilityConverter" TypesToHide="System.Void" />
+
+        <Style TargetType="TextBlock" BasedOn="{StaticResource Heading1}" x:Key="CurrentHeading1">
+            <Setter Property="Margin" Value="0" />
+        </Style>
+        
+        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <UserControl x:Key="ParallelActivities">
+            <StackPanel Orientation="Vertical" >
+                <alControls:TextBlock LocTextKey="Execution_Result_Parallel" Style="{StaticResource CurrentHeading1}" Margin="0,10,0,0" />
+                <ListBox ItemsSource="{Binding DataContext.TreeViewManager.ParallelActivities, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type execution:SequenceExecutionControl}}}"
+                         Margin="10">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DataTemplate.Resources>
+                                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}"></Style>
+                            </DataTemplate.Resources>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <UserControl Style="{Binding Status, Converter={StaticResource ActivityStatusImageConverter}}" Width="20" />
+                                    <alControls:TextBlock LocTextKey="Execution_Result_ActivityName" VerticalAlignment="Center" />
+                                    <TextBlock Text=": " />
+                                    <TextBlock Text="{Binding Activity.ActivityName}" FontWeight="Bold" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Visibility="{Binding Result, Converter={StaticResource NotNullToVisibility}}"
+                                            Margin="20 0 0 10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <alControls:TextBlock LocTextKey="Execution_Result_Duration" />
+                                        <TextBlock Text=": " />
+                                        <TextBlock Text="{Binding Result.ElapsedMs}" FontWeight="Bold" />
+                                        <alControls:TextBlock LocTextKey="Execution_Result_Ms" Margin="3,0,0,0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <alControls:TextBlock LocTextKey="Execution_Result_Timestamp" Margin="0,0,3,0" />
+                                        <TextBlock Text="{Binding Result.TimestampMs}" FontWeight="Bold" />
+                                        <alControls:TextBlock LocTextKey="Execution_Result_Ms" Margin="3,0,0,0" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </UserControl>
+
+        <UserControl x:Key="SubSequenceRunInParallel">
+            <ContentControl DataContext="{Binding}">
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ExecutionType}" Value="ExecuteInParallel">
+                                <Setter Property="Content" Value="{StaticResource ParallelActivities}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+        </UserControl>
+
+        <Style TargetType="Button" x:Key="jumpButton" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Content">
+                <Setter.Value>
+                    <UserControl Style="{StaticResource IconJumpToActivity}" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+
+        <DataTemplate x:Key="EmptyTemplate" />
+        
+        <DataTemplate x:Key="JumpButtonTemplate">
+            <ContentPresenter Content="{Binding}">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentTemplate" Value="{StaticResource EmptyTemplate}" />
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding DataContext.IsProductionMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type execution:SequenceExecutionControl}}}"
+                                Value="False">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <Button
+                                                Command="{Binding DataContext.JumpToActivityCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type app:MainWindow}}}"
+                                                CommandParameter="{Binding}" Style="{StaticResource jumpButton}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSequenceActivity}">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}"></Style>
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Execution_Result_Activity" Style="{StaticResource CurrentHeading1}"/>
+                    <TextBlock Text=": " Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding ActivityName}" UniqueIndexer="{Binding UniqueIndexer}"
+                                                              TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      Visibility="{Binding Converter={StaticResource NotNullToVisibility}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding MTFMethodName, Converter={StaticResource stringToVisibilityConverter}}">
+                    <alControls:TextBlock LocTextKey="Execution_Result_Method" />
+                    <TextBlock Text=": " />
+                    <TextBlock Text="{Binding MTFMethodName}" FontWeight="Bold" />
+                    <TextBlock Text=" (" />
+                    <TextBlock Text="{Binding MTFClassAlias}" />
+                    <TextBlock Text=")" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnErrorFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnError, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding ReturnType, Converter={StaticResource typeToVisibilityConverter}}">
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnOutputValueFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnCheckOutputFailed, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFExecuteActivity}">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_BuildIn_Call" Style="{StaticResource CurrentHeading1}"/>
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedCallActivity CallActivity="{Binding}" TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      Visibility="{Binding Converter={StaticResource NotNullToVisibility}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFErrorHandlingActivity}">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}"></Style>
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_BuildIn_ErrHandling" Style="{StaticResource CurrentHeading1}"/>
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding ActivityName}" UniqueIndexer="{Binding UniqueIndexer}"
+                                                              TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      Visibility="{Binding Converter={StaticResource NotNullToVisibility}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Base_Type" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding ErrorHandlingType, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}" Value="CheckErrors">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnErrorFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnError, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ErrorHandlingType}" Value="RaiseError">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnOutputValueFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnCheckOutputFailed, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFLoggingActivity}">
+            <!--<StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Logging" Style="{StaticResource CurrentHeading1}" VerticalAlignment="Center"/>
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding ActivityName}" Style="{StaticResource CurrentHeading1}" VerticalAlignment="Center" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <execution:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      Visibility="{Binding Converter={StaticResource NotNullToVisibility}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Base_Type" />
+                    <TextBlock Text=": " />
+                    <TextBlock Text="{Binding LoggingType, Converter={StaticResource enumConverter}}" FontWeight="Bold" />
+                </StackPanel>
+            </StackPanel>-->
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSequenceHandlingActivity}">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}"></Style>
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_BuildIn_SeqHandling" Style="{StaticResource CurrentHeading1}"/>
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding ActivityName}" UniqueIndexer="{Binding UniqueIndexer}"
+                                                              TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      Visibility="{Binding Converter={StaticResource NotNullToVisibility}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Base_Type" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding SequenceHandlingType, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SequenceHandlingType}" Value="SaveReportAndCleanErrors">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnOutputValueFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnCheckOutputFailed, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSubSequenceActivity}">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}"></Style>
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_SubSequence_Header" Style="{StaticResource CurrentHeading1}"/>
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding ActivityName}" UniqueIndexer="{Binding UniqueIndexer}"
+                                                              TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      Visibility="{Binding Converter={StaticResource NotNullToVisibility}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_SubSequence_ExecutionType" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding ExecutionType, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding Term, Converter={StaticResource termToVisibilityConverter}}">
+                    <alControls:TextBlock LocTextKey="Activity_SubSequence_Condition" />
+                    <TextBlock Text=": " />
+                    <TextBlock Text="{Binding Term}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnErrorFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnError, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Activity_Base_OnOutputValueFailed" />
+                    <TextBlock Text=": " />
+                    <alControls:TextBlock LocTextKey="{Binding OnCheckOutputFailed, Converter={StaticResource EnumToDescription}}" FontWeight="Bold" />
+                </StackPanel>
+                <ContentControl Content="{StaticResource SubSequenceRunInParallel}" />
+            </StackPanel>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFSequenceMessageActivity}">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Execution_Result_Activity" Style="{StaticResource CurrentHeading1}"/>
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding ActivityName}" UniqueIndexer="{Binding UniqueIndexer}"
+                                                              TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type MTFClientServerCommon:MTFVariableActivity}">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <alControls:TextBlock LocTextKey="Execution_Result_Activity" Style="{StaticResource CurrentHeading1}" />
+                    <TextBlock Text=": "  Style="{StaticResource CurrentHeading1}"/>
+                    <localizedString:LocalizedStringTextBlock Identifier="{Binding ActivityName}" UniqueIndexer="{Binding UniqueIndexer}"
+                                                              TextBlockStyle="{StaticResource CurrentHeading1}" />
+                    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource JumpButtonTemplate}" />
+                </StackPanel>
+                <sharedControls:TimeResult DataContext="{Binding DataContext.Result, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                      UseTimeStamp="True"
+                                      TimeStamp="{Binding TimestampMs}"
+                                      Duration="{Binding ElapsedMs}"
+                                      Margin="0,5,0,10"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Style>
+            <Style TargetType="Grid">
+                <Setter Property="Visibility" Value="Visible" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=DataContext, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        <ContentPresenter Content="{Binding Activity}" />
+    </Grid>
+</UserControl>

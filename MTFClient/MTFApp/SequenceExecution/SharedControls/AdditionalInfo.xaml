@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="MTFApp.SequenceExecution.SharedControls.AdditionalInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sequenceExecution="clr-namespace:MTFApp.SequenceExecution"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:sharedControls="clr-namespace:MTFApp.SequenceExecution.SharedControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="HiddenTemplate">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right" PreviewMouseLeftButtonDown="VariablesWatch_PreviewMouseLeftButtonDown"
+                            Visibility="{Binding IsDebugEnabled, Converter={StaticResource BoolToVisibility}}">
+                    <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_VariablesWatch" FontSize="20" FontWeight="Bold" Margin="0,25,0,0"  
+                           TextOptions.TextFormattingMode="Display"
+                           HorizontalAlignment="Center">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90"  />
+                        </TextBlock.LayoutTransform>
+                    </alControls:TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" PreviewMouseLeftButtonDown="GoldSample_PreviewMouseLeftButtonDown" Margin="0,25,0,0"
+                            Visibility="{Binding IsGSPanelEnabled, Converter={StaticResource BoolToVisibility}}">
+                    <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_GS" FontSize="20" FontWeight="Bold"
+                           TextOptions.TextFormattingMode="Display"
+                           HorizontalAlignment="Center">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90"  />
+                        </TextBlock.LayoutTransform>
+                    </alControls:TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VisibleTemplate">
+            <ContentPresenter Content="{Binding}" RenderTransformOrigin="1 0.5" MinWidth="180">
+                <ContentPresenter.Style>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="1" />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                        From="0"
+                                        Duration="0:0:0.15" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <DataTrigger Value="VariablesWatch" Binding="{Binding AdditionaInfoType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <sharedControls:VariablesWatchControl MaxWidth="400" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Value="GoldSample" Binding="{Binding AdditionaInfoType, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <sharedControls:GoldSampleControl DataContext="{Binding}" MinWidth="250" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentPresenter.Style>
+            </ContentPresenter>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Margin="0,5,0,0">
+        <UserControl Style="{StaticResource IconLeftArrow}"
+                     Height="20" RenderTransformOrigin="0.5, 0.5"
+                     HorizontalAlignment="Right" Margin="0,0,5,0"
+                        VerticalAlignment="Top"
+                        PreviewMouseLeftButtonDown="ShowIcon_PreviewMouseLeftButtonDown"
+                        FocusVisualStyle="{x:Null}"
+                        Name="ShowButton"
+                     Visibility="{Binding IsAdditionalInfoVisible, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibility}}">
+            <UserControl.RenderTransform>
+                <ScaleTransform ScaleX="-1" />
+            </UserControl.RenderTransform>
+        </UserControl>
+        <ContentPresenter Content="{Binding}" >
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource HiddenTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsAdditionalInfoVisible, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource VisibleTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </Grid>
+</UserControl>

@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters">
+    
+    <converters:BoolToVisibilityConverter x:Key="NotBoolToVisibility" 
+                                             TrueValue="Collapsed"
+                                             FalseValue="Visible"/>
+
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibility" 
+                                             TrueValue="Visible"
+                                             FalseValue="Collapsed"/>
+
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityWithHidden" 
+                                             TrueValue="Visible"
+                                             FalseValue="Hidden"/>
+
+    <converters:MTFIconToStyle x:Key="IconConverter" />
+
+    <converters:DebugSetupEnumToBoolConverter x:Key="DebugSetupEnumToBoolConverter" />
+    <converters:DebugEnumToBrushConverter x:Key="DebugEnumToBrushConverter" />
+    <converters:SetupEnumToBrushConverter x:Key="SetupEnumToBrushConverter" />
+    
+    <converters:MTFServiceCommandIconToStyle x:Key="ServiceCommandIconConverter" />
+
+    <converters:IsNullToVisibilityConverter x:Key="NullToVisibility"
+                                            IsNullValue="Visible"
+                                            IsNotNullValue="Collapsed"/>
+    <converters:IsNullToVisibilityConverter x:Key="NotNullToVisibility"
+                                                IsNullValue="Collapsed"
+                                                IsNotNullValue="Visible" />
+
+    <converters:ControlStatusToColorConverter x:Key="controlStatusToColor" />
+    <converters:ControlStatusToColorConverter x:Key="controlStatusToBackgroundColor" DefaultColorIsWhite="True" />
+    <converters:MessageTypeToColorConverter x:Key="messageTypeToColor" />
+
+    <converters:NotBoolConverter x:Key="NotBool" />
+    
+    <converters:NullImageConverter x:Key="NullImageConverter" />
+
+    <converters:TypeToIconStyleConverter x:Key="TypeToIconConverter" />
+
+    <converters:ActivityStatusImageConverter x:Key="ActivityStatusImageConverter" />
+    
+    <converters:TimeStampConverter x:Key="TimeStampConverter" />
+    
+    <converters:IsZeroToVisibilityConverter x:Key="IsZeroToVisibilityConverter" IsNotZeroValue="Visible" IsZeroValue="Collapsed" />
+    
+    <converters:IsSelectedConverter x:Key="IsActivitySelected" />
+
+    <converters:EnumToDescriptionConverter x:Key="EnumToDescription" />
+    <converters:EnumToDescriptionLocalizedConverter x:Key="EnumToDescriptionLocalized" />
+    
+    <converters:EmptyCollectionToVisibility x:Key="EmptyCollectionToCollapsed" />
+
+    <converters:EmptyCollectionToVisibility x:Key="EmptyCollectionToVisible"
+                                            FalseValue="Visible"
+                                            TrueValue="Collapsed"/>
+    
+    <converters:SimpleTermVisibilityConverter x:Key="ShowComplexTermVisibilityConverter" IsSimpleTerm="Collapsed" IsNotSimpleTerm="Visible" />
+    <converters:SimpleTermVisibilityConverter x:Key="ShowSimpleTermVisibilityConverter" IsSimpleTerm="Visible" IsNotSimpleTerm="Collapsed" />
+    <converters:IsSimpleTermConverter x:Key="IsSimpleTermConverter" />
+    <converters:TermToVisibilityConverter x:Key="EmptyTermToVisibility" />
+    <converters:SizeToHumanReadableConverter x:Key="SizeToHumanReadableConverter" />
+    <converters:BasicMultiBindingConverter x:Key="BasicMultiBindingConverter" />
+    <converters:EnumToBoleanConverter x:Key="EnumToBolean" />
+    <converters:TypeToVisibilityConverter x:Key="TypeToVisibility" TypesToHide="System.Void" />
+    <converters:GenericTypeNameConverter x:Key="TypeNameConverter" />
+    <converters:VariableByTypeConverter x:Key="VariableByTypeConverter" />
+    <converters:BasicMultiBindingConverter x:Key="TermMultiValueConverter" />
+    <converters:NullableBoolToIconConverter x:Key="NullableBoolToIconConverter" />
+    <converters:MillisecondsToHumanReadableConverter x:Key="MillisecondsToHumanReadableConverter" />
+    <converters:StringToVisibilityConverter x:Key="EmptyStringToCollapsedVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+    <converters:ValueListConverter x:Key="ValueListConverter" />
+    <converters:BoolMultiValueConverter x:Key="BoolMultiValueConverter" />
+    <converters:ValueListMultiConverter x:Key="ValueListMultiConverter" />
+    <converters:TableReportCriteriaRoundingConverter x:Key="CriteriaRoundingConverter" />
+    <converters:TableReportActualValueRoundingConverter x:Key="ActualValueRoundingConverter" />
+    
+</ResourceDictionary>

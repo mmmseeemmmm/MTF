@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\Daqis\AlDaqis.dll.config
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\Daqis\AlDaqis.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\Daqis\AlDaqis.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Daqis\obj\Debug\Daqis.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Daqis\obj\Debug\Daqis.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Daqis\obj\Debug\AlDaqis.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\Daqis\obj\Debug\AlDaqis.pdb

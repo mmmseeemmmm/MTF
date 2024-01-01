@@ -1,0 +1,1808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessRole_componentConfiguration" xml:space="preserve">
+    <value>Configuración de componentes</value>
+  </data>
+  <data name="AccessRole_debug" xml:space="preserve">
+    <value>Modo de depuración</value>
+  </data>
+  <data name="AccessRole_hideCommands" xml:space="preserve">
+    <value>Menú principal oculto y comandos de ejecución</value>
+  </data>
+  <data name="AccessRole_mtfSetting" xml:space="preserve">
+    <value>Ajuste</value>
+  </data>
+  <data name="AccessRole_noDestroy" xml:space="preserve">
+    <value>No destruir licencia</value>
+  </data>
+  <data name="AccessRole_resultViewer" xml:space="preserve">
+    <value>Visor de resultados</value>
+  </data>
+  <data name="AccessRole_sequenceEditor" xml:space="preserve">
+    <value>Editor de secuencia</value>
+  </data>
+  <data name="AccessRole_service" xml:space="preserve">
+    <value>Modo de servicio</value>
+  </data>
+  <data name="AccessRole_serviceReadOnly" xml:space="preserve">
+    <value>Modo de servicio de solo lectura</value>
+  </data>
+  <data name="AccessRole_teach" xml:space="preserve">
+    <value>Modo de enseñanza</value>
+  </data>
+  <data name="Access_ANET" xml:space="preserve">
+    <value>Clave de acceso ANET</value>
+  </data>
+  <data name="Access_Corrupted" xml:space="preserve">
+    <value>Clave dañada</value>
+  </data>
+  <data name="Access_CreatedBy" xml:space="preserve">
+    <value>Clave creada por:</value>
+  </data>
+  <data name="Access_Expired" xml:space="preserve">
+    <value>Clave caducada</value>
+  </data>
+  <data name="Access_Header" xml:space="preserve">
+    <value>Información de la clave de acceso</value>
+  </data>
+  <data name="Access_NoRestrict" xml:space="preserve">
+    <value>La clave se puede usar sin otras restricciones</value>
+  </data>
+  <data name="Access_Owner" xml:space="preserve">
+    <value>Nombre del propietario clave:</value>
+  </data>
+  <data name="Access_Request_Connecting" xml:space="preserve">
+    <value>Conectando ...</value>
+  </data>
+  <data name="Access_Request_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Access_Request_FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Access_Request_Header" xml:space="preserve">
+    <value>Solicitud de clave de acceso</value>
+  </data>
+  <data name="Access_Request_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Access_Request_Offline" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="Access_Request_Online" xml:space="preserve">
+    <value>En línea</value>
+  </data>
+  <data name="Access_Request_Reason" xml:space="preserve">
+    <value>Motivo (por ejemplo, roles requeridos)</value>
+  </data>
+  <data name="Access_Request_RefreshUSB" xml:space="preserve">
+    <value>Recargar unidades USB</value>
+  </data>
+  <data name="Access_Request_ServerState" xml:space="preserve">
+    <value>Conexión al servidor</value>
+  </data>
+  <data name="Access_Request_Success" xml:space="preserve">
+    <value>La solicitud de licencia se ha enviado correctamente.</value>
+  </data>
+  <data name="Access_Request_USB" xml:space="preserve">
+    <value>Unidad USB seleccionada</value>
+  </data>
+  <data name="Access_Restrict" xml:space="preserve">
+    <value>Restricciones de máquinas:</value>
+  </data>
+  <data name="Access_Role" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Access_Sequence" xml:space="preserve">
+    <value>Secuencias</value>
+  </data>
+  <data name="Access_USB" xml:space="preserve">
+    <value>Llave de acceso USB</value>
+  </data>
+  <data name="Access_ValidTo" xml:space="preserve">
+    <value>Válido hasta:</value>
+  </data>
+  <data name="Access_Version" xml:space="preserve">
+    <value>Versión del generador de claves:</value>
+  </data>
+  <data name="Access_WronMachine" xml:space="preserve">
+    <value>Máquina equivocada</value>
+  </data>
+  <data name="Activity_Base_AllowSwitchView" xml:space="preserve">
+    <value>Permitir cambiar la vista de ejecución</value>
+  </data>
+  <data name="Activity_Base_AppendError" xml:space="preserve">
+    <value>Añadir error:</value>
+  </data>
+  <data name="Activity_Base_AssignOutput" xml:space="preserve">
+    <value>Asignar valor de salida</value>
+  </data>
+  <data name="Activity_Base_CheckOutputValue" xml:space="preserve">
+    <value>Comprobar valor de salida</value>
+  </data>
+  <data name="Activity_Base_Comment" xml:space="preserve">
+    <value>Comentario:</value>
+  </data>
+  <data name="Activity_Base_Detail" xml:space="preserve">
+    <value>Detalle</value>
+  </data>
+  <data name="Activity_Base_OnErrorFailed" xml:space="preserve">
+    <value>En error</value>
+  </data>
+  <data name="Activity_Base_OnOutputValueFailed" xml:space="preserve">
+    <value>En el valor de fallo de salida</value>
+  </data>
+  <data name="Activity_Base_OutputType" xml:space="preserve">
+    <value>Tipo de salida:</value>
+  </data>
+  <data name="Activity_Base_SwitchViewTitle" xml:space="preserve">
+    <value>Cambiar vista de ejecución</value>
+  </data>
+  <data name="Activity_Base_Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Activity_BuildIn_Call" xml:space="preserve">
+    <value>Llamada</value>
+  </data>
+  <data name="Activity_BuildIn_ErrHandling" xml:space="preserve">
+    <value>Manejo de errores</value>
+  </data>
+  <data name="Activity_BuildIn_SeqHandling" xml:space="preserve">
+    <value>Manejo de secuencias</value>
+  </data>
+  <data name="Activity_BuildIn_ShowMsg" xml:space="preserve">
+    <value>Mostrar mensaje</value>
+  </data>
+  <data name="Activity_BuildIn_SubSeq" xml:space="preserve">
+    <value>Crear subsecuencia</value>
+  </data>
+  <data name="Activity_CallActivity_Call" xml:space="preserve">
+    <value>Llamada</value>
+  </data>
+  <data name="Activity_CallActivity_CallNull" xml:space="preserve">
+    <value>nulo</value>
+  </data>
+  <data name="Activity_CallActivity_Dynamic_Execute" xml:space="preserve">
+    <value>Ejecutar</value>
+  </data>
+  <data name="Activity_CallActivity_Dynamic_Load" xml:space="preserve">
+    <value>Carga</value>
+  </data>
+  <data name="Activity_CallActivity_Dynamic_Unload" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="Activity_CallActivity_SequenceName" xml:space="preserve">
+    <value>Nombre de secuencia:</value>
+  </data>
+  <data name="Activity_CallActivity_SubSequenceName" xml:space="preserve">
+    <value>Nombre de la subsecuencia:</value>
+  </data>
+  <data name="Activity_CallActivity_SubSequenceToCall" xml:space="preserve">
+    <value>Subsecuencia a llamar:</value>
+  </data>
+  <data name="Activity_CallActivity_Type_Dynamic" xml:space="preserve">
+    <value>Llamada dinámica</value>
+  </data>
+  <data name="Activity_CallActivity_Type_External" xml:space="preserve">
+    <value>Llamar externo</value>
+  </data>
+  <data name="Activity_CallActivity_Type_Local" xml:space="preserve">
+    <value>Llamar local</value>
+  </data>
+  <data name="Activity_ErrorHandling_CheckErr_Title" xml:space="preserve">
+    <value>La actividad devuelve Verdadero si no se produjo ningún error desde la última eliminación. De lo contrario, devuelve Falso.</value>
+  </data>
+  <data name="Activity_ErrorHandling_CheckErr_UseTable" xml:space="preserve">
+    <value>Incluir estado de tablas de validación</value>
+  </data>
+  <data name="Activity_ErrorHandling_CleanErr_CleanErrWindow" xml:space="preserve">
+    <value>Ventana de limpieza de error</value>
+  </data>
+  <data name="Activity_ErrorHandling_ErrImg_Title" xml:space="preserve">
+    <value>La actividad devuelve todas las imágenes de error desde el último borrado.</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_ActivityName" xml:space="preserve">
+    <value>Nombre de la actividad</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_ErrMsg" xml:space="preserve">
+    <value>Mensaje de error</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_LongPath" xml:space="preserve">
+    <value>Ruta de actividad larga</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_Params" xml:space="preserve">
+    <value>Parámetros:</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_ShortPath" xml:space="preserve">
+    <value>Ruta de actividad corta</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_TimeStamp" xml:space="preserve">
+    <value>Tiempo</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetErr_Title" xml:space="preserve">
+    <value>La actividad devuelve todos los errores ocurridos desde el último borrado.</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetLastActivityErr_Title" xml:space="preserve">
+    <value>Devuelve el nombre de la última actividad que genera un error.</value>
+  </data>
+  <data name="Activity_ErrorHandling_GetTables_Title" xml:space="preserve">
+    <value>Obtenga todas las tablas de validación fallidas como una cadena. Esto es útil para obtener información breve sobre lo que salió mal.</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CheckErr" xml:space="preserve">
+    <value>Verificar errores</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_CleanErr" xml:space="preserve">
+    <value>Borrar Errores</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_ErrImg" xml:space="preserve">
+    <value>Obtener imágenes de error</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetErr" xml:space="preserve">
+    <value>Obtener errores</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetLastActivityErr" xml:space="preserve">
+    <value>Obtener el último nombre de la actividad de error</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_GetTables" xml:space="preserve">
+    <value>Obtener tablas de validación no válidas</value>
+  </data>
+  <data name="Activity_ErrorHandling_Type_RaiseErr" xml:space="preserve">
+    <value>Elevar error</value>
+  </data>
+  <data name="Activity_Message_Base_Header" xml:space="preserve">
+    <value>Encabezado:</value>
+  </data>
+  <data name="Activity_Message_Base_Message" xml:space="preserve">
+    <value>Mensaje:</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_Buttons" xml:space="preserve">
+    <value>Botones</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ComboBox" xml:space="preserve">
+    <value>Cuadro de lista</value>
+  </data>
+  <data name="Activity_Msg_DisplayType_ToggleButtons" xml:space="preserve">
+    <value>Botones de alternar</value>
+  </data>
+  <data name="Activity_Msg_Parameters" xml:space="preserve">
+    <value>Parámetros del mensaje:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_AbsPath" xml:space="preserve">
+    <value>Usa la ruta absoluta</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons" xml:space="preserve">
+    <value>Botones:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_Hide" xml:space="preserve">
+    <value>Ocultar</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_OkCancel" xml:space="preserve">
+    <value>Ok Cancelar</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Buttons_YesNo" xml:space="preserve">
+    <value>Si No</value>
+  </data>
+  <data name="Activity_Msg_Parameters_CloseSource" xml:space="preserve">
+    <value>Origen de la actividad del cuadro de mensaje cerrado</value>
+  </data>
+  <data name="Activity_Msg_Parameters_DisplayAs" xml:space="preserve">
+    <value>Mostrar como:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_FullScreen" xml:space="preserve">
+    <value>Pantalla completa</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Header" xml:space="preserve">
+    <value>Encabezado:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Message" xml:space="preserve">
+    <value>Mensaje:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_MTFImage" xml:space="preserve">
+    <value>Imagen de MTF:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_NonBlockType" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="Activity_Msg_Parameters_ShowCancel" xml:space="preserve">
+    <value>Mostrar botón Cancelar</value>
+  </data>
+  <data name="Activity_Msg_Parameters_Values" xml:space="preserve">
+    <value>Valores:</value>
+  </data>
+  <data name="Activity_Msg_Type_Choice" xml:space="preserve">
+    <value>Elección</value>
+  </data>
+  <data name="Activity_Msg_Type_Close" xml:space="preserve">
+    <value>Cerca</value>
+  </data>
+  <data name="Activity_Msg_Type_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Activity_Msg_Type_ImportantQuestion" xml:space="preserve">
+    <value>Pregunta importante</value>
+  </data>
+  <data name="Activity_Msg_Type_Info" xml:space="preserve">
+    <value>Informacion</value>
+  </data>
+  <data name="Activity_Msg_Type_Input" xml:space="preserve">
+    <value>Entrada</value>
+  </data>
+  <data name="Activity_Msg_Type_NoBlocking" xml:space="preserve">
+    <value>Sin bloqueo</value>
+  </data>
+  <data name="Activity_Msg_Type_Picture" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="Activity_Msg_Type_Question" xml:space="preserve">
+    <value>Pregunta</value>
+  </data>
+  <data name="Activity_Msg_Type_Warning" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_Cmd" xml:space="preserve">
+    <value>Comando</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_Info" xml:space="preserve">
+    <value>La actividad se ejecutará solo en modo servicio o enseñanza</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_IsAllowed" xml:space="preserve">
+    <value>Esta permitido</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_IsChecked" xml:space="preserve">
+    <value>Está seleccionado</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_SelectAll" xml:space="preserve">
+    <value>Seleccionar todo</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeServiceCmd_Setting" xml:space="preserve">
+    <value>Configuración de comandos</value>
+  </data>
+  <data name="Activity_SeqHandling_ChangeUserCmd_Setting" xml:space="preserve">
+    <value>Comandos de usuario</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_AllTables" xml:space="preserve">
+    <value>Borrar todas las tablas</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_Selection" xml:space="preserve">
+    <value>Selección:</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_Tables" xml:space="preserve">
+    <value>Tablas:</value>
+  </data>
+  <data name="Activity_SeqHandling_ClearValidTable_Time" xml:space="preserve">
+    <value>Borrar Vista de Tiempo</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_GoToService" xml:space="preserve">
+    <value>devuelve verdadero si va al servicio</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_GoToTeach" xml:space="preserve">
+    <value>volver verdadero si va a enseñar</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_Service" xml:space="preserve">
+    <value>devuelve verdadero si el servicio está activo</value>
+  </data>
+  <data name="Activity_SeqHandling_ExecState_Teach" xml:space="preserve">
+    <value>devuelve verdadero si enseñar está activo</value>
+  </data>
+  <data name="Activity_SeqHandling_LogMsg" xml:space="preserve">
+    <value>Mensaje:</value>
+  </data>
+  <data name="Activity_SeqHandling_OnlyInDebug" xml:space="preserve">
+    <value>Usar solo en depuración</value>
+  </data>
+  <data name="Activity_SeqHandling_SEIP_Count" xml:space="preserve">
+    <value>Conteo esperado:</value>
+  </data>
+  <data name="Activity_SeqHandling_SEIP_Desc" xml:space="preserve">
+    <value>El nombre de esta actividad también es identificador de sincronización. La secuencia puede continuar, si se alcanza el recuento esperado de actividades de sincronización con el mismo nombre.</value>
+  </data>
+  <data name="Activity_SeqHandling_SEIP_Params" xml:space="preserve">
+    <value>Parámetro</value>
+  </data>
+  <data name="Activity_SeqHandling_SetUserIndicatorValue_Setting" xml:space="preserve">
+    <value>Indicadores de usuario</value>
+  </data>
+  <data name="Activity_SeqHandling_SetUserIndicatorValue_Value" xml:space="preserve">
+    <value>Valor del indicador</value>
+  </data>
+  <data name="Activity_SeqHandling_SetVariant_Value" xml:space="preserve">
+    <value>Valor:</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_CleanErrMemory" xml:space="preserve">
+    <value>Limpiar errores de la memoria</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_CleanErrWindow" xml:space="preserve">
+    <value>Ventana de limpieza de error</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_DefineCyclename" xml:space="preserve">
+    <value>Definir nombre del registro de ciclo</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_IncludeMsg" xml:space="preserve">
+    <value>Incluir mensajes de secuencia</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_IncludeTableStatus" xml:space="preserve">
+    <value>Incluir estado de tablas de validación</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_LogHiddenRows" xml:space="preserve">
+    <value>Registrar filas ocultas</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_Params" xml:space="preserve">
+    <value>Parámetros</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_ReportParams" xml:space="preserve">
+    <value>Parámetros del reporte:</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_ResetTimer" xml:space="preserve">
+    <value>Reiniciar temporizador de duración</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_SaveGraphicalView" xml:space="preserve">
+    <value>Guardar pantalla de vista gráfica</value>
+  </data>
+  <data name="Activity_SeqHandling_SRACE_SetStatus" xml:space="preserve">
+    <value>Establecer estado</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Design" xml:space="preserve">
+    <value>Diseño de estado</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_FontSize" xml:space="preserve">
+    <value>Tamaño de fuente:</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Line1" xml:space="preserve">
+    <value>Línea 1</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Line2" xml:space="preserve">
+    <value>Línea 2</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Line3" xml:space="preserve">
+    <value>Línea 3</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Lines" xml:space="preserve">
+    <value>Líneas de estado de secuencia:</value>
+  </data>
+  <data name="Activity_SeqHandling_StatusMsg_Preview" xml:space="preserve">
+    <value>Vista previa de la ventana de estado</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeServiceCmd" xml:space="preserve">
+    <value>Cambiar el estado de los comandos de servicio</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ChangeUserCmd" xml:space="preserve">
+    <value>Cambiar el estado del comando del usuario</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_ClearValidTables" xml:space="preserve">
+    <value>Borrar tablas de validación</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetExecState" xml:space="preserve">
+    <value>Obtener estado de ejecución</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetMTFVersion" xml:space="preserve">
+    <value>Obtener la versión MTF</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetSeqVariant" xml:space="preserve">
+    <value>Obtener variante de secuencia</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_GetUsers" xml:space="preserve">
+    <value>Obtener usuarios registrados</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_LogMsg" xml:space="preserve">
+    <value>Registro de Mensaje</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_PauseSeq" xml:space="preserve">
+    <value>Pausar Secuencia</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SaveReport" xml:space="preserve">
+    <value>Guardar informe y limpiar errores</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetSeqVariant" xml:space="preserve">
+    <value>Establecer variante de secuencia</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetStatusMsg" xml:space="preserve">
+    <value>Establecer mensaje de estado de secuencia</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SetUserIndicatorValue" xml:space="preserve">
+    <value>Establecer el valor del indicador de usuario</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StartCounter" xml:space="preserve">
+    <value>Contador de duración de inicio</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_StopSeq" xml:space="preserve">
+    <value>Detener Secuencia</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SwitchView" xml:space="preserve">
+    <value>Cambiar vista</value>
+  </data>
+  <data name="Activity_SeqHandling_Type_SynchronizationExecuteInParallel" xml:space="preserve">
+    <value>Sincronización para ejecutar en paralelo</value>
+  </data>
+  <data name="Activity_SubSequence_Condition" xml:space="preserve">
+    <value>Condición</value>
+  </data>
+  <data name="Activity_SubSequence_ExecutionType" xml:space="preserve">
+    <value>Tipo de ejecución</value>
+  </data>
+  <data name="Activity_SubSequence_Header" xml:space="preserve">
+    <value>Subsecuencia</value>
+  </data>
+  <data name="AddNewSummaryReport" xml:space="preserve">
+    <value>Nuevo resumen de reporte</value>
+  </data>
+  <data name="BaseString_New" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="Buttons_Add" xml:space="preserve">
+    <value>Añadir</value>
+  </data>
+  <data name="Buttons_Browse" xml:space="preserve">
+    <value>Buscar...</value>
+  </data>
+  <data name="Buttons_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Buttons_ClearAll" xml:space="preserve">
+    <value>Limpiar todo</value>
+  </data>
+  <data name="Buttons_Create" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="Buttons_CreateNew" xml:space="preserve">
+    <value>Crear nuevo</value>
+  </data>
+  <data name="Buttons_Exit" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Buttons_Finnish" xml:space="preserve">
+    <value>Terminar</value>
+  </data>
+  <data name="Buttons_NewFolder" xml:space="preserve">
+    <value>Nueva carpeta</value>
+  </data>
+  <data name="Buttons_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Buttons_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Buttons_Open" xml:space="preserve">
+    <value>Abierto</value>
+  </data>
+  <data name="Buttons_Refresh" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="Buttons_Remove" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="Buttons_Rename" xml:space="preserve">
+    <value>Renombrar</value>
+  </data>
+  <data name="Buttons_Run" xml:space="preserve">
+    <value>Ejecutar</value>
+  </data>
+  <data name="Buttons_Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Buttons_Select" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="Buttons_Send" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Buttons_WizardBack" xml:space="preserve">
+    <value>&lt;Volver</value>
+  </data>
+  <data name="Buttons_WizardNext" xml:space="preserve">
+    <value>Siguiente&gt;</value>
+  </data>
+  <data name="Buttons_Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="ComponentConfig_AvailableList" xml:space="preserve">
+    <value>Listas de valores disponibles</value>
+  </data>
+  <data name="ComponentConfig_Category" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="ComponentConfig_CfgName" xml:space="preserve">
+    <value>Nombre de la configuración</value>
+  </data>
+  <data name="ComponentConfig_Classes" xml:space="preserve">
+    <value>Componentes:</value>
+  </data>
+  <data name="ComponentConfig_Contructors" xml:space="preserve">
+    <value>Constructores:</value>
+  </data>
+  <data name="ComponentConfig_LegacyParamUsed" xml:space="preserve">
+    <value>Se utiliza el auxiliar de parámetro</value>
+  </data>
+  <data name="ComponentConfig_Params" xml:space="preserve">
+    <value>Parámetros de los componentes</value>
+  </data>
+  <data name="ContextManun_Delete" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="ContextMenu_Rename" xml:space="preserve">
+    <value>Renombrar</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_AssignDut" xml:space="preserve">
+    <value>Asignar a DUT</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_SaveToReport" xml:space="preserve">
+    <value>Guardar en Reporte</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_SelectedPicture" xml:space="preserve">
+    <value>Imagen seleccionada</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_TableList" xml:space="preserve">
+    <value>Tablas de validación</value>
+  </data>
+  <data name="Editor_GraphicalView_Editor_ViewName" xml:space="preserve">
+    <value>Nombre di Vista</value>
+  </data>
+  <data name="Editor_GraphicalView_ResourceManager_ImageFiles" xml:space="preserve">
+    <value>Archivos de imagen</value>
+  </data>
+  <data name="Editor_GraphicalView_ResourceManager_LoadError" xml:space="preserve">
+    <value>Error al cargar imágenes.</value>
+  </data>
+  <data name="Editor_GraphicalView_ResourceManager_SaveError" xml:space="preserve">
+    <value>Error al guardar imágenes.</value>
+  </data>
+  <data name="Enum_ErrorMsgType_Blocking" xml:space="preserve">
+    <value>Ventana de bloqueo</value>
+  </data>
+  <data name="Enum_ErrorMsgType_NonBlocking" xml:space="preserve">
+    <value>Ventana sin bloqueo</value>
+  </data>
+  <data name="Enum_ErrorMsgType_None" xml:space="preserve">
+    <value>Sin ventana</value>
+  </data>
+  <data name="Enum_ExecutionType_Client" xml:space="preserve">
+    <value>IU del cliente</value>
+  </data>
+  <data name="Enum_ExecutionType_Graphical" xml:space="preserve">
+    <value>Vista gráfica</value>
+  </data>
+  <data name="Enum_ExecutionType_Service" xml:space="preserve">
+    <value>Servicio</value>
+  </data>
+  <data name="Enum_ExecutionType_Table" xml:space="preserve">
+    <value>Vista de tabla</value>
+  </data>
+  <data name="Enum_ExecutionType_Teach" xml:space="preserve">
+    <value>Enseñar</value>
+  </data>
+  <data name="Enum_ExecutionType_Time" xml:space="preserve">
+    <value>Vista del tiempo</value>
+  </data>
+  <data name="Enum_ExecutionType_Tree" xml:space="preserve">
+    <value>Vista de árbol</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>Ninguna</value>
+  </data>
+  <data name="Execution_ActivityProgress" xml:space="preserve">
+    <value>Progreso de la actividad</value>
+  </data>
+  <data name="Execution_AdditionalInfo_GS" xml:space="preserve">
+    <value>Muestra Maestra</value>
+  </data>
+  <data name="Execution_AdditionalInfo_GS_Missing" xml:space="preserve">
+    <value>Muestra Maestra faltante</value>
+  </data>
+  <data name="Execution_AdditionalInfo_GS_Remains" xml:space="preserve">
+    <value>permanece</value>
+  </data>
+  <data name="Execution_AdditionalInfo_VariablesWatch" xml:space="preserve">
+    <value>Reloj Variables</value>
+  </data>
+  <data name="Execution_AdditionalInfo_VariablesWatch_Setting" xml:space="preserve">
+    <value>Ajuste de reloj</value>
+  </data>
+  <data name="Execution_ErrorWindow_MsgCount" xml:space="preserve">
+    <value>Conteo de Mensajes</value>
+  </data>
+  <data name="Execution_Header_Version" xml:space="preserve">
+    <value>{0} ver. {1}</value>
+  </data>
+  <data name="Execution_Result_Activity" xml:space="preserve">
+    <value>Actividad</value>
+  </data>
+  <data name="Execution_Result_ActivityName" xml:space="preserve">
+    <value>Nombre de la actividad</value>
+  </data>
+  <data name="Execution_Result_Duration" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="Execution_Result_Method" xml:space="preserve">
+    <value>Nombre del método</value>
+  </data>
+  <data name="Execution_Result_Ms" xml:space="preserve">
+    <value>Ms</value>
+  </data>
+  <data name="Execution_Result_Parallel" xml:space="preserve">
+    <value>Ejecutado en paralelo</value>
+  </data>
+  <data name="Execution_Result_Params" xml:space="preserve">
+    <value>Parámetros del método:</value>
+  </data>
+  <data name="Execution_Result_Progress" xml:space="preserve">
+    <value>Progreso:</value>
+  </data>
+  <data name="Execution_Result_Repetition" xml:space="preserve">
+    <value>Número de repeticiones:</value>
+  </data>
+  <data name="Execution_Result_Result" xml:space="preserve">
+    <value>Resultado</value>
+  </data>
+  <data name="Execution_Result_Timestamp" xml:space="preserve">
+    <value>Tiempo:</value>
+  </data>
+  <data name="Execution_StartDelay" xml:space="preserve">
+    <value>Demora {0} s antes de que comience la secuencia ...</value>
+  </data>
+  <data name="Execution_Status_Nok" xml:space="preserve">
+    <value>Falla</value>
+  </data>
+  <data name="Execution_Status_Ok" xml:space="preserve">
+    <value>Pasa</value>
+  </data>
+  <data name="Execution_TreeView_ActivityFocus" xml:space="preserve">
+    <value>Centrarse en la actividad en tiempo de ejecución</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Date" xml:space="preserve">
+    <value>FECHA:</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Duration" xml:space="preserve">
+    <value>DURACIÓN</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Start" xml:space="preserve">
+    <value>INICIAR</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Stop" xml:space="preserve">
+    <value>DETENER</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_Time" xml:space="preserve">
+    <value>HORA:</value>
+  </data>
+  <data name="Execution_TreeView_FinalResult_TimeStamp" xml:space="preserve">
+    <value>TIEMPO</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Bottom" xml:space="preserve">
+    <value>Fondo</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Left" xml:space="preserve">
+    <value>Izquierda</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_None" xml:space="preserve">
+    <value>Ninguna</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Right" xml:space="preserve">
+    <value>Derecha</value>
+  </data>
+  <data name="LineChartPanel_LegendPosition_Top" xml:space="preserve">
+    <value>Parte superior</value>
+  </data>
+  <data name="MainCommand_AddExist" xml:space="preserve">
+    <value>Agregar existe</value>
+  </data>
+  <data name="MainCommand_AddNew" xml:space="preserve">
+    <value>Agregar nuevo</value>
+  </data>
+  <data name="MainCommand_Back" xml:space="preserve">
+    <value>Atrás</value>
+  </data>
+  <data name="MainCommand_CollapseAll" xml:space="preserve">
+    <value>Retraer todo</value>
+  </data>
+  <data name="MainCommand_CopyCfg" xml:space="preserve">
+    <value>Copiar config</value>
+  </data>
+  <data name="MainCommand_Debud_StepInto" xml:space="preserve">
+    <value>Paso Adelante</value>
+  </data>
+  <data name="MainCommand_Debud_StepOut" xml:space="preserve">
+    <value>Paso Atrás</value>
+  </data>
+  <data name="MainCommand_Debud_StepOver" xml:space="preserve">
+    <value>Paso a paso</value>
+  </data>
+  <data name="MainCommand_Debug" xml:space="preserve">
+    <value>Depurar</value>
+  </data>
+  <data name="MainCommand_ExpandAll" xml:space="preserve">
+    <value>Expandir todo</value>
+  </data>
+  <data name="MainCommand_Export" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="MainCommand_FindUsages" xml:space="preserve">
+    <value>Encuentra usos</value>
+  </data>
+  <data name="MainCommand_GraphicalView" xml:space="preserve">
+    <value>Vista gráfica</value>
+  </data>
+  <data name="MainCommand_Import" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="MainCommand_LoadList" xml:space="preserve">
+    <value>Listas de carga</value>
+  </data>
+  <data name="MainCommand_New" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="MainCommand_Open" xml:space="preserve">
+    <value>Abierto</value>
+  </data>
+  <data name="MainCommand_OpenBackup" xml:space="preserve">
+    <value>Abrir Copia de seguridad</value>
+  </data>
+  <data name="MainCommand_Pause" xml:space="preserve">
+    <value>Pausa</value>
+  </data>
+  <data name="MainCommand_PictureBox" xml:space="preserve">
+    <value>Mostrar imagen</value>
+  </data>
+  <data name="MainCommand_RemoveAll" xml:space="preserve">
+    <value>Eliminar todo</value>
+  </data>
+  <data name="MainCommand_Reports" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="MainCommand_Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="MainCommand_SaveAll" xml:space="preserve">
+    <value>Gruadar Todo</value>
+  </data>
+  <data name="MainCommand_SaveAs" xml:space="preserve">
+    <value>Guardar como</value>
+  </data>
+  <data name="MainCommand_Settings" xml:space="preserve">
+    <value>Configuraciones</value>
+  </data>
+  <data name="MainCommand_Setup" xml:space="preserve">
+    <value>Preparación</value>
+  </data>
+  <data name="MainCommand_SetVariant" xml:space="preserve">
+    <value>Establecer variante</value>
+  </data>
+  <data name="MainCommand_Start" xml:space="preserve">
+    <value>Iniciar</value>
+  </data>
+  <data name="MainCommand_Stop" xml:space="preserve">
+    <value>Detener</value>
+  </data>
+  <data name="MainCommand_Summary_Reports" xml:space="preserve">
+    <value>Sumario de Reportes</value>
+  </data>
+  <data name="MainCommand_Test" xml:space="preserve">
+    <value>Prueba</value>
+  </data>
+  <data name="MainMenu_ComponentConfiguration" xml:space="preserve">
+    <value>Configuración de componentes</value>
+  </data>
+  <data name="MainMenu_Editor" xml:space="preserve">
+    <value>Editor de secuencias</value>
+  </data>
+  <data name="MainMenu_Execution" xml:space="preserve">
+    <value>Ejecución de secuencia</value>
+  </data>
+  <data name="MainMenu_Result" xml:space="preserve">
+    <value>Visor de resultados</value>
+  </data>
+  <data name="MainMenu_Setting" xml:space="preserve">
+    <value>Configuraciones</value>
+  </data>
+  <data name="Msg_Body_AccessAnotherUsb" xml:space="preserve">
+    <value>Su clave de acceso se generó para otra memoria USB. Por favor no copie el archivo de acceso.</value>
+  </data>
+  <data name="Msg_Body_AccessDays" xml:space="preserve">
+    <value>Su clave de acceso caduca en {0} días</value>
+  </data>
+  <data name="Msg_Body_AccessExpired" xml:space="preserve">
+    <value>Su clave de acceso expiró.</value>
+  </data>
+  <data name="Msg_Body_AccessInitCrash" xml:space="preserve">
+    <value>La inicialización del proveedor de clave de acceso {0} se bloqueó. {2} {2} {1}</value>
+  </data>
+  <data name="Msg_Body_AccessValid" xml:space="preserve">
+    <value>Su clave de acceso no es válida para esta computadora.</value>
+  </data>
+  <data name="Msg_Body_CouldNotLoad" xml:space="preserve">
+    <value>La secuencia no se puede cargar porque se creó en la versión superior de MTF al que tiene.</value>
+  </data>
+  <data name="Msg_Body_DataFileDoesntExist" xml:space="preserve">
+    <value>El archivo de datos: {0} no existe.
+
+    ¿Quiere crear uno nuevo?</value>
+  </data>
+  <data name="Msg_Body_DeleteAct" xml:space="preserve">
+    <value>¿Está seguro de que desea eliminar la Actividad: {0}?</value>
+  </data>
+  <data name="Msg_Body_DeleteItem" xml:space="preserve">
+    <value>¿Realmente desea eliminar el elemento {0}?</value>
+  </data>
+  <data name="Msg_Body_DeleteMoreAct" xml:space="preserve">
+    <value>¿Está seguro de que desea eliminar {0} Actividades?</value>
+  </data>
+  <data name="Msg_Body_EditorModified" xml:space="preserve">
+    <value>Secuencia ha sido modificada en el editor.</value>
+  </data>
+  <data name="Msg_Body_ExecutionModified" xml:space="preserve">
+    <value>Secuencia ha sido modificada en ejecución.</value>
+  </data>
+  <data name="Msg_Body_Exit" xml:space="preserve">
+    <value>¿Realmente quieres cerrar AL Main Testing Framework?</value>
+  </data>
+  <data name="Msg_Body_ImportError" xml:space="preserve">
+    <value>Se produjo un error durante la importación. Consulte SystemLog en el lado del servidor.
+    ¿Desea iniciar nuevamente la importación?</value>
+  </data>
+  <data name="Msg_Body_Inactivity" xml:space="preserve">
+    <value>La inactividad en MTF se ha detectado durante casi {0} horas. Su licencia será destruida en {1} minutos</value>
+  </data>
+  <data name="Msg_Body_InstanceOk" xml:space="preserve">
+    <value>La instancia del componente se creó correctamente</value>
+  </data>
+  <data name="Msg_Body_LeaveService" xml:space="preserve">
+    <value>¿Realmente quieres salir del modo de servicio?</value>
+  </data>
+  <data name="Msg_Body_LeaveTeach" xml:space="preserve">
+    <value>¿De verdad quieres salir del modo de enseñanza?</value>
+  </data>
+  <data name="Msg_Body_MissingRef" xml:space="preserve">
+    <value>Esta secuencia no funcionará correctamente.</value>
+  </data>
+  <data name="Msg_Body_NoMoreClients" xml:space="preserve">
+    <value>No se pudieron iniciar más clientes. Por favor verifique su configuración.</value>
+  </data>
+  <data name="Msg_Body_RecursiveOpen" xml:space="preserve">
+    <value>La secuencia {0} se abre más veces. Por favor revise su secuencia.</value>
+  </data>
+  <data name="Msg_Body_RemoveAllComponentConf" xml:space="preserve">
+    <value>¿Realmente desea eliminar la configuración de todos los componentes?</value>
+  </data>
+  <data name="Msg_Body_RemoveComponentConf" xml:space="preserve">
+    <value>¿Realmente desea eliminar la configuración de este componente?</value>
+  </data>
+  <data name="Msg_Body_SaveSequence" xml:space="preserve">
+    <value>¿Realmente quieres guardar la secuencia?</value>
+  </data>
+  <data name="Msg_Body_SeqAbort" xml:space="preserve">
+    <value>La secuencia fue abortada.</value>
+  </data>
+  <data name="Msg_Body_SeqFinish" xml:space="preserve">
+    <value>La secuencia fue terminada.</value>
+  </data>
+  <data name="Msg_Body_SeqStop" xml:space="preserve">
+    <value>Se detuvo la secuencia.</value>
+  </data>
+  <data name="Msg_Body_SequenceNotSaved" xml:space="preserve">
+    <value>La secuencia no se guardó.</value>
+  </data>
+  <data name="Msg_Body_SequenceNotStartModifiedEditor" xml:space="preserve">
+    <value>Esta secuencia no se puede ejecutar porque se ha modificado en el editor.</value>
+  </data>
+  <data name="Msg_Body_Shutdown" xml:space="preserve">
+    <value>¿Realmente quieres apagar la computadora?</value>
+  </data>
+  <data name="Msg_Body_UnableLoadExetnal" xml:space="preserve">
+    <value>No se pueden cargar las siguientes secuencias:</value>
+  </data>
+  <data name="Msg_Body_UpdateMTF" xml:space="preserve">
+    <value>¡Actualice su MTF y vuelva a intentarlo!</value>
+  </data>
+  <data name="Msg_Header_AccessError" xml:space="preserve">
+    <value>Error de acceso</value>
+  </data>
+  <data name="Msg_Header_AccessInitCrash" xml:space="preserve">
+    <value>Error de proveedor de Clave de Acceso</value>
+  </data>
+  <data name="Msg_Header_DeleteAct" xml:space="preserve">
+    <value>Eliminar actividad</value>
+  </data>
+  <data name="Msg_Header_DeleteItem" xml:space="preserve">
+    <value>Eliminar elemento</value>
+  </data>
+  <data name="Msg_Header_Error" xml:space="preserve">
+    <value>Error - MTF</value>
+  </data>
+  <data name="Msg_Header_Exit" xml:space="preserve">
+    <value>Salir MTF</value>
+  </data>
+  <data name="Msg_Header_Inactivity" xml:space="preserve">
+    <value>Inactividad en MTF</value>
+  </data>
+  <data name="Msg_Header_Info" xml:space="preserve">
+    <value>Información - MTF</value>
+  </data>
+  <data name="Msg_Header_InstanceTest" xml:space="preserve">
+    <value>Prueba de instancia</value>
+  </data>
+  <data name="Msg_Header_LeaveService" xml:space="preserve">
+    <value>Dejando el servicio</value>
+  </data>
+  <data name="Msg_Header_MissingRef" xml:space="preserve">
+    <value>Referencias faltantes</value>
+  </data>
+  <data name="Msg_Header_Question_CreateNew" xml:space="preserve">
+    <value>MTF - crear nuevo</value>
+  </data>
+  <data name="Msg_Header_RemoveComponentConf" xml:space="preserve">
+    <value>Eliminar configuración de componentes</value>
+  </data>
+  <data name="Msg_Header_SaveSequence" xml:space="preserve">
+    <value>Guardar secuencia</value>
+  </data>
+  <data name="Msg_Header_Shutdown" xml:space="preserve">
+    <value>Apagar la computadora</value>
+  </data>
+  <data name="Mtf_Connect" xml:space="preserve">
+    <value>Conectando al servidor</value>
+  </data>
+  <data name="MTF_Connection_CantConnect" xml:space="preserve">
+    <value>No se puede conectar al servidor MTF.</value>
+  </data>
+  <data name="MTF_Connection_Error" xml:space="preserve">
+    <value>Error del Servidor</value>
+  </data>
+  <data name="MTF_Connection_ExeFiles" xml:space="preserve">
+    <value>Archivos EXE</value>
+  </data>
+  <data name="MTF_Connection_RunServer" xml:space="preserve">
+    <value>¿Quieres ejecutar el servidor?</value>
+  </data>
+  <data name="MTF_Connection_ServerPort" xml:space="preserve">
+    <value>Servidor : Puerto</value>
+  </data>
+  <data name="Mtf_ConnectNextTry" xml:space="preserve">
+    <value>Siguiente intento a conectarse</value>
+  </data>
+  <data name="MTF_ErrorBehavior_Abort" xml:space="preserve">
+    <value>Abortar Prueba</value>
+  </data>
+  <data name="MTF_ErrorBehavior_Continue" xml:space="preserve">
+    <value>Continuar</value>
+  </data>
+  <data name="MTF_ErrorBehavior_Parent" xml:space="preserve">
+    <value>Controlado por el padre</value>
+  </data>
+  <data name="Mtf_Export_Components" xml:space="preserve">
+    <value>Configuraciones de componentes</value>
+  </data>
+  <data name="Mtf_Export_ComponentsDesc" xml:space="preserve">
+    <value>Elija la configuración de componentes que desea exportar.</value>
+  </data>
+  <data name="Mtf_Export_ComponentsName" xml:space="preserve">
+    <value>Nombre del componente</value>
+  </data>
+  <data name="Mtf_Export_ComponentsTitle" xml:space="preserve">
+    <value>Exportar configuración de componentes</value>
+  </data>
+  <data name="Mtf_Export_Export" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="Mtf_Export_Images" xml:space="preserve">
+    <value>Imágenes de Vista gráfica</value>
+  </data>
+  <data name="Mtf_Export_ImagesDesc" xml:space="preserve">
+    <value>Elija las imágenes que desea exportar.</value>
+  </data>
+  <data name="Mtf_Export_ImagesName" xml:space="preserve">
+    <value>Nombre de la imágen</value>
+  </data>
+  <data name="Mtf_Export_ImagesTitle" xml:space="preserve">
+    <value>Exportar imágenes de vista gráfica</value>
+  </data>
+  <data name="Mtf_Export_PreviewDesc" xml:space="preserve">
+    <value>El siguiente contenido se puede exportar. El componente que no tiene ninguna asignación al dispositivo no se puede exportar.</value>
+  </data>
+  <data name="Mtf_Export_PreviewImages" xml:space="preserve">
+    <value>Imágenes de vista gráfica</value>
+  </data>
+  <data name="Mtf_Export_PreviewMtfVersion" xml:space="preserve">
+    <value>Versión MTF:</value>
+  </data>
+  <data name="Mtf_Export_PreviewTitle" xml:space="preserve">
+    <value>Vista previa de exportación</value>
+  </data>
+  <data name="Mtf_Export_Sequences" xml:space="preserve">
+    <value>Secuencias</value>
+  </data>
+  <data name="Mtf_Export_SequencesDesc" xml:space="preserve">
+    <value>Elija las secuencias que desea exportar. Si selecciona una secuencia principal, debe exportar todas las secuencias.</value>
+  </data>
+  <data name="Mtf_Export_SequencesName" xml:space="preserve">
+    <value>Nombre de secuencia</value>
+  </data>
+  <data name="Mtf_Export_SequencesTitle" xml:space="preserve">
+    <value>Exportar secuencias</value>
+  </data>
+  <data name="Mtf_Export_SummaryDesc" xml:space="preserve">
+    <value>Puede ver qué será y qué no se exportará en las siguientes categorías.</value>
+  </data>
+  <data name="Mtf_Export_SummaryExport" xml:space="preserve">
+    <value>Artículos para exportar</value>
+  </data>
+  <data name="Mtf_Export_SummaryNotExport" xml:space="preserve">
+    <value>No será exportado</value>
+  </data>
+  <data name="Mtf_Export_SummaryTitle" xml:space="preserve">
+    <value>Resumen de exportación</value>
+  </data>
+  <data name="Mtf_Export_Title" xml:space="preserve">
+    <value>Exportar secuencias</value>
+  </data>
+  <data name="Mtf_FileDialog_ZipFile" xml:space="preserve">
+    <value>Archivo ZIP</value>
+  </data>
+  <data name="Mtf_Import_CantImport" xml:space="preserve">
+    <value>La secuencia no se puede cargar porque se creó en la versión superior de MTF que tiene.
+    ¡Actualice su MTF y vuelva a intentarlo!
+    </value>
+  </data>
+  <data name="Mtf_Import_ComponentConflictDesc" xml:space="preserve">
+    <value>Seleccione las configuraciones de componentes que desea importar y, si hay algún conflicto, puede sobrescribir los componentes originales. Los conflictos se detectar por la identificación del componente. No por el nombre. Si desea mantener ambos componentes (nuevo y antiguo) vaya a la configuración de Componentes, seleccione la configuración adecuada y cree una copia. Entonces puede reemplazar el original.</value>
+  </data>
+  <data name="Mtf_Import_ComponentConflictName" xml:space="preserve">
+    <value>Nombre de la configuración</value>
+  </data>
+  <data name="Mtf_Import_ComponentConflictTitle" xml:space="preserve">
+    <value>Importación de configuraciones de componentes</value>
+  </data>
+  <data name="Mtf_Import_ConflictCanImport" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Mtf_Import_ConflictImport" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="Mtf_Import_ConflictItem" xml:space="preserve">
+    <value>Configuración en conflicto</value>
+  </data>
+  <data name="Mtf_Import_ConflictOverwrite" xml:space="preserve">
+    <value>Sobreescribir</value>
+  </data>
+  <data name="Mtf_Import_DestDesc" xml:space="preserve">
+    <value>Seleccione un directorio para importar las secuencias colocadas en el archivo ZIP.</value>
+  </data>
+  <data name="Mtf_Import_DestTitle" xml:space="preserve">
+    <value>Selección de ubicación</value>
+  </data>
+  <data name="Mtf_Import_FileName" xml:space="preserve">
+    <value>Nombre del archivo</value>
+  </data>
+  <data name="Mtf_Import_ImagesDesc" xml:space="preserve">
+    <value>Elija las imágenes que desea importar.</value>
+  </data>
+  <data name="Mtf_Import_ImagesTitle" xml:space="preserve">
+    <value>Importar imágenes de vista gráfica</value>
+  </data>
+  <data name="Mtf_Import_MtfVersion" xml:space="preserve">
+    <value>Versión original de MTF:</value>
+  </data>
+  <data name="Mtf_Import_PreviewDesc" xml:space="preserve">
+    <value>Contenido del archivo ZIP seleccionado.</value>
+  </data>
+  <data name="Mtf_Import_PreviewErr" xml:space="preserve">
+    <value>El archivo ZIP importado tiene un formato incorrecto.</value>
+  </data>
+  <data name="Mtf_Import_PreviewTitle" xml:space="preserve">
+    <value>Vista previa de importación</value>
+  </data>
+  <data name="Mtf_Import_SeqConflictDesc" xml:space="preserve">
+    <value>Seleccione las secuencias que desea importar y, si hay algún conflicto, puede sobrescribir las secuencias originales.</value>
+  </data>
+  <data name="Mtf_Import_SeqConflictDestinationFolder" xml:space="preserve">
+    <value>Carpeta de destino</value>
+  </data>
+  <data name="Mtf_Import_SeqConflictTitle" xml:space="preserve">
+    <value>Importación de secuencias</value>
+  </data>
+  <data name="Mtf_Import_SummaryDesc" xml:space="preserve">
+    <value>Puede ver qué será y qué no se importará en las siguientes categorías.</value>
+  </data>
+  <data name="Mtf_Import_SummaryImport" xml:space="preserve">
+    <value>Artículos para importar</value>
+  </data>
+  <data name="Mtf_Import_SummaryNotImport" xml:space="preserve">
+    <value>No será importado</value>
+  </data>
+  <data name="Mtf_Import_SummaryTitle" xml:space="preserve">
+    <value>Resumen de importación</value>
+  </data>
+  <data name="Mtf_Import_Title" xml:space="preserve">
+    <value>Secuencia de importación</value>
+  </data>
+  <data name="Mtf_Init_Access" xml:space="preserve">
+    <value>Inicializando proveedores de Clave de Acceso</value>
+  </data>
+  <data name="Mtf_Init_Download" xml:space="preserve">
+    <value>Descargando</value>
+  </data>
+  <data name="Mtf_Init_Ui" xml:space="preserve">
+    <value>Inicializando la IU</value>
+  </data>
+  <data name="Mtf_ListEditor_ActivityResult" xml:space="preserve">
+    <value>Resultado de la actividad:</value>
+  </data>
+  <data name="Mtf_ListEditor_ItemsCount" xml:space="preserve">
+    <value>Cuenta de artículos:</value>
+  </data>
+  <data name="MTF_Login_Login" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="MTF_Login_Password" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="Mtf_LongTask_Exporting" xml:space="preserve">
+    <value>Exportar...</value>
+  </data>
+  <data name="Mtf_LongTask_LoadingAllSequences" xml:space="preserve">
+    <value>Cargando secuencia ...</value>
+  </data>
+  <data name="Mtf_LongTask_LoadingSequence" xml:space="preserve">
+    <value>Cargando secuencia ...</value>
+  </data>
+  <data name="Mtf_LongTask_OpeningSeq" xml:space="preserve">
+    <value>Abriendo Secuencia...</value>
+  </data>
+  <data name="Mtf_LongTask_Saving" xml:space="preserve">
+    <value>Guardando...</value>
+  </data>
+  <data name="Mtf_LongTask_SavingSeq" xml:space="preserve">
+    <value>Guardando secuencia ...</value>
+  </data>
+  <data name="Mtf_OpenDialog_OpenSeq" xml:space="preserve">
+    <value>Abrir Secuencia</value>
+  </data>
+  <data name="Mtf_RenameControl_Header" xml:space="preserve">
+    <value>Por favor ingrese un nuevo nombre:</value>
+  </data>
+  <data name="MTF_Splash_Starting" xml:space="preserve">
+    <value>MTF está comenzando ...</value>
+  </data>
+  <data name="Mtf_StartingNotStart" xml:space="preserve">
+    <value>Error al iniciar el servidor {0}. {1} ¡Comprobar la ruta al servidor!</value>
+  </data>
+  <data name="Mtf_StartingServer" xml:space="preserve">
+    <value>Iniciando Servidor</value>
+  </data>
+  <data name="Mtf_VariantWizard_AddNewValue" xml:space="preserve">
+    <value>Agregar nuevo valor</value>
+  </data>
+  <data name="Mtf_VariantWizard_AllowedGroups" xml:space="preserve">
+    <value>Grupos disponibles</value>
+  </data>
+  <data name="Mtf_VariantWizard_ApplyForExternal" xml:space="preserve">
+    <value>Aplicar a secuencias externas</value>
+  </data>
+  <data name="Mtf_WarningMsg_ComponentDisabled" xml:space="preserve">
+    <value>Advertencia de ejecución de secuencia: la información de clase {0} está deshabilitada. La ejecución puede estar mal.</value>
+  </data>
+  <data name="New_Summary_Report" xml:space="preserve">
+    <value>Nuevo informe resumen</value>
+  </data>
+  <data name="OpenDialog_FileName" xml:space="preserve">
+    <value>Nombre del archivo:</value>
+  </data>
+  <data name="OpenDialog_NotFound" xml:space="preserve">
+    <value>Archivo {0} no encontrado.</value>
+  </data>
+  <data name="OpenDialog_OpenSeq" xml:space="preserve">
+    <value>Abrir Secuencia</value>
+  </data>
+  <data name="OpenDialog_Root" xml:space="preserve">
+    <value>raíz:</value>
+  </data>
+  <data name="OpenDialog_SaveType" xml:space="preserve">
+    <value>Guardar como tipo:</value>
+  </data>
+  <data name="OpenDialog_SelectFolder" xml:space="preserve">
+    <value>Seleccione la carpeta</value>
+  </data>
+  <data name="OpenDialog_TypeSequence" xml:space="preserve">
+    <value>SECUENCIA</value>
+  </data>
+  <data name="Parameter_Is_Optional" xml:space="preserve">
+    <value>Opcional</value>
+  </data>
+  <data name="RadioButtons_Choose" xml:space="preserve">
+    <value>Escoger</value>
+  </data>
+  <data name="RadioButtons_Default" xml:space="preserve">
+    <value>Defecto</value>
+  </data>
+  <data name="ReportViewer_CycleName" xml:space="preserve">
+    <value>Nombre del ciclo</value>
+  </data>
+  <data name="ReportViewer_Detail" xml:space="preserve">
+    <value>Detalle</value>
+  </data>
+  <data name="ReportViewer_Detail_Duration" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="ReportViewer_Detail_ErrorsCount" xml:space="preserve">
+    <value>Cuenta de errores</value>
+  </data>
+  <data name="ReportViewer_Detail_FinalResult" xml:space="preserve">
+    <value>Resultado final</value>
+  </data>
+  <data name="ReportViewer_Detail_Gs" xml:space="preserve">
+    <value>Vida de muestra maestra</value>
+  </data>
+  <data name="ReportViewer_Detail_Machine" xml:space="preserve">
+    <value>Máquina</value>
+  </data>
+  <data name="ReportViewer_Detail_StartTime" xml:space="preserve">
+    <value>Hora de inicio</value>
+  </data>
+  <data name="ReportViewer_Detail_StopTime" xml:space="preserve">
+    <value>Hora de término</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_ActivityName" xml:space="preserve">
+    <value>Nombre de la actividad</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_ErrorType" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="ReportViewer_Detail_Table_Timestamp" xml:space="preserve">
+    <value>Tiempo</value>
+  </data>
+  <data name="ReportViewer_Detail_Title" xml:space="preserve">
+    <value>Rporte de secuencia</value>
+  </data>
+  <data name="ReportViewer_Detail_User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="ReportViewer_Detail_Variant" xml:space="preserve">
+    <value>Variante de secuencia</value>
+  </data>
+  <data name="ReportViewer_Duration" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="ReportViewer_Items" xml:space="preserve">
+    <value>Artículos</value>
+  </data>
+  <data name="ReportViewer_Last24Hours" xml:space="preserve">
+    <value>Últimas 24 horas</value>
+  </data>
+  <data name="ReportViewer_LastWeek" xml:space="preserve">
+    <value>La semana pasada</value>
+  </data>
+  <data name="ReportViewer_ReportResult" xml:space="preserve">
+    <value>Rporte de resultado</value>
+  </data>
+  <data name="ReportViewer_SequenceName" xml:space="preserve">
+    <value>Nombre de secuencia</value>
+  </data>
+  <data name="ReportViewer_StartTime" xml:space="preserve">
+    <value>Hora de inicio</value>
+  </data>
+  <data name="ReportViewer_StartTimeFrom" xml:space="preserve">
+    <value>Hora de inicio desde</value>
+  </data>
+  <data name="ReportViewer_StartTimeTo" xml:space="preserve">
+    <value>Hora de inicio para</value>
+  </data>
+  <data name="ReportViewer_StopTime" xml:space="preserve">
+    <value>Hora de término</value>
+  </data>
+  <data name="ReportViewer_Variant" xml:space="preserve">
+    <value>Variante de secuencia</value>
+  </data>
+  <data name="Setting_AppInfo_BaseDir" xml:space="preserve">
+    <value>Directorio base</value>
+  </data>
+  <data name="Setting_AppInfo_Header" xml:space="preserve">
+    <value>Información del cliente</value>
+  </data>
+  <data name="Setting_AppInfo_MemoryUsage" xml:space="preserve">
+    <value>Uso de memoria [MB]</value>
+  </data>
+  <data name="Setting_Backup_Create" xml:space="preserve">
+    <value>Crear copia de seguridad cada</value>
+  </data>
+  <data name="Setting_Backup_Delete" xml:space="preserve">
+    <value>Eliminar anterior a</value>
+  </data>
+  <data name="Setting_Backup_EnableAuto" xml:space="preserve">
+    <value>Habilitar copia de seguridad automática</value>
+  </data>
+  <data name="Setting_Backup_Header" xml:space="preserve">
+    <value>Configuración de respaldo</value>
+  </data>
+  <data name="Setting_Backup_Unit" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="Setting_Connection_AutoConnect" xml:space="preserve">
+    <value>Conectarse al servidor automáticamente</value>
+  </data>
+  <data name="Setting_Connection_ConnAlias" xml:space="preserve">
+    <value>Alias ​​de conexión</value>
+  </data>
+  <data name="Setting_Connection_ConnectDelay" xml:space="preserve">
+    <value>Retraso de conexión [s]</value>
+  </data>
+  <data name="Setting_Connection_ConnHost" xml:space="preserve">
+    <value>Conexión al Host</value>
+  </data>
+  <data name="Setting_Connection_ConnPort" xml:space="preserve">
+    <value>Puerto de conexión</value>
+  </data>
+  <data name="Setting_Connection_Header" xml:space="preserve">
+    <value>Conexión y configuración del servidor</value>
+  </data>
+  <data name="Setting_Connection_MoreClients" xml:space="preserve">
+    <value>Permitir múltiples clientes en 1 PC</value>
+  </data>
+  <data name="Setting_Connection_NewAlias" xml:space="preserve">
+    <value>Nueva conexión</value>
+  </data>
+  <data name="Setting_Connection_ServerConnection" xml:space="preserve">
+    <value>Conexión de servidor seleccionada</value>
+  </data>
+  <data name="Setting_Connection_ServerPath" xml:space="preserve">
+    <value>Ruta de la aplicación del servidor</value>
+  </data>
+  <data name="Setting_Connection_StartServer" xml:space="preserve">
+    <value>Iniciar servidor</value>
+  </data>
+  <data name="Setting_Connection_StopServer" xml:space="preserve">
+    <value>Detener el servidor después de salir</value>
+  </data>
+  <data name="Setting_CpuInfo_Cores" xml:space="preserve">
+    <value>Núcleos</value>
+  </data>
+  <data name="Setting_CpuInfo_Cpu" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="Setting_CpuInfo_Desc" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Setting_CpuInfo_Header" xml:space="preserve">
+    <value>Información de la CPU</value>
+  </data>
+  <data name="Setting_CpuInfo_Speed" xml:space="preserve">
+    <value>Velocidad [MHz]</value>
+  </data>
+  <data name="Setting_CpuInfo_Threads" xml:space="preserve">
+    <value>Hilos</value>
+  </data>
+  <data name="Setting_Editor_AllowDragDrop" xml:space="preserve">
+    <value>Permitir arrastrar y soltar</value>
+  </data>
+  <data name="Setting_Editor_Header" xml:space="preserve">
+    <value>Configuración del editor de secuencia</value>
+  </data>
+  <data name="Setting_Editor_IsCollapsed" xml:space="preserve">
+    <value>Contraer parámetros en el detalle</value>
+  </data>
+  <data name="Setting_Execution_ErrMsgBox" xml:space="preserve">
+    <value>Cuadro de mensaje en caso de error</value>
+  </data>
+  <data name="Setting_Execution_Header" xml:space="preserve">
+    <value>Configuración de ejecución de secuencia</value>
+  </data>
+  <data name="Setting_Execution_HideAll" xml:space="preserve">
+    <value>Ocultar todos los comandos</value>
+  </data>
+  <data name="Setting_Execution_NoLogOpenSeq" xml:space="preserve">
+    <value>Permitir abrir secuencia si no ha iniciado sesión</value>
+  </data>
+  <data name="Setting_Execution_NoLogPauseSeq" xml:space="preserve">
+    <value>Permitir pausar secuencia si no ha iniciado sesión</value>
+  </data>
+  <data name="Setting_Execution_NoLogStartSeq" xml:space="preserve">
+    <value>Permitir Iniciar secuencia si no ha iniciado sesión</value>
+  </data>
+  <data name="Setting_Execution_NoLogStopSeq" xml:space="preserve">
+    <value>Permitir Detener secuencia si no ha iniciado sesión</value>
+  </data>
+  <data name="Setting_Execution_PauseAfterErr" xml:space="preserve">
+    <value>Pausa después del error (en depuración)</value>
+  </data>
+  <data name="Setting_Execution_SeqName" xml:space="preserve">
+    <value>Nombre de secuencia</value>
+  </data>
+  <data name="Setting_Execution_SeqNewProcess" xml:space="preserve">
+    <value>Iniciar secuencia en nuevo proceso</value>
+  </data>
+  <data name="Setting_Execution_StartDelay" xml:space="preserve">
+    <value>Retraso de inicio de secuencia [s]</value>
+  </data>
+  <data name="Setting_Execution_StartSeq" xml:space="preserve">
+    <value>Iniciar secuencia después de abrir el diálogo</value>
+  </data>
+  <data name="Setting_Execution_TableCollaps" xml:space="preserve">
+    <value>Contraer tablas en la vista de tabla</value>
+  </data>
+  <data name="Setting_Execution_TreeFullScreenImg" xml:space="preserve">
+    <value>Mostrar Vista de Arbol con imagen de pantalla completa</value>
+  </data>
+  <data name="Setting_Execution_ViewType" xml:space="preserve">
+    <value>Tipo de vista predeterminado</value>
+  </data>
+  <data name="Setting_KeyProviders_Active" xml:space="preserve">
+    <value>Está activo</value>
+  </data>
+  <data name="Setting_KeyProviders_Config" xml:space="preserve">
+    <value>Configurar</value>
+  </data>
+  <data name="Setting_KeyProviders_Header" xml:space="preserve">
+    <value>Proveedores de clave de acceso</value>
+  </data>
+  <data name="Setting_KeyProviders_MsgNoDataFile" xml:space="preserve">
+    <value>El archivo de datos no se ha configurado.</value>
+  </data>
+  <data name="Setting_Language_AddConn" xml:space="preserve">
+    <value>Agregar conexión</value>
+  </data>
+  <data name="Setting_Language_Current" xml:space="preserve">
+    <value>Idioma actual</value>
+  </data>
+  <data name="Setting_Language_Header" xml:space="preserve">
+    <value>Configuración de lenguaje</value>
+  </data>
+  <data name="Setting_Language_RemoveConn" xml:space="preserve">
+    <value>Eliminar conexión</value>
+  </data>
+  <data name="Setting_Logging_Allow" xml:space="preserve">
+    <value>Permitir registro</value>
+  </data>
+  <data name="Setting_Logging_Header" xml:space="preserve">
+    <value>Configuraciones de registro</value>
+  </data>
+  <data name="Setting_OsInfo_Architecture" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="Setting_OsInfo_Build" xml:space="preserve">
+    <value>Construir</value>
+  </data>
+  <data name="Setting_OsInfo_Header" xml:space="preserve">
+    <value>Información del sistema operativo</value>
+  </data>
+  <data name="Setting_OsInfo_Os" xml:space="preserve">
+    <value>Sistema operativo</value>
+  </data>
+  <data name="Setting_OsInfo_Sn" xml:space="preserve">
+    <value>Número de serie</value>
+  </data>
+  <data name="Setting_OsInfo_Version" xml:space="preserve">
+    <value>Versión</value>
+  </data>
+  <data name="Setting_StartMTFClientAfterLogin" xml:space="preserve">
+    <value>Iniciar el cliente MTF después de iniciar sesión</value>
+  </data>
+  <data name="Setting_Start_AutoHide" xml:space="preserve">
+    <value>Permitir ocultar automáticamente</value>
+  </data>
+  <data name="Setting_Start_DefaultControl" xml:space="preserve">
+    <value>Abrir el control después del inicio</value>
+  </data>
+  <data name="Setting_Start_DialogZoom" xml:space="preserve">
+    <value>Zoom de diálogo predeterminado</value>
+  </data>
+  <data name="Setting_Start_Header" xml:space="preserve">
+    <value>Configuración de inicio de MTF</value>
+  </data>
+  <data name="Setting_Start_HideMenu" xml:space="preserve">
+    <value>Ocultar menú principal</value>
+  </data>
+  <data name="Setting_Start_Zoom" xml:space="preserve">
+    <value>Zoom de IU predeterminado</value>
+  </data>
+  <data name="SummaryReportAddLineChartPanel" xml:space="preserve">
+    <value>Agregar panel de gráfico de líneas</value>
+  </data>
+  <data name="SummaryReportAddLineChartSeriesSettings" xml:space="preserve">
+    <value>Agregar series de gráficos de líneas</value>
+  </data>
+  <data name="SummaryReportAddReportsOverviewPanel" xml:space="preserve">
+    <value>Agregar panel de resumen</value>
+  </data>
+  <data name="SummaryReportAddTextPanel" xml:space="preserve">
+    <value>Agregar panel de texto</value>
+  </data>
+  <data name="SummaryReportCanModifyFilterInView" xml:space="preserve">
+    <value>Mostrar filtro a la vista</value>
+  </data>
+  <data name="SummaryReportLineChartPanel" xml:space="preserve">
+    <value>Panel de gráfico de líneas</value>
+  </data>
+  <data name="SummaryReportLineChartPanelLegendPosition" xml:space="preserve">
+    <value>Posición de la leyenda</value>
+  </data>
+  <data name="SummaryReportLineChartPanelTitle" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="SummaryReportLineChartSeriesColor" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="SummaryReportLineChartSeriesTitle" xml:space="preserve">
+    <value>Título de la serie</value>
+  </data>
+  <data name="SummaryReportName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="SummaryReportOverviewPanelTimeQuantumInMinutes" xml:space="preserve">
+    <value>Tiempo cuántico en minutos</value>
+  </data>
+  <data name="SummaryReportOverviewPanelTitle" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="SummaryReportReportsOverviewPanel" xml:space="preserve">
+    <value>Panel de resumen</value>
+  </data>
+  <data name="SummaryReports" xml:space="preserve">
+    <value>Resumen de reportes</value>
+  </data>
+  <data name="SummaryReportTextPanel" xml:space="preserve">
+    <value>Panel de texto</value>
+  </data>
+  <data name="SummaryReportTextPanelFontSize" xml:space="preserve">
+    <value>Tamaño de fuente</value>
+  </data>
+  <data name="SummaryReportTextPanelText" xml:space="preserve">
+    <value>Texto</value>
+  </data>
+  <data name="SummaryReportTitle" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="ValidationRule_EmptyStringError" xml:space="preserve">
+    <value>Porfavor llene.</value>
+  </data>
+  <data name="ValidationRule_WrongEmailAddress" xml:space="preserve">
+    <value>Dirección de correo electrónico no válida</value>
+  </data>
+  <data name="ValidationTable_Column_Actual" xml:space="preserve">
+    <value>Real</value>
+  </data>
+  <data name="ValidationTable_Column_GS" xml:space="preserve">
+    <value>GS</value>
+  </data>
+  <data name="ValidationTable_Column_Hidden" xml:space="preserve">
+    <value>Oculto</value>
+  </data>
+  <data name="ValidationTable_Column_Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="ValidationTable_Column_Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="ValidationTable_Column_Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="ValidationTable_Column_Prohibited" xml:space="preserve">
+    <value>Prohibido</value>
+  </data>
+  <data name="ValidationTable_Column_Required" xml:space="preserve">
+    <value>Necesario</value>
+  </data>
+  <data name="ValidationTable_EnterUniquenName" xml:space="preserve">
+    <value>Por favor, introduzca un nombre único.</value>
+  </data>
+  <data name="ValidationTable_OtherVariants" xml:space="preserve">
+    <value>Otras variantes</value>
+  </data>
+</root>

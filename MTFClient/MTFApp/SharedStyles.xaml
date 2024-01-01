@@ -1,0 +1,348 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/ComboBoxStyles.xaml"/>
+        <ResourceDictionary Source="Styles/TextBoxStyles.xaml"/>
+        <ResourceDictionary Source="Styles/TextBlockStyles.xaml"/>
+        <ResourceDictionary Source="Styles/CheckBoxStyles.xaml"/>
+        <ResourceDictionary Source="Styles/ButtonStyles.xaml"/>
+        <ResourceDictionary Source="Styles/ToggleButtonStyles.xaml"/>
+        <ResourceDictionary Source="Styles/GridSpliterStyles.xaml"/>
+        <ResourceDictionary Source="Styles/ListBoxStyles.xaml"/>
+        <ResourceDictionary Source="Styles/ContentControlStyles.xaml" />
+        <ResourceDictionary Source="Styles/TabControlStyles.xaml" />
+        <ResourceDictionary Source="Styles/ProgressBarStyles.xaml" />
+        <ResourceDictionary Source="Styles/BorderStyles.xaml" />
+        <ResourceDictionary Source="Styles/LabelStyles.xaml" />
+        <ResourceDictionary Source="Styles/RadioButtonStyles.xaml" />
+        <ResourceDictionary Source="Styles/PopupStyles.xaml" />
+        <ResourceDictionary Source="Styles/ScrollBarStyles.xaml" />
+        <ResourceDictionary Source="Styles/SliderStyles.xaml" />
+        <ResourceDictionary Source="MTFWizard/MTFWizardStyles.xaml" />
+        <ResourceDictionary Source="Styles/TreeView.xaml" />
+        <ResourceDictionary Source="Styles/ContextMenu.xaml" />
+        <ResourceDictionary Source="Styles/ActivityStyles.xaml" />
+        <ResourceDictionary Source="Styles/ServiceCommandButtonStyles.xaml" />
+        <ResourceDictionary Source="UIControls/TagListBoxControl/TagListBoxStyle.xaml" />
+        <ResourceDictionary Source="UIControls/NullableComboBox/NullableComboBoxStyle.xaml" />
+        <ResourceDictionary Source="Styles/StatusWindowStyles.xaml" />
+        <ResourceDictionary Source="Styles/SharedConverters.xaml" />
+        <ResourceDictionary Source="Styles/SequenceEditorBaseStyles.xaml" />
+        <ResourceDictionary Source="Styles/ToolTipStyles.xaml" />
+        <ResourceDictionary Source="Styles/GroupBoxStyles.xaml" />
+        <ResourceDictionary Source="SequenceEditor/DetailDataTemplates/EditorBaseTemplates.xaml" />
+        <ResourceDictionary Source="Styles/DatePickerStyles.xaml" />
+
+        <!-- Icons -->
+        <ResourceDictionary Source="Resources/ALLogo.xaml" />
+        <ResourceDictionary Source="Resources/ComponentsConfig.xaml" />
+        <ResourceDictionary Source="Resources/SequenceEditor.xaml" />
+        <ResourceDictionary Source="Resources/SequenceExecution.xaml" />
+        <ResourceDictionary Source="Resources/ResultViewer.xaml" />
+        <ResourceDictionary Source="Resources/ConnectionDialogIcons.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/StopTimer.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/StartTimer.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/DurationTimer.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Ok.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Nok.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Warning.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconInfo.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconQuestion.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconChoice.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconNone.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconNewFile.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconSaveFile.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconSaveFileAs.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconOpenFile.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconSequenceStart.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconSequenceStop.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconSequencePause.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconFolder.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconFile.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconUp.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/CheckMark.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Communication.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Clima.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/BarcodeScanner.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/PLC.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/PowerSupply.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ProfiNet.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconActivityTarget.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Test.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Vision.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/General.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Relay.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/SkullAndCrossbones.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/EnduranceCheck.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Oscilloscope.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Search.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/LED.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Message.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Execute.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Pencil.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ErrorHandling.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Sequence.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Variable.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Tune.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Settings.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Parsing.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Presentation.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/DataCollection.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermEqual.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermAdd.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermBitAnd.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermAnd.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermGreater.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermGreaterOrEqual.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermLess.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermLessOrEqual.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermSubtract.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermAct.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermMin.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermMax.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermVal.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermNot.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermSum.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermAvg.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermRange.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermNotEqual.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermIsNull.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermOr.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermBitOr.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermVar.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermStringFormat.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermMultiply.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermDivide.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermModulo.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermRegEx.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermRegExValue.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermIsInList.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermNotIsInList.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermAbsoluteValue.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermPower.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermRoot.xaml" />
+        <ResourceDictionary Source="Resources/MTfIcons/TermRound.xaml" />
+        <ResourceDictionary Source="Resources/MtfIcons/TermRoundToValue.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconReset.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconClose.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Trash.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconZoomActualSize.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconZoomFitSize.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/CDaq.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Copy.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Paste.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconJumpToActivity.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconExport.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconImport.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Wizard.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ZipFile.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TypeBool.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TypeString.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TypeNumber.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TypeTable.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Global.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/RemoveFile.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/AddNew.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/AddExisting.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Database.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconSaveAll.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/RFID.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Merge.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Rename.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Link.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Cut.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Bug.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/AddRow.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/AddCol.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ALCheck.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Keys.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/UserRole.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Computer.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ValidationTable.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/GoldSample.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TermValidationTable.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/CollapsedArrows.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TreeView.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TableView.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TimeView.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Power.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Network.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Minimize.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Maximize.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconZoomIn.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/NoPhoto.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Photo.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/WindowsLogo.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Cpu.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Application.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/RemoveTab.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/StepInto.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/StepOut.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/StepOver.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Eye.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Confirm.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Writing.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/RightArrow.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconInputMessage.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconVariant.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Service.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/SaveFloppy.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconAL.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconHighBeam.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconLowBeam.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconPositionLight.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconRangeControl.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconTurnIndicator.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconFilter.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconClean.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Teaching.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Mathematics.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/CollapseAll.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ExpandAll.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Back.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Motor.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Backup.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/FindUsagesAll.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/FindUsagesRead.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/FindUsagesWrite.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Refresh.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/FindUsages.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Cd.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/NetworkDrive.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/LocalDrive.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/RemovableDrive.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Conveyor.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/LoggingIcon.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/AddNewPlus.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ArrowRight.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/List.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Next.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconVariantAdd.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/IconVariantInsert.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ActiveBreakPoint.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/DeleteBreakPoint.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Convert.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Restore.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Version.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Language.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Certificate.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/LaserMarker.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/ProductionCounter.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Printer.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/VideoCamera.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/GraphicalView.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/DUT.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Calendar.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Pin.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/Graph.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TextAlignmentLeft.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TextAlignmentRight.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TextAlignmentCenter.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/TextAlignmentJustify.xaml" />
+        <ResourceDictionary Source="Resources/MTFIcons/RowArrow.xaml" />
+
+        <ResourceDictionary Source="Resources/CommandIcons/IconClean.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconCommingHome.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconCornerLight.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconDrl.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconErrorMemory.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconIdentification.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconParking.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/IconSideMarker.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleCenterHorizontal.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleCenterVertical.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleDown.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullDown.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullLeft.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullLeftDown.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullLeftTop.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullRight.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullRightDown.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullRightTop.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleFullUp.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleLeft.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleRight.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/TriangleUp.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/Connect.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/Disconnect.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/Configuration.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/Laser.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/Binning.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/Temperature.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/AutoModeIcon.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/ManualModeIcon.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/HomeIcon.xaml" />
+        <ResourceDictionary Source="Resources/CommandIcons/AlarmIcon.xaml" />
+
+        <ResourceDictionary Source="Localizations/Icons/En.xaml" />
+        <ResourceDictionary Source="Localizations/Icons/Cz.xaml" />
+        <ResourceDictionary Source="Localizations/Icons/De.xaml" />
+        <ResourceDictionary Source="Localizations/Icons/It.xaml" />
+        <ResourceDictionary Source="Localizations/Icons/Mx.xaml" />
+        
+
+        <!--Report icons-->
+        <ResourceDictionary Source="Resources/ReportIcons/IconDuration.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconErrors.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconGoldSample.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconHourGlass.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconMachine.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconMessage.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconPhoto.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconStartTime.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconStopTime.xaml" />
+        <ResourceDictionary Source="Resources/ReportIcons/IconUser.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+    <Visibility x:Key="ShowDebugInfo">Visible</Visibility>
+
+    <Style x:Key="Heading1" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Margin" Value="0,0,0,10" />
+    </Style>
+    <Style x:Key="Heading2" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Margin" Value="0,10,0,5" />
+    </Style>
+    <Style x:Key="Heading3" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+    </Style>
+    <Style x:Key="SmallBold" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Margin" Value="0,-10,0,10" />
+    </Style>
+    <Style x:Key="SmallNormal" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="FontWeight" Value="Normal" />
+    </Style>
+    <Style x:Key="ErrorText" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="Normal" TargetType="TextBlock">
+        <Setter Property="Margin" Value="0,0,10,0" />
+    </Style>
+
+    <Style x:Key="NormalTextBox" TargetType="TextBox">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="20" />
+
+    </Style>
+    <Style x:Key="SmallTextBox" TargetType="TextBox">
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="20" />
+    </Style>
+
+    <Style x:Key="HideStack" TargetType="StackPanel">
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Visibility" Value="Hidden" />
+    </Style>
+</ResourceDictionary>

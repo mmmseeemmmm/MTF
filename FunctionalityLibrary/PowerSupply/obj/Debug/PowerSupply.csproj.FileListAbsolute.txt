@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\PowerSupply\PowerSupply.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin\Debug\Server\mtfLibs\PowerSupply\PowerSupply.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\Debug\PowerSupply.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\Debug\PowerSupply.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\Debug\PowerSupply.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\Debug\PowerSupply.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\PowerSupply\obj\Debug\PowerSupply.pdb

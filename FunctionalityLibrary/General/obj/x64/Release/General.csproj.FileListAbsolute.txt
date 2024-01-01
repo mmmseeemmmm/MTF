@@ -1,0 +1,7 @@
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\General\General.dll
+C:\TFS\MTF\Branches\2.0.0.3960\bin64\Release\Server\mtfLibs\General\General.pdb
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\General\obj\x64\Release\General.csprojAssemblyReference.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\General\obj\x64\Release\General.csproj.CoreCompileInputs.cache
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\General\obj\x64\Release\General.csproj.CopyComplete
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\General\obj\x64\Release\General.dll
+C:\TFS\MTF\Branches\2.0.0.3960\FunctionalityLibrary\General\obj\x64\Release\General.pdb

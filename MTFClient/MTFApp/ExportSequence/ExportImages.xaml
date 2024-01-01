@@ -1,0 +1,59 @@
+﻿<exportSequence:ExportSequenceBase x:Class="MTFApp.ExportSequence.ExportImages"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                   xmlns:exportSequence="clr-namespace:MTFApp.ExportSequence"
+                                   xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+                                   mc:Ignorable="d"
+                                   d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <UserControl Style="{StaticResource IconGraphicalView}" Height="20" Width="20" />
+            <alControls:TextBlock LocTextKey="Mtf_Export_Images" Style="{StaticResource ParagraphHeader}" />
+        </StackPanel>
+        <Grid Grid.Row="2" Margin="0,10,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="sequenceName" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="export" />
+            </Grid.ColumnDefinitions>
+            <alControls:TextBlock Grid.Column="2" LocTextKey="Mtf_Export_ImagesName" FontSize="12"
+                                  VerticalAlignment="Top" />
+            <StackPanel Grid.Column="4" Orientation="Vertical" VerticalAlignment="Center">
+                <alControls:TextBlock LocTextKey="Mtf_Export_Export" FontSize="12" VerticalAlignment="Top"
+                                      HorizontalAlignment="Center" />
+                <CheckBox VerticalAlignment="Center" IsChecked="{Binding AllowExport}" HorizontalAlignment="Center"
+                          Margin="1,1,0,0" />
+            </StackPanel>
+        </Grid>
+        <ItemsControl Grid.Row="3" ItemsSource="{Binding Images}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="sequenceName" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="export" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding Img.Data, IsAsync=True}" Width="30" Margin="0,2,0,0" />
+                        <TextBlock Text="{Binding ExportSetting.Alias}" Grid.Column="2" VerticalAlignment="Center" />
+                        <CheckBox Grid.Column="4" IsChecked="{Binding ExportSetting.Export}"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</exportSequence:ExportSequenceBase>

@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="MTFApp.AccessKeyDialog.AccessKeyInfoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Width="400"
+             Height="500">
+    <UserControl.Resources>
+        <converters:AccessRoleConverter x:Key="RoleConverter" />
+        <Style TargetType="ListBox">
+            <Setter Property="ItemContainerStyle"  Value="{StaticResource NoSelectionListBoxItem}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="alControls:TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+    </UserControl.Resources>
+    <Grid Background="{StaticResource ResourceKey=ALYellowBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <UserControl DockPanel.Dock="Left" Style="{StaticResource IconKeys}" Width="60" Margin="10 10 0 10"/>
+            <alControls:TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" LocTextKey="Access_Header"
+                                  TextWrapping="Wrap"/>
+        </DockPanel>
+        <Grid Grid.Row="1" Margin="10 0 10 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <alControls:TextBlock LocTextKey="Access_Owner" TextWrapping="Wrap" Margin="0,0,3,0" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <TextBlock Text="{Binding KeyOwnerFirstName}" Padding="0 0 5 0" />
+                <TextBlock Text="{Binding KeyOwnerLastName}" />
+            </StackPanel>
+
+            <alControls:TextBlock Grid.Row="1" LocTextKey="Access_ValidTo" TextWrapping="Wrap" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Expiration, StringFormat=dd-MM-yyyy}" />
+
+            <alControls:TextBlock Grid.Row="2" LocTextKey="Access_CreatedBy" TextWrapping="Wrap" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding KeyCreatorName}" />
+
+            <alControls:TextBlock Grid.Row="3" LocTextKey="Access_Version" TextWrapping="Wrap" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding VersionSW}" />
+
+            <alControls:TextBlock Grid.Row="4" Grid.ColumnSpan="2" FontSize="24" Margin="0 140 0 0" TextWrapping="Wrap" Width="400"
+                                  LocTextKey="Access_NoRestrict" Visibility="{Binding Machines, Converter={StaticResource NullToVisibility}}" />
+            <alControls:TextBlock Grid.Row="4" LocTextKey="Access_Restrict"
+                                  Visibility="{Binding Machines, Converter={StaticResource NotNullToVisibility}}"
+                                  TextWrapping="Wrap"/>
+            <ListBox Grid.IsSharedSizeScope="True" Grid.Row="4" Grid.ColumnSpan="2" 
+                         Margin="40 15 0 0" ItemsSource="{Binding Machines}" ScrollViewer.CanContentScroll="False"
+                         MaxHeight="340" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         Visibility="{Binding Machines, Converter={StaticResource NotNullToVisibility}}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <UserControl DockPanel.Dock="Left" Style="{StaticResource IconComputer}" Height="15" Margin="10 0 10 0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding MachineName}" VerticalAlignment="Center" />
+                            <Grid Grid.Row="1" Grid.Column="1" Margin="0 0 0 10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="rolesHeader"/>
+                                    <ColumnDefinition SharedSizeGroup="rolesColumn"/>
+                                    <ColumnDefinition SharedSizeGroup="sequencesHeader"/>
+                                    <ColumnDefinition SharedSizeGroup="sequencesColumn"/>
+                                </Grid.ColumnDefinitions>
+                                <UserControl Grid.Column="0" DockPanel.Dock="Left" Style="{StaticResource IconUserRole}" Height="15" Margin="10 0 10 0" Visibility="{Binding Roles, Converter={StaticResource NotNullToVisibility}}"/>
+                                <alControls:TextBlock Grid.Column="1" LocTextKey="Access_Role" VerticalAlignment="Center" Visibility="{Binding Roles, Converter={StaticResource NotNullToVisibility}}" />
+                                <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Roles}" Visibility="{Binding Roles, Converter={StaticResource NotNullToVisibility}}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <alControls:TextBlock LocTextKey="{Binding Role, Converter={StaticResource RoleConverter}}"
+                                                                  Style="{StaticResource {x:Type TextBlock}}"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <UserControl Grid.Column="2" DockPanel.Dock="Left" Style="{StaticResource IconSequence}" Height="15" Margin="10 0 10 0" Visibility="{Binding Sequences, Converter={StaticResource NotNullToVisibility}}"/>
+                                <alControls:TextBlock Grid.Column="3" LocTextKey="Access_Sequence" VerticalAlignment="Center" Visibility="{Binding Sequences, Converter={StaticResource NotNullToVisibility}}"/>
+                                <ListBox Grid.Column="3" Grid.Row="1" Margin="10 0 0 0" ItemsSource="{Binding Sequences}" Visibility="{Binding Sequences, Converter={StaticResource NotNullToVisibility}}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Sequence}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</UserControl>

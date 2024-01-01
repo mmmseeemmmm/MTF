@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE0B4984-D7E3-4CA9-AB1A-1C6CFF161387}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTFVision</RootNamespace>
+    <AssemblyName>MTFVision</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\Server\mtfLibs\Vision\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\Server\mtfLibs\Vision\</OutputPath>
+    <DefineConstants>TRACE;RuntimeContextSaveLog</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin64\Debug\Server\mtfLibs\Vision\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\bin64\Release\Server\mtfLibs\Vision\</OutputPath>
+    <DefineConstants>TRACE;RuntimeContextSaveLog</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\ALUtils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ElcomTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\ElcomTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdjustMlf\AdjustMlfConfigResponse.cs" />
+    <Compile Include="AdjustMlf\ScrewDrivers.cs" />
+    <Compile Include="AnnotationStrings\Errors.cs" />
+    <Compile Include="AnnotationStrings\GlobalStrings.cs" />
+    <Compile Include="AnnotationStrings\InitStrings.cs" />
+    <Compile Include="AnnotationStrings\Methods.cs" />
+    <Compile Include="AnnotationStrings\ValidationTableResults.cs" />
+    <Compile Include="CameraServer\CameraConfig.cs" />
+    <Compile Include="CameraServer\CameraDict.cs" />
+    <Compile Include="Common\VisionBasicObjects\Line.cs" />
+    <Compile Include="Common\VisionBasicObjects\LineWithAngle.cs" />
+    <Compile Include="Config\VisionConfigDictionary.cs" />
+    <Compile Include="Config\VisionSerializableData.cs" />
+    <Compile Include="DoMlfDetection\ConfigureMLFDetectionData.cs" />
+    <Compile Include="DoMlfDetection\CutOffLine.cs" />
+    <Compile Include="DoMlfDetection\Gradients.cs" />
+    <Compile Include="DoMlfDetection\IntensityMeasurementResult.cs" />
+    <Compile Include="DoMlfDetection\IsoPercent.cs" />
+    <Compile Include="DoMlfDetection\IsoLine.cs" />
+    <Compile Include="DoMlfDetection\MaximumIntensityPosition.cs" />
+    <Compile Include="DoMlfDetection\MlfValidationTableConfig.cs" />
+    <Compile Include="DoMlfDetection\ResponseConfigDoMlfDetectionData.cs" />
+    <Compile Include="MtfVisionResults\EnumNamesHelper.cs" />
+    <Compile Include="MtfVisionResults\Enums.cs" />
+    <Compile Include="MtfVisionResults\MtfMlfResultResponse.cs" />
+    <Compile Include="DoMlfDetection\PointResults.cs" />
+    <Compile Include="DoMlfDetection\ResponseConfigDoMlfDetection.cs" />
+    <Compile Include="DoMlfDetection\SelectedDetectionArea.cs" />
+    <Compile Include="FindPattern\FindPatternResult.cs" />
+    <Compile Include="FindPattern\FindPatternsCMD.cs" />
+    <Compile Include="ColorMeasurement\ColorMeasurementResult.cs" />
+    <Compile Include="AcquireImage\AcquireAndReturnImage.cs" />
+    <Compile Include="Common\GlobalRoiDictionary.cs" />
+    <Compile Include="Common\IDS.cs" />
+    <Compile Include="FindPattern\PatternResult.cs" />
+    <Compile Include="IntensityMeasurement\Limits.cs" />
+    <Compile Include="ColorMeasurement\MeasAbsoluteColorValues.cs" />
+    <Compile Include="ColorMeasurement\MeasColorResults.cs" />
+    <Compile Include="ColorMeasurement\MeasColorValuesResponse.cs" />
+    <Compile Include="IntensityMeasurement\MeasAbsoluteIntensityValuesResponse.cs" />
+    <Compile Include="IntensityMeasurement\MeasAbsoluteIntensityValuesResults.cs" />
+    <Compile Include="Common\MtfElcomImage.cs" />
+    <Compile Include="Common\VisionBasicObjects\Point.cs" />
+    <Compile Include="DoMlfDetection\MlfResult.cs" />
+    <Compile Include="IntensityMeasurement\AbsoluteMeasurementResult.cs" />
+    <Compile Include="AcquireImage\AcquireImageLog.cs" />
+    <Compile Include="CameraConfig\CameraConfig.cs" />
+    <Compile Include="AdjustMlf\AdjustMLFDetection.cs" />
+    <Compile Include="AdjustMlf\ResponseConfigAdjustMlf.cs" />
+    <Compile Include="AdjustMlf\ConfigureAdjustMLFDetection.cs" />
+    <Compile Include="DoMlfDetection\ConfigureMLFDetection.cs" />
+    <Compile Include="CameraConfig\GetAllPhysicalCameras.cs" />
+    <Compile Include="AcquireImage\AcquireImage.cs" />
+    <Compile Include="Elcom\Command.cs" />
+    <Compile Include="AcquireImage\GetImage.cs" />
+    <Compile Include="Common\ImageDatabase.cs" />
+    <Compile Include="IntensityMeasurement\MeasAbsoluteIntensityValues.cs" />
+    <Compile Include="DoMlfDetection\DoMLFDetection.cs" />
+    <Compile Include="DoMlfDetection\ResponseDoMlfDetection.cs" />
+    <Compile Include="MtfVisionResults\MtfMlfDetectionResults.cs" />
+    <Compile Include="MtfVisionResults\MTFEditAreas.cs" />
+    <Compile Include="MtfVisionResults\MtfVisionLine.cs" />
+    <Compile Include="MtfVisionResults\MtfVisionPoint.cs" />
+    <Compile Include="AnnotationStrings\AnnotationSettings.cs" />
+    <Compile Include="Vision.cs" />
+    <Compile Include="Elcom\IElcomUniWcfService.cs" />
+    <Compile Include="CameraConfig\PhysicalCamera.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadImage\UploadImageCmd.cs" />
+    <Compile Include="CameraConfig\VirtualCamera.cs" />
+    <Compile Include="Common\Areas.cs" />
+    <Compile Include="Common\SelectSpecificAreas.cs" />
+    <Compile Include="Stream\StopImageStream.cs" />
+    <Compile Include="CameraConfig\VirtualCameraConfiguration.cs" />
+    <Compile Include="CameraConfig\VirtualCameraConfigurations.cs" />
+    <Compile Include="Elcom\WinApi.cs" />
+    <Compile Include="HelperClasses\VisionConfigHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MTFCommon\MTFCommon.csproj">
+      <Project>{738e45bd-4be1-422f-9a61-8fbc8e3c0641}</Project>
+      <Name>MTFCommon</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ElcomTypes.dll" />
+    <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ALUtils.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo del -Q "$(TargetDir)ElcomTypes.dll"
+echo del -Q "$(TargetDir)Newtonsoft.Json.dll"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

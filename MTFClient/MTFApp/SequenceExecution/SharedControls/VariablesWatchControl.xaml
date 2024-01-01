@@ -1,0 +1,283 @@
+﻿<UserControl x:Class="MTFApp.SequenceExecution.SharedControls.VariablesWatchControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:MTFApp.UIHelpers.Converters"
+             xmlns:uiHelpers="clr-namespace:MTFApp.UIHelpers"
+             xmlns:alControls="clr-namespace:ALControls;assembly=ALControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:IsValidationTableVariableConverter x:Key="IsTableConverter" />
+
+
+        <Style x:Key="BaseBorder" TargetType="Border">
+            <Setter Property="Margin" Value="0,0,0,3" />
+            <Setter Property="Height" Value="{StaticResource ItemHeight}" />
+            <Setter Property="Background" Value="{StaticResource ALSilverBrush}" />
+            <Setter Property="TextBlock.Foreground" Value="{StaticResource ALBlackBrush}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="0" BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              Margin="{TemplateBinding Padding}"
+                                              IsEnabled="{TemplateBinding IsEnabled}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="ValueTemplate">
+            <uiHelpers:MTFEditor Value="{Binding Value, UpdateSourceTrigger=LostFocus}"
+                                TypeName="{Binding Variable.TypeName}"
+                                ReadOnly="True"
+                                 PreviewMouseLeftButtonDown="MTFEditor_PreviewMouseLeftButtonDown"
+                                 KeyDown="MTFEditor_KeyDown"
+                                 Tag="{Binding}">
+                <uiHelpers:MTFEditor.Style>
+                    <Style TargetType="{x:Type uiHelpers:MTFEditor}">
+                        <Setter Property="Foreground" Value="{StaticResource ALBlackBrush}" />
+                        <Setter Property="FontWeight" Value="Normal" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChanged}" Value="True">
+                                <Setter Property="Foreground" Value="Red" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </uiHelpers:MTFEditor.Style>
+            </uiHelpers:MTFEditor>
+        </DataTemplate>
+
+
+
+        <DataTemplate x:Key="PreviewTemplate">
+            <StackPanel Orientation="Horizontal">
+                <UserControl Foreground="{StaticResource ALBlackBrush}"  Margin="0,7,0,7" Tag="{Binding}"
+                             PreviewMouseLeftButtonDown="EyeComlexType_PreviewMouseLeftButtonDown">
+                    <UserControl.Style>
+                        <Style TargetType="UserControl" BasedOn="{StaticResource IconEye}">
+                            <Setter Property="Opacity" Value="1" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsExpanded}" Value="False">
+                                    <Setter Property="Opacity" Value="0.2" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </UserControl.Style>
+                </UserControl>
+                <UserControl Style="{StaticResource IconWriting}" Margin="5,7,0,7"
+                             Visibility="{Binding IsChanged, Converter={StaticResource BoolToVisibility}}"
+                             Foreground="Red"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VariablesSetting">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <Grid Margin="5,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <DockPanel Grid.Row="0" Margin="0,0,40,0">
+                    <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_VariablesWatch_Setting" Margin="0,0,5,0" FontSize="20" FontWeight="Bold" DockPanel.Dock="Left"
+                               VerticalAlignment="Center"/>
+                    <Button Content="confirm" Command="{Binding SaveVariablesWatchSettingCommand}"
+                        HorizontalAlignment="Left"
+                        Height="20"
+                        Click="VariablesSetting_Click"
+                        DockPanel.Dock="Left">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <UserControl Style="{StaticResource IconConfirm}" />
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                    <UserControl Foreground="{StaticResource ALBlackBrush}" HorizontalAlignment="Right" DockPanel.Dock="Right"
+                                                 Margin="5,0,5,0" Height="16" VerticalAlignment="Center"
+                                                 PreviewMouseLeftButtonDown="AllEye_PreviewMouseLeftButtonDown">
+                        <UserControl.Style>
+                            <Style TargetType="UserControl" BasedOn="{StaticResource IconEye}">
+                                <Setter Property="Opacity" Value="1" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding AllInWatch}" Value="False">
+                                        <Setter Property="Opacity" Value="0.2" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </UserControl.Style>
+                    </UserControl>
+                </DockPanel>
+                <ListBox ItemsSource="{Binding SequenceVariables}"
+                         Margin="0,5,5,0" Grid.Row="2"
+                         HorizontalContentAlignment="Stretch"
+                         ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                         Template="{StaticResource ListBoxControlTemplate}"
+                         Grid.IsSharedSizeScope="True">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource BaseBorder}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="icon"/>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="name" />
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+                                    <UserControl Grid.Column="0" Grid.RowSpan="2" MaxWidth="25"
+                                                Style="{Binding Variable.TypeName, Converter={StaticResource TypeToIconConverter}}"
+                                                Foreground="{StaticResource ALBlackBrush}"
+                                                Margin="2 6 2 6"
+                                               HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Variable.Name}" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                       Foreground="{StaticResource ALBlackBrush}"
+                                                       Margin="10,0,0,0"/>
+                                    <UserControl Style="{StaticResource IconGlobal}" Foreground="{StaticResource ALBlackBrush}"
+                                                 Visibility="{Binding Variable.IsGlobal, Converter={StaticResource BoolToVisibility}}"
+                                                 Height="15" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="2,2,-8,2"/>
+                                    <UserControl Foreground="{StaticResource ALBlackBrush}"
+                                                 Margin="7" Grid.Column="2" Tag="{Binding}"
+                                                 PreviewMouseLeftButtonDown="Eye_PreviewMouseLeftButtonDown">
+                                        <UserControl.Style>
+                                            <Style TargetType="UserControl" BasedOn="{StaticResource IconEye}">
+                                                <Setter Property="Opacity" Value="1" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsInWatch}" Value="False">
+                                                        <Setter Property="Opacity" Value="0.2" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </UserControl.Style>
+                                    </UserControl>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VariablesWatch">
+            <DataTemplate.Resources>
+                <Style TargetType="{x:Type alControls:TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}" />
+            </DataTemplate.Resources>
+            <Grid Margin="5,0,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,40,0">
+                    <alControls:TextBlock LocTextKey="Execution_AdditionalInfo_VariablesWatch" FontSize="20" FontWeight="Bold" />
+                    <Button Content="confirm" Command="{Binding GoToVariablesWatchSettingCommand}"
+                        HorizontalAlignment="Left"
+                        Height="20" Margin="5,0,0,0">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <UserControl Style="{StaticResource IconFilter}" />
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </StackPanel>
+                
+                <ListBox ItemsSource="{Binding VariablesInWatch}"
+                         Margin="0,5,5,0"
+                         Grid.Row="1"
+                         HorizontalContentAlignment="Stretch"
+                         ItemContainerStyle="{StaticResource NoSelectionListBoxItem}"
+                         Template="{StaticResource ListBoxControlTemplate}"
+                         Grid.IsSharedSizeScope="True">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource BaseBorder}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="icon"/>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="name" />
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+                                    <UserControl Grid.Column="0" Grid.RowSpan="2" MaxWidth="25"
+                                                Style="{Binding Variable.TypeName, Converter={StaticResource TypeToIconConverter}}"
+                                                Foreground="{StaticResource ALBlackBrush}"
+                                                Margin="2 6 2 6"
+                                                 HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Variable.Name}" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                       Foreground="{StaticResource ALBlackBrush}"
+                                                       Margin="10,0,0,0"/>
+                                    <UserControl Style="{StaticResource IconGlobal}" Foreground="{StaticResource ALBlackBrush}"
+                                                 Visibility="{Binding Variable.IsGlobal, Converter={StaticResource BoolToVisibility}}"
+                                                 Height="15" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="2,2,-8,2"/>
+                                    <ContentPresenter Content="{Binding}" Grid.Column="2"
+                                                      VerticalAlignment="Center"
+                                                      Margin="10,0,10,0">
+                                        <ContentPresenter.Style>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource ValueTemplate}" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Variable.Value, Converter={StaticResource IsTableConverter}}" Value="True">
+                                                        <Setter Property="ContentTemplate" Value="{StaticResource PreviewTemplate}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ContentPresenter.Style>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+
+    <ContentPresenter Content="{Binding}" RenderTransformOrigin="1 0.5">
+        <ContentPresenter.Style>
+            <Style TargetType="ContentPresenter">
+                <Setter Property="ContentTemplate" Value="{StaticResource VariablesWatch}" />
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" />
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                        Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                        From="0"
+                                        Duration="0:0:0.15" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <DataTrigger Binding="{Binding VariablesSettingIsVisible}" Value="True">
+                        <Setter Property="ContentTemplate" Value="{StaticResource VariablesSetting}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentPresenter.Style>
+    </ContentPresenter>
+</UserControl>

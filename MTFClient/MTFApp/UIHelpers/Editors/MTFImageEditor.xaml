@@ -1,0 +1,28 @@
+﻿<editors:MTFEditorBase x:Class="MTFApp.UIHelpers.Editors.MTFImageEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:editors="clr-namespace:MTFApp.UIHelpers.Editors"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <UserControl x:Key="ImageActivityTarget" IsTabStop="False">
+            <UserControl
+                Style="{StaticResource IconActivityTarget}"
+                    PreviewMouseMove="target_PreviewMouseMove"
+                    PreviewMouseDown="target_PreviewMouseDown"
+                    PreviewMouseUp="target_PreviewMouseUp"/>
+        </UserControl>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" Name="root">
+        <Image  Source="{Binding Value.ImageData}" MaxWidth="300" MaxHeight="300"
+                Visibility="{Binding ReadOnly, Converter={StaticResource BoolToVisibility}}" />
+        <StackPanel Orientation="Horizontal"
+                     Visibility="{Binding ReadOnly, Converter={StaticResource NotBoolToVisibility}}">
+            <ContentControl Content="{StaticResource ImageActivityTarget}" />
+        <TextBlock Text="{Binding Value.Value.ActivityName}" VerticalAlignment="Center" />
+        </StackPanel>
+
+    </StackPanel>
+</editors:MTFEditorBase>
